@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FC1199217AD688168C79225 /* libPods-Fishread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */; };
 		534F61D31EDEB2C8007835ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D21EDEB2C8007835ED /* main.m */; };
 		534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D51EDEB2C8007835ED /* AppDelegate.m */; };
 		534F61D91EDEB2C8007835ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D81EDEB2C8007835ED /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		531E8B671EDFD6D4007C26D2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		534F61CE1EDEB2C8007835ED /* Fishread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishread.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		534F61D21EDEB2C8007835ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		534F61D41EDEB2C8007835ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +28,9 @@
 		534F61DD1EDEB2C8007835ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		534F61E01EDEB2C8007835ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		534F61E21EDEB2C8007835ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
+		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +38,61 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC1199217AD688168C79225 /* libPods-Fishread.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F770A9536C0D195137FA64A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */,
+				E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		38D3B4A42401E65FA50B8BA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		531E8B651EDFD4F2007C26D2 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				534F61D41EDEB2C8007835ED /* AppDelegate.h */,
+				534F61D51EDEB2C8007835ED /* AppDelegate.m */,
+				534F61D71EDEB2C8007835ED /* ViewController.h */,
+				534F61D81EDEB2C8007835ED /* ViewController.m */,
+				534F61DA1EDEB2C8007835ED /* Main.storyboard */,
+				534F61DD1EDEB2C8007835ED /* Assets.xcassets */,
+				534F61DF1EDEB2C8007835ED /* LaunchScreen.storyboard */,
+				534F61E21EDEB2C8007835ED /* Info.plist */,
+				531E8B671EDFD6D4007C26D2 /* PrefixHeader.pch */,
+				534F61D11EDEB2C8007835ED /* Supporting Files */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
+		531E8B661EDFD4F7007C26D2 /* base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
 		534F61C51EDEB2C8007835ED = {
 			isa = PBXGroup;
 			children = (
 				534F61D01EDEB2C8007835ED /* Fishread */,
 				534F61CF1EDEB2C8007835ED /* Products */,
+				0F770A9536C0D195137FA64A /* Pods */,
+				38D3B4A42401E65FA50B8BA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +107,8 @@
 		534F61D01EDEB2C8007835ED /* Fishread */ = {
 			isa = PBXGroup;
 			children = (
-				534F61D41EDEB2C8007835ED /* AppDelegate.h */,
-				534F61D51EDEB2C8007835ED /* AppDelegate.m */,
-				534F61D71EDEB2C8007835ED /* ViewController.h */,
-				534F61D81EDEB2C8007835ED /* ViewController.m */,
-				534F61DA1EDEB2C8007835ED /* Main.storyboard */,
-				534F61DD1EDEB2C8007835ED /* Assets.xcassets */,
-				534F61DF1EDEB2C8007835ED /* LaunchScreen.storyboard */,
-				534F61E21EDEB2C8007835ED /* Info.plist */,
-				534F61D11EDEB2C8007835ED /* Supporting Files */,
+				531E8B661EDFD4F7007C26D2 /* base */,
+				531E8B651EDFD4F2007C26D2 /* other */,
 			);
 			path = Fishread;
 			sourceTree = "<group>";
@@ -86,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 534F61E51EDEB2C8007835ED /* Build configuration list for PBXNativeTarget "Fishread" */;
 			buildPhases = (
+				813B493362493D0888E386F7 /* [CP] Check Pods Manifest.lock */,
 				534F61CA1EDEB2C8007835ED /* Sources */,
 				534F61CB1EDEB2C8007835ED /* Frameworks */,
 				534F61CC1EDEB2C8007835ED /* Resources */,
+				1871616C7E05BC116D9FCC02 /* [CP] Embed Pods Frameworks */,
+				0B5F0BED623D81AAB9149100 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +190,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B5F0BED623D81AAB9149100 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fishread/Pods-Fishread-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1871616C7E05BC116D9FCC02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fishread/Pods-Fishread-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		813B493362493D0888E386F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		534F61CA1EDEB2C8007835ED /* Sources */ = {
@@ -273,6 +366,7 @@
 		};
 		534F61E61EDEB2C8007835ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
@@ -286,6 +380,7 @@
 		};
 		534F61E71EDEB2C8007835ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
@@ -316,6 +411,7 @@
 				534F61E71EDEB2C8007835ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
