@@ -1,25 +1,23 @@
 //
-//  ViewController.m
+//  homeViewController.m
 //  Fishread
 //
-//  Created by 王俊钢 on 2017/5/31.
+//  Created by 王俊钢 on 2017/6/1.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "homeViewController.h"
 
-@interface ViewController ()
+@interface homeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation homeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
