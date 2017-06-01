@@ -15,4 +15,6 @@ pod 'Masonry'
 pod 'DZNEmptyDataSet'
 pod 'UMengAnalytics' #标准SDK，含IDFA
 pod 'Bugly'
+pod 'YYKit'
+
 end

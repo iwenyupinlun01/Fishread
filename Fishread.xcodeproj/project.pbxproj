@@ -14,6 +14,8 @@
 		531E8B781EDFE582007C26D2 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B771EDFE582007C26D2 /* homeViewController.m */; };
 		531E8B7B1EDFEA71007C26D2 /* bookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B7A1EDFEA71007C26D2 /* bookViewController.m */; };
 		531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */; };
+		531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B821EDFF454007C26D2 /* PPNetworkCache.m */; };
+		531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */; };
 		534F61D31EDEB2C8007835ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D21EDEB2C8007835ED /* main.m */; };
 		534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D51EDEB2C8007835ED /* AppDelegate.m */; };
 		534F61D91EDEB2C8007835ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D81EDEB2C8007835ED /* ViewController.m */; };
@@ -36,6 +38,10 @@
 		531E8B7A1EDFEA71007C26D2 /* bookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookViewController.m; sourceTree = "<group>"; };
 		531E8B7C1EDFEA7A007C26D2 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
+		531E8B811EDFF454007C26D2 /* PPNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkCache.h; sourceTree = "<group>"; };
+		531E8B821EDFF454007C26D2 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
+		531E8B831EDFF454007C26D2 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
+		531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
 		534F61CE1EDEB2C8007835ED /* Fishread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishread.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		534F61D21EDEB2C8007835ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		534F61D41EDEB2C8007835ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 		531E8B681EDFDC23007C26D2 /* utlis */ = {
 			isa = PBXGroup;
 			children = (
+				531E8B7F1EDFF43F007C26D2 /* manager */,
 				531E8B691EDFDC3F007C26D2 /* color */,
 			);
 			name = utlis;
@@ -150,6 +157,25 @@
 				531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */,
 			);
 			name = "我的";
+			sourceTree = "<group>";
+		};
+		531E8B7F1EDFF43F007C26D2 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				531E8B801EDFF454007C26D2 /* PPNetworkHelper */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		531E8B801EDFF454007C26D2 /* PPNetworkHelper */ = {
+			isa = PBXGroup;
+			children = (
+				531E8B811EDFF454007C26D2 /* PPNetworkCache.h */,
+				531E8B821EDFF454007C26D2 /* PPNetworkCache.m */,
+				531E8B831EDFF454007C26D2 /* PPNetworkHelper.h */,
+				531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */,
+			);
+			path = PPNetworkHelper;
 			sourceTree = "<group>";
 		};
 		534F61C51EDEB2C8007835ED = {
@@ -319,6 +345,8 @@
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
 				531E8B781EDFE582007C26D2 /* homeViewController.m in Sources */,
 				534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */,
+				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
+				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,

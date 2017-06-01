@@ -24,6 +24,9 @@ PODS:
   - SDWebImage/Core (3.8.2)
   - UMengAnalytics (4.2.4)
   - WechatOpenSDK (1.7.7)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
@@ -35,6 +38,7 @@ DEPENDENCIES:
   - SDWebImage
   - UMengAnalytics
   - WechatOpenSDK
+  - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -46,7 +50,8 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
   WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 66cf52a52734fc375090bfc3b2840168f3fb7c8a
+PODFILE CHECKSUM: b9e5ca087e8bc0cc38b553a5981570728f28342a
 
 COCOAPODS: 1.2.1

@@ -24,18 +24,16 @@
 
 -(void)makeVC
     {
-        //    UINavigationController *frist = [[UINavigationController alloc] initWithRootViewController:[[FristViewController alloc] init]];
-        //
-        //        UINavigationController *second = [[UINavigationController alloc] initWithRootViewController:[[SecondViewController alloc] init]];
+
         
         homeViewController *frist = [[homeViewController alloc]init];
-        [self setupChildViewController:frist title:@"第一页" imageName:@"" selectedImageName:@""];
+        [self setupChildViewController:frist title:@"首页" imageName:@"" selectedImageName:@""];
         
         bookViewController *second = [[bookViewController alloc]init];
-        [self setupChildViewController:second title:@"第二页" imageName:@"" selectedImageName:@""];
+        [self setupChildViewController:second title:@"书圈" imageName:@"" selectedImageName:@""];
         
         infoViewController *thrid = [[infoViewController alloc]init];
-        [self setupChildViewController:thrid title:@"第三页" imageName:@"" selectedImageName:@""];
+        [self setupChildViewController:thrid title:@"个人中心" imageName:@"" selectedImageName:@""];
         
     }
     
