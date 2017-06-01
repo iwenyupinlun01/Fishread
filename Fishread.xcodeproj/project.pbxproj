@@ -16,6 +16,8 @@
 		531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */; };
 		531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B821EDFF454007C26D2 /* PPNetworkCache.m */; };
 		531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */; };
+		533CF7181EE0071E00F866B9 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF7171EE0071E00F866B9 /* infoCell.m */; };
+		533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF71A1EE0158400F866B9 /* messageViewController.m */; };
 		534F61D31EDEB2C8007835ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D21EDEB2C8007835ED /* main.m */; };
 		534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D51EDEB2C8007835ED /* AppDelegate.m */; };
 		534F61D91EDEB2C8007835ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D81EDEB2C8007835ED /* ViewController.m */; };
@@ -42,6 +44,10 @@
 		531E8B821EDFF454007C26D2 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
 		531E8B831EDFF454007C26D2 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
 		531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
+		533CF7161EE0071E00F866B9 /* infoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell.h; sourceTree = "<group>"; };
+		533CF7171EE0071E00F866B9 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
+		533CF7191EE0158400F866B9 /* messageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageViewController.h; sourceTree = "<group>"; };
+		533CF71A1EE0158400F866B9 /* messageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageViewController.m; sourceTree = "<group>"; };
 		534F61CE1EDEB2C8007835ED /* Fishread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishread.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		534F61D21EDEB2C8007835ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		534F61D41EDEB2C8007835ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,8 +159,9 @@
 		531E8B751EDFE571007C26D2 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				531E8B7C1EDFEA7A007C26D2 /* infoViewController.h */,
-				531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */,
+				533CF7151EE0021F00F866B9 /* M */,
+				533CF7141EE0021F00F866B9 /* V */,
+				533CF7131EE0021E00F866B9 /* C */,
 			);
 			name = "我的";
 			sourceTree = "<group>";
@@ -176,6 +183,33 @@
 				531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */,
 			);
 			path = PPNetworkHelper;
+			sourceTree = "<group>";
+		};
+		533CF7131EE0021E00F866B9 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				531E8B7C1EDFEA7A007C26D2 /* infoViewController.h */,
+				531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */,
+				533CF7191EE0158400F866B9 /* messageViewController.h */,
+				533CF71A1EE0158400F866B9 /* messageViewController.m */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		533CF7141EE0021F00F866B9 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				533CF7161EE0071E00F866B9 /* infoCell.h */,
+				533CF7171EE0071E00F866B9 /* infoCell.m */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		533CF7151EE0021F00F866B9 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
 			sourceTree = "<group>";
 		};
 		534F61C51EDEB2C8007835ED = {
@@ -341,10 +375,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				534F61D91EDEB2C8007835ED /* ViewController.m in Sources */,
+				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
 				531E8B7B1EDFEA71007C26D2 /* bookViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
 				531E8B781EDFE582007C26D2 /* homeViewController.m in Sources */,
 				534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */,
+				533CF7181EE0071E00F866B9 /* infoCell.m in Sources */,
 				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,

@@ -24,8 +24,6 @@
 
 -(void)makeVC
     {
-
-        
         homeViewController *frist = [[homeViewController alloc]init];
         [self setupChildViewController:frist title:@"首页" imageName:@"" selectedImageName:@""];
         
