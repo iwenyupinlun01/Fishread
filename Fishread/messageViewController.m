@@ -9,6 +9,7 @@
 #import "messageViewController.h"
 
 @interface messageViewController ()
+@property (nonatomic,strong) UIButton *demobtn;
 
 @end
 
@@ -18,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.demobtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,5 +41,31 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:NO];
 }
+
+#pragma mark - getters
+
+
+-(UIButton *)demobtn
+{
+    if(!_demobtn)
+    {
+        _demobtn = [[UIButton alloc] init];
+        _demobtn.frame = CGRectMake(20, 80, 100, 40);
+        [_demobtn setTitleColor:[UIColor blackColor] forState:normal];
+        [_demobtn addTarget:self action:@selector(demobtnclick) forControlEvents:UIControlEventTouchUpInside];
+        [_demobtn setTitle:@"测试" forState:normal];
+    }
+    return _demobtn;
+}
+
+
+
+#pragma mark - 实现方法
+
+-(void)demobtnclick
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 
 @end

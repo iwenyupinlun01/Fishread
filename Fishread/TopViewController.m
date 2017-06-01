@@ -20,19 +20,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self makeVC];
+    
+    
 }
 
 -(void)makeVC
     {
         homeViewController *frist = [[homeViewController alloc]init];
-        [self setupChildViewController:frist title:@"首页" imageName:@"" selectedImageName:@""];
-        
+        [self setupChildViewController:frist title:@"首页" imageName:@"未点击首页" selectedImageName:@"首页-拷贝"];
         bookViewController *second = [[bookViewController alloc]init];
         [self setupChildViewController:second title:@"书圈" imageName:@"" selectedImageName:@""];
         
         infoViewController *thrid = [[infoViewController alloc]init];
         [self setupChildViewController:thrid title:@"个人中心" imageName:@"" selectedImageName:@""];
-        
+       
     }
     
 - (void)didReceiveMemoryWarning {
@@ -57,10 +58,9 @@
         childVc.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:0.299 green:0.988 blue:0.970 alpha:1.000];
         UIView *bgView = [[UIView alloc] initWithFrame:self.tabBar.bounds];
         bgView.backgroundColor = [UIColor whiteColor];
-        
         [self.tabBar insertSubview:bgView atIndex:0];
         self.tabBar.opaque = YES;
-        
+        self.tabBar.tintColor = [UIColor greenColor];
         [self addChildViewController:nav];
     }
     
