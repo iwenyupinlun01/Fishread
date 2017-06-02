@@ -12,7 +12,6 @@
 		531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B6D1EDFDC3F007C26D2 /* UIColor+WJColor.m */; };
 		531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B711EDFE4A6007C26D2 /* TopViewController.m */; };
 		531E8B781EDFE582007C26D2 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B771EDFE582007C26D2 /* homeViewController.m */; };
-		531E8B7B1EDFEA71007C26D2 /* bookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B7A1EDFEA71007C26D2 /* bookViewController.m */; };
 		531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */; };
 		531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B821EDFF454007C26D2 /* PPNetworkCache.m */; };
 		531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */; };
@@ -24,6 +23,16 @@
 		534F61DC1EDEB2C8007835ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 534F61DA1EDEB2C8007835ED /* Main.storyboard */; };
 		534F61DE1EDEB2C8007835ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 534F61DD1EDEB2C8007835ED /* Assets.xcassets */; };
 		534F61E11EDEB2C8007835ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 534F61DF1EDEB2C8007835ED /* LaunchScreen.storyboard */; };
+		535FED841EE14673007A456D /* FocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED761EE14673007A456D /* FocusViewController.m */; };
+		535FED851EE14673007A456D /* FocusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FED771EE14673007A456D /* FocusViewController.xib */; };
+		535FED861EE14673007A456D /* HotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED791EE14673007A456D /* HotViewController.m */; };
+		535FED871EE14673007A456D /* HotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FED7A1EE14673007A456D /* HotViewController.xib */; };
+		535FED881EE14673007A456D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED7C1EE14673007A456D /* MainViewController.m */; };
+		535FED891EE14673007A456D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FED7D1EE14673007A456D /* MainViewController.xib */; };
+		535FED8A1EE14673007A456D /* NearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED7F1EE14673007A456D /* NearViewController.m */; };
+		535FED8B1EE14673007A456D /* NearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FED801EE14673007A456D /* NearViewController.xib */; };
+		535FED8C1EE14673007A456D /* MainTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED831EE14673007A456D /* MainTitleView.m */; };
+		535FED9C1EE14D9A007A456D /* wodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED9B1EE14D9A007A456D /* wodeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +41,10 @@
 		531E8B6B1EDFDC3F007C26D2 /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
 		531E8B6C1EDFDC3F007C26D2 /* UIColor+WJColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJColor.h"; sourceTree = "<group>"; };
 		531E8B6D1EDFDC3F007C26D2 /* UIColor+WJColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJColor.m"; sourceTree = "<group>"; };
-		531E8B701EDFE4A6007C26D2 /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
-		531E8B711EDFE4A6007C26D2 /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
+		531E8B701EDFE4A6007C26D2 /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopViewController.h; path = ../TopViewController.h; sourceTree = "<group>"; };
+		531E8B711EDFE4A6007C26D2 /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopViewController.m; path = ../TopViewController.m; sourceTree = "<group>"; };
 		531E8B761EDFE582007C26D2 /* homeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
 		531E8B771EDFE582007C26D2 /* homeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
-		531E8B791EDFEA71007C26D2 /* bookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookViewController.h; sourceTree = "<group>"; };
-		531E8B7A1EDFEA71007C26D2 /* bookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookViewController.m; sourceTree = "<group>"; };
 		531E8B7C1EDFEA7A007C26D2 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
 		531E8B811EDFF454007C26D2 /* PPNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkCache.h; sourceTree = "<group>"; };
@@ -58,6 +65,22 @@
 		534F61DD1EDEB2C8007835ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		534F61E01EDEB2C8007835ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		534F61E21EDEB2C8007835ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		535FED751EE14673007A456D /* FocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FocusViewController.h; path = Controller/FocusViewController.h; sourceTree = "<group>"; };
+		535FED761EE14673007A456D /* FocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FocusViewController.m; path = Controller/FocusViewController.m; sourceTree = "<group>"; };
+		535FED771EE14673007A456D /* FocusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FocusViewController.xib; path = Controller/FocusViewController.xib; sourceTree = "<group>"; };
+		535FED781EE14673007A456D /* HotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotViewController.h; path = Controller/HotViewController.h; sourceTree = "<group>"; };
+		535FED791EE14673007A456D /* HotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotViewController.m; path = Controller/HotViewController.m; sourceTree = "<group>"; };
+		535FED7A1EE14673007A456D /* HotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotViewController.xib; path = Controller/HotViewController.xib; sourceTree = "<group>"; };
+		535FED7B1EE14673007A456D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		535FED7C1EE14673007A456D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		535FED7D1EE14673007A456D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		535FED7E1EE14673007A456D /* NearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearViewController.h; path = Controller/NearViewController.h; sourceTree = "<group>"; };
+		535FED7F1EE14673007A456D /* NearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearViewController.m; path = Controller/NearViewController.m; sourceTree = "<group>"; };
+		535FED801EE14673007A456D /* NearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NearViewController.xib; path = Controller/NearViewController.xib; sourceTree = "<group>"; };
+		535FED821EE14673007A456D /* MainTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTitleView.h; sourceTree = "<group>"; };
+		535FED831EE14673007A456D /* MainTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTitleView.m; sourceTree = "<group>"; };
+		535FED9A1EE14D9A007A456D /* wodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wodeCell.h; sourceTree = "<group>"; };
+		535FED9B1EE14D9A007A456D /* wodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wodeCell.m; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,8 +135,8 @@
 		531E8B661EDFD4F7007C26D2 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				531E8B701EDFE4A6007C26D2 /* TopViewController.h */,
-				531E8B711EDFE4A6007C26D2 /* TopViewController.m */,
+				535FED741EE14673007A456D /* Controller */,
+				535FED811EE14673007A456D /* View */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -150,8 +173,9 @@
 		531E8B741EDFE569007C26D2 /* 书圈 */ = {
 			isa = PBXGroup;
 			children = (
-				531E8B791EDFEA71007C26D2 /* bookViewController.h */,
-				531E8B7A1EDFEA71007C26D2 /* bookViewController.m */,
+				535FED991EE14D57007A456D /* M */,
+				535FED971EE14D4C007A456D /* V */,
+				535FED961EE14D4A007A456D /* C */,
 			);
 			name = "书圈";
 			sourceTree = "<group>";
@@ -251,6 +275,59 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		535FED741EE14673007A456D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				531E8B701EDFE4A6007C26D2 /* TopViewController.h */,
+				531E8B711EDFE4A6007C26D2 /* TopViewController.m */,
+				535FED7B1EE14673007A456D /* MainViewController.h */,
+				535FED7C1EE14673007A456D /* MainViewController.m */,
+				535FED7D1EE14673007A456D /* MainViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		535FED811EE14673007A456D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				535FED821EE14673007A456D /* MainTitleView.h */,
+				535FED831EE14673007A456D /* MainTitleView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		535FED961EE14D4A007A456D /* C */ = {
+			isa = PBXGroup;
+			children = (
+				535FED751EE14673007A456D /* FocusViewController.h */,
+				535FED761EE14673007A456D /* FocusViewController.m */,
+				535FED771EE14673007A456D /* FocusViewController.xib */,
+				535FED781EE14673007A456D /* HotViewController.h */,
+				535FED791EE14673007A456D /* HotViewController.m */,
+				535FED7A1EE14673007A456D /* HotViewController.xib */,
+				535FED7E1EE14673007A456D /* NearViewController.h */,
+				535FED7F1EE14673007A456D /* NearViewController.m */,
+				535FED801EE14673007A456D /* NearViewController.xib */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		535FED971EE14D4C007A456D /* V */ = {
+			isa = PBXGroup;
+			children = (
+				535FED9A1EE14D9A007A456D /* wodeCell.h */,
+				535FED9B1EE14D9A007A456D /* wodeCell.m */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		535FED991EE14D57007A456D /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,8 +391,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				534F61E11EDEB2C8007835ED /* LaunchScreen.storyboard in Resources */,
+				535FED891EE14673007A456D /* MainViewController.xib in Resources */,
 				534F61DE1EDEB2C8007835ED /* Assets.xcassets in Resources */,
+				535FED871EE14673007A456D /* HotViewController.xib in Resources */,
+				535FED8B1EE14673007A456D /* NearViewController.xib in Resources */,
 				534F61DC1EDEB2C8007835ED /* Main.storyboard in Resources */,
+				535FED851EE14673007A456D /* FocusViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,17 +457,22 @@
 			files = (
 				534F61D91EDEB2C8007835ED /* ViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
-				531E8B7B1EDFEA71007C26D2 /* bookViewController.m in Sources */,
+				535FED881EE14673007A456D /* MainViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
 				531E8B781EDFE582007C26D2 /* homeViewController.m in Sources */,
 				534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */,
+				535FED8A1EE14673007A456D /* NearViewController.m in Sources */,
+				535FED8C1EE14673007A456D /* MainTitleView.m in Sources */,
+				535FED9C1EE14D9A007A456D /* wodeCell.m in Sources */,
 				533CF7181EE0071E00F866B9 /* infoCell.m in Sources */,
 				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
+				535FED861EE14673007A456D /* HotViewController.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
+				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
