@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 #import "MainTitleView.h"
-
+#import "chuangjianViewController.h"
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic,strong) NSArray *titleNames;
@@ -86,6 +86,8 @@
 
 - (void)rightBarAction{
     NSLog(@"rightBarAction...");
+    chuangjianViewController *chuangjianVC = [[chuangjianViewController alloc] init];
+    [self.navigationController pushViewController:chuangjianVC animated:YES];
 }
 
 #pragma mark - setter and getter

@@ -10,11 +10,7 @@
 #import "homeCell.h"
 #import "MyHeaderView.h"
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
-
 @property(strong,nonatomic)UICollectionView *myCollectionV;
-
-
-
 @end
 //设置标识
 static NSString *indentify = @"indentify";
@@ -26,10 +22,7 @@ static NSString *indentify = @"indentify";
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"推荐";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
     [self addTheCollectionView];
-    //[self.view addSubview:self.searchtext];
     
 }
 
@@ -53,6 +46,7 @@ static NSString *indentify = @"indentify";
 #pragma mark - getters
 
 //创建视图
+
 -(void)addTheCollectionView{
     
     //=======================1===========================
@@ -60,12 +54,12 @@ static NSString *indentify = @"indentify";
     UICollectionViewFlowLayout *flowL = [[UICollectionViewFlowLayout alloc] init];
     
     //格子的大小 (长，高)
-    flowL.itemSize = CGSizeMake(100, 130);
+    flowL.itemSize = CGSizeMake(100, 180);
     //横向最小距离
     flowL.minimumInteritemSpacing = 1.f;
     //    flowL.minimumLineSpacing=60.f;//代表的是纵向的空间间隔
     //设置，上／左／下／右 边距 空间间隔数是多少
-    flowL.sectionInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    flowL.sectionInset = UIEdgeInsetsMake(16*HEIGHT_SCALE, 24*WIDTH_SCALE, 24*HEIGHT_SCALE, 24*WIDTH_SCALE);
     //如果有多个 区 就可以拉动
    // [flowL setScrollDirection:UICollectionViewScrollDirectionVertical];
     
@@ -78,7 +72,9 @@ static NSString *indentify = @"indentify";
     _myCollectionV.dataSource = self;
     //设置背景
     _myCollectionV.backgroundColor =[UIColor whiteColor];
-    
+    UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
+    TapGestureTecognizer.cancelsTouchesInView=NO;
+    [self.myCollectionV addGestureRecognizer:TapGestureTecognizer];
 #pragma mark -- 注册单元格
     //设置头部并给定大小
     [flowL setHeaderReferenceSize:CGSizeMake(_myCollectionV.frame.size.width, 50)];
@@ -111,7 +107,7 @@ static NSString *indentify = @"indentify";
     homeCell *cell = (homeCell *)[collectionView dequeueReusableCellWithReuseIdentifier:indentify forIndexPath:indexPath];
     
     //给单元格上的元素赋值
-    cell.backgroundColor = [UIColor redColor];
+    //cell.backgroundColor = [UIColor redColor];
     return cell;
     
 }
@@ -124,7 +120,8 @@ static NSString *indentify = @"indentify";
     if (kind == UICollectionElementKindSectionHeader) {
         //定制头部视图的内容
         MyHeaderView *headerV = (MyHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        
+        headerV.searchtext.delegate = self;
+        headerV.searchtext.tag = 100;
         reusableView = headerV;
     }
     return reusableView;
@@ -135,6 +132,17 @@ static NSString *indentify = @"indentify";
     NSLog(@"%ld",indexPath.row);
 }
 
+#pragma mark - UITextFieldDelegate
 
+-(void)keyboardHide
+{
+    UITextField *text = [self.myCollectionV viewWithTag:100];
+    [text resignFirstResponder];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

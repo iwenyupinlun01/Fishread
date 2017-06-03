@@ -19,6 +19,7 @@
 		533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF71A1EE0158400F866B9 /* messageViewController.m */; };
 		533E19C11EE2866D000CE670 /* homeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533E19C01EE2866D000CE670 /* homeCell.m */; };
 		533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533E19C31EE2A069000CE670 /* MyHeaderView.m */; };
+		533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533E19C61EE2B6CC000CE670 /* chuangjianViewController.m */; };
 		534F61D31EDEB2C8007835ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D21EDEB2C8007835ED /* main.m */; };
 		534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D51EDEB2C8007835ED /* AppDelegate.m */; };
 		534F61D91EDEB2C8007835ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D81EDEB2C8007835ED /* ViewController.m */; };
@@ -61,6 +62,8 @@
 		533E19C01EE2866D000CE670 /* homeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeCell.m; sourceTree = "<group>"; };
 		533E19C21EE2A069000CE670 /* MyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHeaderView.h; sourceTree = "<group>"; };
 		533E19C31EE2A069000CE670 /* MyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHeaderView.m; sourceTree = "<group>"; };
+		533E19C51EE2B6CC000CE670 /* chuangjianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chuangjianViewController.h; sourceTree = "<group>"; };
+		533E19C61EE2B6CC000CE670 /* chuangjianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chuangjianViewController.m; sourceTree = "<group>"; };
 		534F61CE1EDEB2C8007835ED /* Fishread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishread.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		534F61D21EDEB2C8007835ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		534F61D41EDEB2C8007835ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -342,6 +345,8 @@
 				535FED7E1EE14673007A456D /* NearViewController.h */,
 				535FED7F1EE14673007A456D /* NearViewController.m */,
 				535FED801EE14673007A456D /* NearViewController.xib */,
+				533E19C51EE2B6CC000CE670 /* chuangjianViewController.h */,
+				533E19C61EE2B6CC000CE670 /* chuangjianViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				535FED9C1EE14D9A007A456D /* wodeCell.m in Sources */,
 				533CF7181EE0071E00F866B9 /* infoCell.m in Sources */,
 				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
+				533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
