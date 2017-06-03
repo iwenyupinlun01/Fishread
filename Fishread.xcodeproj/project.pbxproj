@@ -17,6 +17,8 @@
 		531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */; };
 		533CF7181EE0071E00F866B9 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF7171EE0071E00F866B9 /* infoCell.m */; };
 		533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF71A1EE0158400F866B9 /* messageViewController.m */; };
+		533E19C11EE2866D000CE670 /* homeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533E19C01EE2866D000CE670 /* homeCell.m */; };
+		533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533E19C31EE2A069000CE670 /* MyHeaderView.m */; };
 		534F61D31EDEB2C8007835ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D21EDEB2C8007835ED /* main.m */; };
 		534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D51EDEB2C8007835ED /* AppDelegate.m */; };
 		534F61D91EDEB2C8007835ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F61D81EDEB2C8007835ED /* ViewController.m */; };
@@ -55,6 +57,10 @@
 		533CF7171EE0071E00F866B9 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
 		533CF7191EE0158400F866B9 /* messageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageViewController.h; sourceTree = "<group>"; };
 		533CF71A1EE0158400F866B9 /* messageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageViewController.m; sourceTree = "<group>"; };
+		533E19BF1EE2866D000CE670 /* homeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeCell.h; sourceTree = "<group>"; };
+		533E19C01EE2866D000CE670 /* homeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeCell.m; sourceTree = "<group>"; };
+		533E19C21EE2A069000CE670 /* MyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHeaderView.h; sourceTree = "<group>"; };
+		533E19C31EE2A069000CE670 /* MyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHeaderView.m; sourceTree = "<group>"; };
 		534F61CE1EDEB2C8007835ED /* Fishread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishread.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		534F61D21EDEB2C8007835ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		534F61D41EDEB2C8007835ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,8 +170,9 @@
 		531E8B731EDFE55A007C26D2 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				531E8B761EDFE582007C26D2 /* homeViewController.h */,
-				531E8B771EDFE582007C26D2 /* homeViewController.m */,
+				533E19BE1EE28650000CE670 /* M */,
+				533E19BC1EE28649000CE670 /* V */,
+				533E19BB1EE28648000CE670 /* C */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -230,6 +237,33 @@
 			sourceTree = "<group>";
 		};
 		533CF7151EE0021F00F866B9 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		533E19BB1EE28648000CE670 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				531E8B761EDFE582007C26D2 /* homeViewController.h */,
+				531E8B771EDFE582007C26D2 /* homeViewController.m */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		533E19BC1EE28649000CE670 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				533E19BF1EE2866D000CE670 /* homeCell.h */,
+				533E19C01EE2866D000CE670 /* homeCell.m */,
+				533E19C21EE2A069000CE670 /* MyHeaderView.h */,
+				533E19C31EE2A069000CE670 /* MyHeaderView.m */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		533E19BE1EE28650000CE670 /* M */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -469,10 +503,12 @@
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
+				533E19C11EE2866D000CE670 /* homeCell.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
 				535FED861EE14673007A456D /* HotViewController.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
+				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
