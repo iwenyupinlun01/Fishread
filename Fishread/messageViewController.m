@@ -7,7 +7,7 @@
 //
 
 #import "messageViewController.h"
-
+#import "TopViewController.h"
 @interface messageViewController ()
 @property (nonatomic,strong) UIButton *demobtn;
 
@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:self.demobtn];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +44,6 @@
 
 #pragma mark - getters
 
-
 -(UIButton *)demobtn
 {
     if(!_demobtn)
@@ -58,14 +57,14 @@
     return _demobtn;
 }
 
-
-
 #pragma mark - 实现方法
 
 -(void)demobtnclick
 {
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.view.window.rootViewController = [[TopViewController alloc] init];
+    
 }
+
 
 
 @end

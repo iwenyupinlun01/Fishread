@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"创建";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,9 +34,17 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.tabBarController.tabBar setHidden:NO];
+}
 
+-(void)backAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
