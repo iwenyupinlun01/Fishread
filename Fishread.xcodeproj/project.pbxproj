@@ -39,6 +39,11 @@
 		5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E3691EE68A3A00392FD4 /* quanbuCell.m */; };
 		5393E36D1EE6A7C300392FD4 /* infoGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E36C1EE6A7C300392FD4 /* infoGroup.m */; };
 		5393E3701EE6B13400392FD4 /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E36F1EE6B13400392FD4 /* headView.m */; };
+		5393E3731EE6BA7900392FD4 /* myinfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E3721EE6BA7900392FD4 /* myinfoViewController.m */; };
+		5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E3751EE6BEA300392FD4 /* myinfoCell0.m */; };
+		5393E3791EE6BEAF00392FD4 /* myinfoCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E3781EE6BEAF00392FD4 /* myinfoCell1.m */; };
+		5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E37B1EE6C16B00392FD4 /* nicknameViewController.m */; };
+		5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E37E1EE6C1B100392FD4 /* nicknameCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +104,16 @@
 		5393E36C1EE6A7C300392FD4 /* infoGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoGroup.m; sourceTree = "<group>"; };
 		5393E36E1EE6B13400392FD4 /* headView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
 		5393E36F1EE6B13400392FD4 /* headView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headView.m; sourceTree = "<group>"; };
+		5393E3711EE6BA7900392FD4 /* myinfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myinfoViewController.h; sourceTree = "<group>"; };
+		5393E3721EE6BA7900392FD4 /* myinfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myinfoViewController.m; sourceTree = "<group>"; };
+		5393E3741EE6BEA300392FD4 /* myinfoCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myinfoCell0.h; sourceTree = "<group>"; };
+		5393E3751EE6BEA300392FD4 /* myinfoCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myinfoCell0.m; sourceTree = "<group>"; };
+		5393E3771EE6BEAF00392FD4 /* myinfoCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myinfoCell1.h; sourceTree = "<group>"; };
+		5393E3781EE6BEAF00392FD4 /* myinfoCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myinfoCell1.m; sourceTree = "<group>"; };
+		5393E37A1EE6C16B00392FD4 /* nicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nicknameViewController.h; sourceTree = "<group>"; };
+		5393E37B1EE6C16B00392FD4 /* nicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nicknameViewController.m; sourceTree = "<group>"; };
+		5393E37D1EE6C1B100392FD4 /* nicknameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nicknameCell.h; sourceTree = "<group>"; };
+		5393E37E1EE6C1B100392FD4 /* nicknameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nicknameCell.m; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,8 +248,12 @@
 			children = (
 				531E8B7C1EDFEA7A007C26D2 /* infoViewController.h */,
 				531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */,
+				5393E3711EE6BA7900392FD4 /* myinfoViewController.h */,
+				5393E3721EE6BA7900392FD4 /* myinfoViewController.m */,
 				533CF7191EE0158400F866B9 /* messageViewController.h */,
 				533CF71A1EE0158400F866B9 /* messageViewController.m */,
+				5393E37A1EE6C16B00392FD4 /* nicknameViewController.h */,
+				5393E37B1EE6C16B00392FD4 /* nicknameViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -246,6 +265,12 @@
 				533CF7171EE0071E00F866B9 /* infoCell.m */,
 				5393E36E1EE6B13400392FD4 /* headView.h */,
 				5393E36F1EE6B13400392FD4 /* headView.m */,
+				5393E3741EE6BEA300392FD4 /* myinfoCell0.h */,
+				5393E3751EE6BEA300392FD4 /* myinfoCell0.m */,
+				5393E3771EE6BEAF00392FD4 /* myinfoCell1.h */,
+				5393E3781EE6BEAF00392FD4 /* myinfoCell1.m */,
+				5393E37D1EE6C1B100392FD4 /* nicknameCell.h */,
+				5393E37E1EE6C1B100392FD4 /* nicknameCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -513,9 +538,11 @@
 				534F61D91EDEB2C8007835ED /* ViewController.m in Sources */,
 				5393E3701EE6B13400392FD4 /* headView.m in Sources */,
 				5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */,
+				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
 				535FED881EE14673007A456D /* MainViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
+				5393E3731EE6BA7900392FD4 /* myinfoViewController.m in Sources */,
 				531E8B781EDFE582007C26D2 /* homeViewController.m in Sources */,
 				534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */,
 				535FED8A1EE14673007A456D /* NearViewController.m in Sources */,
@@ -526,10 +553,13 @@
 				533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
+				5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
 				533E19C11EE2866D000CE670 /* homeCell.m in Sources */,
+				5393E3791EE6BEAF00392FD4 /* myinfoCell1.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
 				535FED861EE14673007A456D /* HotViewController.m in Sources */,
+				5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,

@@ -11,7 +11,8 @@
 #import "messageViewController.h"
 #import "infoGroup.h"
 #import "headView.h"
-@interface infoViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "myinfoViewController.h"
+@interface infoViewController ()<UITableViewDataSource,UITableViewDelegate,myheadviewdelegate>
 @property (nonatomic,strong) UITableView *infotableView;
 
 @property (nonatomic, strong) NSArray *carGroups;
@@ -108,6 +109,7 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     if (section==0) {
         headView *view = [[headView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 100)];
         view.backgroundColor = [UIColor wjColorFloat:@"F5F5F5"];
+        view.delegate = self;
         return view;
     }
     return nil;
@@ -133,8 +135,30 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    messageViewController *messagevc = [[messageViewController alloc] init];
-    [self.navigationController pushViewController:messagevc animated:YES];
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+            messageViewController *messagevc = [[messageViewController alloc] init];
+            [self.navigationController pushViewController:messagevc animated:YES];
+        }
+        if (indexPath.row==1) {
+            
+        }
+        if (indexPath.row==2) {
+            
+        }
+    }
+    if (indexPath.section==1) {
+        
+    }
+    if (indexPath.section==2) {
+        
+    }
 }
 
+-(void)myTabVClick1:(UIView *)view
+{
+    NSLog(@"点击头像");
+    myinfoViewController *myinfoVC = [[myinfoViewController alloc] init];
+    [self.navigationController pushViewController:myinfoVC animated:YES];
+}
 @end

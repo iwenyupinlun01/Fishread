@@ -50,11 +50,16 @@
         _infoimg.backgroundColor = [UIColor orangeColor];
         _infoimg.layer.masksToBounds = YES;
         _infoimg.layer.cornerRadius = 35*WIDTH_SCALE;
-        
+        _infoimg.userInteractionEnabled = YES;
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+        //为图片添加手势
+        [_infoimg addGestureRecognizer:singleTap];
     }
     return _infoimg;
 }
 
-
+- (void)handleSingleTap:(UITapGestureRecognizer *)gestureRecognizer {
+    [self.delegate myTabVClick1:self];
+}
 
 @end
