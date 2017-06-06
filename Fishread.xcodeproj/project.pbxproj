@@ -36,6 +36,9 @@
 		535FED8B1EE14673007A456D /* NearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FED801EE14673007A456D /* NearViewController.xib */; };
 		535FED8C1EE14673007A456D /* MainTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED831EE14673007A456D /* MainTitleView.m */; };
 		535FED9C1EE14D9A007A456D /* wodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED9B1EE14D9A007A456D /* wodeCell.m */; };
+		5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E3691EE68A3A00392FD4 /* quanbuCell.m */; };
+		5393E36D1EE6A7C300392FD4 /* infoGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E36C1EE6A7C300392FD4 /* infoGroup.m */; };
+		5393E3701EE6B13400392FD4 /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E36F1EE6B13400392FD4 /* headView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,12 @@
 		535FED831EE14673007A456D /* MainTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTitleView.m; sourceTree = "<group>"; };
 		535FED9A1EE14D9A007A456D /* wodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wodeCell.h; sourceTree = "<group>"; };
 		535FED9B1EE14D9A007A456D /* wodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wodeCell.m; sourceTree = "<group>"; };
+		5393E3681EE68A3A00392FD4 /* quanbuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanbuCell.h; sourceTree = "<group>"; };
+		5393E3691EE68A3A00392FD4 /* quanbuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanbuCell.m; sourceTree = "<group>"; };
+		5393E36B1EE6A7C300392FD4 /* infoGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoGroup.h; sourceTree = "<group>"; };
+		5393E36C1EE6A7C300392FD4 /* infoGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoGroup.m; sourceTree = "<group>"; };
+		5393E36E1EE6B13400392FD4 /* headView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
+		5393E36F1EE6B13400392FD4 /* headView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headView.m; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -235,6 +244,8 @@
 			children = (
 				533CF7161EE0071E00F866B9 /* infoCell.h */,
 				533CF7171EE0071E00F866B9 /* infoCell.m */,
+				5393E36E1EE6B13400392FD4 /* headView.h */,
+				5393E36F1EE6B13400392FD4 /* headView.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -242,6 +253,8 @@
 		533CF7151EE0021F00F866B9 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				5393E36B1EE6A7C300392FD4 /* infoGroup.h */,
+				5393E36C1EE6A7C300392FD4 /* infoGroup.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -356,6 +369,8 @@
 			children = (
 				535FED9A1EE14D9A007A456D /* wodeCell.h */,
 				535FED9B1EE14D9A007A456D /* wodeCell.m */,
+				5393E3681EE68A3A00392FD4 /* quanbuCell.h */,
+				5393E3691EE68A3A00392FD4 /* quanbuCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -494,7 +509,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5393E36D1EE6A7C300392FD4 /* infoGroup.m in Sources */,
 				534F61D91EDEB2C8007835ED /* ViewController.m in Sources */,
+				5393E3701EE6B13400392FD4 /* headView.m in Sources */,
+				5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
 				535FED881EE14673007A456D /* MainViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,

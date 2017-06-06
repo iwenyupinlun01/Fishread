@@ -9,9 +9,12 @@
 #import "infoViewController.h"
 #import "infoCell.h"
 #import "messageViewController.h"
+#import "infoGroup.h"
+#import "headView.h"
 @interface infoViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *infotableView;
 
+@property (nonatomic, strong) NSArray *carGroups;
 @end
 
 static NSString *infocellidentfid0 = @"infocellidentfid0";
@@ -44,30 +47,86 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
 {
     if(!_infotableView)
     {
-        _infotableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
+        _infotableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT) style:UITableViewStyleGrouped];
         _infotableView.dataSource = self;
         _infotableView.delegate = self;
     }
     return _infotableView;
 }
 
+
+-(NSArray *)carGroups
+{
+    if(!_carGroups)
+    {
+        _carGroups = [[NSArray alloc] init];
+        infoGroup *cg1 = [[infoGroup alloc] init];
+        cg1.textarr = @[@"消息通知",@"我的发表",@"我的收藏"];
+        cg1.imgarr = @[@"矩形-39",@"矩形-41",@"收藏"];
+        infoGroup *cg2 = [[infoGroup alloc] init];
+        cg2.textarr = @[@"钱包"];
+        cg2.imgarr = @[@"钱包"];
+        infoGroup *cg3 = [[infoGroup alloc] init];
+        cg3.textarr = @[@"设置",@"帮助与反馈"];
+        cg3.imgarr = @[@"设置",@"帮助与反馈"];
+         _carGroups = @[cg1, cg2, cg3];
+    }
+    return _carGroups;
+}
+
+
+
+
+
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60*HEIGHT_SCALE;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return (88+284)/2*HEIGHT_SCALE;
+    }
+    return 8;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01f;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.carGroups.count;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        headView *view = [[headView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 100)];
+        view.backgroundColor = [UIColor wjColorFloat:@"F5F5F5"];
+        return view;
+    }
+    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    infoGroup *g = self.carGroups[section];
+    return g.textarr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     infoCell *cell = [tableView dequeueReusableCellWithIdentifier:infocellidentfid0];
     cell = [[infoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid0];
-    cell.textLabel.text = @"测试";
+    infoGroup *g = self.carGroups[indexPath.section];
+    NSString *name = g.textarr[indexPath.row];
+    cell.textlab.text = name;
+    cell.leftimg.image = [UIImage imageNamed:g.imgarr[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

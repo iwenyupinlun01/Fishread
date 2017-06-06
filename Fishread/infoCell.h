@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface infoCell : UITableViewCell
-
+@property (nonatomic,strong) UIImageView *leftimg;
+@property (nonatomic,strong) UILabel *textlab;
 @end
