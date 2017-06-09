@@ -1,40 +1,33 @@
 //
-//  messageViewController.m
+//  setViewController.m
 //  Fishread
 //
-//  Created by 王俊钢 on 2017/6/1.
+//  Created by 王俊钢 on 2017/6/8.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "messageViewController.h"
-#import "TopViewController.h"
-#import "mymessageCell0.h"
-#import "mymessageCell1.h"
+#import "setViewController.h"
+#import "setCell0.h"
 
-@interface messageViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic,strong) UITableView *messagetableView;
-@property (nonatomic,strong) NSArray *textarr;
-
+@interface setViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *settableView;
 @end
+static NSString *setidentifd0 = @"setidentfid0";
 
-static NSString *messagetableidentfid0 = @"messagetableidentfid0";
-static NSString *messagetableidentfid1 = @"messagetableidentfid1";
-
-@implementation messageViewController
+@implementation setViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"我的消息";
+    self.title = @"设置";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.messagetableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:self.messagetableView];
-    
+    self.settableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.settableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,30 +51,21 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
 
 #pragma mark - getters
 
--(UITableView *)messagetableView
-{
-    if(!_messagetableView)
-    {
-        _messagetableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
-        _messagetableView.dataSource = self;
-        _messagetableView.delegate = self;
-    }
-    return _messagetableView;
-}
 
-
--(NSArray *)textarr
+-(UITableView *)settableView
 {
-    if(!_textarr)
+    if(!_settableView)
     {
-        _textarr = [[NSArray alloc] init];
-        _textarr = @[@"评论",@"回复",@"赞",@"打赏"];
+        _settableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
+        _settableView.dataSource = self;
+        _settableView.delegate = self;
     }
-    return _textarr;
+    return _settableView;
 }
 
 
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -90,8 +74,9 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
-        return self.textarr.count;
-    }else
+        return 4;
+    }
+    else
     {
         return 1;
     }
@@ -101,23 +86,22 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        mymessageCell0 *cell = [tableView dequeueReusableCellWithIdentifier:messagetableidentfid0];
-        if (!cell) {
-            cell = [[mymessageCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:messagetableidentfid0];
-        }
+        setCell0 *cell = [tableView dequeueReusableCellWithIdentifier:setidentifd0];
+        cell = [[setCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:setidentifd0];
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = self.textarr[indexPath.row];
-        return cell;
-    }else
-    {
-        mymessageCell1 *cell = [tableView dequeueReusableCellWithIdentifier:messagetableidentfid1];
-        if (!cell) {
-            cell = [[mymessageCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:messagetableidentfid1];
+        if (indexPath.row==0) {
+            cell.textLabel.text = @"清理缓冲";
         }
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = @"文鱼管理员";
+        if (indexPath.row==1) {
+            cell.textLabel.text = @"去评分";
+        }
+        if (indexPath.row==2) {
+            cell.textLabel.text = @"常见问题";
+        }
+        if (indexPath.row==3) {
+            cell.textLabel.text = @"关于文鱼";
+        }
         return cell;
     }
     return nil;
@@ -125,20 +109,20 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60*HEIGHT_SCALE;
+    if (indexPath.section==0) {
+        return 60*HEIGHT_SCALE;
+    }else
+    {
+        return 120*HEIGHT_SCALE;
+    }
 }
 
 #pragma mark - 实现方法
-
--(void)demobtnclick
-{
-    self.view.window.rootViewController = [[TopViewController alloc] init];
-    
-}
 
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end

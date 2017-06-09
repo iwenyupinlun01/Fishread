@@ -40,6 +40,8 @@ static NSString *nickcellidentfid = @"nickidentfid";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.tabBarController.tabBar setHidden:YES];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
 
@@ -47,6 +49,13 @@ static NSString *nickcellidentfid = @"nickidentfid";
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+    [self.tabBarController.tabBar setHidden:NO];
 }
 #pragma mark - getters
 
@@ -110,7 +119,7 @@ static NSString *nickcellidentfid = @"nickidentfid";
     return YES;
 }
 
-#pragma mark - getters
+#pragma mark - 实现方法
 
 -(void)backAction
 {
@@ -121,7 +130,7 @@ static NSString *nickcellidentfid = @"nickidentfid";
 {
     NSLog(@"保存");
     //保存修改的用户名
-    UITextField *textname = [self.nicktable viewWithTag:100];
+    //UITextField *textname = [self.nicktable viewWithTag:100];
 //    [CLNetworkingManager postNetworkRequestWithUrlString:xiugainicheng parameters:@{@"token":[tokenstr tokenstrfrom],@"nickname":textname.text} isCache:NO succeed:^(id data) {
 //        NSLog(@"infor-------%@",data);
 //        if ([[data objectForKey:@"code"] intValue]==-1) {

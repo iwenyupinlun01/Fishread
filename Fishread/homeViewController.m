@@ -9,6 +9,7 @@
 #import "homeViewController.h"
 #import "homeCell.h"
 #import "MyHeaderView.h"
+#import "loginViewController.h"
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
 @property(strong,nonatomic)UICollectionView *myCollectionV;
 @end
@@ -21,6 +22,8 @@ static NSString *indentify = @"indentify";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"推荐";
+//     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"放大镜-拷贝"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarAction)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"demo" style:UIBarButtonItemStylePlain target:self action:@selector(dengluclick)];
     self.view.backgroundColor = [UIColor whiteColor];
     [self addTheCollectionView];
     
@@ -144,5 +147,16 @@ static NSString *indentify = @"indentify";
     [textField resignFirstResponder];
     return YES;
 }
+
+#pragma mark - 实现方法
+
+-(void)dengluclick
+{
+    loginViewController *logvc = [[loginViewController alloc] init];
+    [self presentViewController:logvc animated:YES completion:^{
+        
+    }];
+}
+
 
 @end

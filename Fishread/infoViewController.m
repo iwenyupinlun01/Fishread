@@ -12,6 +12,9 @@
 #import "infoGroup.h"
 #import "headView.h"
 #import "myinfoViewController.h"
+#import "setViewController.h"
+#import "publishedViewController.h"
+#import "collectionViewController.h"
 @interface infoViewController ()<UITableViewDataSource,UITableViewDelegate,myheadviewdelegate>
 @property (nonatomic,strong) UITableView *infotableView;
 
@@ -128,6 +131,7 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     infoGroup *g = self.carGroups[indexPath.section];
     NSString *name = g.textarr[indexPath.row];
     cell.textlab.text = name;
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.leftimg.image = [UIImage imageNamed:g.imgarr[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -141,17 +145,25 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
             [self.navigationController pushViewController:messagevc animated:YES];
         }
         if (indexPath.row==1) {
-            
+            publishedViewController *publishvc = [[publishedViewController alloc] init];
+            [self.navigationController pushViewController:publishvc animated:YES];
         }
         if (indexPath.row==2) {
-            
+            collectionViewController *collectionvc = [[collectionViewController alloc] init];
+            [self.navigationController pushViewController:collectionvc animated:YES];
         }
     }
     if (indexPath.section==1) {
-        
+      
     }
     if (indexPath.section==2) {
-        
+        if (indexPath.row==0) {
+            setViewController *setvc = [[setViewController alloc] init];
+            [self.navigationController pushViewController:setvc animated:YES];
+        }
+        if (indexPath.row==1) {
+            
+        }
     }
 }
 

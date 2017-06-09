@@ -28,3 +28,4 @@
 #import "MJRefresh.h"
 #import "UIImageView+WebCache.h"
 #import "UIColor+WJColor.h"
+#import "wangHeader.h"

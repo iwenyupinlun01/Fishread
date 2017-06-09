@@ -15,6 +15,15 @@
 		531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */; };
 		531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B821EDFF454007C26D2 /* PPNetworkCache.m */; };
 		531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */; };
+		533B61B11EE9367C00DE0392 /* setViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B01EE9367C00DE0392 /* setViewController.m */; };
+		533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B31EE93CA100DE0392 /* publishedViewController.m */; };
+		533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B61EE93D0100DE0392 /* collectionViewController.m */; };
+		533B61BB1EE93DC500DE0392 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61BA1EE93DC500DE0392 /* loginViewController.m */; };
+		533B61BE1EE93F9000DE0392 /* publishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61BD1EE93F9000DE0392 /* publishCell.m */; };
+		533B61C11EE93FA000DE0392 /* collectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61C01EE93FA000DE0392 /* collectionCell.m */; };
+		533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61C41EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m */; };
+		533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61C91EE9654B00DE0392 /* setCell0.m */; };
+		533B61CD1EE9655700DE0392 /* setCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61CC1EE9655700DE0392 /* setCell1.m */; };
 		533CF7181EE0071E00F866B9 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF7171EE0071E00F866B9 /* infoCell.m */; };
 		533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF71A1EE0158400F866B9 /* messageViewController.m */; };
 		533E19C11EE2866D000CE670 /* homeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533E19C01EE2866D000CE670 /* homeCell.m */; };
@@ -26,6 +35,8 @@
 		534F61DC1EDEB2C8007835ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 534F61DA1EDEB2C8007835ED /* Main.storyboard */; };
 		534F61DE1EDEB2C8007835ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 534F61DD1EDEB2C8007835ED /* Assets.xcassets */; };
 		534F61E11EDEB2C8007835ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 534F61DF1EDEB2C8007835ED /* LaunchScreen.storyboard */; };
+		534F83F51EE8F999003773E9 /* mymessageCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F83F41EE8F999003773E9 /* mymessageCell0.m */; };
+		534F83F81EE8F9AD003773E9 /* mymessageCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F83F71EE8F9AD003773E9 /* mymessageCell1.m */; };
 		535FED841EE14673007A456D /* FocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED761EE14673007A456D /* FocusViewController.m */; };
 		535FED851EE14673007A456D /* FocusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FED771EE14673007A456D /* FocusViewController.xib */; };
 		535FED861EE14673007A456D /* HotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FED791EE14673007A456D /* HotViewController.m */; };
@@ -62,6 +73,25 @@
 		531E8B821EDFF454007C26D2 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
 		531E8B831EDFF454007C26D2 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
 		531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
+		533B61AF1EE9367C00DE0392 /* setViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setViewController.h; sourceTree = "<group>"; };
+		533B61B01EE9367C00DE0392 /* setViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setViewController.m; sourceTree = "<group>"; };
+		533B61B21EE93CA100DE0392 /* publishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publishedViewController.h; sourceTree = "<group>"; };
+		533B61B31EE93CA100DE0392 /* publishedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = publishedViewController.m; sourceTree = "<group>"; };
+		533B61B51EE93D0100DE0392 /* collectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionViewController.h; sourceTree = "<group>"; };
+		533B61B61EE93D0100DE0392 /* collectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionViewController.m; sourceTree = "<group>"; };
+		533B61B91EE93DC500DE0392 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		533B61BA1EE93DC500DE0392 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		533B61BC1EE93F9000DE0392 /* publishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publishCell.h; sourceTree = "<group>"; };
+		533B61BD1EE93F9000DE0392 /* publishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = publishCell.m; sourceTree = "<group>"; };
+		533B61BF1EE93FA000DE0392 /* collectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionCell.h; sourceTree = "<group>"; };
+		533B61C01EE93FA000DE0392 /* collectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionCell.m; sourceTree = "<group>"; };
+		533B61C31EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
+		533B61C41EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
+		533B61C71EE9600B00DE0392 /* wangHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wangHeader.h; sourceTree = "<group>"; };
+		533B61C81EE9654B00DE0392 /* setCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setCell0.h; sourceTree = "<group>"; };
+		533B61C91EE9654B00DE0392 /* setCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setCell0.m; sourceTree = "<group>"; };
+		533B61CB1EE9655700DE0392 /* setCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setCell1.h; sourceTree = "<group>"; };
+		533B61CC1EE9655700DE0392 /* setCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setCell1.m; sourceTree = "<group>"; };
 		533CF7161EE0071E00F866B9 /* infoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell.h; sourceTree = "<group>"; };
 		533CF7171EE0071E00F866B9 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
 		533CF7191EE0158400F866B9 /* messageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageViewController.h; sourceTree = "<group>"; };
@@ -82,6 +112,10 @@
 		534F61DD1EDEB2C8007835ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		534F61E01EDEB2C8007835ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		534F61E21EDEB2C8007835ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		534F83F31EE8F999003773E9 /* mymessageCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mymessageCell0.h; sourceTree = "<group>"; };
+		534F83F41EE8F999003773E9 /* mymessageCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mymessageCell0.m; sourceTree = "<group>"; };
+		534F83F61EE8F9AD003773E9 /* mymessageCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mymessageCell1.h; sourceTree = "<group>"; };
+		534F83F71EE8F9AD003773E9 /* mymessageCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mymessageCell1.m; sourceTree = "<group>"; };
 		535FED751EE14673007A456D /* FocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FocusViewController.h; path = Controller/FocusViewController.h; sourceTree = "<group>"; };
 		535FED761EE14673007A456D /* FocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FocusViewController.m; path = Controller/FocusViewController.m; sourceTree = "<group>"; };
 		535FED771EE14673007A456D /* FocusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FocusViewController.xib; path = Controller/FocusViewController.xib; sourceTree = "<group>"; };
@@ -177,6 +211,7 @@
 		531E8B681EDFDC23007C26D2 /* utlis */ = {
 			isa = PBXGroup;
 			children = (
+				533B61C61EE95FEE00DE0392 /* web */,
 				531E8B7F1EDFF43F007C26D2 /* manager */,
 				531E8B691EDFDC3F007C26D2 /* color */,
 			);
@@ -243,6 +278,33 @@
 			path = PPNetworkHelper;
 			sourceTree = "<group>";
 		};
+		533B61B81EE93DB600DE0392 /* 登陆 */ = {
+			isa = PBXGroup;
+			children = (
+				533B61C21EE95CD900DE0392 /* YBAttributeTextTapAction */,
+				533B61B91EE93DC500DE0392 /* loginViewController.h */,
+				533B61BA1EE93DC500DE0392 /* loginViewController.m */,
+			);
+			name = "登陆";
+			sourceTree = "<group>";
+		};
+		533B61C21EE95CD900DE0392 /* YBAttributeTextTapAction */ = {
+			isa = PBXGroup;
+			children = (
+				533B61C31EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.h */,
+				533B61C41EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m */,
+			);
+			path = YBAttributeTextTapAction;
+			sourceTree = "<group>";
+		};
+		533B61C61EE95FEE00DE0392 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				533B61C71EE9600B00DE0392 /* wangHeader.h */,
+			);
+			name = web;
+			sourceTree = "<group>";
+		};
 		533CF7131EE0021E00F866B9 /* C */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +316,12 @@
 				533CF71A1EE0158400F866B9 /* messageViewController.m */,
 				5393E37A1EE6C16B00392FD4 /* nicknameViewController.h */,
 				5393E37B1EE6C16B00392FD4 /* nicknameViewController.m */,
+				533B61B21EE93CA100DE0392 /* publishedViewController.h */,
+				533B61B31EE93CA100DE0392 /* publishedViewController.m */,
+				533B61B51EE93D0100DE0392 /* collectionViewController.h */,
+				533B61B61EE93D0100DE0392 /* collectionViewController.m */,
+				533B61AF1EE9367C00DE0392 /* setViewController.h */,
+				533B61B01EE9367C00DE0392 /* setViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -271,6 +339,18 @@
 				5393E3781EE6BEAF00392FD4 /* myinfoCell1.m */,
 				5393E37D1EE6C1B100392FD4 /* nicknameCell.h */,
 				5393E37E1EE6C1B100392FD4 /* nicknameCell.m */,
+				534F83F31EE8F999003773E9 /* mymessageCell0.h */,
+				534F83F41EE8F999003773E9 /* mymessageCell0.m */,
+				534F83F61EE8F9AD003773E9 /* mymessageCell1.h */,
+				534F83F71EE8F9AD003773E9 /* mymessageCell1.m */,
+				533B61BC1EE93F9000DE0392 /* publishCell.h */,
+				533B61BD1EE93F9000DE0392 /* publishCell.m */,
+				533B61BF1EE93FA000DE0392 /* collectionCell.h */,
+				533B61C01EE93FA000DE0392 /* collectionCell.m */,
+				533B61C81EE9654B00DE0392 /* setCell0.h */,
+				533B61C91EE9654B00DE0392 /* setCell0.m */,
+				533B61CB1EE9655700DE0392 /* setCell1.h */,
+				533B61CC1EE9655700DE0392 /* setCell1.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -337,6 +417,7 @@
 				531E8B731EDFE55A007C26D2 /* 首页 */,
 				531E8B741EDFE569007C26D2 /* 书圈 */,
 				531E8B751EDFE571007C26D2 /* 我的 */,
+				533B61B81EE93DB600DE0392 /* 登陆 */,
 				531E8B651EDFD4F2007C26D2 /* other */,
 			);
 			path = Fishread;
@@ -540,6 +621,8 @@
 				5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */,
 				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
+				533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */,
+				533B61BE1EE93F9000DE0392 /* publishCell.m in Sources */,
 				535FED881EE14673007A456D /* MainViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
 				5393E3731EE6BA7900392FD4 /* myinfoViewController.m in Sources */,
@@ -550,16 +633,25 @@
 				535FED9C1EE14D9A007A456D /* wodeCell.m in Sources */,
 				533CF7181EE0071E00F866B9 /* infoCell.m in Sources */,
 				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
+				533B61CD1EE9655700DE0392 /* setCell1.m in Sources */,
 				533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */,
+				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */,
+				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
+				533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */,
 				533E19C11EE2866D000CE670 /* homeCell.m in Sources */,
+				534F83F51EE8F999003773E9 /* mymessageCell0.m in Sources */,
 				5393E3791EE6BEAF00392FD4 /* myinfoCell1.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
+				533B61C11EE93FA000DE0392 /* collectionCell.m in Sources */,
+				533B61B11EE9367C00DE0392 /* setViewController.m in Sources */,
+				534F83F81EE8F9AD003773E9 /* mymessageCell1.m in Sources */,
 				535FED861EE14673007A456D /* HotViewController.m in Sources */,
 				5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */,
+				533B61BB1EE93DC500DE0392 /* loginViewController.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
@@ -689,6 +781,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Fishread/PrefixHeader.pch";
 				INFOPLIST_FILE = Fishread/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Fishread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -705,6 +798,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Fishread/PrefixHeader.pch";
 				INFOPLIST_FILE = Fishread/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Fishread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
