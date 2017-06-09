@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "itemimgView.h"
+@class homeModel;
 
 @interface homeCell : UICollectionViewCell
-@property (nonatomic,strong) UIImageView *itemimg;
+@property (nonatomic,strong) itemimgView *itemimg;
 @property (nonatomic,strong) UILabel *namelab;
 
+-(void)setdatafrommodel:(homeModel *)model;
 @end

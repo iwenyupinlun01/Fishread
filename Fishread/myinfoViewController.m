@@ -83,9 +83,8 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setSeparatorInset:UIEdgeInsetsZero];
         cell.infoimage.tag = 200;
-        
+        [cell.infoimage sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
         return cell;
-        
     }
     if (indexPath.row==1) {
         myinfoCell1 *cell = [tableView dequeueReusableCellWithIdentifier:myinfocellidentfid1];
@@ -96,10 +95,9 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setSeparatorInset:UIEdgeInsetsZero];
         cell.rightlab.tag = 201;
-    
+        cell.rightlab.text = [tokenstr nicknamestrfrom];
         return cell;
     }
-
     return nil;
 }
 
@@ -128,7 +126,6 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
         [self.navigationController pushViewController:nicknamevc animated:YES];
     }
 }
-
 
 #pragma mark - 选择图片
 

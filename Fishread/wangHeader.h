@@ -20,4 +20,10 @@
 
 #define WXLoginSuccess                   @"WXLoginSuccess"
 
+
+//登陆
+#define denglu @"http://www.3a406.cn/ucenter/member/login.html"
+//首页 get
+#define shouye @"http://www.3a406.cn/forum/index/indexCircle.html?page=%@&token=%@"
+
 #endif /* wangHeader_h */

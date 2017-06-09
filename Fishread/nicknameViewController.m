@@ -92,6 +92,7 @@ static NSString *nickcellidentfid = @"nickidentfid";
     [cell setSeparatorInset:UIEdgeInsetsZero];
     cell.nicknametext.tag = 100;
     cell.nicknametext.delegate = self;
+    self.nicknamestr = [tokenstr nicknamestrfrom];
     cell.nicknametext.text = self.nicknamestr;
     return cell;
 }

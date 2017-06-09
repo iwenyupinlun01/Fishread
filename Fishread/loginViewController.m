@@ -9,6 +9,7 @@
 #import "loginViewController.h"
 #import "UILabel+YBAttributeTextTapAction.h"
 #import "WXApi.h"
+#import "xieyiViewController.h"
 @interface loginViewController ()<YBAttributeTapActionDelegate>
 @property (nonatomic,strong) UIImageView *bgimg;
 @property (nonatomic,strong) UIImageView *logoimg;
@@ -16,6 +17,7 @@
 @property (nonatomic,strong) UIButton *loginbtn;
 @property (nonatomic,strong) UIButton *zhijiebtn;
 @property (nonatomic,strong) UILabel *aggrentlab;
+@property (nonatomic,strong) UIButton *gobackbtn;
 @end
 
 @implementation loginViewController
@@ -29,6 +31,11 @@
     [self.view addSubview:self.loginbtn];
     [self.view addSubview:self.zhijiebtn];
     [self.view addSubview:self.aggrentlab];
+    [self.view addSubview:self.namelab];
+    [self.view addSubview:self.gobackbtn];
+    [self weixinLogin];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXLogin:) name:WXLoginSuccess object:@"dengluchenggong"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +51,7 @@
     self.namelab.frame = CGRectMake(100*WIDTH_SCALE,  264/2*HEIGHT_SCALE+(DEVICE_WIDTH/2-283/2*WIDTH_SCALE)*2, DEVICE_WIDTH-200*WIDTH_SCALE, 30);
     self.zhijiebtn.frame = CGRectMake(DEVICE_WIDTH-50*WIDTH_SCALE-20*WIDTH_SCALE, DEVICE_HEIGHT-24*WIDTH_SCALE-12*WIDTH_SCALE, 50*WIDTH_SCALE, 12*HEIGHT_SCALE);
     self.aggrentlab.frame = CGRectMake(14*WIDTH_SCALE, DEVICE_HEIGHT-24*HEIGHT_SCALE-12*HEIGHT_SCALE, DEVICE_WIDTH-40*WIDTH_SCALE, 12*HEIGHT_SCALE);
+    self.gobackbtn.frame = CGRectMake(DEVICE_WIDTH-120, DEVICE_HEIGHT-24*HEIGHT_SCALE-12*HEIGHT_SCALE, 120-14*WIDTH_SCALE, 12*HEIGHT_SCALE);
 }
 
 #pragma mark - getters
@@ -82,21 +90,34 @@
 }
 
 
+-(UIButton *)gobackbtn
+{
+    if(!_gobackbtn)
+    {
+        _gobackbtn = [[UIButton alloc] init];
+        [_gobackbtn addTarget:self action:@selector(gobackbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        [_gobackbtn setTitle:@"直接使用" forState:normal];
+        _gobackbtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+        _gobackbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [_gobackbtn setTitleColor:[UIColor wjColorFloat:@"54D48A"] forState:normal];
+        //_gobackbtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _gobackbtn;
+}
+
 
 -(UIButton *)loginbtn
 {
     if(!_loginbtn)
     {
         _loginbtn = [[UIButton alloc] init];
-        [_loginbtn setTitle:@"微信登陆" forState:normal];
         _loginbtn.backgroundColor = [UIColor wjColorFloat:@"54D48A"];
         _loginbtn.layer.masksToBounds = YES;
         _loginbtn.layer.cornerRadius = 20;
-        [_loginbtn addTarget:self action:@selector(loginbtnclick) forControlEvents:UIControlEventTouchUpInside];
-        //[_loginbtn setTitleColor:[UIColor wjColorFloat:@"54D48A"] forState:normal];
     }
     return _loginbtn;
 }
+
 -(UILabel *)aggrentlab
 {
     if(!_aggrentlab)
@@ -110,7 +131,7 @@
         [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(8
                                                                                                        , 4)];
         //添加文字颜色
-        [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor wjColorFloat:@"576b95"] range:NSMakeRange(8, 4)];
+        [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor wjColorFloat:@"54D48A"] range:NSMakeRange(8, 4)];
         //添加下划线
         [attrStr addAttribute:NSUnderlineStyleAttributeName
                         value:[NSNumber numberWithInteger:NSUnderlineStyleSingle]
@@ -125,7 +146,10 @@
         
         [_aggrentlab yb_addAttributeTapActionWithStrings:@[@"用户协议"] tapClicked:^(NSString *string, NSRange range, NSInteger index) {
             NSLog(@"122");
-           
+            xieyiViewController *xieyivc = [[xieyiViewController alloc] init];
+            [self presentViewController:xieyivc animated:YES completion:^{
+                
+            }];
         }];
         _aggrentlab.textAlignment = NSTextAlignmentLeft;
     }
@@ -133,12 +157,89 @@
 }
 
 #pragma mark - 实现方法
+-(void)weixinLogin{
+    if([WXApi isWXAppInstalled]){
+        
+        [_loginbtn setTitle:@"微信登录" forState:normal];
+        [self.loginbtn addTarget:self action:@selector(loginbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else{
+        [_loginbtn setTitle:@"访客模式" forState:normal];
+        //[self.loginbtn addTarget:self action:@selector(gobackbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        [self noLoginAlertController];
+    }
+}
 
 -(void)loginbtnclick
+{
+    //[self weixinLogin];
+    SendAuthReq *req = [[SendAuthReq alloc]init];
+    req.scope = WX_SCOPE;
+    req.state = WX_STATE; //可省，不影响功能
+    [WXApi sendReq:req];
+}
+
+-(void)WXLogin:(NSNotificationCenter *)center
+{
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *tokenkey = [userdefat objectForKey:@"access_token"];
+    NSDictionary *dic = [userdefat objectForKey:@"userinfo"];
+    NSString *nickname = [dic objectForKey:@"nickname"];
+    NSString *path = [dic objectForKey:@"headimgurl"];
+    NSString *openid = [dic objectForKey:@"openid"];
+    NSLog(@"openid---------%@",openid);
+    NSDictionary *para = @{@"login_type":@"quickLogin",@"openid":openid,@"token_key":tokenkey,@"nickname":nickname,@"type":@"4",@"path":path};
+    
+    [PPNetworkHelper POST:denglu parameters:para success:^(id responseObject) {
+        NSLog(@"response ------- %@",responseObject);
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSString *token = [responseObject objectForKey:@"token"];
+
+            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+            [userdefat setObject:token forKey:@"tokenuser"];
+           
+            //[userdefat setObject:[Timestr getNowTimestamp] forKey:@"denglushijian"];
+            NSLog(@"tolen-------------%@",token);
+            [userdefat synchronize];
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"网络异常"];
+        }
+
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"状态异常，请稍后再试"];
+    }];
+    
+
+}
+
+
+-(void)gobackbtnclick
 {
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
 }
+#pragma mark - 设置弹出提示语
+
+- (void)noLoginAlertController {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请先安装微信客户端" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:actionConfirm];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)isLoginedAlertController{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"您已经登陆了，请先退出登录" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:actionConfirm];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 @end

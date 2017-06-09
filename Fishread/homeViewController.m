@@ -11,8 +11,14 @@
 #import "MyHeaderView.h"
 #import "loginViewController.h"
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
+{
+    int pn;
+}
+
 @property(strong,nonatomic)UICollectionView *myCollectionV;
+@property (nonatomic,strong) NSMutableArray *datasourcearr;
 @end
+
 //设置标识
 static NSString *indentify = @"indentify";
 
@@ -25,6 +31,13 @@ static NSString *indentify = @"indentify";
 //     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"放大镜-拷贝"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarAction)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"demo" style:UIBarButtonItemStylePlain target:self action:@selector(dengluclick)];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    // 3.1.下拉刷新
+    [self addHeader];
+    // 3.2.上拉加载更多
+    [self addFooter];
+
+    
     [self addTheCollectionView];
     
 }
@@ -43,6 +56,53 @@ static NSString *indentify = @"indentify";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+}
+
+
+#pragma mark - 刷新控件
+
+- (void)addHeader
+{
+    // 头部刷新控件
+    self.myCollectionV.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    [self.myCollectionV.mj_header beginRefreshing];
+}
+
+- (void)addFooter
+{
+    self.myCollectionV.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
+}
+
+- (void)refreshAction {
+    
+    [self headerRefreshEndAction];
+    
+}
+
+- (void)refreshLoadMore {
+    
+    [self footerRefreshEndAction];
+    
+}
+
+
+-(void)headerRefreshEndAction
+{
+    NSString *urlstr = [NSString stringWithFormat:shouye,@"1",[tokenstr tokenstrfrom]];
+    
+    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
+-(void)footerRefreshEndAction
+{
     
 }
 

@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MainTitleView.h"
 #import "chuangjianViewController.h"
+#import "searchViewController.h"
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic,strong) NSArray *titleNames;
@@ -83,6 +84,8 @@
 
 - (void)leftBarAction{
     NSLog(@"leftBarAction...");
+    searchViewController *searchvc = [[searchViewController alloc] init];
+    [self.navigationController pushViewController:searchvc animated:YES];
 }
 
 - (void)rightBarAction{

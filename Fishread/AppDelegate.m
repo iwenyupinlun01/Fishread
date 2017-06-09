@@ -27,7 +27,7 @@
     [self.window setRootViewController:top];
     //向微信注册应用。
     
-    [WXApi registerApp:@"wx645768d32ba61b12"];
+    [WXApi registerApp:WXPatient_App_ID];
     
     return YES;
 }
@@ -91,6 +91,7 @@
                 //            sex = 0;
                 //            unionid = xxxxxxxxxxxxxxxxxx;
                 //        }
+                
                 NSString *namestr = [dict objectForKey:@"nickname"];
                 NSString *pathurlstr = [dict objectForKey:@"headimgurl"];
                 [defaults setObject:dict forKey:@"userinfo"];

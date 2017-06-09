@@ -8,12 +8,17 @@
 
 #import "setViewController.h"
 #import "setCell0.h"
+#import "setCell1.h"
+#import "SZKCleanCache.h"
+#import "TopViewController.h"
+#import "questionViewController.h"
+#import "aboutViewController.h"
 
-@interface setViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface setViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 @property (nonatomic,strong) UITableView *settableView;
 @end
 static NSString *setidentifd0 = @"setidentfid0";
-
+static NSString *setidentfid1 = @"setidentfid1";
 @implementation setViewController
 
 - (void)viewDidLoad {
@@ -42,12 +47,12 @@ static NSString *setidentifd0 = @"setidentfid0";
     [self.tabBarController.tabBar setHidden:YES];
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self.navigationController.navigationBar setHidden:YES];
-    [self.tabBarController.tabBar setHidden:NO];
-}
+//-(void)viewDidDisappear:(BOOL)animated
+//{
+//    [super viewDidDisappear:animated];
+//    [self.navigationController.navigationBar setHidden:YES];
+//    [self.tabBarController.tabBar setHidden:NO];
+//}
 
 #pragma mark - getters
 
@@ -91,7 +96,11 @@ static NSString *setidentifd0 = @"setidentfid0";
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (indexPath.row==0) {
-            cell.textLabel.text = @"清理缓冲";
+            cell.textLabel.text = @"清理缓存";
+            cell.textLabel.textColor = [UIColor wjColorFloat:@"333333"];
+            NSString *str = [NSString stringWithFormat:@"%.2fM",[SZKCleanCache folderSizeAtPath]];
+            cell.rightlab.text = str;
+            
         }
         if (indexPath.row==1) {
             cell.textLabel.text = @"去评分";
@@ -103,6 +112,13 @@ static NSString *setidentifd0 = @"setidentfid0";
             cell.textLabel.text = @"关于文鱼";
         }
         return cell;
+    }else
+    {
+        setCell1 *cell = [tableView dequeueReusableCellWithIdentifier:setidentfid1];
+        cell = [[setCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:setidentfid1];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.delegate = self;
+        return cell;
     }
     return nil;
 }
@@ -113,8 +129,44 @@ static NSString *setidentifd0 = @"setidentfid0";
         return 60*HEIGHT_SCALE;
     }else
     {
-        return 120*HEIGHT_SCALE;
+        return 160*HEIGHT_SCALE;
     }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+            //输出缓存大小 m
+            NSLog(@"%.2fM",[SZKCleanCache folderSizeAtPath]);
+            
+            //清楚缓存
+            [SZKCleanCache cleanCache:^{
+                NSLog(@"清除成功");
+                [self.settableView reloadData];
+            }];
+
+        }
+        if (indexPath.row==1) {
+            NSLog(@"去评分");
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1242766779"] options:@{} completionHandler:nil];
+        }
+        if (indexPath.row==2) {
+            NSLog(@"常见问题");
+            questionViewController *questionvc = [[questionViewController alloc] init];
+            [self.navigationController pushViewController:questionvc animated:YES];
+        }
+        if (indexPath.row==3) {
+            NSLog(@"关于文鱼");
+            aboutViewController *aboutvc = [[aboutViewController alloc] init];
+            [self.navigationController pushViewController:aboutvc animated:YES];
+        }
+    }
+}
+
+-(void)myTabVClick:(UITableViewCell *)cell
+{
+    NSLog(@"推出登录");
+    self.view.window.rootViewController = [[TopViewController alloc] init];
 }
 
 #pragma mark - 实现方法

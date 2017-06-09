@@ -130,12 +130,6 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
 
 #pragma mark - 实现方法
 
--(void)demobtnclick
-{
-    self.view.window.rootViewController = [[TopViewController alloc] init];
-    
-}
-
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];

@@ -15,6 +15,7 @@
 #import "setViewController.h"
 #import "publishedViewController.h"
 #import "collectionViewController.h"
+#import "feedbackViewController.h"
 @interface infoViewController ()<UITableViewDataSource,UITableViewDelegate,myheadviewdelegate>
 @property (nonatomic,strong) UITableView *infotableView;
 
@@ -29,8 +30,9 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     [self.view addSubview:self.infotableView];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,6 +115,9 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
         headView *view = [[headView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 100)];
         view.backgroundColor = [UIColor wjColorFloat:@"F5F5F5"];
         view.delegate = self;
+        view.namelab.text = [tokenstr nicknamestrfrom];
+        [view.infoimg sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+        
         return view;
     }
     return nil;
@@ -162,7 +167,8 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
             [self.navigationController pushViewController:setvc animated:YES];
         }
         if (indexPath.row==1) {
-            
+            feedbackViewController *feedbackvc = [[feedbackViewController alloc] init];
+            [self.navigationController pushViewController:feedbackvc animated:YES];
         }
     }
 }
