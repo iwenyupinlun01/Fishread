@@ -20,10 +20,16 @@
 
 #define WXLoginSuccess                   @"WXLoginSuccess"
 
+#define IPAddress @"www.3a406.cn"
 
 //登陆
-#define denglu @"http://www.3a406.cn/ucenter/member/login.html"
+#define denglu @"http://"IPAddress"/ucenter/member/login.html"
 //首页 get
-#define shouye @"http://www.3a406.cn/forum/index/indexCircle.html?page=%@&token=%@"
+#define shouye @"http://"IPAddress"/forum/index/indexCircle.html?page=%@&token=%@"
+//退出登陆 get
+#define tuichudenglu @"http://"IPAddress"/forum/user/loginout.html?token=%@"
+//圈子之我的 get
+#define quanziwode @"http://"IPAddress"/forum/circle/index.html?token=%@"
+
 
 #endif /* wangHeader_h */

@@ -69,7 +69,8 @@ static NSString *publishidentfid = @"publishidentfid";
     if(!_hview)
     {
         _hview = [[headView alloc] init];
-        //_hview.backgroundColor = [UIColor orangeColor];
+        [_hview.infoimg sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+        _hview.namelab.text = [tokenstr nicknamestrfrom];
         _hview.frame = CGRectMake(0, 0, DEVICE_WIDTH, (412-64)/2*HEIGHT_SCALE);
     }
     return _hview;

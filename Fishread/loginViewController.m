@@ -197,7 +197,7 @@
 
             NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
             [userdefat setObject:token forKey:@"tokenuser"];
-           
+            
             //[userdefat setObject:[Timestr getNowTimestamp] forKey:@"denglushijian"];
             NSLog(@"tolen-------------%@",token);
             [userdefat synchronize];

@@ -39,7 +39,7 @@
     if(!_itemimg)
     {
         _itemimg = [[itemimgView alloc] init];
-        _itemimg.backgroundColor = [UIColor orangeColor];
+        //_itemimg.backgroundColor = [UIColor orangeColor];
     }
     return _itemimg;
 }
@@ -49,7 +49,11 @@
     if(!_namelab)
     {
         _namelab = [[UILabel alloc] init];
-        _namelab.backgroundColor = [UIColor greenColor];
+        _namelab.textAlignment = NSTextAlignmentCenter;
+        _namelab.font = [UIFont systemFontOfSize:12];
+        _namelab.numberOfLines = 0;
+        [_namelab sizeToFit];
+        //_namelab.backgroundColor = [UIColor greenColor];
     }
     return _namelab;
 }
@@ -59,7 +63,14 @@
     self.hmodel = model;
     [self.itemimg sd_setImageWithURL:[NSURL URLWithString:model.homecoverurlstr]];
     self.namelab.text = model.hometitlestr;
-    
+    if ([model.relation_id isEqualToString:@"0"]) {
+        self.itemimg.rightimg.image = [UIImage imageNamed:@"讨论-拷贝-2"];
+    }
+    else
+    {
+        self.itemimg.rightimg.image = [UIImage imageNamed:@"阅读-拷贝-2"];
+        
+    }
 }
 
 

@@ -166,7 +166,47 @@ static NSString *setidentfid1 = @"setidentfid1";
 -(void)myTabVClick:(UITableViewCell *)cell
 {
     NSLog(@"推出登录");
-    self.view.window.rootViewController = [[TopViewController alloc] init];
+
+    
+    
+    UIAlertController *control = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要退出登录吗" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+        NSString *urlstr = [NSString stringWithFormat:tuichudenglu,[tokenstr tokenstrfrom]];
+        
+        [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+            if ([[responseObject objectForKey:@"code"] intValue]==1)
+            {
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults removeObjectForKey:@"tokenuser"];
+                [defaults removeObjectForKey:@"access_token"];
+                [defaults removeObjectForKey:@"namestr"];
+                [defaults removeObjectForKey:@"pathurlstr"];
+                [MBProgressHUD showSuccess:@"退出成功"];
+                self.view.window.rootViewController = [[TopViewController alloc] init];
+            }else if ([[responseObject objectForKey:@"code"] intValue]==0)
+            {
+                [MBProgressHUD showSuccess:@"token错误"];
+            }else
+            {
+                [MBProgressHUD showSuccess:@"系统繁忙，请稍后再试"];
+            }
+            
+        } failure:^(NSError *error) {
+            
+        }];
+       
+
+    }];
+    [control addAction:action0];
+    [control addAction:action1];
+    [self presentViewController:control animated:YES completion:nil];
+    
+
 }
 
 #pragma mark - 实现方法

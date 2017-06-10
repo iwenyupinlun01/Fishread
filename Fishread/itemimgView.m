@@ -33,7 +33,7 @@
     if(!_rightimg)
     {
         _rightimg = [[UIImageView alloc] init];
-        _rightimg.image = [UIImage imageNamed:@"阅读-拷贝-2"];
+       //_rightimg.image = [UIImage imageNamed:@"阅读-拷贝-2"];
     }
     return _rightimg;
 }

@@ -10,12 +10,13 @@
 #import "homeCell.h"
 #import "MyHeaderView.h"
 #import "loginViewController.h"
+#import "homeModel.h"
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
 {
     int pn;
 }
 
-@property(strong,nonatomic)UICollectionView *myCollectionV;
+@property(strong,nonatomic) UICollectionView *myCollectionV;
 @property (nonatomic,strong) NSMutableArray *datasourcearr;
 @end
 
@@ -31,14 +32,14 @@ static NSString *indentify = @"indentify";
 //     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"放大镜-拷贝"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarAction)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"demo" style:UIBarButtonItemStylePlain target:self action:@selector(dengluclick)];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.datasourcearr = [NSMutableArray array];
+   
     
+    [self addTheCollectionView];
     // 3.1.下拉刷新
     [self addHeader];
     // 3.2.上拉加载更多
     [self addFooter];
-
-    
-    [self addTheCollectionView];
     
 }
 
@@ -89,20 +90,58 @@ static NSString *indentify = @"indentify";
 
 -(void)headerRefreshEndAction
 {
+    pn = 1;
     NSString *urlstr = [NSString stringWithFormat:shouye,@"1",[tokenstr tokenstrfrom]];
-    
+    [self.datasourcearr removeAllObjects];
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
         
-    } failure:^(NSError *error) {
+        NSArray *ditarr = [responseObject objectForKey:@"info"];
+        for (int i = 0; i<ditarr.count; i++) {
+            NSDictionary *dicarr = [ditarr objectAtIndex:i];
+            homeModel *model = [[homeModel alloc] init];
+            model.relation_id = [dicarr objectForKey:@"id"];
+            model.hometitlestr = [dicarr objectForKey:@"title"];
+            model.homecoverurlstr = [dicarr objectForKey:@"cover"];
+            model.is_join = [dicarr objectForKey:@"is_join"];
+            [self.datasourcearr addObject:model];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.myCollectionV.mj_header endRefreshing];
+            [self.myCollectionV reloadData];
+        });
         
+    } failure:^(NSError *error) {
+        [self.myCollectionV.mj_header endRefreshing];
     }];
 }
 
-
 -(void)footerRefreshEndAction
 {
+    pn++;
+    NSString *pnstr = [NSString stringWithFormat:@"%d",pn];
+    NSString *strurl = [NSString stringWithFormat:shouye,pnstr,[tokenstr tokenstrfrom]];
+    [PPNetworkHelper GET:strurl parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        NSArray *ditarr = [responseObject objectForKey:@"info"];
+        for (int i = 0; i<ditarr.count; i++) {
+            NSDictionary *dicarr = [ditarr objectAtIndex:i];
+            homeModel *model = [[homeModel alloc] init];
+            model.relation_id = [dicarr objectForKey:@"id"];
+            model.hometitlestr = [dicarr objectForKey:@"title"];
+            model.homecoverurlstr = [dicarr objectForKey:@"cover"];
+            model.is_join = [dicarr objectForKey:@"is_join"];
+            [self.datasourcearr addObject:model];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.myCollectionV.mj_footer endRefreshing];
+            [self.myCollectionV reloadData];
+        });
+    } failure:^(NSError *error) {
+        [self.myCollectionV.mj_footer endRefreshing];
+    }];
     
 }
 
@@ -160,7 +199,7 @@ static NSString *indentify = @"indentify";
 //每个section有多少个元素
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 29;
+    return self.datasourcearr.count;
 }
 
 //每个单元格的数据
@@ -168,7 +207,7 @@ static NSString *indentify = @"indentify";
 {
     //初始化每个单元格
     homeCell *cell = (homeCell *)[collectionView dequeueReusableCellWithReuseIdentifier:indentify forIndexPath:indexPath];
-    
+    [cell setdatafrommodel:self.datasourcearr[indexPath.item]];
     //给单元格上的元素赋值
     //cell.backgroundColor = [UIColor redColor];
     return cell;
@@ -202,10 +241,17 @@ static NSString *indentify = @"indentify";
     UITextField *text = [self.myCollectionV viewWithTag:100];
     [text resignFirstResponder];
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    //写你要实现的：页面跳转的相关代码
+    
+    return NO;
 }
 
 #pragma mark - 实现方法

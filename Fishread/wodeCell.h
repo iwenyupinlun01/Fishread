@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class wodeModel;
 
 @interface wodeCell : UITableViewCell
 @property (nonatomic,strong) UIImageView *leftimg;
 @property (nonatomic,strong) UILabel *textlab;
 @property (nonatomic,strong) UILabel *typelab;
+@property (nonatomic,strong) UILabel *xiaohongdianlab;
+-(void)setdatamodel:(wodeModel*)model;
 @end

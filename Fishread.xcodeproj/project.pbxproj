@@ -38,6 +38,8 @@
 		533B61F41EEAA64800DE0392 /* homeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61F31EEAA64800DE0392 /* homeModel.m */; };
 		533B61F71EEAAABF00DE0392 /* itemimgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61F61EEAAABF00DE0392 /* itemimgView.m */; };
 		533B61FA1EEAB03F00DE0392 /* searchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61F91EEAB03F00DE0392 /* searchViewController.m */; };
+		533B61FD1EEABAA800DE0392 /* searchCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61FC1EEABAA800DE0392 /* searchCell0.m */; };
+		533B62001EEABAE700DE0392 /* chuangjianCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61FF1EEABAE700DE0392 /* chuangjianCell.m */; };
 		533CF7181EE0071E00F866B9 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF7171EE0071E00F866B9 /* infoCell.m */; };
 		533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533CF71A1EE0158400F866B9 /* messageViewController.m */; };
 		533E19C11EE2866D000CE670 /* homeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533E19C01EE2866D000CE670 /* homeCell.m */; };
@@ -69,6 +71,7 @@
 		5393E3791EE6BEAF00392FD4 /* myinfoCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E3781EE6BEAF00392FD4 /* myinfoCell1.m */; };
 		5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E37B1EE6C16B00392FD4 /* nicknameViewController.m */; };
 		5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5393E37E1EE6C1B100392FD4 /* nicknameCell.m */; };
+		53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F11E1EEBC71E00ED5EE8 /* wodeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +137,10 @@
 		533B61F61EEAAABF00DE0392 /* itemimgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemimgView.m; sourceTree = "<group>"; };
 		533B61F81EEAB03F00DE0392 /* searchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchViewController.h; sourceTree = "<group>"; };
 		533B61F91EEAB03F00DE0392 /* searchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchViewController.m; sourceTree = "<group>"; };
+		533B61FB1EEABAA800DE0392 /* searchCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchCell0.h; sourceTree = "<group>"; };
+		533B61FC1EEABAA800DE0392 /* searchCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchCell0.m; sourceTree = "<group>"; };
+		533B61FE1EEABAE700DE0392 /* chuangjianCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chuangjianCell.h; sourceTree = "<group>"; };
+		533B61FF1EEABAE700DE0392 /* chuangjianCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chuangjianCell.m; sourceTree = "<group>"; };
 		533CF7161EE0071E00F866B9 /* infoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell.h; sourceTree = "<group>"; };
 		533CF7171EE0071E00F866B9 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
 		533CF7191EE0158400F866B9 /* messageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageViewController.h; sourceTree = "<group>"; };
@@ -190,6 +197,10 @@
 		5393E37B1EE6C16B00392FD4 /* nicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nicknameViewController.m; sourceTree = "<group>"; };
 		5393E37D1EE6C1B100392FD4 /* nicknameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nicknameCell.h; sourceTree = "<group>"; };
 		5393E37E1EE6C1B100392FD4 /* nicknameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nicknameCell.m; sourceTree = "<group>"; };
+		53A1F11D1EEBC71E00ED5EE8 /* wodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wodeModel.h; sourceTree = "<group>"; };
+		53A1F11E1EEBC71E00ED5EE8 /* wodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wodeModel.m; sourceTree = "<group>"; };
+		53A1F1201EEBD66F00ED5EE8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		53A1F1211EEBD66F00ED5EE8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -571,6 +582,10 @@
 				535FED9B1EE14D9A007A456D /* wodeCell.m */,
 				5393E3681EE68A3A00392FD4 /* quanbuCell.h */,
 				5393E3691EE68A3A00392FD4 /* quanbuCell.m */,
+				533B61FB1EEABAA800DE0392 /* searchCell0.h */,
+				533B61FC1EEABAA800DE0392 /* searchCell0.m */,
+				533B61FE1EEABAE700DE0392 /* chuangjianCell.h */,
+				533B61FF1EEABAE700DE0392 /* chuangjianCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -578,6 +593,8 @@
 		535FED991EE14D57007A456D /* M */ = {
 			isa = PBXGroup;
 			children = (
+				53A1F11D1EEBC71E00ED5EE8 /* wodeModel.h */,
+				53A1F11E1EEBC71E00ED5EE8 /* wodeModel.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -737,6 +754,7 @@
 				533B61E61EEA7B3400DE0392 /* xieyiViewController.m in Sources */,
 				533B61FA1EEAB03F00DE0392 /* searchViewController.m in Sources */,
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
@@ -760,6 +778,8 @@
 				533B61DC1EEA727800DE0392 /* feedbackViewController.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				533B61F71EEAAABF00DE0392 /* itemimgView.m in Sources */,
+				533B62001EEABAE700DE0392 /* chuangjianCell.m in Sources */,
+				533B61FD1EEABAA800DE0392 /* searchCell0.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
@@ -773,6 +793,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				534F61DB1EDEB2C8007835ED /* Base */,
+				53A1F1201EEBD66F00ED5EE8 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -781,6 +802,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				534F61E01EDEB2C8007835ED /* Base */,
+				53A1F1211EEBD66F00ED5EE8 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -792,6 +814,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -841,6 +864,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

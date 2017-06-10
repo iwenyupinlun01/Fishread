@@ -97,7 +97,7 @@
 #pragma mark - setter and getter
 - (NSArray *)titleNames{
     if (!_titleNames) {
-        _titleNames = @[@"全部",@"我的",@"神贴"];
+        _titleNames = @[@"我的",@"全部",@"神贴"];
     }
     return _titleNames;
 }
@@ -111,7 +111,6 @@
             
         }];
     }
-    
     return _topView;
 }
 
