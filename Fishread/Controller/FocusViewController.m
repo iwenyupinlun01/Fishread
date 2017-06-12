@@ -26,7 +26,7 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     self.dataSource = [NSMutableArray array];
     
     [self.view addSubview:self.wodeTableview];
-     self.wodeTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.wodeTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
   
 }
 

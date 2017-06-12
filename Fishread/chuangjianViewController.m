@@ -7,10 +7,13 @@
 //
 
 #import "chuangjianViewController.h"
+#import "chuangjianCell.h"
 
-@interface chuangjianViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface chuangjianViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 @property (nonatomic,strong) UITableView *chuangjiantableView;
 @end
+
+static NSString *chuangjianidentfid0 = @"chuangjianidentfid0";
 
 @implementation chuangjianViewController
 
@@ -24,7 +27,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.chuangjiantableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.chuangjiantableView];
 }
 
@@ -58,18 +61,25 @@
     return _chuangjiantableView;
 }
 
-
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return nil;
+    chuangjianCell *cell = [tableView dequeueReusableCellWithIdentifier:chuangjianidentfid0];
+    cell = [[chuangjianCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chuangjianidentfid0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 400;
 }
 
 #pragma mark - 实现方法
@@ -77,6 +87,11 @@
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)myTabVClick:(UITableViewCell *)cell
+{
+    NSLog(@"1111");
 }
 
 @end

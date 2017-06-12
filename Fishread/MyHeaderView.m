@@ -28,6 +28,9 @@
         _searchtext.placeholder = @"搜索";
         _searchtext.layer.masksToBounds = YES;
         _searchtext.layer.cornerRadius = 15;
+        UIImageView *passwordImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"放大镜"]];
+        _searchtext.leftView = passwordImage;
+        _searchtext.leftViewMode = UITextFieldViewModeAlways;
     }
     return _searchtext;
 }

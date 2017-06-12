@@ -1,8 +1,8 @@
 //
 //  WJGtextView.h
-//  Supercomments
+//  Fishread
 //
-//  Created by 王俊钢 on 2017/4/6.
+//  Created by 王俊钢 on 2017/6/12.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 

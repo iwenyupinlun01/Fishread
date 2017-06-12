@@ -51,7 +51,7 @@ static NSString *indentify = @"indentify";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    //self.navigationController.tabBarItem.badgeValue = @"1";
 }
 
 -(void)viewDidAppear:(BOOL)animated
