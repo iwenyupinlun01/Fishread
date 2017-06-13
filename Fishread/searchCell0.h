@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "searchtagView.h"
+//创建一个代理
+@protocol mycellVdelegate <NSObject>
 
+-(void)myTabVClick:(UITableViewCell *)cell;
+
+
+
+@end
 @interface searchCell0 : UITableViewCell
-
+@property (nonatomic,strong) UIButton *replacebtn;
+@property (assign,nonatomic)id<mycellVdelegate>delegate;
+@property (nonatomic,strong) searchtagView *tagview;
 @end

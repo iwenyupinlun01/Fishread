@@ -11,13 +11,13 @@
 //圆角弧度
 #define CORNER_RADIUS 15.0f
 //两个按钮左右之间的间隙
-#define HLZ_BUTTON_PADDING 9.0f
+#define HLZ_BUTTON_PADDING 9.0f*WIDTH_SCALE
 //两个按钮上下之间的间隙
 #define HLZ_BUTTON_PADDING_UP 14.0f
 //字体大小
 #define HLZ_FONT_SIZE 14.0f
 //左右内边距
-#define HLZ_HORIZONTAL_PADDING 11.0f*WIDTH_SCALE
+#define HLZ_HORIZONTAL_PADDING 14.0f*WIDTH_SCALE
 //上下内边距
 #define HLZ_VERTICAL_PADDING 6.0f
 //背景颜色

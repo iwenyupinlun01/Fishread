@@ -30,6 +30,7 @@
 #define tuichudenglu @"http://"IPAddress"/forum/user/loginout.html?token=%@"
 //圈子之我的 get
 #define quanziwode @"http://"IPAddress"/forum/circle/index.html?token=%@"
-
+//圈子类目展示
+#define quanzileimu @"http://"IPAddress"/forum/circle/circleType.html?token=%@"
 
 #endif /* wangHeader_h */

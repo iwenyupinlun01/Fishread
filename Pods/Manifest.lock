@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Bugly (2.4.7)
   - DZNEmptyDataSet (1.8.1)
+  - IQKeyboardManager (4.0.9)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - AFNetworking
   - Bugly
   - DZNEmptyDataSet
+  - IQKeyboardManager
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -52,6 +55,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b9e5ca087e8bc0cc38b553a5981570728f28342a
+PODFILE CHECKSUM: 46955f5603cadcba9e923c9a3f7ab43683671826
 
 COCOAPODS: 1.2.1

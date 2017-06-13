@@ -7,15 +7,11 @@
 //
 
 #import "chuangjianCell.h"
-#import "HLZIrregulatBtn.h"
-
+#import "quanzileibieModel.h"
 @interface chuangjianCell()
 @property (nonatomic,strong) UILabel *xuanzelab;
-
-
-
-@property (nonatomic,strong) HLZIrregulatBtn *irregulatBtn;
 @property (nonatomic,strong) NSArray *btnArray;
+@property (nonatomic,strong) quanzileibieModel *qmodel;
 @end
 
 @implementation chuangjianCell
@@ -35,26 +31,7 @@
         [self addSubview:self.irregulatBtn];
         
         //数据源
-        NSArray *listArray = @[@"古代言情",
-                               @"现代言情",
-                               @"仙侠奇幻",
-                               @"悬疑灵异",
-                               @"历史军事",
-                               @"游戏竞技",
-                               @"耽美同人",
-                               @" 二次元  "];
-        [self.irregulatBtn getArrayDataSourse:listArray];
         
-        //回调
-        [self.irregulatBtn setChooseBlock:^(UIButton *button) {
-            NSLog(@"index:%ld    indexName:%@",(long)button.tag,listArray[button.tag]);
-        }];
-        
-        //self.irregulatBtn.backgroundColor = [UIColor orangeColor];
-        //重置frame
-        CGSize size = [self.irregulatBtn returnSize];
-        self.irregulatBtn.frame = CGRectMake(14*WIDTH_SCALE, 300, DEVICE_WIDTH - 28*WIDTH_SCALE, size.height);
-        NSLog(@"%f",size.height);
         
         [self setuplayout];
     }
@@ -89,13 +66,6 @@
         make.size.mas_equalTo(CGSizeMake(DEVICE_WIDTH, 36));
     }];
     
-//    [self.irregulatBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.xuanzelab.mas_bottom).with.offset(16);
-//        make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
-//        make.right.equalTo(self).width.offset(-14*WIDTH_SCALE);
-//       // make.size.width.offset(DEVICE_WIDTH);
-//        //make.size.mas_equalTo(CGSizeMake(DEVICE_WIDTH-28*WIDTH_SCALE, 180));
-//    }];
 
 }
 
@@ -109,6 +79,11 @@
         _chuangjianView.layer.masksToBounds = YES;
         _chuangjianView.layer.cornerRadius = 4;
         _chuangjianView.backgroundColor = [UIColor greenColor];
+        
+        _chuangjianView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgclick)];
+        TapGestureTecognizer.cancelsTouchesInView=NO;
+        [_chuangjianView addGestureRecognizer:TapGestureTecognizer];
     }
     return _chuangjianView;
 }
@@ -143,25 +118,10 @@
     return _xuanzelab;
 }
 
-//
-//-(HLZIrregulatBtn *)irregulatBtn
-//{
-//    if(!_irregulatBtn)
-//    {
-//        _irregulatBtn = [[HLZIrregulatBtn alloc] init];
-//        _irregulatBtn.backgroundColor = [UIColor orangeColor];
-//        self.btnArray = [NSArray array];
-//        _btnArray = @[@"古代言情",@"现代言情",@"仙侠奇幻",@"悬疑灵异",@"历史军事",@"游戏竞技",@"耽美同人",@"二次元"];
-//        
-//        [_irregulatBtn getArrayDataSourse:_btnArray];
-////        //重置frame
-////        CGSize size = [_irregulatBtn returnSize];
-////        _irregulatBtn.frame = CGRectMake(15, 150, DEVICE_WIDTH - 30, size.height);
-//    }
-//    
-//    return _irregulatBtn;
-//}
-
+-(void)imgclick
+{
+    [self.delegate myTabVClick:self];
+}
 
 
 

@@ -21,6 +21,7 @@
         [self.contentView addSubview:self.timelab];
         [self.contentView addSubview:self.contentlab];
         
+        [self setuplayout];
     }
     return self;
 }
@@ -28,11 +29,22 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
+
+}
+
+-(void)setuplayout
+{
+    __weak typeof (self) weakSelf = self;
+//    [self.iconimg mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(weakSelf).with.offset(14*WIDTH_SCALE);
+//        make.height.mas_equalTo(134/2*HEIGHT_SCALE);
+//        make.width.mas_equalTo(50*WIDTH_SCALE);
+//        make.top.equalTo(weakSelf).with.offset(14*HEIGHT_SCALE);
+//        
+//    }];
 }
 
 #pragma mark - getters
-
 
 -(UIImageView *)iconimg
 {

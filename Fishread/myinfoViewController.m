@@ -82,8 +82,9 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setSeparatorInset:UIEdgeInsetsZero];
-        cell.infoimage.tag = 200;
-        [cell.infoimage sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+        cell.infoimage.tag = 2001;
+        //[cell.infoimage sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+        
         return cell;
     }
     if (indexPath.row==1) {
@@ -226,7 +227,7 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    UIImageView *picimage = [self.myinfotableView viewWithTag:200];
+    UIImageView *picimage = [self.myinfotableView viewWithTag:2001];
     picimage.image = image;
     [self.myinfotableView reloadData];
 //    

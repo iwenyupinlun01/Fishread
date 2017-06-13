@@ -75,6 +75,10 @@
 		53A1F1261EEE593600ED5EE8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A1F1251EEE593600ED5EE8 /* QuartzCore.framework */; };
 		53A1F1291EEE59E200ED5EE8 /* chuangjianCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1281EEE59E200ED5EE8 /* chuangjianCell2.m */; };
 		53A1F12F1EEE60B500ED5EE8 /* WJGtextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F12E1EEE60B500ED5EE8 /* WJGtextView.m */; };
+		53A1F1321EEE6C5B00ED5EE8 /* pickImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1311EEE6C5B00ED5EE8 /* pickImg.m */; };
+		53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1341EEE794700ED5EE8 /* quanzileibieModel.m */; };
+		53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */; };
+		53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +213,14 @@
 		53A1F1281EEE59E200ED5EE8 /* chuangjianCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chuangjianCell2.m; sourceTree = "<group>"; };
 		53A1F12D1EEE60B500ED5EE8 /* WJGtextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJGtextView.h; sourceTree = "<group>"; };
 		53A1F12E1EEE60B500ED5EE8 /* WJGtextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJGtextView.m; sourceTree = "<group>"; };
+		53A1F1301EEE6C5B00ED5EE8 /* pickImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pickImg.h; sourceTree = "<group>"; };
+		53A1F1311EEE6C5B00ED5EE8 /* pickImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pickImg.m; sourceTree = "<group>"; };
+		53A1F1331EEE794700ED5EE8 /* quanzileibieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanzileibieModel.h; sourceTree = "<group>"; };
+		53A1F1341EEE794700ED5EE8 /* quanzileibieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanzileibieModel.m; sourceTree = "<group>"; };
+		53A1F1371EEEA4FD00ED5EE8 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		53A1F13A1EEEA68700ED5EE8 /* searchtagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchtagView.h; sourceTree = "<group>"; };
+		53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchtagView.m; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +286,7 @@
 		531E8B681EDFDC23007C26D2 /* utlis */ = {
 			isa = PBXGroup;
 			children = (
+				53A1F1361EEEA4DC00ED5EE8 /* utlisView */,
 				533B61EE1EEAA24500DE0392 /* utlismodel */,
 				533B61DD1EEA747D00DE0392 /* HelpTool */,
 				533B61C61EE95FEE00DE0392 /* web */,
@@ -400,6 +413,8 @@
 			children = (
 				533B61EF1EEAA25300DE0392 /* tokenstr.h */,
 				533B61F01EEAA25300DE0392 /* tokenstr.m */,
+				53A1F1301EEE6C5B00ED5EE8 /* pickImg.h */,
+				53A1F1311EEE6C5B00ED5EE8 /* pickImg.m */,
 			);
 			name = utlismodel;
 			sourceTree = "<group>";
@@ -592,14 +607,16 @@
 				535FED9B1EE14D9A007A456D /* wodeCell.m */,
 				5393E3681EE68A3A00392FD4 /* quanbuCell.h */,
 				5393E3691EE68A3A00392FD4 /* quanbuCell.m */,
-				533B61FB1EEABAA800DE0392 /* searchCell0.h */,
-				533B61FC1EEABAA800DE0392 /* searchCell0.m */,
 				533B61FE1EEABAE700DE0392 /* chuangjianCell.h */,
 				533B61FF1EEABAE700DE0392 /* chuangjianCell.m */,
 				53A1F1271EEE59E200ED5EE8 /* chuangjianCell2.h */,
 				53A1F1281EEE59E200ED5EE8 /* chuangjianCell2.m */,
 				53A1F1221EEE3F2900ED5EE8 /* HLZIrregulatBtn.h */,
 				53A1F1231EEE3F2900ED5EE8 /* HLZIrregulatBtn.m */,
+				533B61FB1EEABAA800DE0392 /* searchCell0.h */,
+				533B61FC1EEABAA800DE0392 /* searchCell0.m */,
+				53A1F13A1EEEA68700ED5EE8 /* searchtagView.h */,
+				53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -609,8 +626,19 @@
 			children = (
 				53A1F11D1EEBC71E00ED5EE8 /* wodeModel.h */,
 				53A1F11E1EEBC71E00ED5EE8 /* wodeModel.m */,
+				53A1F1331EEE794700ED5EE8 /* quanzileibieModel.h */,
+				53A1F1341EEE794700ED5EE8 /* quanzileibieModel.m */,
 			);
 			name = M;
+			sourceTree = "<group>";
+		};
+		53A1F1361EEEA4DC00ED5EE8 /* utlisView */ = {
+			isa = PBXGroup;
+			children = (
+				53A1F1371EEEA4FD00ED5EE8 /* UIView+Utils.h */,
+				53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */,
+			);
+			name = utlisView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -766,6 +794,8 @@
 				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
 				533B61CD1EE9655700DE0392 /* setCell1.m in Sources */,
 				533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */,
+				53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */,
+				53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */,
 				533B61E61EEA7B3400DE0392 /* xieyiViewController.m in Sources */,
 				533B61FA1EEAB03F00DE0392 /* searchViewController.m in Sources */,
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
@@ -796,8 +826,10 @@
 				533B61F71EEAAABF00DE0392 /* itemimgView.m in Sources */,
 				533B62001EEABAE700DE0392 /* chuangjianCell.m in Sources */,
 				533B61FD1EEABAA800DE0392 /* searchCell0.m in Sources */,
+				53A1F1321EEE6C5B00ED5EE8 /* pickImg.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
+				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
