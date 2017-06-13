@@ -63,8 +63,6 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
    
     [self.view addSubview:self.searchtableView];
     
-    [self addHeaderjieguo];
-    [self addFooterjiegup];
     
     self.searchtableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -446,6 +444,9 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 {
     [self.view addSubview:self.jieguotableView];
     //[self.jieguotableView setHidden:NO];
+    [self addHeaderjieguo];
+    [self addFooterjiegup];
+    
 }
 
 //输入文本实时更新时调用
@@ -473,13 +474,13 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 - (void)addHeaderjieguo
 {
     // 头部刷新控件
-    self.jieguotableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    self.jieguotableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshActionjieguo)];
     [self.jieguotableView.mj_header beginRefreshing];
 }
 
 - (void)addFooterjiegup
 {
-    self.jieguotableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
+    self.jieguotableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMorejiegup)];
 }
 
 - (void)refreshActionjieguo {
@@ -501,6 +502,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     NSString *typestr = self.customSearchBar.text;
     NSString *urlstr = [NSString stringWithFormat:sousuo,[tokenstr tokenstrfrom],@"1",typestr];
     [PPNetworkHelper GET: urlstr parameters:nil success:^(id responseObject) {
+        
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSArray *ditarr = [responseObject objectForKey:@""];
             for (int i = 0 ; i<ditarr.count; i++) {
@@ -539,6 +541,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     NSString *pnstr = [NSString stringWithFormat:@"%d",jieguopn];
     NSString *urlstr =  [NSString stringWithFormat:sousuo,[tokenstr tokenstrfrom],pnstr,typestr];
     [PPNetworkHelper GET: urlstr parameters:nil success:^(id responseObject) {
+        
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSArray *ditarr = [responseObject objectForKey:@""];
             for (int i = 0 ; i<ditarr.count; i++) {
