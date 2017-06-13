@@ -32,5 +32,7 @@
 #define quanziwode @"http://"IPAddress"/forum/circle/index.html?token=%@"
 //圈子类目展示
 #define quanzileimu @"http://"IPAddress"/forum/circle/circleType.html?token=%@"
+//搜索历史
+#define sousuolishi @"http://"IPAddress"/forum/circle/searchHistory.html?token=%@&page=%@"
 
 #endif /* wangHeader_h */

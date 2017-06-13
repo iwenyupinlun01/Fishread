@@ -29,11 +29,10 @@ static NSString *indentify = @"indentify";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"推荐";
-//     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"放大镜-拷贝"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarAction)];
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"demo" style:UIBarButtonItemStylePlain target:self action:@selector(dengluclick)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.datasourcearr = [NSMutableArray array];
-   
     
     [self addTheCollectionView];
     // 3.1.下拉刷新

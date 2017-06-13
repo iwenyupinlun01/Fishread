@@ -119,32 +119,33 @@
 
 #pragma mark - 传递点击事件
 - (void) click:(UIButton *)button{
-    button.selected = !button.selected;
-    //单选
-    for (int i = 0; i < self.buttonArray.count; i ++) {
-        UIButton *button1 = self.buttonArray[i];
-        if (button.tag == i) {
-            button.selected = button1.selected;
-        }
-        else{
-            button1.selected = NO;
-        }
-        button1.backgroundColor = [UIColor whiteColor];
-        [button1 setTitleColor:HLZ_TEXTCOLOR forState:UIControlStateNormal];
-    }
-    UIButton *button2 = self.buttonArray[button.tag];
-    //选中按钮
-    if (button2.selected) {
-        [button2 setBackgroundColor:HLZ_TEXTCOLOR];
-        [button2 setTitleColor:HLZ_SELECT_TEXTCOLOR forState:UIControlStateNormal];
-        if (self.block) {
-            self.block(button2);
-        }
-    }
-    else{
-        [button2 setBackgroundColor:[UIColor whiteColor]];
-        [button2 setTitleColor:HLZ_TEXTCOLOR forState:UIControlStateNormal];
-    }
+//    button.selected = !button.selected;
+//    //单选
+//    for (int i = 0; i < self.buttonArray.count; i ++) {
+//        UIButton *button1 = self.buttonArray[i];
+//        if (button.tag == i) {
+//            button.selected = button1.selected;
+//        }
+//        else{
+//            button1.selected = NO;
+//        }
+//        button1.backgroundColor = [UIColor whiteColor];
+//        [button1 setTitleColor:HLZ_TEXTCOLOR forState:UIControlStateNormal];
+//    }
+//    UIButton *button2 = self.buttonArray[button.tag];
+//    //选中按钮
+//    if (button2.selected) {
+//        [button2 setBackgroundColor:HLZ_TEXTCOLOR];
+//        [button2 setTitleColor:HLZ_SELECT_TEXTCOLOR forState:UIControlStateNormal];
+//        if (self.block) {
+//            self.block(button2);
+//        }
+//    }
+//    else{
+//        [button2 setBackgroundColor:[UIColor whiteColor]];
+//        [button2 setTitleColor:HLZ_TEXTCOLOR forState:UIControlStateNormal];
+//    }
+    
 }
 
 - (void) setChooseBlock:(chooseBlock)block{

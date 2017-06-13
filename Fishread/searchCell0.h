@@ -13,8 +13,6 @@
 
 -(void)myTabVClick:(UITableViewCell *)cell;
 
-
-
 @end
 @interface searchCell0 : UITableViewCell
 @property (nonatomic,strong) UIButton *replacebtn;

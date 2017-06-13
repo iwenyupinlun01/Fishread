@@ -23,9 +23,8 @@
         [self.contentView addSubview:self.replacebtn];
         
         self.tagview = [[searchtagView alloc]initWithFrame:CGRectMake(14*WIDTH_SCALE, 46*HEIGHT_SCALE, DEVICE_WIDTH - 28*WIDTH_SCALE, DEVICE_HEIGHT)];
-        _tagview.backgroundColor = [UIColor orangeColor];
+        //_tagview.backgroundColor = [UIColor orangeColor];
         [self addSubview:self.tagview];
-        
         [self setuplayout];
     }
     return self;

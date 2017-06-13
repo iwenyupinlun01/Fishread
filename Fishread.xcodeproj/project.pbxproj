@@ -15,6 +15,9 @@
 		531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B7D1EDFEA7A007C26D2 /* infoViewController.m */; };
 		531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B821EDFF454007C26D2 /* PPNetworkCache.m */; };
 		531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */; };
+		5330207A1EEFBAC300D08825 /* historyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020791EEFBAC300D08825 /* historyModel.m */; };
+		5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330207C1EEFBB2000D08825 /* searchCell1.m */; };
+		533020801EEFC8BF00D08825 /* searchheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330207F1EEFC8BF00D08825 /* searchheadView.m */; };
 		533B61B11EE9367C00DE0392 /* setViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B01EE9367C00DE0392 /* setViewController.m */; };
 		533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B31EE93CA100DE0392 /* publishedViewController.m */; };
 		533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B61EE93D0100DE0392 /* collectionViewController.m */; };
@@ -97,6 +100,12 @@
 		531E8B821EDFF454007C26D2 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
 		531E8B831EDFF454007C26D2 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
 		531E8B841EDFF454007C26D2 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
+		533020781EEFBAC300D08825 /* historyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = historyModel.h; sourceTree = "<group>"; };
+		533020791EEFBAC300D08825 /* historyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = historyModel.m; sourceTree = "<group>"; };
+		5330207B1EEFBB2000D08825 /* searchCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchCell1.h; sourceTree = "<group>"; };
+		5330207C1EEFBB2000D08825 /* searchCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchCell1.m; sourceTree = "<group>"; };
+		5330207E1EEFC8BF00D08825 /* searchheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchheadView.h; sourceTree = "<group>"; };
+		5330207F1EEFC8BF00D08825 /* searchheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchheadView.m; sourceTree = "<group>"; };
 		533B61AF1EE9367C00DE0392 /* setViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setViewController.h; sourceTree = "<group>"; };
 		533B61B01EE9367C00DE0392 /* setViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setViewController.m; sourceTree = "<group>"; };
 		533B61B21EE93CA100DE0392 /* publishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publishedViewController.h; sourceTree = "<group>"; };
@@ -617,6 +626,10 @@
 				533B61FC1EEABAA800DE0392 /* searchCell0.m */,
 				53A1F13A1EEEA68700ED5EE8 /* searchtagView.h */,
 				53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */,
+				5330207B1EEFBB2000D08825 /* searchCell1.h */,
+				5330207C1EEFBB2000D08825 /* searchCell1.m */,
+				5330207E1EEFC8BF00D08825 /* searchheadView.h */,
+				5330207F1EEFC8BF00D08825 /* searchheadView.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -628,6 +641,8 @@
 				53A1F11E1EEBC71E00ED5EE8 /* wodeModel.m */,
 				53A1F1331EEE794700ED5EE8 /* quanzileibieModel.h */,
 				53A1F1341EEE794700ED5EE8 /* quanzileibieModel.m */,
+				533020781EEFBAC300D08825 /* historyModel.h */,
+				533020791EEFBAC300D08825 /* historyModel.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -801,6 +816,7 @@
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,
+				5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				53A1F12F1EEE60B500ED5EE8 /* WJGtextView.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
@@ -812,6 +828,7 @@
 				534F83F51EE8F999003773E9 /* mymessageCell0.m in Sources */,
 				5393E3791EE6BEAF00392FD4 /* myinfoCell1.m in Sources */,
 				533B61E31EEA747D00DE0392 /* UILabel+textOfNumberLines.m in Sources */,
+				5330207A1EEFBAC300D08825 /* historyModel.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
 				533B61C11EE93FA000DE0392 /* collectionCell.m in Sources */,
 				533B61B11EE9367C00DE0392 /* setViewController.m in Sources */,
@@ -828,6 +845,7 @@
 				533B61FD1EEABAA800DE0392 /* searchCell0.m in Sources */,
 				53A1F1321EEE6C5B00ED5EE8 /* pickImg.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
+				533020801EEFC8BF00D08825 /* searchheadView.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
