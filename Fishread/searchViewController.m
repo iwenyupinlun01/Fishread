@@ -12,9 +12,13 @@
 #import "UIView+Utils.h"
 #import "historyModel.h"
 #import "searchheadView.h"
+#import "jieguoCell.h"
+#import "jieguoModel.h"
+
 @interface searchViewController ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,mycellVdelegate,myheadviewVdelegate>
 {
     int pn;
+    int jieguopn;
 }
 @property (nonatomic,strong) UISearchBar *customSearchBar;
 @property (nonatomic,strong) UITableView *searchtableView;
@@ -23,10 +27,15 @@
 @property (nonatomic,strong) NSMutableArray *relation_idArray;
 @property (nonatomic,strong) NSMutableArray *historyDatasourceArray;
 
+@property (nonatomic,strong) UITableView *jieguotableView;
+
+@property (nonatomic,strong) NSMutableArray *jieguodataArray;
 @end
 
 static NSString *searchidentfid0 = @"searchidentfid0";
 static NSString *searchidentfid1 = @"searchudebtfud1";
+static NSString *jieguoideentfid = @"jieguoidentfid";
+
 @implementation searchViewController
 
 - (void)viewDidLoad {
@@ -48,13 +57,18 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
     self.listidArray = [NSMutableArray array];
     self.relation_idArray = [NSMutableArray array];
     self.historyDatasourceArray = [NSMutableArray array];
-    
+    self.jieguodataArray = [NSMutableArray array];
     [self addHeader];
     [self addFooter];
    
     [self.view addSubview:self.searchtableView];
     
+    [self addHeaderjieguo];
+    [self addFooterjiegup];
+    
     self.searchtableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,7 +149,7 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
             NSDictionary *dit = [hisarr objectAtIndex:i];
             hmodel.historysearchkey = [dit objectForKey:@"search_key"];
             hmodel.historystarchid = [dit objectForKey:@"id"];
-            hmodel.historysearchkey = @"demo";
+//            hmodel.historysearchkey = @"demo";
             [self.historyDatasourceArray addObject:hmodel];
         }
         
@@ -168,7 +182,7 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
             NSDictionary *dit = [hisarr objectAtIndex:i];
             hmodel.historysearchkey = [dit objectForKey:@"search_key"];
             hmodel.historystarchid = [dit objectForKey:@"id"];
-            hmodel.historysearchkey = @"demo";
+//            hmodel.historysearchkey = @"demo";
             
             [self.historyDatasourceArray addObject:hmodel];
         }
@@ -220,16 +234,39 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
     return _searchtableView;
 }
 
+-(UITableView *)jieguotableView
+{
+    if(!_jieguotableView)
+    {
+        _jieguotableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, DEVICE_WIDTH, DEVICE_HEIGHT-64)];
+        _jieguotableView.dataSource = self;
+        _jieguotableView.delegate = self;
+        [_jieguotableView setHidden:NO];
+        
+        UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide2)];
+        TapGestureTecognizer.cancelsTouchesInView=NO;
+        [self.jieguotableView addGestureRecognizer:TapGestureTecognizer];
+        
+    }
+    return _jieguotableView;
+}
+
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section==0) {
-        return 0.01f;
+    if (tableView==self.searchtableView) {
+        if (section==0) {
+            return 0.01f;
+        }else
+        {
+            return 50*HEIGHT_SCALE;
+        }
     }else
     {
-        return 50*HEIGHT_SCALE;
+        return 0.01f;
     }
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -239,9 +276,15 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (self.historyDatasourceArray.count!=0) {
-        return 2;
-    }else
+    if (tableView==self.searchtableView) {
+        if (self.historyDatasourceArray.count!=0) {
+            return 2;
+        }else
+        {
+            return 1;
+        }
+    }
+    else
     {
         return 1;
     }
@@ -249,32 +292,49 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) {
-        return 1;
+    if (tableView==self.searchtableView) {
+        if (section==0) {
+            return 1;
+        }
+        if (section==1) {
+            return self.historyDatasourceArray.count;
+        }
+        return 0;
     }
-    if (section==1) {
-        return self.historyDatasourceArray.count;
+    else
+    {
+        return self.jieguodataArray.count;
     }
-    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
-        searchCell0 *cell = [tableView dequeueReusableCellWithIdentifier:searchidentfid0];
-        cell = [[searchCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:searchidentfid0];
-        cell.delegate = self;
-        [cell.tagview getArrayDataSourse:self.listArray];
-        //重置frame
-        CGSize size = [cell.tagview returnSize];
-        cell.tagview.frame = CGRectMake(14*WIDTH_SCALE, 46*HEIGHT_SCALE, DEVICE_WIDTH - 28*WIDTH_SCALE, size.height);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+    if (tableView==self.searchtableView) {
+        if (indexPath.section==0) {
+            searchCell0 *cell = [tableView dequeueReusableCellWithIdentifier:searchidentfid0];
+            cell = [[searchCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:searchidentfid0];
+            cell.delegate = self;
+            [cell.tagview getArrayDataSourse:self.listArray];
+            //重置frame
+            CGSize size = [cell.tagview returnSize];
+            cell.tagview.frame = CGRectMake(14*WIDTH_SCALE, 46*HEIGHT_SCALE, DEVICE_WIDTH - 28*WIDTH_SCALE, size.height);
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }else
+        {
+            searchCell1 *cell = [tableView dequeueReusableCellWithIdentifier:searchidentfid1];
+            cell = [[searchCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:searchidentfid1];
+            [cell setdata:self.historyDatasourceArray[indexPath.row]];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+
     }else
     {
-        searchCell1 *cell = [tableView dequeueReusableCellWithIdentifier:searchidentfid1];
-        cell = [[searchCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:searchidentfid1];
-        [cell setdata:self.historyDatasourceArray[indexPath.row]];
+        jieguoCell *cell = [tableView dequeueReusableCellWithIdentifier:jieguoideentfid];
+        cell = [[jieguoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jieguoideentfid];
+        //cell.textLabel.text = @"搜索结果展示";
+        [cell setdata:self.jieguodataArray[indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -283,23 +343,32 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
-        //return 200;
-        searchCell0 *cell = [[searchCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:searchidentfid0];
-        [cell.tagview getArrayDataSourse:self.listArray];
-        //重置frame
-        CGSize size = [cell.tagview returnSize];
-        return size.height+60*HEIGHT_SCALE;
-        
-    }else
+    
+    if (tableView==self.searchtableView) {
+        if (indexPath.section==0) {
+            //return 200;
+            searchCell0 *cell = [[searchCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:searchidentfid0];
+            [cell.tagview getArrayDataSourse:self.listArray];
+            //重置frame
+            CGSize size = [cell.tagview returnSize];
+            return size.height+60*HEIGHT_SCALE;
+            
+        }else
+        {
+            return 60*HEIGHT_SCALE;
+        }
+
+    }
+    else
     {
-        return 60*HEIGHT_SCALE;
+        return 192/2*HEIGHT_SCALE;
     }
     return 0;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    
     if (section==1) {
         searchheadView *view = [[searchheadView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
         view.backgroundColor = [UIColor whiteColor];
@@ -319,12 +388,48 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
     NSLog(@"清空");
 }
 
+//先要设Cell可编辑
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.searchtableView) {
+        if (indexPath.section==1) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+//定义编辑样式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+//进入编辑模式，按下出现的编辑按钮后,进行删除操作
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.historyDatasourceArray removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        [self.searchtableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+//修改编辑按钮文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
 #pragma mark - UISearchBarDelegate
 
 //cancel按钮点击时调用
 
 - (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    //[self.jieguotableView setHidden:NO];
+    [self.jieguotableView removeFromSuperview];
     self.customSearchBar.showsCancelButton = NO;
     [searchBar resignFirstResponder];
 }
@@ -339,8 +444,8 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    
-    
+    [self.view addSubview:self.jieguotableView];
+    //[self.jieguotableView setHidden:NO];
 }
 
 //输入文本实时更新时调用
@@ -363,6 +468,102 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
 //    [self handleSearchForTerm:searchText];
 }
 
+#pragma mark - 搜索界面加载方法
+
+- (void)addHeaderjieguo
+{
+    // 头部刷新控件
+    self.jieguotableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    [self.jieguotableView.mj_header beginRefreshing];
+}
+
+- (void)addFooterjiegup
+{
+    self.jieguotableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
+}
+
+- (void)refreshActionjieguo {
+    
+    [self headerRefreshEndActionjieguo];
+    
+}
+
+- (void)refreshLoadMorejiegup {
+    
+    [self footerRefreshEndActionjieguo];
+}
+
+-(void)headerRefreshEndActionjieguo
+{
+    [self.jieguodataArray removeAllObjects];
+    
+    jieguopn = 1;
+    NSString *typestr = self.customSearchBar.text;
+    NSString *urlstr = [NSString stringWithFormat:sousuo,[tokenstr tokenstrfrom],@"1",typestr];
+    [PPNetworkHelper GET: urlstr parameters:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSArray *ditarr = [responseObject objectForKey:@""];
+            for (int i = 0 ; i<ditarr.count; i++) {
+                NSDictionary *dit = [ditarr objectAtIndex:i];
+                jieguoModel *model = [[jieguoModel alloc] init];
+                model.idstr = [dit objectForKey:@"id"];
+                model.leftimgstr = [dit objectForKey:@"cover"];
+                model.namestr = [dit objectForKey:@"title"];
+                model.typestr = [dit objectForKey:@"relation_id"];
+                
+                [self.jieguodataArray addObject:model];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.jieguotableView.mj_header endRefreshing];
+                [self.jieguotableView reloadData];
+            });
+        }else
+        {
+            [MBProgressHUD showSuccess:@"没有查询出任何数据"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.jieguotableView.mj_header endRefreshing];
+                [self.jieguotableView reloadData];
+            });
+        }
+        
+     
+    } failure:^(NSError *error) {
+        [self.jieguotableView.mj_header endRefreshing];
+    }];
+}
+
+-(void)footerRefreshEndActionjieguo
+{
+    jieguopn++;
+    NSString *typestr = self.customSearchBar.text;
+    NSString *pnstr = [NSString stringWithFormat:@"%d",jieguopn];
+    NSString *urlstr =  [NSString stringWithFormat:sousuo,[tokenstr tokenstrfrom],pnstr,typestr];
+    [PPNetworkHelper GET: urlstr parameters:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSArray *ditarr = [responseObject objectForKey:@""];
+            for (int i = 0 ; i<ditarr.count; i++) {
+                NSDictionary *dit = [ditarr objectAtIndex:i];
+                jieguoModel *model = [[jieguoModel alloc] init];
+                model.idstr = [dit objectForKey:@"id"];
+                model.leftimgstr = [dit objectForKey:@"cover"];
+                model.namestr = [dit objectForKey:@"title"];
+                model.typestr = [dit objectForKey:@"relation_id"];
+                
+                [self.jieguodataArray addObject:model];
+            }
+        }else
+        {
+            [MBProgressHUD showSuccess:@"没有查询出任何数据"];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.jieguotableView.mj_footer endRefreshing];
+            [self.jieguotableView reloadData];
+        });
+    } failure:^(NSError *error) {
+        [self.jieguotableView.mj_footer endRefreshing];
+    }];
+}
+
 #pragma mark - 实现方法
 
 -(void)backAction
@@ -376,4 +577,9 @@ static NSString *searchidentfid1 = @"searchudebtfud1";
     [self.customSearchBar resignFirstResponder];
 }
 
+-(void)keyboardHide2
+{
+    self.customSearchBar.showsCancelButton = NO;
+    [self.customSearchBar resignFirstResponder];
+}
 @end

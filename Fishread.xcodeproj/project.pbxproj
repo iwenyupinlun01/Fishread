@@ -18,6 +18,8 @@
 		5330207A1EEFBAC300D08825 /* historyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020791EEFBAC300D08825 /* historyModel.m */; };
 		5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330207C1EEFBB2000D08825 /* searchCell1.m */; };
 		533020801EEFC8BF00D08825 /* searchheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330207F1EEFC8BF00D08825 /* searchheadView.m */; };
+		533020831EEFDF9800D08825 /* jieguoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020821EEFDF9800D08825 /* jieguoCell.m */; };
+		533020861EEFE58900D08825 /* jieguoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020851EEFE58900D08825 /* jieguoModel.m */; };
 		533B61B11EE9367C00DE0392 /* setViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B01EE9367C00DE0392 /* setViewController.m */; };
 		533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B31EE93CA100DE0392 /* publishedViewController.m */; };
 		533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B61EE93D0100DE0392 /* collectionViewController.m */; };
@@ -106,6 +108,10 @@
 		5330207C1EEFBB2000D08825 /* searchCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchCell1.m; sourceTree = "<group>"; };
 		5330207E1EEFC8BF00D08825 /* searchheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchheadView.h; sourceTree = "<group>"; };
 		5330207F1EEFC8BF00D08825 /* searchheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchheadView.m; sourceTree = "<group>"; };
+		533020811EEFDF9800D08825 /* jieguoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jieguoCell.h; sourceTree = "<group>"; };
+		533020821EEFDF9800D08825 /* jieguoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jieguoCell.m; sourceTree = "<group>"; };
+		533020841EEFE58900D08825 /* jieguoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jieguoModel.h; sourceTree = "<group>"; };
+		533020851EEFE58900D08825 /* jieguoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jieguoModel.m; sourceTree = "<group>"; };
 		533B61AF1EE9367C00DE0392 /* setViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setViewController.h; sourceTree = "<group>"; };
 		533B61B01EE9367C00DE0392 /* setViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setViewController.m; sourceTree = "<group>"; };
 		533B61B21EE93CA100DE0392 /* publishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publishedViewController.h; sourceTree = "<group>"; };
@@ -630,6 +636,8 @@
 				5330207C1EEFBB2000D08825 /* searchCell1.m */,
 				5330207E1EEFC8BF00D08825 /* searchheadView.h */,
 				5330207F1EEFC8BF00D08825 /* searchheadView.m */,
+				533020811EEFDF9800D08825 /* jieguoCell.h */,
+				533020821EEFDF9800D08825 /* jieguoCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -643,6 +651,8 @@
 				53A1F1341EEE794700ED5EE8 /* quanzileibieModel.m */,
 				533020781EEFBAC300D08825 /* historyModel.h */,
 				533020791EEFBAC300D08825 /* historyModel.m */,
+				533020841EEFE58900D08825 /* jieguoModel.h */,
+				533020851EEFE58900D08825 /* jieguoModel.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -838,6 +848,7 @@
 				533B61F41EEAA64800DE0392 /* homeModel.m in Sources */,
 				533B61BB1EE93DC500DE0392 /* loginViewController.m in Sources */,
 				533B61ED1EEA87DC00DE0392 /* MBProgressHUD+XMG.m in Sources */,
+				533020831EEFDF9800D08825 /* jieguoCell.m in Sources */,
 				533B61DC1EEA727800DE0392 /* feedbackViewController.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				533B61F71EEAAABF00DE0392 /* itemimgView.m in Sources */,
@@ -846,6 +857,7 @@
 				53A1F1321EEE6C5B00ED5EE8 /* pickImg.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533020801EEFC8BF00D08825 /* searchheadView.m in Sources */,
+				533020861EEFE58900D08825 /* jieguoModel.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,

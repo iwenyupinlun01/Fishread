@@ -42,6 +42,9 @@
 //        make.top.equalTo(weakSelf).with.offset(14*HEIGHT_SCALE);
 //        
 //    }];
+    [self.iconimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
 }
 
 #pragma mark - getters

@@ -34,5 +34,7 @@
 #define quanzileimu @"http://"IPAddress"/forum/circle/circleType.html?token=%@"
 //搜索历史
 #define sousuolishi @"http://"IPAddress"/forum/circle/searchHistory.html?token=%@&page=%@"
+//搜索 get
+#define sousuo @"http://"IPAddress"/forum/circle/searchShow.html?token=%@&page=%@&key=%@"
 
 #endif /* wangHeader_h */
