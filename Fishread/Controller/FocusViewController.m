@@ -24,10 +24,8 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.dataSource = [NSMutableArray array];
-    
     [self.view addSubview:self.wodeTableview];
     self.wodeTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-  
 }
 
 -(void)viewDidAppear:(BOOL)animated

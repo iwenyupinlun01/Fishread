@@ -46,6 +46,7 @@
     for (NSInteger i = 0; i < self.titleNames.count; i ++) {
         UIViewController *viewClass = [[NSClassFromString(viewArray[i]) alloc] init];
         viewClass.title = self.titleNames[i];
+        
         [self addChildViewController:viewClass];
     }
     self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.titleNames.count, 0);

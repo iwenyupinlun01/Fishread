@@ -15,9 +15,9 @@
 //两个按钮上下之间的间隙
 #define HLZ_BUTTON_PADDING_UP 14.0f
 //字体大小
-#define HLZ_FONT_SIZE 14.0f
+#define HLZ_FONT_SIZE 14.0f*WIDTH_SCALE
 //左右内边距
-#define HLZ_HORIZONTAL_PADDING 14.0f*WIDTH_SCALE
+#define HLZ_HORIZONTAL_PADDING 11.0f
 //上下内边距
 #define HLZ_VERTICAL_PADDING 6.0f
 //背景颜色
@@ -70,7 +70,7 @@
     
     for (NSString *singleText in self.arrDataSourse) {
         CGRect textSize  = [self sizeWithFont:singleText];
-        textSize.size.width += HLZ_HORIZONTAL_PADDING*2;
+        textSize.size.width += HLZ_HORIZONTAL_PADDING*2*WIDTH_SCALE;
         textSize.size.height += HLZ_VERTICAL_PADDING*2;
         UIButton *irregulatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         if (!gotPreviousFrame) {

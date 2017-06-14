@@ -20,6 +20,19 @@
 		533020801EEFC8BF00D08825 /* searchheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330207F1EEFC8BF00D08825 /* searchheadView.m */; };
 		533020831EEFDF9800D08825 /* jieguoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020821EEFDF9800D08825 /* jieguoCell.m */; };
 		533020861EEFE58900D08825 /* jieguoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020851EEFE58900D08825 /* jieguoModel.m */; };
+		533020891EF0F8A800D08825 /* quanbuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020881EF0F8A800D08825 /* quanbuModel.m */; };
+		5330208C1EF1150C00D08825 /* UILabel+MultipleLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330208B1EF1150C00D08825 /* UILabel+MultipleLines.m */; };
+		533020901EF13C4300D08825 /* dianzanBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330208F1EF13C4300D08825 /* dianzanBtn.m */; };
+		533020931EF13C5600D08825 /* pinglunBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020921EF13C5600D08825 /* pinglunBtn.m */; };
+		533020961EF13CBB00D08825 /* taolunquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020951EF13CBB00D08825 /* taolunquanViewController.m */; };
+		533020B21EF14BE800D08825 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020B11EF14BE800D08825 /* TableViewController.m */; };
+		533020C11EF14C3200D08825 /* HJTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020B51EF14C3200D08825 /* HJTabViewBar.m */; };
+		533020C21EF14C3200D08825 /* HJTabViewController+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020B81EF14C3200D08825 /* HJTabViewController+ViewController.m */; };
+		533020C31EF14C3200D08825 /* HJTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020BA1EF14C3200D08825 /* HJTabViewController.m */; };
+		533020C41EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020BC1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m */; };
+		533020C51EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020BE1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m */; };
+		533020C61EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */; };
+		533020CA1EF14C6E00D08825 /* HJDefaultTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */; };
 		533B61B11EE9367C00DE0392 /* setViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B01EE9367C00DE0392 /* setViewController.m */; };
 		533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B31EE93CA100DE0392 /* publishedViewController.m */; };
 		533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B61EE93D0100DE0392 /* collectionViewController.m */; };
@@ -112,6 +125,33 @@
 		533020821EEFDF9800D08825 /* jieguoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jieguoCell.m; sourceTree = "<group>"; };
 		533020841EEFE58900D08825 /* jieguoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jieguoModel.h; sourceTree = "<group>"; };
 		533020851EEFE58900D08825 /* jieguoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jieguoModel.m; sourceTree = "<group>"; };
+		533020871EF0F8A800D08825 /* quanbuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanbuModel.h; sourceTree = "<group>"; };
+		533020881EF0F8A800D08825 /* quanbuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanbuModel.m; sourceTree = "<group>"; };
+		5330208A1EF1150C00D08825 /* UILabel+MultipleLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+MultipleLines.h"; sourceTree = "<group>"; };
+		5330208B1EF1150C00D08825 /* UILabel+MultipleLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MultipleLines.m"; sourceTree = "<group>"; };
+		5330208E1EF13C4300D08825 /* dianzanBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dianzanBtn.h; sourceTree = "<group>"; };
+		5330208F1EF13C4300D08825 /* dianzanBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dianzanBtn.m; sourceTree = "<group>"; };
+		533020911EF13C5600D08825 /* pinglunBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinglunBtn.h; sourceTree = "<group>"; };
+		533020921EF13C5600D08825 /* pinglunBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinglunBtn.m; sourceTree = "<group>"; };
+		533020941EF13CBB00D08825 /* taolunquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taolunquanViewController.h; sourceTree = "<group>"; };
+		533020951EF13CBB00D08825 /* taolunquanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taolunquanViewController.m; sourceTree = "<group>"; };
+		533020B01EF14BE800D08825 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		533020B11EF14BE800D08825 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		533020B41EF14C3200D08825 /* HJTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewBar.h; sourceTree = "<group>"; };
+		533020B51EF14C3200D08825 /* HJTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewBar.m; sourceTree = "<group>"; };
+		533020B61EF14C3200D08825 /* HJTabViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJTabViewController+Private.h"; sourceTree = "<group>"; };
+		533020B71EF14C3200D08825 /* HJTabViewController+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJTabViewController+ViewController.h"; sourceTree = "<group>"; };
+		533020B81EF14C3200D08825 /* HJTabViewController+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJTabViewController+ViewController.m"; sourceTree = "<group>"; };
+		533020B91EF14C3200D08825 /* HJTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewController.h; sourceTree = "<group>"; };
+		533020BA1EF14C3200D08825 /* HJTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewController.m; sourceTree = "<group>"; };
+		533020BB1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_Base.h; sourceTree = "<group>"; };
+		533020BC1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_Base.m; sourceTree = "<group>"; };
+		533020BD1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_HeaderScroll.h; sourceTree = "<group>"; };
+		533020BE1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_HeaderScroll.m; sourceTree = "<group>"; };
+		533020BF1EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_TabViewBar.h; sourceTree = "<group>"; };
+		533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_TabViewBar.m; sourceTree = "<group>"; };
+		533020C81EF14C6E00D08825 /* HJDefaultTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJDefaultTabViewBar.h; sourceTree = "<group>"; };
+		533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJDefaultTabViewBar.m; sourceTree = "<group>"; };
 		533B61AF1EE9367C00DE0392 /* setViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setViewController.h; sourceTree = "<group>"; };
 		533B61B01EE9367C00DE0392 /* setViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setViewController.m; sourceTree = "<group>"; };
 		533B61B21EE93CA100DE0392 /* publishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publishedViewController.h; sourceTree = "<group>"; };
@@ -325,6 +365,8 @@
 		531E8B731EDFE55A007C26D2 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				533020C71EF14C6E00D08825 /* HJTabViewBar */,
+				533020B31EF14C3200D08825 /* HJTabViewController */,
 				533E19BE1EE28650000CE670 /* M */,
 				533E19BC1EE28649000CE670 /* V */,
 				533E19BB1EE28648000CE670 /* C */,
@@ -371,6 +413,46 @@
 			path = PPNetworkHelper;
 			sourceTree = "<group>";
 		};
+		5330208D1EF13C2300D08825 /* btnView */ = {
+			isa = PBXGroup;
+			children = (
+				5330208E1EF13C4300D08825 /* dianzanBtn.h */,
+				5330208F1EF13C4300D08825 /* dianzanBtn.m */,
+				533020911EF13C5600D08825 /* pinglunBtn.h */,
+				533020921EF13C5600D08825 /* pinglunBtn.m */,
+			);
+			name = btnView;
+			sourceTree = "<group>";
+		};
+		533020B31EF14C3200D08825 /* HJTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				533020B41EF14C3200D08825 /* HJTabViewBar.h */,
+				533020B51EF14C3200D08825 /* HJTabViewBar.m */,
+				533020B61EF14C3200D08825 /* HJTabViewController+Private.h */,
+				533020B71EF14C3200D08825 /* HJTabViewController+ViewController.h */,
+				533020B81EF14C3200D08825 /* HJTabViewController+ViewController.m */,
+				533020B91EF14C3200D08825 /* HJTabViewController.h */,
+				533020BA1EF14C3200D08825 /* HJTabViewController.m */,
+				533020BB1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.h */,
+				533020BC1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m */,
+				533020BD1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.h */,
+				533020BE1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m */,
+				533020BF1EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.h */,
+				533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */,
+			);
+			path = HJTabViewController;
+			sourceTree = "<group>";
+		};
+		533020C71EF14C6E00D08825 /* HJTabViewBar */ = {
+			isa = PBXGroup;
+			children = (
+				533020C81EF14C6E00D08825 /* HJDefaultTabViewBar.h */,
+				533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */,
+			);
+			path = HJTabViewBar;
+			sourceTree = "<group>";
+		};
 		533B61B81EE93DB600DE0392 /* 登陆 */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +492,8 @@
 				533B61DF1EEA747D00DE0392 /* HelpTool.m */,
 				533B61E01EEA747D00DE0392 /* UILabel+textOfNumberLines.h */,
 				533B61E11EEA747D00DE0392 /* UILabel+textOfNumberLines.m */,
+				5330208A1EF1150C00D08825 /* UILabel+MultipleLines.h */,
+				5330208B1EF1150C00D08825 /* UILabel+MultipleLines.m */,
 			);
 			path = HelpTool;
 			sourceTree = "<group>";
@@ -508,6 +592,10 @@
 			children = (
 				531E8B761EDFE582007C26D2 /* homeViewController.h */,
 				531E8B771EDFE582007C26D2 /* homeViewController.m */,
+				533020941EF13CBB00D08825 /* taolunquanViewController.h */,
+				533020951EF13CBB00D08825 /* taolunquanViewController.m */,
+				533020B01EF14BE800D08825 /* TableViewController.h */,
+				533020B11EF14BE800D08825 /* TableViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -618,6 +706,7 @@
 		535FED971EE14D4C007A456D /* V */ = {
 			isa = PBXGroup;
 			children = (
+				5330208D1EF13C2300D08825 /* btnView */,
 				535FED9A1EE14D9A007A456D /* wodeCell.h */,
 				535FED9B1EE14D9A007A456D /* wodeCell.m */,
 				5393E3681EE68A3A00392FD4 /* quanbuCell.h */,
@@ -653,6 +742,8 @@
 				533020791EEFBAC300D08825 /* historyModel.m */,
 				533020841EEFE58900D08825 /* jieguoModel.h */,
 				533020851EEFE58900D08825 /* jieguoModel.m */,
+				533020871EF0F8A800D08825 /* quanbuModel.h */,
+				533020881EF0F8A800D08825 /* quanbuModel.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -815,17 +906,22 @@
 				535FED8A1EE14673007A456D /* NearViewController.m in Sources */,
 				535FED8C1EE14673007A456D /* MainTitleView.m in Sources */,
 				535FED9C1EE14D9A007A456D /* wodeCell.m in Sources */,
+				533020961EF13CBB00D08825 /* taolunquanViewController.m in Sources */,
+				5330208C1EF1150C00D08825 /* UILabel+MultipleLines.m in Sources */,
 				533CF7181EE0071E00F866B9 /* infoCell.m in Sources */,
 				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
 				533B61CD1EE9655700DE0392 /* setCell1.m in Sources */,
 				533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */,
 				53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */,
+				533020891EF0F8A800D08825 /* quanbuModel.m in Sources */,
 				53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */,
 				533B61E61EEA7B3400DE0392 /* xieyiViewController.m in Sources */,
 				533B61FA1EEAB03F00DE0392 /* searchViewController.m in Sources */,
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				533020C41EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m in Sources */,
 				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,
+				533020C11EF14C3200D08825 /* HJTabViewBar.m in Sources */,
 				5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				53A1F12F1EEE60B500ED5EE8 /* WJGtextView.m in Sources */,
@@ -834,6 +930,7 @@
 				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
 				533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */,
+				533020C61EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
 				533E19C11EE2866D000CE670 /* homeCell.m in Sources */,
 				534F83F51EE8F999003773E9 /* mymessageCell0.m in Sources */,
 				5393E3791EE6BEAF00392FD4 /* myinfoCell1.m in Sources */,
@@ -847,20 +944,27 @@
 				5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */,
 				533B61F41EEAA64800DE0392 /* homeModel.m in Sources */,
 				533B61BB1EE93DC500DE0392 /* loginViewController.m in Sources */,
+				533020931EF13C5600D08825 /* pinglunBtn.m in Sources */,
 				533B61ED1EEA87DC00DE0392 /* MBProgressHUD+XMG.m in Sources */,
 				533020831EEFDF9800D08825 /* jieguoCell.m in Sources */,
 				533B61DC1EEA727800DE0392 /* feedbackViewController.m in Sources */,
+				533020C51EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				533B61F71EEAAABF00DE0392 /* itemimgView.m in Sources */,
 				533B62001EEABAE700DE0392 /* chuangjianCell.m in Sources */,
 				533B61FD1EEABAA800DE0392 /* searchCell0.m in Sources */,
 				53A1F1321EEE6C5B00ED5EE8 /* pickImg.m in Sources */,
+				533020C31EF14C3200D08825 /* HJTabViewController.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533020801EEFC8BF00D08825 /* searchheadView.m in Sources */,
 				533020861EEFE58900D08825 /* jieguoModel.m in Sources */,
+				533020B21EF14BE800D08825 /* TableViewController.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,
+				533020C21EF14C3200D08825 /* HJTabViewController+ViewController.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
+				533020901EF13C4300D08825 /* dianzanBtn.m in Sources */,
+				533020CA1EF14C6E00D08825 /* HJDefaultTabViewBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

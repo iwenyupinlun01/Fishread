@@ -11,6 +11,7 @@
 #import "MyHeaderView.h"
 #import "loginViewController.h"
 #import "homeModel.h"
+#import "taolunquanViewController.h"
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
 {
     int pn;
@@ -231,6 +232,8 @@ static NSString *indentify = @"indentify";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%ld",indexPath.row);
+    taolunquanViewController *taolunquanVC = [[taolunquanViewController alloc] init];
+    [self.navigationController pushViewController:taolunquanVC animated:YES];
 }
 
 #pragma mark - UITextFieldDelegate

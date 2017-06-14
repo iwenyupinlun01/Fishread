@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class quanbuModel;
 
 @interface quanbuCell : UITableViewCell
-@property (nonatomic,strong) UIImageView *iconimg;
-@property (nonatomic,strong) UILabel *namelab;
-@property (nonatomic,strong) UILabel *timelab;
-@property (nonatomic,strong) UILabel *contentlab;
-@property (nonatomic,strong) UILabel *bookname;
+
+-(CGFloat )setdata:(quanbuModel *)model;
 
 @end

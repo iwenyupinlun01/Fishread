@@ -36,5 +36,10 @@
 #define sousuolishi @"http://"IPAddress"/forum/circle/searchHistory.html?token=%@&page=%@"
 //搜索 get
 #define sousuo @"http://"IPAddress"/forum/circle/searchShow.html?token=%@&page=%@&key=%@"
+//删除搜索
+#define shanchusosuo @"http://"IPAddress"/circle/delSearchHis.html?token=%@&id=%@"
+
+//全部get
+#define quanziquanbu @"http://"IPAddress"/forum/index/index.html?token=%@&page=%@&judge=%@"
 
 #endif /* wangHeader_h */
