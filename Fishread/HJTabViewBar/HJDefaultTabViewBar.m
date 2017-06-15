@@ -104,6 +104,7 @@
 }
 
 #pragma mark -
+
 - (void)reloadTabIndex:(NSInteger)index {
     if (index >= self.buttons.count) {
         return;

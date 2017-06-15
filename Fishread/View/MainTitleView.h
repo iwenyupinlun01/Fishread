@@ -10,7 +10,7 @@
 
 typedef void(^MainTitleBlock)(NSInteger index);
 @interface MainTitleView : UIView
-
+@property (nonatomic,strong) UIView *lineView;
 
 /**
  初始化

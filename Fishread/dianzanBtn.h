@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface dianzanBtn : UIButton
-
+@property (nonatomic,strong) UIImageView *zanimg;
+@property (nonatomic,strong) UILabel *zanlab;
+@property (nonatomic,strong) NSString *zannumberstr;
 @end

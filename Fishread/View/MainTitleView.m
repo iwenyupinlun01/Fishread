@@ -10,7 +10,7 @@
 
 @interface MainTitleView ()
 
-@property (nonatomic,strong) UIView *lineView;
+
 @property (nonatomic,copy) MainTitleBlock block;
 
 @property (nonatomic,strong) NSMutableArray *buttonArray;
@@ -49,8 +49,14 @@
             
             topButton.frame = CGRectMake(i*width, 0, width, height);
             
+//            if (i == topButton.tag) {
+//                [topButton setTitleColor:[UIColor wjColorFloat:@"54d48a"] forState:UIControlStateNormal];
+//            }else
+//            {
+//                [topButton setTitleColor:[UIColor redColor] forState:normal];
+//            }
             
-            if (i ==1) {
+            if (i==1) {
                 
                 CGFloat h = 2;
                 CGFloat y = 35;

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HJTabViewController.h"
 
-@interface taolunquanViewController : HJTabViewController
+
+@interface taolunquanViewController : UIViewController
 
 @end

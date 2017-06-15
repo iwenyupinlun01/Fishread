@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "itemimgView.h"
+
 @class homeModel;
 
 @interface homeCell : UICollectionViewCell

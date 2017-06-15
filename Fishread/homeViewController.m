@@ -12,6 +12,7 @@
 #import "loginViewController.h"
 #import "homeModel.h"
 #import "taolunquanViewController.h"
+#import "YAImageTableViewVC.h"
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
 {
     int pn;
@@ -51,6 +52,7 @@ static NSString *indentify = @"indentify";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
     //self.navigationController.tabBarItem.badgeValue = @"1";
 }
 
@@ -59,7 +61,6 @@ static NSString *indentify = @"indentify";
     [super viewDidAppear:animated];
     
 }
-
 
 #pragma mark - 刷新控件
 
@@ -76,9 +77,7 @@ static NSString *indentify = @"indentify";
 }
 
 - (void)refreshAction {
-    
     [self headerRefreshEndAction];
-    
 }
 
 - (void)refreshLoadMore {
@@ -86,7 +85,6 @@ static NSString *indentify = @"indentify";
     [self footerRefreshEndAction];
     
 }
-
 
 -(void)headerRefreshEndAction
 {
@@ -234,6 +232,7 @@ static NSString *indentify = @"indentify";
     NSLog(@"%ld",indexPath.row);
     taolunquanViewController *taolunquanVC = [[taolunquanViewController alloc] init];
     [self.navigationController pushViewController:taolunquanVC animated:YES];
+    
 }
 
 #pragma mark - UITextFieldDelegate

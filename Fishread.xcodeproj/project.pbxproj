@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1FC1199217AD688168C79225 /* libPods-Fishread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */; };
+		530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */; };
+		530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4821EF25A1E0056BA66 /* UIView+Extension.m */; };
+		530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4861EF25A7B0056BA66 /* YAImageTableViewVC.m */; };
+		530DA4951EF27C190056BA66 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4901EF27C190056BA66 /* HeaderView.m */; };
+		530DA4961EF27C190056BA66 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530DA4911EF27C190056BA66 /* HeaderView.xib */; };
+		530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4941EF27C190056BA66 /* WZBSegmentedControl.m */; };
 		531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B6B1EDFDC3F007C26D2 /* NSString+Extend.m */; };
 		531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B6D1EDFDC3F007C26D2 /* UIColor+WJColor.m */; };
 		531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B711EDFE4A6007C26D2 /* TopViewController.m */; };
@@ -100,6 +106,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+AlphaAnimation.h"; sourceTree = "<group>"; };
+		530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+AlphaAnimation.m"; sourceTree = "<group>"; };
+		530DA4811EF25A1E0056BA66 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		530DA4821EF25A1E0056BA66 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		530DA4851EF25A7B0056BA66 /* YAImageTableViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAImageTableViewVC.h; sourceTree = "<group>"; };
+		530DA4861EF25A7B0056BA66 /* YAImageTableViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAImageTableViewVC.m; sourceTree = "<group>"; };
+		530DA48F1EF27C190056BA66 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		530DA4901EF27C190056BA66 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		530DA4911EF27C190056BA66 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		530DA4931EF27C190056BA66 /* WZBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZBSegmentedControl.h; sourceTree = "<group>"; };
+		530DA4941EF27C190056BA66 /* WZBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZBSegmentedControl.m; sourceTree = "<group>"; };
 		531E8B671EDFD6D4007C26D2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		531E8B6A1EDFDC3F007C26D2 /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
 		531E8B6B1EDFDC3F007C26D2 /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
@@ -312,6 +329,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		530DA47E1EF25A1E0056BA66 /* NavigationBarTool */ = {
+			isa = PBXGroup;
+			children = (
+				530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */,
+				530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */,
+				530DA4811EF25A1E0056BA66 /* UIView+Extension.h */,
+				530DA4821EF25A1E0056BA66 /* UIView+Extension.m */,
+			);
+			path = NavigationBarTool;
+			sourceTree = "<group>";
+		};
+		530DA48E1EF27C190056BA66 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				530DA48F1EF27C190056BA66 /* HeaderView.h */,
+				530DA4901EF27C190056BA66 /* HeaderView.m */,
+				530DA4911EF27C190056BA66 /* HeaderView.xib */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		530DA4921EF27C190056BA66 /* WZBSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				530DA4931EF27C190056BA66 /* WZBSegmentedControl.h */,
+				530DA4941EF27C190056BA66 /* WZBSegmentedControl.m */,
+			);
+			path = WZBSegmentedControl;
+			sourceTree = "<group>";
+		};
+		530DA4981EF27C1B0056BA66 /* 第三方 */ = {
+			isa = PBXGroup;
+			children = (
+				530DA48E1EF27C190056BA66 /* HeaderView */,
+				530DA4921EF27C190056BA66 /* WZBSegmentedControl */,
+				530DA47E1EF25A1E0056BA66 /* NavigationBarTool */,
+				533020C71EF14C6E00D08825 /* HJTabViewBar */,
+				533020B31EF14C3200D08825 /* HJTabViewController */,
+			);
+			name = "第三方";
+			sourceTree = "<group>";
+		};
 		531E8B651EDFD4F2007C26D2 /* other */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,8 +424,7 @@
 		531E8B731EDFE55A007C26D2 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				533020C71EF14C6E00D08825 /* HJTabViewBar */,
-				533020B31EF14C3200D08825 /* HJTabViewController */,
+				530DA4981EF27C1B0056BA66 /* 第三方 */,
 				533E19BE1EE28650000CE670 /* M */,
 				533E19BC1EE28649000CE670 /* V */,
 				533E19BB1EE28648000CE670 /* C */,
@@ -596,6 +654,8 @@
 				533020951EF13CBB00D08825 /* taolunquanViewController.m */,
 				533020B01EF14BE800D08825 /* TableViewController.h */,
 				533020B11EF14BE800D08825 /* TableViewController.m */,
+				530DA4851EF25A7B0056BA66 /* YAImageTableViewVC.h */,
+				530DA4861EF25A7B0056BA66 /* YAImageTableViewVC.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -822,6 +882,7 @@
 				534F61E11EDEB2C8007835ED /* LaunchScreen.storyboard in Resources */,
 				535FED891EE14673007A456D /* MainViewController.xib in Resources */,
 				534F61DE1EDEB2C8007835ED /* Assets.xcassets in Resources */,
+				530DA4961EF27C190056BA66 /* HeaderView.xib in Resources */,
 				535FED871EE14673007A456D /* HotViewController.xib in Resources */,
 				535FED8B1EE14673007A456D /* NearViewController.xib in Resources */,
 				534F61DC1EDEB2C8007835ED /* Main.storyboard in Resources */,
@@ -892,6 +953,7 @@
 				5393E3701EE6B13400392FD4 /* headView.m in Sources */,
 				5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */,
 				53A1F1291EEE59E200ED5EE8 /* chuangjianCell2.m in Sources */,
+				530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */,
 				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
 				533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */,
@@ -924,8 +986,10 @@
 				533020C11EF14C3200D08825 /* HJTabViewBar.m in Sources */,
 				5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
+				530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */,
 				53A1F12F1EEE60B500ED5EE8 /* WJGtextView.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
+				530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */,
 				5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */,
 				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
@@ -937,6 +1001,7 @@
 				533B61E31EEA747D00DE0392 /* UILabel+textOfNumberLines.m in Sources */,
 				5330207A1EEFBAC300D08825 /* historyModel.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
+				530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */,
 				533B61C11EE93FA000DE0392 /* collectionCell.m in Sources */,
 				533B61B11EE9367C00DE0392 /* setViewController.m in Sources */,
 				534F83F81EE8F9AD003773E9 /* mymessageCell1.m in Sources */,
@@ -957,6 +1022,7 @@
 				533020C31EF14C3200D08825 /* HJTabViewController.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533020801EEFC8BF00D08825 /* searchheadView.m in Sources */,
+				530DA4951EF27C190056BA66 /* HeaderView.m in Sources */,
 				533020861EEFE58900D08825 /* jieguoModel.m in Sources */,
 				533020B21EF14BE800D08825 /* TableViewController.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
