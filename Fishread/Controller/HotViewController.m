@@ -9,7 +9,8 @@
 #import "HotViewController.h"
 #import "quanbuCell.h"
 #import "quanbuModel.h"
-@interface HotViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "shuquanxiangqingViewController.h"
+@interface HotViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 {
     int pn;
 }
@@ -97,6 +98,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
                 model.member_statusstr = [dit objectForKey:@"member_status"];
                 model.nicknamestr = [dit objectForKey:@"nickname"];
                 model.pathstr = [dit objectForKey:@"path"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
                 [self.quanbuArray addObject:model];
             }
             [self.quanzitableView reloadData];
@@ -142,6 +144,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
                 model.member_statusstr = [dit objectForKey:@"member_status"];
                 model.nicknamestr = [dit objectForKey:@"nickname"];
                 model.pathstr = [dit objectForKey:@"path"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
                 [self.quanbuArray addObject:model];
             }
             [self.quanzitableView reloadData];
@@ -184,6 +187,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
     quanbuCell *cell = [tableView dequeueReusableCellWithIdentifier:quanziidentfid];
     cell = [[quanbuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:quanziidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
     [cell setdata:self.quanbuArray[indexPath.row]];
     return cell;
 }
@@ -192,6 +196,24 @@ static NSString *quanziidentfid = @"quanziidentfid";
 {
     quanbuCell *cell = [[quanbuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:quanziidentfid];
     return [cell setdata:self.quanbuArray[indexPath.row]];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    shuquanxiangqingViewController *shuquanvc = [[shuquanxiangqingViewController alloc] init];
+    [self.navigationController pushViewController:shuquanvc animated:YES];
+}
+
+-(void)myTabVClick1:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.quanzitableView indexPathForCell:cell];
+    NSLog(@"333===%ld   点赞",index.row);
+}
+
+-(void)myTabVClick2:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.quanzitableView indexPathForCell:cell];
+    NSLog(@"333===%ld   评论",index.row);
 }
 
 @end

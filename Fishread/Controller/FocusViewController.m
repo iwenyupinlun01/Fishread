@@ -25,13 +25,14 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     
     self.dataSource = [NSMutableArray array];
     [self.view addSubview:self.wodeTableview];
+    [self headerRefreshEndAction];
     self.wodeTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self headerRefreshEndAction];
+    
 }
 
 - (void)didReceiveMemoryWarning {

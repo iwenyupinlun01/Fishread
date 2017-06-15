@@ -24,5 +24,5 @@
 @property (nonatomic,strong) NSString *member_statusstr;
 @property (nonatomic,strong) NSString *nicknamestr;
 @property (nonatomic,strong) NSString *pathstr;
-
+@property (nonatomic,strong) NSString *is_supportstr;
 @end

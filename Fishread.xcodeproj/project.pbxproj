@@ -14,6 +14,8 @@
 		530DA4951EF27C190056BA66 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4901EF27C190056BA66 /* HeaderView.m */; };
 		530DA4961EF27C190056BA66 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530DA4911EF27C190056BA66 /* HeaderView.xib */; };
 		530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4941EF27C190056BA66 /* WZBSegmentedControl.m */; };
+		530DA49B1EF296190056BA66 /* Timestr.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA49A1EF296190056BA66 /* Timestr.m */; };
+		530DA49E1EF29ACC0056BA66 /* shuquanxiangqingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA49D1EF29ACC0056BA66 /* shuquanxiangqingViewController.m */; };
 		531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B6B1EDFDC3F007C26D2 /* NSString+Extend.m */; };
 		531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B6D1EDFDC3F007C26D2 /* UIColor+WJColor.m */; };
 		531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531E8B711EDFE4A6007C26D2 /* TopViewController.m */; };
@@ -117,6 +119,10 @@
 		530DA4911EF27C190056BA66 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		530DA4931EF27C190056BA66 /* WZBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZBSegmentedControl.h; sourceTree = "<group>"; };
 		530DA4941EF27C190056BA66 /* WZBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZBSegmentedControl.m; sourceTree = "<group>"; };
+		530DA4991EF296190056BA66 /* Timestr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timestr.h; sourceTree = "<group>"; };
+		530DA49A1EF296190056BA66 /* Timestr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timestr.m; sourceTree = "<group>"; };
+		530DA49C1EF29ACC0056BA66 /* shuquanxiangqingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shuquanxiangqingViewController.h; sourceTree = "<group>"; };
+		530DA49D1EF29ACC0056BA66 /* shuquanxiangqingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shuquanxiangqingViewController.m; sourceTree = "<group>"; };
 		531E8B671EDFD6D4007C26D2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		531E8B6A1EDFDC3F007C26D2 /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
 		531E8B6B1EDFDC3F007C26D2 /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
@@ -572,6 +578,8 @@
 				533B61F01EEAA25300DE0392 /* tokenstr.m */,
 				53A1F1301EEE6C5B00ED5EE8 /* pickImg.h */,
 				53A1F1311EEE6C5B00ED5EE8 /* pickImg.m */,
+				530DA4991EF296190056BA66 /* Timestr.h */,
+				530DA49A1EF296190056BA66 /* Timestr.m */,
 			);
 			name = utlismodel;
 			sourceTree = "<group>";
@@ -759,6 +767,8 @@
 				533E19C61EE2B6CC000CE670 /* chuangjianViewController.m */,
 				533B61F81EEAB03F00DE0392 /* searchViewController.h */,
 				533B61F91EEAB03F00DE0392 /* searchViewController.m */,
+				530DA49C1EF29ACC0056BA66 /* shuquanxiangqingViewController.h */,
+				530DA49D1EF29ACC0056BA66 /* shuquanxiangqingViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -984,6 +994,7 @@
 				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,
 				533020C11EF14C3200D08825 /* HJTabViewBar.m in Sources */,
+				530DA49B1EF296190056BA66 /* Timestr.m in Sources */,
 				5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */,
@@ -1002,6 +1013,7 @@
 				5330207A1EEFBAC300D08825 /* historyModel.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
 				530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */,
+				530DA49E1EF29ACC0056BA66 /* shuquanxiangqingViewController.m in Sources */,
 				533B61C11EE93FA000DE0392 /* collectionCell.m in Sources */,
 				533B61B11EE9367C00DE0392 /* setViewController.m in Sources */,
 				534F83F81EE8F9AD003773E9 /* mymessageCell1.m in Sources */,

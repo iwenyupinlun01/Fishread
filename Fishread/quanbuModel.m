@@ -10,4 +10,25 @@
 
 @implementation quanbuModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+
+-(NSMutableArray *)imagesArray
+{
+    if(!_imagesArray)
+    {
+        _imagesArray = [NSMutableArray array];
+        
+    }
+    return _imagesArray;
+}
+
+
 @end
