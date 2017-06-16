@@ -27,6 +27,8 @@
     self.title = @"书圈详情";
     
     [self.view addSubview:self.xiangqingtableView];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,6 +39,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+   
     [self.tabBarController.tabBar setHidden:YES];
 }
 

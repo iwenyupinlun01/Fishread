@@ -41,6 +41,10 @@
 		533020C51EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020BE1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m */; };
 		533020C61EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */; };
 		533020CA1EF14C6E00D08825 /* HJDefaultTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */; };
+		5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2A91EF387E60040A295 /* quanziheadView.m */; };
+		5332E2B01EF3AA2A0040A295 /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2AD1EF3AA2A0040A295 /* UINavigationController+Cloudox.m */; };
+		5332E2B11EF3AA2A0040A295 /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */; };
+		5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */; };
 		533B61B11EE9367C00DE0392 /* setViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B01EE9367C00DE0392 /* setViewController.m */; };
 		533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B31EE93CA100DE0392 /* publishedViewController.m */; };
 		533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B61EE93D0100DE0392 /* collectionViewController.m */; };
@@ -175,6 +179,14 @@
 		533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_TabViewBar.m; sourceTree = "<group>"; };
 		533020C81EF14C6E00D08825 /* HJDefaultTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJDefaultTabViewBar.h; sourceTree = "<group>"; };
 		533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJDefaultTabViewBar.m; sourceTree = "<group>"; };
+		5332E2A81EF387E60040A295 /* quanziheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanziheadView.h; sourceTree = "<group>"; };
+		5332E2A91EF387E60040A295 /* quanziheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanziheadView.m; sourceTree = "<group>"; };
+		5332E2AC1EF3AA2A0040A295 /* UINavigationController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Cloudox.h"; sourceTree = "<group>"; };
+		5332E2AD1EF3AA2A0040A295 /* UINavigationController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Cloudox.m"; sourceTree = "<group>"; };
+		5332E2AE1EF3AA2A0040A295 /* UIViewController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Cloudox.h"; sourceTree = "<group>"; };
+		5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
+		5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yueduquanViewController.h; sourceTree = "<group>"; };
+		5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yueduquanViewController.m; sourceTree = "<group>"; };
 		533B61AF1EE9367C00DE0392 /* setViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setViewController.h; sourceTree = "<group>"; };
 		533B61B01EE9367C00DE0392 /* setViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setViewController.m; sourceTree = "<group>"; };
 		533B61B21EE93CA100DE0392 /* publishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publishedViewController.h; sourceTree = "<group>"; };
@@ -397,6 +409,7 @@
 		531E8B661EDFD4F7007C26D2 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				5332E2AB1EF3AA2A0040A295 /* navcagetale */,
 				535FED741EE14673007A456D /* Controller */,
 				535FED811EE14673007A456D /* View */,
 			);
@@ -515,6 +528,17 @@
 				533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */,
 			);
 			path = HJTabViewBar;
+			sourceTree = "<group>";
+		};
+		5332E2AB1EF3AA2A0040A295 /* navcagetale */ = {
+			isa = PBXGroup;
+			children = (
+				5332E2AC1EF3AA2A0040A295 /* UINavigationController+Cloudox.h */,
+				5332E2AD1EF3AA2A0040A295 /* UINavigationController+Cloudox.m */,
+				5332E2AE1EF3AA2A0040A295 /* UIViewController+Cloudox.h */,
+				5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */,
+			);
+			path = navcagetale;
 			sourceTree = "<group>";
 		};
 		533B61B81EE93DB600DE0392 /* 登陆 */ = {
@@ -660,6 +684,8 @@
 				531E8B771EDFE582007C26D2 /* homeViewController.m */,
 				533020941EF13CBB00D08825 /* taolunquanViewController.h */,
 				533020951EF13CBB00D08825 /* taolunquanViewController.m */,
+				5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */,
+				5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */,
 				533020B01EF14BE800D08825 /* TableViewController.h */,
 				533020B11EF14BE800D08825 /* TableViewController.m */,
 				530DA4851EF25A7B0056BA66 /* YAImageTableViewVC.h */,
@@ -677,6 +703,8 @@
 				533E19C31EE2A069000CE670 /* MyHeaderView.m */,
 				533B61F51EEAAABF00DE0392 /* itemimgView.h */,
 				533B61F61EEAAABF00DE0392 /* itemimgView.m */,
+				5332E2A81EF387E60040A295 /* quanziheadView.h */,
+				5332E2A91EF387E60040A295 /* quanziheadView.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -963,9 +991,11 @@
 				5393E3701EE6B13400392FD4 /* headView.m in Sources */,
 				5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */,
 				53A1F1291EEE59E200ED5EE8 /* chuangjianCell2.m in Sources */,
+				5332E2B11EF3AA2A0040A295 /* UIViewController+Cloudox.m in Sources */,
 				530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */,
 				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
+				5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */,
 				533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */,
 				533B61BE1EE93F9000DE0392 /* publishCell.m in Sources */,
 				535FED881EE14673007A456D /* MainViewController.m in Sources */,
@@ -1005,6 +1035,7 @@
 				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
 				533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */,
+				5332E2B01EF3AA2A0040A295 /* UINavigationController+Cloudox.m in Sources */,
 				533020C61EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
 				533E19C11EE2866D000CE670 /* homeCell.m in Sources */,
 				534F83F51EE8F999003773E9 /* mymessageCell0.m in Sources */,
@@ -1023,6 +1054,7 @@
 				533B61BB1EE93DC500DE0392 /* loginViewController.m in Sources */,
 				533020931EF13C5600D08825 /* pinglunBtn.m in Sources */,
 				533B61ED1EEA87DC00DE0392 /* MBProgressHUD+XMG.m in Sources */,
+				5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */,
 				533020831EEFDF9800D08825 /* jieguoCell.m in Sources */,
 				533B61DC1EEA727800DE0392 /* feedbackViewController.m in Sources */,
 				533020C51EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
