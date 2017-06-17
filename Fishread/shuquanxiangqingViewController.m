@@ -7,10 +7,14 @@
 //
 
 #import "shuquanxiangqingViewController.h"
+#import "quanzixiangqingCell0.h"
 
-@interface shuquanxiangqingViewController ()
+@interface shuquanxiangqingViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *xiangqingtableView;
 @end
+
+static NSString *shuquanxiangqingidentfid0 = @"shuquanxiangqingidentfid0";
+static NSString *shuquanxiangqingidentfid1 = @"shuquanxiangqingidentfid1";
 
 @implementation shuquanxiangqingViewController
 
@@ -24,11 +28,11 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"书圈详情";
+    self.title = @"详情";
     
     [self.view addSubview:self.xiangqingtableView];
     
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +54,36 @@
 
 #pragma mark - getters
 
+-(UITableView *)xiangqingtableView
+{
+    if(!_xiangqingtableView)
+    {
+        _xiangqingtableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
+        _xiangqingtableView.dataSource = self;
+        _xiangqingtableView.delegate = self;
+    }
+    return _xiangqingtableView;
+}
 
+#pragma mark - UITableViewDataSource&&UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    quanzixiangqingCell0 *cell = [tableView dequeueReusableCellWithIdentifier:shuquanxiangqingidentfid0];
+    cell = [[quanzixiangqingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:shuquanxiangqingidentfid0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 220*HEIGHT_SCALE;
+}
 
 #pragma mark - 实现方法
 

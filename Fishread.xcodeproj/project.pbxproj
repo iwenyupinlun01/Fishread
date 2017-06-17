@@ -45,6 +45,8 @@
 		5332E2B01EF3AA2A0040A295 /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2AD1EF3AA2A0040A295 /* UINavigationController+Cloudox.m */; };
 		5332E2B11EF3AA2A0040A295 /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */; };
 		5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */; };
+		5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */; };
+		5332E2BA1EF3D2480040A295 /* quanzixiangqingCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B91EF3D2480040A295 /* quanzixiangqingCell1.m */; };
 		533B61B11EE9367C00DE0392 /* setViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B01EE9367C00DE0392 /* setViewController.m */; };
 		533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B31EE93CA100DE0392 /* publishedViewController.m */; };
 		533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B61B61EE93D0100DE0392 /* collectionViewController.m */; };
@@ -187,6 +189,10 @@
 		5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
 		5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yueduquanViewController.h; sourceTree = "<group>"; };
 		5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yueduquanViewController.m; sourceTree = "<group>"; };
+		5332E2B51EF3D2390040A295 /* quanzixiangqingCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanzixiangqingCell0.h; sourceTree = "<group>"; };
+		5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanzixiangqingCell0.m; sourceTree = "<group>"; };
+		5332E2B81EF3D2480040A295 /* quanzixiangqingCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanzixiangqingCell1.h; sourceTree = "<group>"; };
+		5332E2B91EF3D2480040A295 /* quanzixiangqingCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanzixiangqingCell1.m; sourceTree = "<group>"; };
 		533B61AF1EE9367C00DE0392 /* setViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setViewController.h; sourceTree = "<group>"; };
 		533B61B01EE9367C00DE0392 /* setViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setViewController.m; sourceTree = "<group>"; };
 		533B61B21EE93CA100DE0392 /* publishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publishedViewController.h; sourceTree = "<group>"; };
@@ -825,6 +831,10 @@
 				5330207F1EEFC8BF00D08825 /* searchheadView.m */,
 				533020811EEFDF9800D08825 /* jieguoCell.h */,
 				533020821EEFDF9800D08825 /* jieguoCell.m */,
+				5332E2B51EF3D2390040A295 /* quanzixiangqingCell0.h */,
+				5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */,
+				5332E2B81EF3D2480040A295 /* quanzixiangqingCell1.h */,
+				5332E2B91EF3D2480040A295 /* quanzixiangqingCell1.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -1033,6 +1043,7 @@
 				530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */,
 				5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */,
 				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
+				5332E2BA1EF3D2480040A295 /* quanzixiangqingCell1.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
 				533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */,
 				5332E2B01EF3AA2A0040A295 /* UINavigationController+Cloudox.m in Sources */,
@@ -1052,6 +1063,7 @@
 				5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */,
 				533B61F41EEAA64800DE0392 /* homeModel.m in Sources */,
 				533B61BB1EE93DC500DE0392 /* loginViewController.m in Sources */,
+				5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */,
 				533020931EF13C5600D08825 /* pinglunBtn.m in Sources */,
 				533B61ED1EEA87DC00DE0392 /* MBProgressHUD+XMG.m in Sources */,
 				5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */,

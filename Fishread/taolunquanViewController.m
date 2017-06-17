@@ -42,7 +42,7 @@
 // 底部横向滑动的scrollView，上边放着三个tableView
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-
+@property (nonatomic,strong) UIButton *fabiaoBtn;
 
 @end
 
@@ -59,6 +59,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     [self getui];
     
+    [self.view addSubview:self.fabiaoBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -160,6 +161,18 @@
     return tableView;
 }
 
+-(UIButton *)fabiaoBtn
+{
+    if(!_fabiaoBtn)
+    {
+        _fabiaoBtn = [[UIButton alloc] init];
+        _fabiaoBtn.frame = CGRectMake(DEVICE_WIDTH-14*WIDTH_SCALE-50*WIDTH_SCALE, DEVICE_HEIGHT-200*HEIGHT_SCALE, 50*WIDTH_SCALE, 50*WIDTH_SCALE);
+        [_fabiaoBtn setImage:[UIImage imageNamed:@"发表"] forState:normal];
+        [_fabiaoBtn addTarget:self action:@selector(fabiaobtnclick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _fabiaoBtn;
+}
+
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -199,25 +212,32 @@
             
             // 让这2个tableView的偏移量相等
             self.leftTableView.contentOffset = self.centerTableView.contentOffset = scrollView.contentOffset;
-            
             // 改变headerView的y值
             CGRect frame = self.segueView.frame;
             CGFloat y = -self.centerTableView.contentOffset.y;
             frame.origin.y = y;
             self.segueView.frame = frame;
-            
             self.title = @"讨论圈";
-           // [self.navigationController.navigationBar setHidden:YES];
-            
         } else if (contentOffsetY >= 195*HEIGHT_SCALE-20-44) {
             CGRect frame = self.segueView.frame;
             frame.origin.y = -195*HEIGHT_SCALE+20+44;
-            
             self.segueView.frame = frame;
-            
             self.title = @"title";
             
         }
+        if (contentOffsetY<25) {
+            //向下滑动
+            [self.fabiaoBtn setHidden:NO];
+            
+        }else
+        {
+            [self.fabiaoBtn setHidden:YES];
+            //向上滑动
+        }
+        
+    }
+    if (scrollView==self.leftTableView) {
+        NSLog(@"left");
     }
     
     if (scrollView == self.scrollView) {
@@ -232,10 +252,16 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
         
-        // 刷新最大OffsetY
-        
     }
+   
     
+}
+
+#pragma mark - 实现方法
+
+-(void)fabiaobtnclick
+{
+    NSLog(@"发表");
 }
 
 -(void)backAction
@@ -243,6 +269,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     //    [self.navigationController.navigationBar setHidden:NO];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 @end
