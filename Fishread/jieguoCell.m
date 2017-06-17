@@ -41,7 +41,7 @@
     [self.namelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.leftimg.mas_right).with.offset(16*WIDTH_SCALE);
         make.top.equalTo(weakSelf).with.offset(81/2*HEIGHT_SCALE-9/2*HEIGHT_SCALE);
-        make.width.mas_equalTo(100*WIDTH_SCALE);
+        make.width.mas_equalTo(200*WIDTH_SCALE);
         make.height.mas_equalTo(18*HEIGHT_SCALE);
     }];
     [self.typelab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -60,7 +60,7 @@
     if(!_leftimg)
     {
         _leftimg = [[UIImageView alloc] init];
-        _leftimg.backgroundColor = [UIColor greenColor];
+        //_leftimg.backgroundColor = [UIColor greenColor];
     }
     return _leftimg;
 }

@@ -201,6 +201,8 @@ static NSString *quanziidentfid = @"quanziidentfid";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     shuquanxiangqingViewController *shuquanvc = [[shuquanxiangqingViewController alloc] init];
+    quanbuModel *model = self.quanbuArray[indexPath.row];
+    shuquanvc.idstr = model.idstr;
     [self.navigationController pushViewController:shuquanvc animated:YES];
 }
 

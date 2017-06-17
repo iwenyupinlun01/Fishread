@@ -33,17 +33,17 @@
 //圈子类目展示
 #define quanzileimu @"http://"IPAddress"/forum/circle/circleType.html?token=%@"
 //搜索历史
-#define sousuolishi @"http://"IPAddress"/forum/circle/searchHistory.html?token=%@&page=%@"
+#define sousuolishi @"http://"IPAddress"/forum/circle/searchHistory.html?token=%@"
 //搜索 get
 #define sousuo @"http://"IPAddress"/forum/circle/searchShow.html?token=%@&page=%@&key=%@"
 //删除搜索
-#define shanchusosuo @"http://"IPAddress"/circle/delSearchHis.html?token=%@&id=%@"
+#define shanchusosuo @"http://"IPAddress"/forum/circle/delSearchHis.html?token=%@&id=%@"
 
 //全部get
 #define quanziquanbu @"http://"IPAddress"/forum/index/index.html?token=%@&page=%@&judge=%@"
 
-
-
+//动态详情页面
+#define dongtaixiangqing @"http://"IPAddress"/forum/index/detail.html?token=%@&page=%@&id=%@"
 
 
 

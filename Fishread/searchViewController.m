@@ -59,10 +59,9 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     self.historyDatasourceArray = [NSMutableArray array];
     self.jieguodataArray = [NSMutableArray array];
     [self addHeader];
-    [self addFooter];
+
    
     [self.view addSubview:self.searchtableView];
-    
     
     self.searchtableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -96,10 +95,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     [self.searchtableView.mj_header beginRefreshing];
 }
 
-- (void)addFooter
-{
-    self.searchtableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
-}
+
 
 - (void)refreshAction {
     
@@ -107,22 +103,14 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     
 }
 
-- (void)refreshLoadMore {
-    
-    [self footerRefreshEndAction];
-}
-
-
 -(void)headerRefreshEndAction
 {
-    pn = 1;
-    
     [self.historyDatasourceArray removeAllObjects];
     [self.listArray removeAllObjects];
     [self.listidArray removeAllObjects];
     [self.relation_idArray removeAllObjects];
     
-    NSString *urlstr = [NSString stringWithFormat:sousuolishi,[tokenstr tokenstrfrom],@"1"];
+    NSString *urlstr = [NSString stringWithFormat:sousuolishi,[tokenstr tokenstrfrom]];
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
@@ -164,36 +152,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     }];
 }
 
--(void)footerRefreshEndAction
-{
-    pn++;
-    NSString *pnstr = [NSString stringWithFormat:@"%d",pn];
-    NSString *urlstr = [NSString stringWithFormat:sousuolishi,[tokenstr tokenstrfrom],pnstr];
-    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
-        
-    } success:^(id responseObject) {
-        
-        NSDictionary *infodit = [responseObject objectForKey:@"info"];
-        NSArray *hisarr = [infodit objectForKey:@"history"];
-        for (int i = 0; i<hisarr.count; i++) {
-            historyModel *hmodel = [[historyModel alloc] init];
-            NSDictionary *dit = [hisarr objectAtIndex:i];
-            hmodel.historysearchkey = [dit objectForKey:@"search_key"];
-            hmodel.historystarchid = [dit objectForKey:@"id"];
-//            hmodel.historysearchkey = @"demo";
-            
-            [self.historyDatasourceArray addObject:hmodel];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.searchtableView.mj_footer endRefreshing];
-            [self.searchtableView reloadData];
-        });
 
-    } failure:^(NSError *error) {
-        [self.searchtableView.mj_footer endRefreshing];
-
-    }];
-}
 
 #pragma mark - getters
 
@@ -384,6 +343,26 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 -(void)myheadVClick:(UIView *)view
 {
     NSLog(@"清空");
+    
+    NSString *urlstr = [NSString stringWithFormat:shanchusosuo,[tokenstr tokenstrfrom],@"all"];
+    
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        NSLog(@"res-------%@",responseObject);
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            [MBProgressHUD showSuccess:@"操作成功"];
+        }
+        else if ([[responseObject objectForKey:@"code"] intValue]==0) {
+            [MBProgressHUD showSuccess:@"token错误"];
+        }else
+        {
+            [MBProgressHUD showSuccess:@"系统繁忙，请稍后再试"];
+        }
+        
+        [self headerRefreshEndAction];
+        
+    } failure:^(NSError *error) {
+       
+    }];
 }
 
 //先要设Cell可编辑
@@ -409,15 +388,42 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [self.historyDatasourceArray removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source.
-        [self.searchtableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        historyModel *model = self.historyDatasourceArray[indexPath.row];
+        NSString *idstr = model.historystarchid;
+        NSLog(@"idstr ----%@",idstr);
+        
+        NSString *urlstr = [NSString stringWithFormat:shanchusosuo,[tokenstr tokenstrfrom],idstr];
+        
+        [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+            if ([[responseObject objectForKey:@"code"] intValue]==1) {
+                [MBProgressHUD showSuccess:@"操作成功"];
+                
+//                [self.historyDatasourceArray removeObjectAtIndex:indexPath.row];
+//                // Delete the row from the data source.
+//                [self.searchtableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                
+            }
+            else if ([[responseObject objectForKey:@"code"] intValue]==0) {
+                [MBProgressHUD showSuccess:@"token错误"];
+            }else
+            {
+                [MBProgressHUD showSuccess:@"系统繁忙，请稍后再试"];
+            }
+            
+            [self headerRefreshEndAction];
+        } failure:^(NSError *error) {
+            
+        }];
+        
     }
 }
 //修改编辑按钮文字
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"删除";
+    
+   
+    
 }
 
 #pragma mark - UISearchBarDelegate
@@ -430,6 +436,8 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     [self.jieguotableView removeFromSuperview];
     self.customSearchBar.showsCancelButton = NO;
     [searchBar resignFirstResponder];
+    
+    [self headerRefreshEndAction];
 }
 
 //点击搜索框时调用
@@ -443,7 +451,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self.view addSubview:self.jieguotableView];
-    //[self.jieguotableView setHidden:NO];
+
     [self addHeaderjieguo];
     [self addFooterjiegup];
     
@@ -501,10 +509,16 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     jieguopn = 1;
     NSString *typestr = self.customSearchBar.text;
     NSString *urlstr = [NSString stringWithFormat:sousuo,[tokenstr tokenstrfrom],@"1",typestr];
+    
+   // urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+     urlstr = [urlstr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
     [PPNetworkHelper GET: urlstr parameters:nil success:^(id responseObject) {
+       
         
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
-            NSArray *ditarr = [responseObject objectForKey:@""];
+            NSArray *ditarr = [responseObject objectForKey:@"circle"];
             for (int i = 0 ; i<ditarr.count; i++) {
                 NSDictionary *dit = [ditarr objectAtIndex:i];
                 jieguoModel *model = [[jieguoModel alloc] init];
@@ -518,6 +532,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.jieguotableView.mj_header endRefreshing];
                 [self.jieguotableView reloadData];
+                [self.jieguotableView setHidden:NO];
             });
         }else
         {
@@ -527,11 +542,14 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
                 [self.jieguotableView reloadData];
             });
         }
-        
+
      
     } failure:^(NSError *error) {
         [self.jieguotableView.mj_header endRefreshing];
+
     }];
+    
+
 }
 
 -(void)footerRefreshEndActionjieguo
@@ -543,7 +561,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     [PPNetworkHelper GET: urlstr parameters:nil success:^(id responseObject) {
         
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
-            NSArray *ditarr = [responseObject objectForKey:@""];
+            NSArray *ditarr = [responseObject objectForKey:@"circle"];
             for (int i = 0 ; i<ditarr.count; i++) {
                 NSDictionary *dit = [ditarr objectAtIndex:i];
                 jieguoModel *model = [[jieguoModel alloc] init];

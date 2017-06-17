@@ -8,9 +8,12 @@
 
 #import "shuquanxiangqingViewController.h"
 #import "quanzixiangqingCell0.h"
+#import "dongtaixiangqingModel.h"
 
 @interface shuquanxiangqingViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *xiangqingtableView;
+
+
 @end
 
 static NSString *shuquanxiangqingidentfid0 = @"shuquanxiangqingidentfid0";
@@ -31,8 +34,8 @@ static NSString *shuquanxiangqingidentfid1 = @"shuquanxiangqingidentfid1";
     self.title = @"详情";
     
     [self.view addSubview:self.xiangqingtableView];
-    
-    
+    [self addHeader];
+    [self addFooter];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +53,58 @@ static NSString *shuquanxiangqingidentfid1 = @"shuquanxiangqingidentfid1";
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.tabBarController.tabBar setHidden:NO];
+}
+
+
+#pragma mark - web
+
+- (void)addHeader
+{
+    // 头部刷新控件
+    self.xiangqingtableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    [self.xiangqingtableView.mj_header beginRefreshing];
+}
+
+- (void)addFooter
+{
+    self.xiangqingtableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
+}
+
+- (void)refreshAction {
+    
+    [self headerRefreshEndAction];
+    
+}
+
+- (void)refreshLoadMore {
+    
+    [self footerRefreshEndAction];
+}
+
+
+-(void)headerRefreshEndAction
+{
+    NSString *urlstr = [NSString stringWithFormat:dongtaixiangqing,[tokenstr tokenstrfrom],@"1",self.idstr];
+    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+//        NSLog(@"res------%@",responseObject);
+        //if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            
+        NSDictionary *infodit = [responseObject objectForKey:@"info"];
+            //NSLog(@"info------%@",infodit);
+        NSDictionary *avatardit = [infodit objectForKey:@"Avatar"];
+        NSLog(@"avar-----%@",avatardit);
+        
+        //}
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)footerRefreshEndAction
+{
+    
 }
 
 #pragma mark - getters
@@ -82,7 +137,7 @@ static NSString *shuquanxiangqingidentfid1 = @"shuquanxiangqingidentfid1";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 220*HEIGHT_SCALE;
+    return 500*HEIGHT_SCALE;
 }
 
 #pragma mark - 实现方法

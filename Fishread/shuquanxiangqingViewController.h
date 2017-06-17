@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface shuquanxiangqingViewController : UIViewController
-
+@property (nonatomic,strong) NSString *idstr;
 @end
