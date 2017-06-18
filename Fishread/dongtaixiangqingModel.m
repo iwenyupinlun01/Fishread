@@ -30,4 +30,17 @@
 }
 
 
+-(NSMutableArray *)ForumBookmarkArray
+{
+    if(!_ForumBookmarkArray)
+    {
+        _ForumBookmarkArray = [NSMutableArray array];
+        
+    }
+    return _ForumBookmarkArray;
+}
+
+
+
+
 @end

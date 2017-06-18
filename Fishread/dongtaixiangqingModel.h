@@ -25,6 +25,7 @@
 @property (nonatomic,strong) NSString *Avatarpathstr;
 @property (nonatomic,strong) NSString *Membernickname;
 
+@property (nonatomic,strong) NSMutableArray *ForumBookmarkArray;
 @property (nonatomic,strong) NSString *ForumBookmarkuidstr;
 @property (nonatomic,strong) NSString *ForumBookmarknicknamestr;
 @end

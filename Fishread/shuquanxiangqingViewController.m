@@ -12,8 +12,8 @@
 
 @interface shuquanxiangqingViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *xiangqingtableView;
-
-
+@property (nonatomic,strong) NSDictionary *headdic;
+@property (nonatomic,strong) NSMutableArray *datasourceArray;
 @end
 
 static NSString *shuquanxiangqingidentfid0 = @"shuquanxiangqingidentfid0";
@@ -84,21 +84,57 @@ static NSString *shuquanxiangqingidentfid1 = @"shuquanxiangqingidentfid1";
 
 -(void)headerRefreshEndAction
 {
+    
+    [self.datasourceArray removeAllObjects];
+    
     NSString *urlstr = [NSString stringWithFormat:dongtaixiangqing,[tokenstr tokenstrfrom],@"1",self.idstr];
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
 //        NSLog(@"res------%@",responseObject);
-        //if ([[responseObject objectForKey:@"code"] intValue]==1) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
             
         NSDictionary *infodit = [responseObject objectForKey:@"info"];
-            //NSLog(@"info------%@",infodit);
         NSDictionary *avatardit = [infodit objectForKey:@"Avatar"];
-        NSLog(@"avar-----%@",avatardit);
+        NSMutableArray *formatarray = [infodit objectForKey:@"ForumBookmark"];
         
-        //}
+        NSDictionary *Memberdit = [infodit objectForKey:@"Member"];
+        dongtaixiangqingModel *model = [[dongtaixiangqingModel alloc] init];
+        model.Avatarpathstr = [avatardit objectForKey:@"path"];
+            
+            
+            if ((formatarray != nil && ![formatarray isKindOfClass:[NSNull class]] && formatarray.count !=0)){
+                for (int i = 0; i<formatarray.count; i++) {
+                    NSDictionary *dit = [formatarray objectAtIndex:i];
+                    model.ForumBookmarknicknamestr = [dit objectForKey:@"nickname"];
+                    model.ForumBookmarkuidstr = [dit objectForKey:@"uid"];
+                    [model.ForumBookmarkArray addObject:model.ForumBookmarknicknamestr];
+                }
+            }
+            
+            
+            model.Membernickname = [Memberdit objectForKey:@"nickname"];
+            model.contentstr = [infodit objectForKey:@"content"];
+            model.create_timestr = [infodit objectForKey:@"create_time"];
+            model.idstr = [infodit objectForKey:@"id"];
+            model.imagesArray = [infodit objectForKey:@"images"];
+            model.titlestr = [infodit objectForKey:@"title"];
+            model.object_idstr = [infodit objectForKey:@"object_id"];
+            model.relation_idstr = [infodit objectForKey:@"relation_id"];
+            model.reply_numstr = [infodit objectForKey:@"reply_num"];
+            model.reward_numstr = [infodit objectForKey:@"reward_num"];
+            model.support_numstr = [infodit objectForKey:@"support_num"];
+            model.uidstr = [infodit objectForKey:@"uid"];
+            
+            [self.datasourceArray addObject:model];
+            
+            [self.xiangqingtableView reloadData];
+            [self.xiangqingtableView.mj_header endRefreshing];
+            
+        }
+        
     } failure:^(NSError *error) {
-        
+        [self.xiangqingtableView.mj_header endRefreshing];
     }];
 }
 
@@ -120,11 +156,35 @@ static NSString *shuquanxiangqingidentfid1 = @"shuquanxiangqingidentfid1";
     return _xiangqingtableView;
 }
 
+
+-(NSDictionary *)headdic
+{
+    if(!_headdic)
+    {
+        _headdic = [NSDictionary dictionary];
+        
+    }
+    return _headdic;
+}
+
+-(NSMutableArray *)datasourceArray
+{
+    if(!_datasourceArray)
+    {
+        _datasourceArray = [NSMutableArray array];
+        
+    }
+    return _datasourceArray;
+}
+
+
+
+
 #pragma mark - UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.datasourceArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,6 +192,7 @@ static NSString *shuquanxiangqingidentfid1 = @"shuquanxiangqingidentfid1";
     quanzixiangqingCell0 *cell = [tableView dequeueReusableCellWithIdentifier:shuquanxiangqingidentfid0];
     cell = [[quanzixiangqingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:shuquanxiangqingidentfid0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setdata:self.datasourceArray[indexPath.row]];
     return cell;
 }
 

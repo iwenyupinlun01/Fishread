@@ -100,7 +100,7 @@
         make.top.equalTo(weakSelf.timelab.mas_bottom).with.offset(12*HEIGHT_SCALE);
         make.left.equalTo(weakSelf).with.offset(64*WIDTH_SCALE);
         make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
-        make.height.mas_equalTo(60);
+        //make.height.mas_equalTo(60);
     }];
     
     [self.img0 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -188,7 +188,8 @@
         make.left.equalTo(weakSelf).with.offset(64*WIDTH_SCALE);
         make.top.equalTo(weakSelf.shareBtn.mas_bottom).with.offset(14*HEIGHT_SCALE);
         make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
-        make.height.mas_equalTo(24*WIDTH_SCALE);
+        //make.height.mas_equalTo(24*WIDTH_SCALE);
+        
     }];
     
 }
@@ -212,7 +213,7 @@
     if(!_nicknamelab)
     {
         _nicknamelab = [[UILabel alloc] init];
-        _nicknamelab.text = @"姓名姓名";
+        //_nicknamelab.text = @"姓名姓名";
         _nicknamelab.textColor = [UIColor wjColorFloat:@"455F8E"];
         _nicknamelab.font = [UIFont systemFontOfSize:14];
 
@@ -226,7 +227,7 @@
     {
         _timelab = [[UILabel alloc] init];
         _timelab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
-        _timelab.text = @"time";
+        //_timelab.text = @"time";
         _timelab.font = [UIFont systemFontOfSize:12];
     }
     return _timelab;
@@ -362,7 +363,7 @@
     if(!_shareBtn)
     {
         _shareBtn = [[UIButton alloc] init];
-        [_shareBtn setImage:[UIImage imageNamed:@"设置"] forState:normal];
+        [_shareBtn setImage:[UIImage imageNamed:@"分享"] forState:normal];
     }
     return _shareBtn;
 }
@@ -372,7 +373,8 @@
     if(!_thumlabel)
     {
         _thumlabel = [[UILabel alloc] init];
-        _thumlabel.backgroundColor = [UIColor greenColor];
+       // _thumlabel.backgroundColor = [UIColor greenColor];
+        _thumlabel.numberOfLines = 0;
     }
     return _thumlabel;
 }
@@ -381,10 +383,270 @@
 {
     self.dmodel = model;
     [self.iconimg sd_setImageWithURL:[NSURL URLWithString:model.Avatarpathstr]];
-    self.nicknamelab.text = model.ForumBookmarknicknamestr;
     self.nicknamelab.text = model.Membernickname;
+    
+    self.contentlab.font = [UIFont systemFontOfSize:15];
+    self.contentlab.numberOfLines = 0;
     self.contentlab.text = model.contentstr;
+    self.contentlab.preferredMaxLayoutWidth = DEVICE_WIDTH-78*WIDTH_SCALE;
+    [self.contentlab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    self.contentlab.lineBreakMode = NSLineBreakByWordWrapping;//换行方式
+    [self.contentlab setText:model.contentstr lines:0 andLineSpacing:5 constrainedToSize:CGSizeMake(DEVICE_WIDTH-78*WIDTH_SCALE, 0)];
+    [self.contentlab sizeToFit];
     self.timelab.text = [Timestr datetime:model.create_timestr];
+    
+    if (model.imagesArray.count==0) {
+        [self.img0 setHidden:YES];
+        [self.img1 setHidden:YES];
+        [self.img2 setHidden:YES];
+        [self.img3 setHidden:YES];
+        [self.img4 setHidden:YES];
+        [self.img5 setHidden:YES];
+        [self.img6 setHidden:YES];
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.contentlab.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        }];
+
+       
+    }else if (model.imagesArray.count==1)
+    {
+        [self.img1 setHidden:YES];
+        [self.img2 setHidden:YES];
+        [self.img3 setHidden:YES];
+        [self.img4 setHidden:YES];
+        [self.img5 setHidden:YES];
+        [self.img6 setHidden:YES];
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.img0.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        }];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        
+    }else if (model.imagesArray.count==2)
+    {
+        [self.img2 setHidden:YES];
+        [self.img3 setHidden:YES];
+        [self.img4 setHidden:YES];
+        [self.img5 setHidden:YES];
+        [self.img6 setHidden:YES];
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.img0.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        }];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+    }
+    else if (model.imagesArray.count==3)
+    {
+        [self.img3 setHidden:YES];
+        [self.img4 setHidden:YES];
+        [self.img5 setHidden:YES];
+        [self.img6 setHidden:YES];
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.img0.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        }];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        NSString *img2str = [model.imagesArray objectAtIndex:2];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:img2str]];
+        
+    }
+    else if (model.imagesArray.count==4)
+    {
+        [self.img2 setHidden:YES];
+        [self.img5 setHidden:YES];
+        [self.img6 setHidden:YES];
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.img3.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        }];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        NSString *img3str = [model.imagesArray objectAtIndex:2];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
+        NSString *img4str = [model.imagesArray objectAtIndex:3];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
+        
+    }else if (model.imagesArray.count==5)
+    {
+        [self.img5 setHidden:YES];
+        [self.img6 setHidden:YES];
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.img3.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        }];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        NSString *img2str = [model.imagesArray objectAtIndex:2];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:img2str]];
+        NSString *img3str = [model.imagesArray objectAtIndex:3];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
+        NSString *img4str = [model.imagesArray objectAtIndex:4];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
+    }else if (model.imagesArray.count==6)
+    {
+        [self.img6 setHidden:YES];
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.img3.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        }];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        NSString *img2str = [model.imagesArray objectAtIndex:2];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:img2str]];
+        NSString *img3str = [model.imagesArray objectAtIndex:3];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
+        NSString *img4str = [model.imagesArray objectAtIndex:4];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
+        NSString *img5str = [model.imagesArray objectAtIndex:5];
+        [self.img5 sd_setImageWithURL:[NSURL URLWithString:img5str]];
+    }else if (model.imagesArray.count==7)
+    {
+        [self.img7 setHidden:YES];
+        [self.img8 setHidden:YES];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        NSString *img2str = [model.imagesArray objectAtIndex:2];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:img2str]];
+        NSString *img3str = [model.imagesArray objectAtIndex:3];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
+        NSString *img4str = [model.imagesArray objectAtIndex:4];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
+        NSString *img5str = [model.imagesArray objectAtIndex:5];
+        [self.img5 sd_setImageWithURL:[NSURL URLWithString:img5str]];
+        NSString *img6str = [model.imagesArray objectAtIndex:6];
+        [self.img6 sd_setImageWithURL:[NSURL URLWithString:img6str]];
+    }
+    else if (model.imagesArray.count==8)
+    {
+         [self.img8 setHidden:YES];
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        NSString *img2str = [model.imagesArray objectAtIndex:2];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:img2str]];
+        NSString *img3str = [model.imagesArray objectAtIndex:3];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
+        NSString *img4str = [model.imagesArray objectAtIndex:4];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
+        NSString *img5str = [model.imagesArray objectAtIndex:5];
+        [self.img5 sd_setImageWithURL:[NSURL URLWithString:img5str]];
+        NSString *img6str = [model.imagesArray objectAtIndex:6];
+        [self.img6 sd_setImageWithURL:[NSURL URLWithString:img6str]];
+        NSString *img7str = [model.imagesArray objectAtIndex:7];
+        [self.img7 sd_setImageWithURL:[NSURL URLWithString:img7str]];
+    }
+    else if (model.imagesArray.count==9)
+    {
+        NSString *img0str = [model.imagesArray objectAtIndex:0];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
+        NSString *img1str = [model.imagesArray objectAtIndex:1];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        NSString *img2str = [model.imagesArray objectAtIndex:2];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:img2str]];
+        NSString *img3str = [model.imagesArray objectAtIndex:3];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
+        NSString *img4str = [model.imagesArray objectAtIndex:4];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
+        NSString *img5str = [model.imagesArray objectAtIndex:5];
+        [self.img5 sd_setImageWithURL:[NSURL URLWithString:img5str]];
+        NSString *img6str = [model.imagesArray objectAtIndex:6];
+        [self.img6 sd_setImageWithURL:[NSURL URLWithString:img6str]];
+        NSString *img7str = [model.imagesArray objectAtIndex:7];
+        [self.img7 sd_setImageWithURL:[NSURL URLWithString:img7str]];
+        NSString *img8str = [model.imagesArray objectAtIndex:8];
+        [self.img8 sd_setImageWithURL:[NSURL URLWithString:img8str]];
+    }
+    
+    
+    
+    if (model.ForumBookmarkArray != nil && ![model.ForumBookmarkArray isKindOfClass:[NSNull class]] && model.ForumBookmarkArray.count !=0) {
+        if (model.ForumBookmarkArray.count<=12) {
+            NSString *goodTotalString2 = [model.ForumBookmarkArray componentsJoinedByString:@", "];
+            NSString *goodTotalString = [NSString stringWithFormat:@"%@%@%lu%@",goodTotalString2,@" ",(unsigned long)model.ForumBookmarkArray.count,@"人已赞"];
+            NSMutableAttributedString *newGoodString = [[NSMutableAttributedString alloc] initWithString:goodTotalString];
+            [newGoodString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, goodTotalString.length)];
+            //设置行距 实际开发中间距为0太丑了，根据项目需求自己把握
+            NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphstyle.lineSpacing = 3;
+            [newGoodString addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, goodTotalString.length)];
+            // 添加图片
+            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+            // 图片
+            attch.image = [UIImage imageNamed:@"点赞-拷贝-2"];
+            // 设置图片大小
+            attch.bounds = CGRectMake(0, 0, 14*WIDTH_SCALE, 14*WIDTH_SCALE);
+            // 创建带有图片的富文本
+            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+            [newGoodString insertAttributedString:string atIndex:0];
+            
+            NSMutableAttributedString
+            * attStr = [[NSMutableAttributedString alloc]initWithString:@" "];
+            [newGoodString insertAttributedString:attStr atIndex:1];
+            
+            self.thumlabel.attributedText = newGoodString;
+            self.thumlabel.numberOfLines = 0;
+            //设置UILable自适
+            self.thumlabel.lineBreakMode = NSLineBreakByCharWrapping;
+            [self.thumlabel sizeToFit];
+        }else
+        {
+            NSArray *smallArray = [model.ForumBookmarkArray subarrayWithRange:NSMakeRange(0, 12)];
+            NSString *goodTotalString2 = [smallArray componentsJoinedByString:@", "];
+            NSString *goodTotalString = [NSString stringWithFormat:@"%@%@%@%lu%@",goodTotalString2,@"等",@" ",(unsigned long)model.ForumBookmarkArray.count,@"人已赞"];
+            NSMutableAttributedString *newGoodString = [[NSMutableAttributedString alloc] initWithString:goodTotalString];
+            [newGoodString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, goodTotalString.length)];
+            //设置行距 实际开发中间距为0太丑了，根据项目需求自己把握
+            NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphstyle.lineSpacing = 3;
+            [newGoodString addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, goodTotalString.length)];
+            // 添加图片
+            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+            // 图片
+            attch.image = [UIImage imageNamed:@"点赞-拷贝-2"];
+            // 设置图片大小
+            attch.bounds = CGRectMake(0, 0, 14*WIDTH_SCALE, 14*WIDTH_SCALE);
+            // 创建带有图片的富文本
+            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+            [newGoodString insertAttributedString:string atIndex:0];
+            NSMutableAttributedString
+            * attStr = [[NSMutableAttributedString alloc]initWithString:@" "];
+            [newGoodString insertAttributedString:attStr atIndex:1];
+            self.thumlabel.attributedText = newGoodString;
+            self.thumlabel.numberOfLines = 0;
+            //设置UILable自适
+            self.thumlabel.lineBreakMode = NSLineBreakByCharWrapping;
+            [self.thumlabel sizeToFit];
+        }
+    }else
+    {
+        [self.thumlabel setHidden:YES];
+    }
+    
     
 }
 

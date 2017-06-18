@@ -8,7 +8,7 @@
 
 #import "quanbuCell.h"
 #import "quanbuModel.h"
-#import "UILabel+MultipleLines.h"
+
 @interface quanbuCell()
 @property (nonatomic,strong) UIImageView *iconimg;
 @property (nonatomic,strong) UILabel *namelab;

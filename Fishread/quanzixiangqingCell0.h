@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class dongtaixiangqingModel;
 @interface quanzixiangqingCell0 : UITableViewCell
-
+-(void)setdata:(dongtaixiangqingModel *)model;
 @end
