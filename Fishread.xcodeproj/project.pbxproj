@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1FC1199217AD688168C79225 /* libPods-Fishread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */; };
 		530C81921EF53C1900815763 /* dongtaixiangqingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81911EF53C1900815763 /* dongtaixiangqingModel.m */; };
+		530C81951EF7959400815763 /* YYPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81941EF7959400815763 /* YYPhotoGroupView.m */; };
 		530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */; };
 		530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4821EF25A1E0056BA66 /* UIView+Extension.m */; };
 		530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4861EF25A7B0056BA66 /* YAImageTableViewVC.m */; };
@@ -117,6 +118,8 @@
 /* Begin PBXFileReference section */
 		530C81901EF53C1900815763 /* dongtaixiangqingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dongtaixiangqingModel.h; sourceTree = "<group>"; };
 		530C81911EF53C1900815763 /* dongtaixiangqingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dongtaixiangqingModel.m; sourceTree = "<group>"; };
+		530C81931EF7959400815763 /* YYPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPhotoGroupView.h; sourceTree = "<group>"; };
+		530C81941EF7959400815763 /* YYPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPhotoGroupView.m; sourceTree = "<group>"; };
 		530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+AlphaAnimation.h"; sourceTree = "<group>"; };
 		530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+AlphaAnimation.m"; sourceTree = "<group>"; };
 		530DA4811EF25A1E0056BA66 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -864,6 +867,8 @@
 		53A1F1361EEEA4DC00ED5EE8 /* utlisView */ = {
 			isa = PBXGroup;
 			children = (
+				530C81931EF7959400815763 /* YYPhotoGroupView.h */,
+				530C81941EF7959400815763 /* YYPhotoGroupView.m */,
 				53A1F1371EEEA4FD00ED5EE8 /* UIView+Utils.h */,
 				53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */,
 			);
@@ -1047,6 +1052,7 @@
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */,
 				5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */,
+				530C81951EF7959400815763 /* YYPhotoGroupView.m in Sources */,
 				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
 				5332E2BA1EF3D2480040A295 /* quanzixiangqingCell1.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,

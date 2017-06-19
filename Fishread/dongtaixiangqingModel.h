@@ -22,10 +22,27 @@
 @property (nonatomic,strong) NSString *titlestr;
 @property (nonatomic,strong) NSString *relation_idstr;
 
+@property (nonatomic,strong) NSString *is_bookmarkstr;
 @property (nonatomic,strong) NSString *Avatarpathstr;
 @property (nonatomic,strong) NSString *Membernickname;
 
 @property (nonatomic,strong) NSMutableArray *ForumBookmarkArray;
 @property (nonatomic,strong) NSString *ForumBookmarkuidstr;
 @property (nonatomic,strong) NSString *ForumBookmarknicknamestr;
+
+
+
+@property (nonatomic,strong) NSString *allCommentidstr;
+@property (nonatomic,strong) NSString *allCommentcontentstr;
+@property (nonatomic,strong) NSString *allCommentto_reply_idstr;
+@property (nonatomic,strong) NSString *allCommentuidstr;
+@property (nonatomic,strong) NSString *allCommentto_uidstr;
+@property (nonatomic,strong) NSString *allCommentsupport_numstr;
+@property (nonatomic,strong) NSString *allCommentpidstr;
+@property (nonatomic,strong) NSString *allCommentctimestr;
+@property (nonatomic,strong) NSString *allCommentcomment_namestr;
+@property (nonatomic,strong) NSString *allCommentto_comment_namestr;
+
+
+
 @end

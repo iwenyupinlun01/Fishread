@@ -8,6 +8,9 @@
 
 #import "quanzixiangqingCell0.h"
 #import "dongtaixiangqingModel.h"
+#import "dianzanBtn.h"
+#import "pinglunBtn.h"
+#import "YYPhotoGroupView.h"
 
 @interface quanzixiangqingCell0()
 @property (nonatomic,strong) UIImageView *iconimg;
@@ -26,8 +29,8 @@
 @property (nonatomic,strong) UIImageView *img7;
 @property (nonatomic,strong) UIImageView *img8;
 
-@property (nonatomic,strong) UIButton *zanBtn;
-@property (nonatomic,strong) UIButton *commentsBtn;
+@property (nonatomic,strong) dianzanBtn *zanBtn;
+@property (nonatomic,strong) pinglunBtn *commentsBtn;
 @property (nonatomic,strong) UIButton *shareBtn;
 
 @property (nonatomic,strong) UILabel *thumlabel;
@@ -248,7 +251,7 @@
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-        _contentlab.backgroundColor = [UIColor orangeColor];
+        //_contentlab.backgroundColor = [UIColor orangeColor];
         _contentlab.numberOfLines = 0;
     }
     return _contentlab;
@@ -338,22 +341,22 @@
 }
 
 
--(UIButton *)zanBtn
+-(dianzanBtn *)zanBtn
 {
     if(!_zanBtn)
     {
-        _zanBtn = [[UIButton alloc] init];
-        [_zanBtn setImage:[UIImage imageNamed:@"点赞-拷贝"] forState:normal];
+        _zanBtn = [[dianzanBtn alloc] init];
+        //[_zanBtn setImage:[UIImage imageNamed:@"点赞-拷贝"] forState:normal];
     }
     return _zanBtn;
 }
 
--(UIButton *)commentsBtn
+-(pinglunBtn *)commentsBtn
 {
     if(!_commentsBtn)
     {
-        _commentsBtn = [[UIButton alloc] init];
-        [_commentsBtn setImage:[UIImage imageNamed:@"评"] forState:normal];
+        _commentsBtn = [[pinglunBtn alloc] init];
+       // [_commentsBtn setImage:[UIImage imageNamed:@"评"] forState:normal];
     }
     return _commentsBtn;
 }
@@ -379,8 +382,11 @@
     return _thumlabel;
 }
 
--(void)setdata:(dongtaixiangqingModel *)model
+-(CGFloat )setdata:(dongtaixiangqingModel *)model
 {
+    CGFloat hei=0.01f;
+    CGFloat imghei=0.01f;
+    
     self.dmodel = model;
     [self.iconimg sd_setImageWithURL:[NSURL URLWithString:model.Avatarpathstr]];
     self.nicknamelab.text = model.Membernickname;
@@ -409,7 +415,6 @@
         [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.contentlab.mas_bottom).with.offset(14*HEIGHT_SCALE);
         }];
-
        
     }else if (model.imagesArray.count==1)
     {
@@ -426,7 +431,7 @@
         }];
         NSString *img0str = [model.imagesArray objectAtIndex:0];
         [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
-        
+        imghei = 75*WIDTH_SCALE;
     }else if (model.imagesArray.count==2)
     {
         [self.img2 setHidden:YES];
@@ -443,6 +448,7 @@
         [self.img0 sd_setImageWithURL:[NSURL URLWithString:img0str]];
         NSString *img1str = [model.imagesArray objectAtIndex:1];
         [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
+        imghei = 75*WIDTH_SCALE;;
     }
     else if (model.imagesArray.count==3)
     {
@@ -461,7 +467,7 @@
         [self.img1 sd_setImageWithURL:[NSURL URLWithString:img1str]];
         NSString *img2str = [model.imagesArray objectAtIndex:2];
         [self.img2 sd_setImageWithURL:[NSURL URLWithString:img2str]];
-        
+        imghei = 75*WIDTH_SCALE;;
     }
     else if (model.imagesArray.count==4)
     {
@@ -481,7 +487,7 @@
         [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
         NSString *img4str = [model.imagesArray objectAtIndex:3];
         [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
-        
+        imghei = 75*WIDTH_SCALE*2+4*HEIGHT_SCALE;
     }else if (model.imagesArray.count==5)
     {
         [self.img5 setHidden:YES];
@@ -501,6 +507,7 @@
         [self.img3 sd_setImageWithURL:[NSURL URLWithString:img3str]];
         NSString *img4str = [model.imagesArray objectAtIndex:4];
         [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
+        imghei = 75*WIDTH_SCALE*2+4*HEIGHT_SCALE;
     }else if (model.imagesArray.count==6)
     {
         [self.img6 setHidden:YES];
@@ -521,6 +528,7 @@
         [self.img4 sd_setImageWithURL:[NSURL URLWithString:img4str]];
         NSString *img5str = [model.imagesArray objectAtIndex:5];
         [self.img5 sd_setImageWithURL:[NSURL URLWithString:img5str]];
+        imghei = 75*WIDTH_SCALE*2+4*HEIGHT_SCALE;
     }else if (model.imagesArray.count==7)
     {
         [self.img7 setHidden:YES];
@@ -539,6 +547,7 @@
         [self.img5 sd_setImageWithURL:[NSURL URLWithString:img5str]];
         NSString *img6str = [model.imagesArray objectAtIndex:6];
         [self.img6 sd_setImageWithURL:[NSURL URLWithString:img6str]];
+        imghei = 75*WIDTH_SCALE*3+8*HEIGHT_SCALE;
     }
     else if (model.imagesArray.count==8)
     {
@@ -559,6 +568,7 @@
         [self.img6 sd_setImageWithURL:[NSURL URLWithString:img6str]];
         NSString *img7str = [model.imagesArray objectAtIndex:7];
         [self.img7 sd_setImageWithURL:[NSURL URLWithString:img7str]];
+        imghei = 75*WIDTH_SCALE*3+8*HEIGHT_SCALE;
     }
     else if (model.imagesArray.count==9)
     {
@@ -580,9 +590,8 @@
         [self.img7 sd_setImageWithURL:[NSURL URLWithString:img7str]];
         NSString *img8str = [model.imagesArray objectAtIndex:8];
         [self.img8 sd_setImageWithURL:[NSURL URLWithString:img8str]];
+        imghei = 75*WIDTH_SCALE*3+8*HEIGHT_SCALE;
     }
-    
-    
     
     if (model.ForumBookmarkArray != nil && ![model.ForumBookmarkArray isKindOfClass:[NSNull class]] && model.ForumBookmarkArray.count !=0) {
         if (model.ForumBookmarkArray.count<=12) {
@@ -610,9 +619,18 @@
             
             self.thumlabel.attributedText = newGoodString;
             self.thumlabel.numberOfLines = 0;
+            
+            self.thumlabel.preferredMaxLayoutWidth = DEVICE_WIDTH-78*WIDTH_SCALE;
+            [self.thumlabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+            self.thumlabel.lineBreakMode = NSLineBreakByWordWrapping;//换行方式
+            
+
+            self.thumlabel.font = [UIFont systemFontOfSize:14];
             //设置UILable自适
             self.thumlabel.lineBreakMode = NSLineBreakByCharWrapping;
             [self.thumlabel sizeToFit];
+            
+            hei = self.thumlabel.frame.size.height+imghei+self.contentlab.frame.size.height+150*HEIGHT_SCALE;
         }else
         {
             NSArray *smallArray = [model.ForumBookmarkArray subarrayWithRange:NSMakeRange(0, 12)];
@@ -640,14 +658,21 @@
             self.thumlabel.numberOfLines = 0;
             //设置UILable自适
             self.thumlabel.lineBreakMode = NSLineBreakByCharWrapping;
+            self.thumlabel.preferredMaxLayoutWidth = DEVICE_WIDTH-78*WIDTH_SCALE;
+            [self.thumlabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+            self.thumlabel.lineBreakMode = NSLineBreakByWordWrapping;//换行方式
+            self.thumlabel.font = [UIFont systemFontOfSize:14];
             [self.thumlabel sizeToFit];
+            hei = self.thumlabel.frame.size.height+imghei+self.contentlab.frame.size.height+160*HEIGHT_SCALE;
         }
     }else
     {
         [self.thumlabel setHidden:YES];
+        hei = imghei+self.contentlab.frame.size.height+140*HEIGHT_SCALE;
     }
     
-    
+    return hei;
 }
+
 
 @end
