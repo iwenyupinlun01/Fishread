@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "secondCell.h"
+
+@class dongtaixiangqingModel;
 
 @interface quanzixiangqingCell1 : UITableViewCell
-
+-(CGFloat )setdata:(dongtaixiangqingModel *)model;
 @end

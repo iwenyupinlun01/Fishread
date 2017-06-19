@@ -40,6 +40,17 @@
     return _ForumBookmarkArray;
 }
 
+//
+//-(NSMutableArray *)pinglunarr
+//{
+//    if(!_pinglunarr)
+//    {
+//        _pinglunarr = [NSMutableArray array];
+//        
+//    }
+//    return _pinglunarr;
+//}
+
 
 
 

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1FC1199217AD688168C79225 /* libPods-Fishread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */; };
 		530C81921EF53C1900815763 /* dongtaixiangqingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81911EF53C1900815763 /* dongtaixiangqingModel.m */; };
-		530C81951EF7959400815763 /* YYPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81941EF7959400815763 /* YYPhotoGroupView.m */; };
+		530C819A1EF79C6E00815763 /* ImageEnlargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81981EF79C6E00815763 /* ImageEnlargeCell.m */; };
+		530C819B1EF79C6E00815763 /* sitting_04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 530C81991EF79C6E00815763 /* sitting_04@2x.png */; };
+		530C819E1EF7C23200815763 /* secondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C819D1EF7C23200815763 /* secondCell.m */; };
 		530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */; };
 		530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4821EF25A1E0056BA66 /* UIView+Extension.m */; };
 		530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4861EF25A7B0056BA66 /* YAImageTableViewVC.m */; };
@@ -118,8 +120,11 @@
 /* Begin PBXFileReference section */
 		530C81901EF53C1900815763 /* dongtaixiangqingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dongtaixiangqingModel.h; sourceTree = "<group>"; };
 		530C81911EF53C1900815763 /* dongtaixiangqingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dongtaixiangqingModel.m; sourceTree = "<group>"; };
-		530C81931EF7959400815763 /* YYPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPhotoGroupView.h; sourceTree = "<group>"; };
-		530C81941EF7959400815763 /* YYPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPhotoGroupView.m; sourceTree = "<group>"; };
+		530C81971EF79C6E00815763 /* ImageEnlargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEnlargeCell.h; sourceTree = "<group>"; };
+		530C81981EF79C6E00815763 /* ImageEnlargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEnlargeCell.m; sourceTree = "<group>"; };
+		530C81991EF79C6E00815763 /* sitting_04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sitting_04@2x.png"; sourceTree = "<group>"; };
+		530C819C1EF7C23200815763 /* secondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secondCell.h; sourceTree = "<group>"; };
+		530C819D1EF7C23200815763 /* secondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = secondCell.m; sourceTree = "<group>"; };
 		530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+AlphaAnimation.h"; sourceTree = "<group>"; };
 		530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+AlphaAnimation.m"; sourceTree = "<group>"; };
 		530DA4811EF25A1E0056BA66 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -357,6 +362,16 @@
 				8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		530C81961EF79C6E00815763 /* bigimg */ = {
+			isa = PBXGroup;
+			children = (
+				530C81971EF79C6E00815763 /* ImageEnlargeCell.h */,
+				530C81981EF79C6E00815763 /* ImageEnlargeCell.m */,
+				530C81991EF79C6E00815763 /* sitting_04@2x.png */,
+			);
+			path = bigimg;
 			sourceTree = "<group>";
 		};
 		530DA47E1EF25A1E0056BA66 /* NavigationBarTool */ = {
@@ -841,6 +856,8 @@
 				5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */,
 				5332E2B81EF3D2480040A295 /* quanzixiangqingCell1.h */,
 				5332E2B91EF3D2480040A295 /* quanzixiangqingCell1.m */,
+				530C819C1EF7C23200815763 /* secondCell.h */,
+				530C819D1EF7C23200815763 /* secondCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -867,8 +884,7 @@
 		53A1F1361EEEA4DC00ED5EE8 /* utlisView */ = {
 			isa = PBXGroup;
 			children = (
-				530C81931EF7959400815763 /* YYPhotoGroupView.h */,
-				530C81941EF7959400815763 /* YYPhotoGroupView.m */,
+				530C81961EF79C6E00815763 /* bigimg */,
 				53A1F1371EEEA4FD00ED5EE8 /* UIView+Utils.h */,
 				53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */,
 			);
@@ -938,6 +954,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				534F61E11EDEB2C8007835ED /* LaunchScreen.storyboard in Resources */,
+				530C819B1EF79C6E00815763 /* sitting_04@2x.png in Resources */,
 				535FED891EE14673007A456D /* MainViewController.xib in Resources */,
 				534F61DE1EDEB2C8007835ED /* Assets.xcassets in Resources */,
 				530DA4961EF27C190056BA66 /* HeaderView.xib in Resources */,
@@ -1015,8 +1032,10 @@
 				530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */,
 				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
+				530C819E1EF7C23200815763 /* secondCell.m in Sources */,
 				5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */,
 				533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */,
+				530C819A1EF79C6E00815763 /* ImageEnlargeCell.m in Sources */,
 				533B61BE1EE93F9000DE0392 /* publishCell.m in Sources */,
 				535FED881EE14673007A456D /* MainViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
@@ -1052,7 +1071,6 @@
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */,
 				5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */,
-				530C81951EF7959400815763 /* YYPhotoGroupView.m in Sources */,
 				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
 				5332E2BA1EF3D2480040A295 /* quanzixiangqingCell1.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,

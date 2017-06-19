@@ -10,7 +10,7 @@
 #import "dongtaixiangqingModel.h"
 #import "dianzanBtn.h"
 #import "pinglunBtn.h"
-#import "YYPhotoGroupView.h"
+
 
 @interface quanzixiangqingCell0()
 @property (nonatomic,strong) UIImageView *iconimg;
@@ -29,8 +29,8 @@
 @property (nonatomic,strong) UIImageView *img7;
 @property (nonatomic,strong) UIImageView *img8;
 
-@property (nonatomic,strong) dianzanBtn *zanBtn;
-@property (nonatomic,strong) pinglunBtn *commentsBtn;
+@property (nonatomic,strong) UIButton *zanBtn;
+@property (nonatomic,strong) UIButton *commentsBtn;
 @property (nonatomic,strong) UIButton *shareBtn;
 
 @property (nonatomic,strong) UILabel *thumlabel;
@@ -340,23 +340,22 @@
     return _img8;
 }
 
-
--(dianzanBtn *)zanBtn
+-(UIButton *)zanBtn
 {
     if(!_zanBtn)
     {
-        _zanBtn = [[dianzanBtn alloc] init];
-        //[_zanBtn setImage:[UIImage imageNamed:@"点赞-拷贝"] forState:normal];
+        _zanBtn = [[UIButton alloc] init];
+        [_zanBtn setImage:[UIImage imageNamed:@"点赞-拷贝"] forState:normal];
     }
     return _zanBtn;
 }
 
--(pinglunBtn *)commentsBtn
+-(UIButton *)commentsBtn
 {
     if(!_commentsBtn)
     {
-        _commentsBtn = [[pinglunBtn alloc] init];
-       // [_commentsBtn setImage:[UIImage imageNamed:@"评"] forState:normal];
+        _commentsBtn = [[UIButton alloc] init];
+        [_commentsBtn setImage:[UIImage imageNamed:@"评"] forState:normal];
     }
     return _commentsBtn;
 }
@@ -378,6 +377,7 @@
         _thumlabel = [[UILabel alloc] init];
        // _thumlabel.backgroundColor = [UIColor greenColor];
         _thumlabel.numberOfLines = 0;
+        _thumlabel.textColor = [UIColor wjColorFloat:@"576B95"];
     }
     return _thumlabel;
 }
@@ -670,7 +670,12 @@
         [self.thumlabel setHidden:YES];
         hei = imghei+self.contentlab.frame.size.height+140*HEIGHT_SCALE;
     }
-    
+    if ([model.is_bookmarkstr isEqualToString:@"1"]) {
+        [self.zanBtn setImage:[UIImage imageNamed:@"点赞-点击后"] forState:normal];
+    }else
+    {
+        [self.zanBtn setImage:[UIImage imageNamed:@"点赞-拷贝"] forState:normal];
+    }
     return hei;
 }
 

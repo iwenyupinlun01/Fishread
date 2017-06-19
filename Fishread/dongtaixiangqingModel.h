@@ -33,6 +33,8 @@
 
 
 @property (nonatomic,strong) NSString *allCommentidstr;
+@property (nonatomic,strong) NSString *allCommentcomment_iconstr;
+@property (nonatomic,strong) NSString *allCommentcomment_namestr;
 @property (nonatomic,strong) NSString *allCommentcontentstr;
 @property (nonatomic,strong) NSString *allCommentto_reply_idstr;
 @property (nonatomic,strong) NSString *allCommentuidstr;
@@ -40,9 +42,9 @@
 @property (nonatomic,strong) NSString *allCommentsupport_numstr;
 @property (nonatomic,strong) NSString *allCommentpidstr;
 @property (nonatomic,strong) NSString *allCommentctimestr;
-@property (nonatomic,strong) NSString *allCommentcomment_namestr;
+@property (nonatomic,strong) NSString *comment_namestr;
 @property (nonatomic,strong) NSString *allCommentto_comment_namestr;
 
-
+@property (nonatomic,strong) NSMutableArray *pinglunarr;
 
 @end
