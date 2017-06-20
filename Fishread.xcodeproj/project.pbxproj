@@ -12,6 +12,11 @@
 		530C819A1EF79C6E00815763 /* ImageEnlargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81981EF79C6E00815763 /* ImageEnlargeCell.m */; };
 		530C819B1EF79C6E00815763 /* sitting_04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 530C81991EF79C6E00815763 /* sitting_04@2x.png */; };
 		530C819E1EF7C23200815763 /* secondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C819D1EF7C23200815763 /* secondCell.m */; };
+		530C81A61EF7E86F00815763 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81A11EF7E86F00815763 /* CommentModel.m */; };
+		530C81A71EF7E86F00815763 /* CommmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81A31EF7E86F00815763 /* CommmentTableViewCell.m */; };
+		530C81A81EF7E86F00815763 /* UIView+EXTENSION.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81A51EF7E86F00815763 /* UIView+EXTENSION.m */; };
+		530C81AB1EF7E89F00815763 /* CommentdemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C81AA1EF7E89F00815763 /* CommentdemoViewController.m */; };
+		530C81AD1EF8C34C00815763 /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 530C81AC1EF8C34C00815763 /* Data.plist */; };
 		530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */; };
 		530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4821EF25A1E0056BA66 /* UIView+Extension.m */; };
 		530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4861EF25A7B0056BA66 /* YAImageTableViewVC.m */; };
@@ -125,6 +130,15 @@
 		530C81991EF79C6E00815763 /* sitting_04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sitting_04@2x.png"; sourceTree = "<group>"; };
 		530C819C1EF7C23200815763 /* secondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secondCell.h; sourceTree = "<group>"; };
 		530C819D1EF7C23200815763 /* secondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = secondCell.m; sourceTree = "<group>"; };
+		530C81A01EF7E86F00815763 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		530C81A11EF7E86F00815763 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		530C81A21EF7E86F00815763 /* CommmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommmentTableViewCell.h; sourceTree = "<group>"; };
+		530C81A31EF7E86F00815763 /* CommmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommmentTableViewCell.m; sourceTree = "<group>"; };
+		530C81A41EF7E86F00815763 /* UIView+EXTENSION.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EXTENSION.h"; sourceTree = "<group>"; };
+		530C81A51EF7E86F00815763 /* UIView+EXTENSION.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EXTENSION.m"; sourceTree = "<group>"; };
+		530C81A91EF7E89F00815763 /* CommentdemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentdemoViewController.h; sourceTree = "<group>"; };
+		530C81AA1EF7E89F00815763 /* CommentdemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentdemoViewController.m; sourceTree = "<group>"; };
+		530C81AC1EF8C34C00815763 /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
 		530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+AlphaAnimation.h"; sourceTree = "<group>"; };
 		530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+AlphaAnimation.m"; sourceTree = "<group>"; };
 		530DA4811EF25A1E0056BA66 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -374,6 +388,22 @@
 			path = bigimg;
 			sourceTree = "<group>";
 		};
+		530C819F1EF7E86F00815763 /* pinglun */ = {
+			isa = PBXGroup;
+			children = (
+				530C81A01EF7E86F00815763 /* CommentModel.h */,
+				530C81A11EF7E86F00815763 /* CommentModel.m */,
+				530C81A21EF7E86F00815763 /* CommmentTableViewCell.h */,
+				530C81A31EF7E86F00815763 /* CommmentTableViewCell.m */,
+				530C81A41EF7E86F00815763 /* UIView+EXTENSION.h */,
+				530C81A51EF7E86F00815763 /* UIView+EXTENSION.m */,
+				530C81A91EF7E89F00815763 /* CommentdemoViewController.h */,
+				530C81AA1EF7E89F00815763 /* CommentdemoViewController.m */,
+				530C81AC1EF8C34C00815763 /* Data.plist */,
+			);
+			path = pinglun;
+			sourceTree = "<group>";
+		};
 		530DA47E1EF25A1E0056BA66 /* NavigationBarTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +511,7 @@
 		531E8B741EDFE569007C26D2 /* 书圈 */ = {
 			isa = PBXGroup;
 			children = (
+				530C819F1EF7E86F00815763 /* pinglun */,
 				535FED991EE14D57007A456D /* M */,
 				535FED971EE14D4C007A456D /* V */,
 				535FED961EE14D4A007A456D /* C */,
@@ -959,6 +990,7 @@
 				534F61DE1EDEB2C8007835ED /* Assets.xcassets in Resources */,
 				530DA4961EF27C190056BA66 /* HeaderView.xib in Resources */,
 				535FED871EE14673007A456D /* HotViewController.xib in Resources */,
+				530C81AD1EF8C34C00815763 /* Data.plist in Resources */,
 				535FED8B1EE14673007A456D /* NearViewController.xib in Resources */,
 				534F61DC1EDEB2C8007835ED /* Main.storyboard in Resources */,
 				535FED851EE14673007A456D /* FocusViewController.xib in Resources */,
@@ -1022,6 +1054,7 @@
 			files = (
 				5393E36D1EE6A7C300392FD4 /* infoGroup.m in Sources */,
 				53A1F1241EEE3F2900ED5EE8 /* HLZIrregulatBtn.m in Sources */,
+				530C81A81EF7E86F00815763 /* UIView+EXTENSION.m in Sources */,
 				534F61D91EDEB2C8007835ED /* ViewController.m in Sources */,
 				533B61E21EEA747D00DE0392 /* HelpTool.m in Sources */,
 				533B61F11EEAA25300DE0392 /* tokenstr.m in Sources */,
@@ -1061,6 +1094,7 @@
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				533020C41EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m in Sources */,
 				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
+				530C81A61EF7E86F00815763 /* CommentModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,
 				533020C11EF14C3200D08825 /* HJTabViewBar.m in Sources */,
 				530DA49B1EF296190056BA66 /* Timestr.m in Sources */,
@@ -1097,6 +1131,7 @@
 				533B61ED1EEA87DC00DE0392 /* MBProgressHUD+XMG.m in Sources */,
 				5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */,
 				533020831EEFDF9800D08825 /* jieguoCell.m in Sources */,
+				530C81AB1EF7E89F00815763 /* CommentdemoViewController.m in Sources */,
 				533B61DC1EEA727800DE0392 /* feedbackViewController.m in Sources */,
 				533020C51EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
@@ -1113,6 +1148,7 @@
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,
 				533020C21EF14C3200D08825 /* HJTabViewController+ViewController.m in Sources */,
+				530C81A71EF7E86F00815763 /* CommmentTableViewCell.m in Sources */,
 				530C81921EF53C1900815763 /* dongtaixiangqingModel.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
 				533020901EF13C4300D08825 /* dianzanBtn.m in Sources */,

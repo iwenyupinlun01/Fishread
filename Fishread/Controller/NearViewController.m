@@ -9,6 +9,7 @@
 #import "NearViewController.h"
 #import "quanbuCell.h"
 #import "quanbuModel.h"
+#import "CommentdemoViewController.h"
 
 @interface NearViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 {
@@ -199,6 +200,14 @@ static NSString *shenidentfid = @"shenidentfid";
 {
     NSIndexPath *index = [self.shentableView indexPathForCell:cell];
     NSLog(@"333===%ld   评论",index.row);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CommentdemoViewController *commentvc = [[CommentdemoViewController alloc] init];
+    quanbuModel *model = self.shenArray[indexPath.row];
+    commentvc.idstr = model.idstr;
+    [self.navigationController pushViewController:commentvc animated:YES];
 }
 
 @end
