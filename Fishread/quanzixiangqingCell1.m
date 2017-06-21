@@ -194,9 +194,6 @@
     for (int i = 0; i<model.pinglunarr.count; i++) {
         NSDictionary *dit = [model.pinglunarr objectAtIndex:i];
         [self.dataarr addObject:dit];
-        
-      
-      
     }
     
     [super layoutIfNeeded];

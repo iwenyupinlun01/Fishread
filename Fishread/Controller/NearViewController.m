@@ -9,7 +9,8 @@
 #import "NearViewController.h"
 #import "quanbuCell.h"
 #import "quanbuModel.h"
-#import "CommentdemoViewController.h"
+
+#import "democontentViewController.h"
 
 @interface NearViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 {
@@ -204,10 +205,8 @@ static NSString *shenidentfid = @"shenidentfid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CommentdemoViewController *commentvc = [[CommentdemoViewController alloc] init];
-    quanbuModel *model = self.shenArray[indexPath.row];
-    commentvc.idstr = model.idstr;
-    [self.navigationController pushViewController:commentvc animated:YES];
+    democontentViewController *demo = [[democontentViewController alloc] init];
+    [self.navigationController pushViewController:demo animated:YES];
 }
 
 @end

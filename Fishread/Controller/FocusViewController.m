@@ -13,8 +13,10 @@
 {
     int pn;
 }
+
 @property (nonatomic,strong) UITableView *wodeTableview;
 @property (nonatomic,strong) NSMutableArray *dataSource;
+
 @end
 static NSString *wodecellidentfid = @"wodecellidentfid";
 @implementation FocusViewController
