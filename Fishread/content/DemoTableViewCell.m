@@ -11,6 +11,7 @@
 #import "DemoCommentView.h"
 #import <SDAutoLayout.h>
 
+#import "dianzanBtn.h"
 
 @interface DemoTableViewCell ()
 //头像
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic,strong)  UIButton *moreButton;
 
-@property (nonatomic,strong)  DemoCommentView *commentView;
+@property (nonatomic,strong) dianzanBtn *zanBtn;
 
 @end
 
@@ -29,8 +30,11 @@
 -(UIImageView *)iconView{
     if (!_iconView){
         _iconView = [[UIImageView alloc]init];
-        _iconView.layer.borderColor = [[UIColor blackColor] CGColor];
-        _iconView.layer.borderWidth = 1;
+        // _iconView.layer.borderColor = [[UIColor blackColor] CGColor];
+        // _iconView.layer.borderWidth = 1;
+        _iconView.layer.masksToBounds = YES;
+        _iconView.layer.cornerRadius = 18*WIDTH_SCALE;
+        
     }
     return _iconView;
 }
@@ -39,6 +43,7 @@
     if (!_nameLable){
         _nameLable = [[UILabel alloc]init];
         _nameLable.font = [UIFont systemFontOfSize:14];
+        _nameLable.textColor = [UIColor wjColorFloat:@"455F8E"];
     }
     return _nameLable;
 }
@@ -47,6 +52,7 @@
     if (!_contentLabel){
         _contentLabel = [[UILabel alloc]init];
         _contentLabel.font = [UIFont systemFontOfSize:14];
+        _contentLabel.textColor = [UIColor wjColorFloat:@"333333"];
     }
     return _contentLabel;
 }
@@ -55,8 +61,7 @@
     if (!_timeLabel){
         _timeLabel = [[UILabel alloc]init];
         _timeLabel.font = [UIFont systemFontOfSize:12];
-        _timeLabel.textColor = [UIColor grayColor];
-        _timeLabel.text = @"就在不久前";
+        _timeLabel.textColor = [UIColor wjColorFloat:@"C7C7CD"];
     }
     return _timeLabel;
 }
@@ -97,30 +102,43 @@
     return self;
 }
 
+-(dianzanBtn *)zanBtn
+{
+    if(!_zanBtn)
+    {
+        _zanBtn = [[dianzanBtn alloc] init];
+        _zanBtn.zanimg.image =  [UIImage imageNamed:@"点赞-拷贝"];
+    }
+    return _zanBtn;
+}
+
 - (void)setupUI{
     
     [self.contentView addSubview:self.iconView];
     [self.contentView addSubview:self.nameLable];
     [self.contentView addSubview:self.contentLabel];
     [self.contentView addSubview:self.timeLabel];
-
+    [self.contentView addSubview:self.zanBtn];
+    
+    
     _iconView.sd_layout
-    .leftSpaceToView(self.contentView,10)
-    .topSpaceToView(self.contentView,10)
-    .heightIs(40)
+    .leftSpaceToView(self.contentView,14*WIDTH_SCALE)
+    .topSpaceToView(self.contentView,16*WIDTH_SCALE)
+    .heightIs(36*WIDTH_SCALE)
     .widthEqualToHeight();
+    
     
     _nameLable.sd_layout
     .topEqualToView(_iconView)
-    .leftSpaceToView(_iconView,10)
-    .heightIs(25);
+    .leftSpaceToView(_iconView,10*WIDTH_SCALE)
+    .heightIs(25*HEIGHT_SCALE);
     [_nameLable setSingleLineAutoResizeWithMaxWidth:200];
     
     _timeLabel.sd_layout
-    .topSpaceToView(_nameLable,5)
+    .topSpaceToView(_nameLable,4*WIDTH_SCALE)
     .leftEqualToView(_nameLable)
-    .bottomEqualToView(_iconView)
-    .heightIs(10);
+    .heightIs(10*HEIGHT_SCALE);
+    [_timeLabel setSingleLineAutoResizeWithMaxWidth:200];
     
     _contentLabel.sd_layout
     .leftEqualToView(_nameLable)
@@ -128,14 +146,40 @@
     .topSpaceToView(_iconView,20)
     .autoHeightRatio(0);
     
+    
+    [self.zanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.iconView.mas_top);
+        make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
+        make.width.mas_equalTo(60);
+        make.height.mas_equalTo(25);
+    }];
+    
+   // self.zanBtn.backgroundColor = [UIColor redColor];
 }
 
 - (void)setModel:(DemoCellModel *)model{
     _model = model;
     
-    self.iconView.image = [UIImage imageNamed:model.iconName];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.iconName]];;
     self.nameLable.text = model.name;
     self.contentLabel.text = model.msgContent;
+    self.timeLabel.text = [Timestr datetime:model.timestr];
+    
+    self.zanBtn.zanlab.text = model.support_numstr;
+    
+    self.zanBtn.zanlab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
+    [self.zanBtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.iconView.mas_top).with.offset(1*HEIGHT_SCALE);
+        make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
+        make.height.mas_equalTo(20);
+    }];
+    [self.zanBtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.iconView.mas_top);
+        make.right.equalTo(self.zanBtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
+        make.height.mas_equalTo(16*WIDTH_SCALE);
+        make.width.mas_equalTo(16*WIDTH_SCALE);
+    }];
+    
     
     UIView *bottomView = self.contentLabel;
     
@@ -149,7 +193,7 @@
         
         self.commentView.commentArray = model.commentArray;
         
-        if (model.commentArray.count >= 5){
+        if (model.commentArray.count >= 1024){
             [self.contentView addSubview:self.moreButton];
             self.moreButton.selected = model.isMore;
 
@@ -174,6 +218,8 @@
         [self.commentView removeFromSuperview];
     }
 
+    [self layoutIfNeeded];
+    
     [self setupAutoHeightWithBottomView:bottomView bottomMargin:10];
     
 }
@@ -185,5 +231,7 @@
         [weakSelf.delegate didClickCellMoreComment:sender With:weakSelf];
     }
 }
+
+
 
 @end

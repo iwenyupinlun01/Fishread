@@ -9,7 +9,7 @@
 #import "HotViewController.h"
 #import "quanbuCell.h"
 #import "quanbuModel.h"
-#import "shuquanxiangqingViewController.h"
+#import "democontentViewController.h"
 @interface HotViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 {
     int pn;
@@ -200,7 +200,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    shuquanxiangqingViewController *shuquanvc = [[shuquanxiangqingViewController alloc] init];
+    democontentViewController *shuquanvc = [[democontentViewController alloc] init];
     quanbuModel *model = self.quanbuArray[indexPath.row];
     shuquanvc.idstr = model.idstr;
     [self.navigationController pushViewController:shuquanvc animated:YES];

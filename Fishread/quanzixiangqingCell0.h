@@ -11,4 +11,8 @@
 @class dongtaixiangqingModel;
 @interface quanzixiangqingCell0 : UITableViewCell
 -(CGFloat )setdata:(dongtaixiangqingModel *)model;
+@property (nonatomic,strong) UIButton *zanBtn;
+@property (nonatomic,strong) UIButton *commentsBtn;
+@property (nonatomic,strong) UIButton *shareBtn;
+@property (nonatomic,strong) UIButton *rightbtn;
 @end

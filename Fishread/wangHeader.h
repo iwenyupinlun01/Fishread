@@ -42,11 +42,15 @@
 //全部get
 #define quanziquanbu @"http://"IPAddress"/forum/index/index.html?token=%@&page=%@&judge=%@"
 
+
+//讨论圈详情
+#define taolunquanxiangqing @"http://"IPAddress"/forum/circle/circleDetail.html?id=%@&page=%@&token=%@&type=%@"
+
 //动态详情页面
 #define dongtaixiangqing @"http://"IPAddress"/forum/index/detail.html?token=%@&page=%@&id=%@"
 
-
-
+//关于我的
+#define guanyuwode @"http://"IPAddress"/forum/user/aboutus.html"
 
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))

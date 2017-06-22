@@ -10,5 +10,5 @@
 
 
 @interface taolunquanViewController : UIViewController
-
+@property (nonatomic,strong) NSString *idstr;
 @end

@@ -85,7 +85,6 @@ static NSString *indentify = @"indentify";
 - (void)refreshLoadMore {
     
     [self footerRefreshEndAction];
-    
 }
 
 -(void)headerRefreshEndAction
@@ -101,7 +100,7 @@ static NSString *indentify = @"indentify";
         for (int i = 0; i<ditarr.count; i++) {
             NSDictionary *dicarr = [ditarr objectAtIndex:i];
             homeModel *model = [[homeModel alloc] init];
-            model.relation_id = [dicarr objectForKey:@"id"];
+            model.homeidstr = [dicarr objectForKey:@"id"];
             model.hometitlestr = [dicarr objectForKey:@"title"];
             model.homecoverurlstr = [dicarr objectForKey:@"cover"];
             model.is_join = [dicarr objectForKey:@"is_join"];
@@ -130,11 +129,11 @@ static NSString *indentify = @"indentify";
         for (int i = 0; i<ditarr.count; i++) {
             NSDictionary *dicarr = [ditarr objectAtIndex:i];
             homeModel *model = [[homeModel alloc] init];
-            model.relation_id = [dicarr objectForKey:@"id"];
             model.hometitlestr = [dicarr objectForKey:@"title"];
             model.homecoverurlstr = [dicarr objectForKey:@"cover"];
             model.is_join = [dicarr objectForKey:@"is_join"];
             model.relation_id = [dicarr objectForKey:@"relation_id"];
+            model.homeidstr = [dicarr objectForKey:@"id"];
             [self.datasourcearr addObject:model];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -236,20 +235,19 @@ static NSString *indentify = @"indentify";
     NSLog(@"%ld",indexPath.row);
     
     homeModel *hmodel = self.datasourcearr[indexPath.row];
+    NSString *homeidstr = hmodel.homeidstr;
     NSString *relation_idstr = hmodel.relation_id;
-    NSLog(@"relation_id----%@",relation_idstr);
-    
     
     if ([relation_idstr isEqualToString:@"0"]) {
         taolunquanViewController *taolunquanVC = [[taolunquanViewController alloc] init];
+        taolunquanVC.idstr = homeidstr;
         [self.navigationController pushViewController:taolunquanVC animated:YES];
-
+        
     }else
     {
         yueduquanViewController *yueduvc = [[yueduquanViewController alloc] init];
         [self.navigationController pushViewController:yueduvc animated:YES];
     }
-   
 }
 
 #pragma mark - UITextFieldDelegate

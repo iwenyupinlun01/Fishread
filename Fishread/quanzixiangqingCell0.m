@@ -16,9 +16,7 @@
 @property (nonatomic,strong) UIImageView *iconimg;
 @property (nonatomic,strong) UILabel *nicknamelab;
 @property (nonatomic,strong) UILabel *timelab;
-@property (nonatomic,strong) UIButton *rightbtn;
 @property (nonatomic,strong) UILabel *contentlab;
-
 @property (nonatomic,strong) UIImageView *img0;
 @property (nonatomic,strong) UIImageView *img1;
 @property (nonatomic,strong) UIImageView *img2;
@@ -28,13 +26,7 @@
 @property (nonatomic,strong) UIImageView *img6;
 @property (nonatomic,strong) UIImageView *img7;
 @property (nonatomic,strong) UIImageView *img8;
-
-@property (nonatomic,strong) UIButton *zanBtn;
-@property (nonatomic,strong) UIButton *commentsBtn;
-@property (nonatomic,strong) UIButton *shareBtn;
-
 @property (nonatomic,strong) UILabel *thumlabel;
-
 @property (nonatomic,strong) dongtaixiangqingModel *dmodel;
 @end
 
@@ -263,6 +255,11 @@
     {
         _img0 = [[UIImageView alloc] init];
         _img0.backgroundColor = [UIColor redColor];
+        
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img0.tag = 0;
+        [_img0 addGestureRecognizer:labelTapGestureRecognizer];
+        _img0.userInteractionEnabled = YES;
     }
     return _img0;
 }
@@ -273,6 +270,10 @@
     {
         _img1 = [[UIImageView alloc] init];
         _img1.backgroundColor = [UIColor greenColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img1.tag = 1;
+        [_img1 addGestureRecognizer:labelTapGestureRecognizer];
+        _img1.userInteractionEnabled = YES;
     }
     return _img1;
 }
@@ -282,6 +283,10 @@
     {
         _img2 = [[UIImageView alloc] init];
         _img2.backgroundColor = [UIColor grayColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img2.tag = 2;
+        [_img2 addGestureRecognizer:labelTapGestureRecognizer];
+        _img2.userInteractionEnabled = YES;
     }
     return _img2;
 }
@@ -291,6 +296,10 @@
     {
         _img3 = [[UIImageView alloc] init];
         _img3.backgroundColor = [UIColor orangeColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img3.tag = 3;
+        [_img3 addGestureRecognizer:labelTapGestureRecognizer];
+        _img3.userInteractionEnabled = YES;
     }
     return _img3;
 }
@@ -300,6 +309,10 @@
     {
         _img4 = [[UIImageView alloc] init];
         _img4.backgroundColor = [UIColor blueColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img4.tag = 4;
+        [_img4 addGestureRecognizer:labelTapGestureRecognizer];
+        _img4.userInteractionEnabled = YES;
     }
     return _img4;
 }
@@ -309,6 +322,10 @@
     {
         _img5 = [[UIImageView alloc] init];
         _img5.backgroundColor = [UIColor redColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img5.tag = 5;
+        [_img5 addGestureRecognizer:labelTapGestureRecognizer];
+        _img5.userInteractionEnabled = YES;
     }
     return _img5;
 }
@@ -318,6 +335,10 @@
     {
         _img6 = [[UIImageView alloc] init];
         _img6.backgroundColor = [UIColor lightGrayColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img6.tag = 6;
+        [_img6 addGestureRecognizer:labelTapGestureRecognizer];
+        _img6.userInteractionEnabled = YES;
     }
     return _img6;
 }
@@ -327,6 +348,10 @@
     {
         _img7 = [[UIImageView alloc] init];
         _img7.backgroundColor = [UIColor greenColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img7.tag = 7;
+        [_img7 addGestureRecognizer:labelTapGestureRecognizer];
+        _img7.userInteractionEnabled = YES;
     }
     return _img7;
 }
@@ -336,6 +361,10 @@
     {
         _img8 = [[UIImageView alloc] init];
         _img8.backgroundColor = [UIColor redColor];
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick:)];
+        _img8.tag = 8;
+        [_img8 addGestureRecognizer:labelTapGestureRecognizer];
+        _img8.userInteractionEnabled = YES;
     }
     return _img8;
 }
@@ -679,5 +708,11 @@
     return hei;
 }
 
+- (void)imgClick:(UITapGestureRecognizer *)gesture{
+    
+    //NSLog(@"%ld",[gesture view].tag);
+    NSInteger taginter = [gesture view].tag;
+    NSLog(@"tag=------%ld",taginter);
+}
 
 @end

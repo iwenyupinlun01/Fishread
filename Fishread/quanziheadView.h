@@ -10,4 +10,7 @@
 
 @interface quanziheadView : UIView
 @property (nonatomic,strong) UIImageView *bgimg;
+@property (nonatomic,strong) UILabel *titlelab;
+@property (nonatomic,strong) UILabel *typelab;
+
 @end

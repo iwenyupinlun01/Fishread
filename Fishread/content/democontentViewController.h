@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface democontentViewController : UIViewController
-
+@property (nonatomic,strong) NSString *idstr;
 @end

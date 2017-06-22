@@ -33,12 +33,15 @@
     [self.view addSubview:self.versionlab];
     [self.view addSubview:self.companylab];
     [self.view addSubview:self.urllab];
+    
+    [self loaddataformweb];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
@@ -53,6 +56,23 @@
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
+-(void)loaddataformweb
+{
+    [PPNetworkHelper GET:guanyuwode parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSDictionary *dit = [responseObject objectForKey:@"info"];
+            [self.logoimg sd_setImageWithURL:[NSURL URLWithString:[dit objectForKey:@"logo"]]];
+            self.namelab.text = [dit objectForKey:@"intro"];
+            self.versionlab.text = [dit objectForKey:@"version"];
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - getters

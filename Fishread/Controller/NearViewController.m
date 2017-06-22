@@ -206,6 +206,8 @@ static NSString *shenidentfid = @"shenidentfid";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     democontentViewController *demo = [[democontentViewController alloc] init];
+    quanbuModel *model = self.shenArray[indexPath.row];
+    demo.idstr = model.idstr;
     [self.navigationController pushViewController:demo animated:YES];
 }
 
