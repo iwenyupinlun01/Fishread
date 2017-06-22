@@ -20,8 +20,9 @@
     int pn;
 }
 
-@property(strong,nonatomic) UICollectionView *myCollectionV;
+@property (strong,nonatomic) UICollectionView *myCollectionV;
 @property (nonatomic,strong) NSMutableArray *datasourcearr;
+
 @end
 
 //设置标识

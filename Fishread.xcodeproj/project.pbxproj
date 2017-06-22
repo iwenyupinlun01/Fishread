@@ -24,6 +24,7 @@
 		530C829E1EFABF1000815763 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C82981EFABF1000815763 /* SDBrowserImageView.m */; };
 		530C829F1EFABF1000815763 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C829A1EFABF1000815763 /* SDPhotoBrowser.m */; };
 		530C82A01EFABF1000815763 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C829D1EFABF1000815763 /* SDWaitingView.m */; };
+		530C82A31EFBD7B600815763 /* taolunheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C82A21EFBD7B600815763 /* taolunheadView.m */; };
 		530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */; };
 		530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4821EF25A1E0056BA66 /* UIView+Extension.m */; };
 		530DA4871EF25A7B0056BA66 /* YAImageTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4861EF25A7B0056BA66 /* YAImageTableViewVC.m */; };
@@ -162,6 +163,8 @@
 		530C829B1EFABF1000815763 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		530C829C1EFABF1000815763 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		530C829D1EFABF1000815763 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		530C82A11EFBD7B600815763 /* taolunheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taolunheadView.h; sourceTree = "<group>"; };
+		530C82A21EFBD7B600815763 /* taolunheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taolunheadView.m; sourceTree = "<group>"; };
 		530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+AlphaAnimation.h"; sourceTree = "<group>"; };
 		530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+AlphaAnimation.m"; sourceTree = "<group>"; };
 		530DA4811EF25A1E0056BA66 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -824,6 +827,8 @@
 				5332E2A91EF387E60040A295 /* quanziheadView.m */,
 				530C82891EFA694700815763 /* taolunCell0.h */,
 				530C828A1EFA694700815763 /* taolunCell0.m */,
+				530C82A11EFBD7B600815763 /* taolunheadView.h */,
+				530C82A21EFBD7B600815763 /* taolunheadView.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -1165,6 +1170,7 @@
 				530DA49B1EF296190056BA66 /* Timestr.m in Sources */,
 				5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
+				530C82A31EFBD7B600815763 /* taolunheadView.m in Sources */,
 				530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */,
 				53A1F12F1EEE60B500ED5EE8 /* WJGtextView.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
