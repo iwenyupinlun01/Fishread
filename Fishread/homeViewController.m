@@ -237,7 +237,7 @@ static NSString *indentify = @"indentify";
     homeModel *hmodel = self.datasourcearr[indexPath.row];
     NSString *homeidstr = hmodel.homeidstr;
     NSString *relation_idstr = hmodel.relation_id;
-    
+    self.hidesBottomBarWhenPushed = YES;
     if ([relation_idstr isEqualToString:@"0"]) {
         taolunquanViewController *taolunquanVC = [[taolunquanViewController alloc] init];
         taolunquanVC.idstr = homeidstr;

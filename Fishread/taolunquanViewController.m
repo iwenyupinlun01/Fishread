@@ -23,8 +23,9 @@
 
 #import "taolunCell0.h"
 #import "taolunquanModel.h"
-
 #import "DemoCommentModel.h"
+
+#import "democontentViewController.h"
 
 #define WZBScreenWidth [UIScreen mainScreen].bounds.size.width
 #define WZBScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -35,6 +36,7 @@
 @interface taolunquanViewController () <UITableViewDelegate, UITableViewDataSource,mycellVdelegate>
 {
     int pn;
+    int pn2;
 }
 // 左边的tableView
 @property (nonatomic, strong) UITableView *leftTableView;
@@ -56,7 +58,7 @@
 
 @property (nonatomic,strong) NSMutableArray *leftArray;
 @property (nonatomic,strong) NSMutableArray *rightArray;
-
+@property (nonatomic,strong) NSString *isleft;
 @property (nonatomic,strong) UIButton *jiaruBtn;
 @end
 
@@ -72,13 +74,19 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     [self getui];
-    [self.view addSubview:self.jiaruBtn];
+
     [self.view addSubview:self.fabiaoBtn];
     [self addHeaderleft];
     [self addFooterleft];
+    [self addHeaderright];
+    [self addFooterfight];
+    self.isleft = @"1";
     self.leftTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.centerTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    [self.view addSubview:self.jiaruBtn];
+    [self.view bringSubviewToFront:self.jiaruBtn];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,7 +98,9 @@
 {
     [super viewWillAppear:animated];
      self.navBarBgAlpha = @"0.0";
+    //[self.tabBarController.tabBar removeFromSuperview];
     [self.tabBarController.tabBar setHidden:YES];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -113,6 +123,18 @@
     self.leftTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMoreleft)];
 }
 
+- (void)addHeaderright
+{
+    // 头部刷新控件
+    self.centerTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshActionright)];
+    [self.centerTableView.mj_header beginRefreshing];
+}
+
+- (void)addFooterfight
+{
+    self.centerTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMoreright)];
+}
+
 - (void)refreshActionleft {
     [self headerRefreshEndActionleft];
 }
@@ -120,6 +142,15 @@
 - (void)refreshLoadMoreleft {
     
     [self footerRefreshEndActionleft];
+}
+
+- (void)refreshActionright {
+    [self headerRefreshEndActionright];
+}
+
+- (void)refreshLoadMoreright {
+    
+    [self footerRefreshEndActionright];
     
 }
 
@@ -127,10 +158,7 @@
 {
     pn = 1;
     [self.leftArray removeAllObjects];
-    //NSString *urlstr = [NSString stringWithFormat:taolunquanxiangqing,@"1",self.idstr,[tokenstr tokenstrfrom],@"1"];
-    
      NSString *urlstr = [NSString stringWithFormat:taolunquanxiangqing,self.idstr,@"1",[tokenstr tokenstrfrom],@"1"];
-    
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
@@ -160,6 +188,19 @@
                 model.contentstr = [dit objectForKey:@"content"];
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
+                model.support_numstr = [dit objectForKey:@"support_num"];
+                model.reply_numstr = [dit objectForKey:@"reply_num"];
+                model.ForumBookmarkArray = [NSMutableArray array];
+                NSArray *forarr = [dit objectForKey:@"ForumBookmark"];
+                
+                for (int k = 0; k<forarr.count; k++) {
+                    NSDictionary *dit = [forarr objectAtIndex:k];
+                    NSString *nicknamestr = [dit objectForKey:@"nickname"];
+                    [model.ForumBookmarkArray addObject:nicknamestr];
+                }
+                
                 model.picNamesArray = [dit objectForKey:@"all_image"];
                 model.commentArray = [NSMutableArray array];
                 NSArray *comarr =[dit objectForKey:@"pComment"];
@@ -200,9 +241,7 @@
 {
     pn++;
     NSString* pnstr = [NSString stringWithFormat:@"%d",pn];
-  
     NSString *urlstr = [NSString stringWithFormat:taolunquanxiangqing,self.idstr,pnstr,[tokenstr tokenstrfrom],@"1"];
-    
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
@@ -221,6 +260,10 @@
                 model.contentstr = [dit objectForKey:@"content"];
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
+                model.support_numstr = [dit objectForKey:@"support_num"];
+                model.reply_numstr = [dit objectForKey:@"reply_num"];
                 model.picNamesArray = [dit objectForKey:@"all_image"];
                 model.commentArray = [NSMutableArray array];
                 NSArray *comarr =[dit objectForKey:@"pComment"];
@@ -253,12 +296,154 @@
     }];
 }
 
+-(void)headerRefreshEndActionright
+{
+    pn2= 1;
+    [self.rightArray removeAllObjects];
+    
+    NSString *urlstr = [NSString stringWithFormat:taolunquanxiangqing,self.idstr,@"1",[tokenstr tokenstrfrom],@"2"];
+    
+    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            
+            NSDictionary *infodic = [responseObject objectForKey:@"info"];
+            NSString *titlestr = [infodic objectForKey:@"pubTitle"];
+            self.headview.titlelab.text = titlestr;
+            NSString *pathstr = [infodic objectForKey:@"pubPath"];
+            pathstr = @"http://pic30.nipic.com/20130615/12994184_133342233160_2.jpg";
+            [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]];
+            NSString *type = [infodic objectForKey:@"circleType"];
+            if ([type isEqualToString:@"1"]) {
+                self.headview.typelab.text = @"讨论圈";
+            }else
+            {
+                self.headview.typelab.text = @"阅读圈";
+            }
+            
+            NSArray *infoarr = [infodic objectForKey:@"info"];
+            for (int i = 0; i<infoarr.count; i++) {
+                NSDictionary *dit = [infoarr objectAtIndex:i];
+                taolunquanModel *model = [[taolunquanModel alloc] init];
+                NSDictionary *member = [dit objectForKey:@"Member"];
+                model.namestr = [member objectForKey:@"nickname"];
+                model.contentstr = [dit objectForKey:@"content"];
+                model.pathurlstr = [dit objectForKey:@"icon_path"];
+                model.timestr = [dit objectForKey:@"create_time"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
+                model.support_numstr = [dit objectForKey:@"support_num"];
+                model.reply_numstr = [dit objectForKey:@"reply_num"];
+                model.ForumBookmarkArray = [NSMutableArray array];
+                NSArray *forarr = [dit objectForKey:@"ForumBookmark"];
+                
+                for (int k = 0; k<forarr.count; k++) {
+                    NSDictionary *dit = [forarr objectAtIndex:k];
+                    NSString *nicknamestr = [dit objectForKey:@"nickname"];
+                    [model.ForumBookmarkArray addObject:nicknamestr];
+                }
+                
+                model.picNamesArray = [dit objectForKey:@"all_image"];
+                model.commentArray = [NSMutableArray array];
+                NSArray *comarr =[dit objectForKey:@"pComment"];
+                
+                for (int j=0; j<comarr.count; j++) {
+                    DemoCommentModel *commentModel = [[DemoCommentModel alloc] init];
+                    NSDictionary *dict = [comarr objectAtIndex:j];
+                    commentModel.firstUserId = [dict objectForKey:@"uid"];
+                    commentModel.firstUserName = [dict objectForKey:@"comment_name"];
+                    commentModel.secondUserId = [dict objectForKey:@"to_uid"];
+                    commentModel.secondUserName = [dict objectForKey:@"to_comment_name"];
+                    commentModel.commentString = [dict objectForKey:@"content"];
+                    [model.commentArray addObject:commentModel];
+                }
+                
+                NSLog(@"arr-----%@",model.commentArray);
+                [self.rightArray addObject:model];
+                
+            }
+            
+            [self.centerTableView reloadData];
+        }
+        else if ([[responseObject objectForKey:@"code"] intValue]==3503)
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+        }
+        
+        [self.centerTableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        [self.centerTableView.mj_header endRefreshing];
+    }];
+    
+}
+
+-(void)footerRefreshEndActionright
+{
+    pn2++;
+    NSString* pnstr = [NSString stringWithFormat:@"%d",pn2];
+    NSString *urlstr = [NSString stringWithFormat:taolunquanxiangqing,self.idstr,pnstr,[tokenstr tokenstrfrom],@"2"];
+    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSDictionary *infodic = [responseObject objectForKey:@"info"];
+            NSArray *infoarr = [infodic objectForKey:@"info"];
+            for (int i = 0; i<infoarr.count; i++) {
+                NSDictionary *dit = [infoarr objectAtIndex:i];
+                taolunquanModel *model = [[taolunquanModel alloc] init];
+                NSDictionary *member = [dit objectForKey:@"Member"];
+                model.namestr = [member objectForKey:@"nickname"];
+                model.contentstr = [dit objectForKey:@"content"];
+                model.pathurlstr = [dit objectForKey:@"icon_path"];
+                model.timestr = [dit objectForKey:@"create_time"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
+                model.support_numstr = [dit objectForKey:@"support_num"];
+                model.reply_numstr = [dit objectForKey:@"reply_num"];
+                model.picNamesArray = [dit objectForKey:@"all_image"];
+                model.commentArray = [NSMutableArray array];
+                NSArray *comarr =[dit objectForKey:@"pComment"];
+                
+                for (int j=0; j<comarr.count; j++) {
+                    DemoCommentModel *commentModel = [[DemoCommentModel alloc] init];
+                    NSDictionary *dict = [comarr objectAtIndex:j];
+                    commentModel.firstUserId = [dict objectForKey:@"uid"];
+                    commentModel.firstUserName = [dict objectForKey:@"comment_name"];
+                    commentModel.secondUserId = [dict objectForKey:@"to_uid"];
+                    commentModel.secondUserName = [dict objectForKey:@"to_comment_name"];
+                    commentModel.commentString = [dict objectForKey:@"content"];
+                    [model.commentArray addObject:commentModel];
+                }
+                
+                NSLog(@"arr-----%@",model.commentArray);
+                [self.rightArray addObject:model];
+                
+            }
+            [self.centerTableView reloadData];
+        }
+        else if ([[responseObject objectForKey:@"code"] intValue]==3503)
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+        }
+        [self.centerTableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        [self.centerTableView.mj_footer endRefreshing];
+    }];
+}
+
 -(void)getui
 {
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // 底部横向滑动的scrollView
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-40)];
+    
     [self.view addSubview:scrollView];
+    
     scrollView.backgroundColor = [UIColor colorWithWhite:0.998 alpha:1];
     // 绑定代理
     scrollView.delegate = self;
@@ -306,18 +491,13 @@
     
     // headerView
     UIView *headerView = [[UIView alloc] initWithFrame:(CGRect){0, 0, WZBScreenWidth, CGRectGetMaxY(sectionView.frame)}];
-
-    
     [headerView addSubview:self.headview];
     [headerView addSubview:sectionView];
     self.segueView = headerView;
-    
     [self.view addSubview:headerView];
-    
     // 创建2个tableView
     self.leftTableView = [self tableViewWithX:0];
     self.centerTableView = [self tableViewWithX:WZBScreenWidth];
-    
     
 }
 
@@ -326,7 +506,7 @@
 // 创建tableView
 - (UITableView *)tableViewWithX:(CGFloat)x {
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(x, -64, WZBScreenWidth, WZBScreenHeight - 0)];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(x, -64, WZBScreenWidth, WZBScreenHeight - 40)];
     
     [self.scrollView addSubview:tableView];
     tableView.backgroundColor = [UIColor colorWithWhite:0.998 alpha:1];
@@ -354,19 +534,6 @@
     return _fabiaoBtn;
 }
 
--(UIButton *)jiaruBtn
-{
-    if(!_jiaruBtn)
-    {
-        _jiaruBtn = [[UIButton alloc] init];
-        _jiaruBtn.frame = CGRectMake(0, DEVICE_HEIGHT-64-40, DEVICE_WIDTH, 40);
-        [_jiaruBtn setTitle:@"加入圈子" forState:normal];
-        _jiaruBtn.backgroundColor = [UIColor wjColorFloat:@"54d48a"];
-        [_jiaruBtn addTarget:self action:@selector(jiaruquanziclick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _jiaruBtn;
-}
-
 -(NSMutableArray *)leftArray
 {
     if(!_leftArray)
@@ -385,14 +552,45 @@
     return _rightArray;
 }
 
+-(UIButton *)jiaruBtn
+{
+    if(!_jiaruBtn)
+    {
+        _jiaruBtn = [[UIButton alloc] init];
+        _jiaruBtn.frame = CGRectMake(0, DEVICE_HEIGHT-64-40, DEVICE_WIDTH, 40);
+        [_jiaruBtn setTitle:@"加入圈子" forState:normal];
+        _jiaruBtn.userInteractionEnabled = YES;
+        _jiaruBtn.backgroundColor = [UIColor wjColorFloat:@"54d48a"];
+        [_jiaruBtn addTarget:self action:@selector(jiaruquanziclick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _jiaruBtn;
+}
+
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==self.leftTableView) {
+        taolunquanModel *model = self.leftArray[indexPath.row];
+        NSString *idstr = model.idstr;
+        democontentViewController *shuquanvc = [[democontentViewController alloc] init];
+        shuquanvc.idstr = idstr;
+        [self.navigationController pushViewController:shuquanvc animated:YES];
+    }
+    if (tableView==self.centerTableView) {
+        taolunquanModel *model = self.rightArray[indexPath.row];
+        NSString *idstr = model.idstr;
+        democontentViewController *shuquanvc = [[democontentViewController alloc] init];
+        shuquanvc.idstr = idstr;
+        [self.navigationController pushViewController:shuquanvc animated:YES];
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView==self.leftTableView) {
         return self.leftArray.count;
     }
     if (tableView==self.centerTableView) {
-        return 3;
+        return self.rightArray.count;
     }
     return 0;
 }
@@ -417,10 +615,12 @@
         return cell;
     }
     if (tableView==self.centerTableView) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID2"];
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID2"];
+        taolunCell0 *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID22"];
+        cell = [[taolunCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID22"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor colorWithWhite:0.998 alpha:1];
+        cell.delegate = self;
+        [cell setdata:self.rightArray[indexPath.row]];
         return cell;
     }
     return nil;
@@ -462,12 +662,7 @@
         }
         
     }
-    if (scrollView==self.leftTableView) {
-       //NSLog(@"left");
-    }
-    
     if (scrollView == self.scrollView) {
-        // 改变segmentdControl
         [self.sectionView setContentOffset:(CGPoint){scrollView.contentOffset.x / 2, 0}];
         return;
     }
@@ -477,7 +672,14 @@
 // 开始拖拽
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
-        
+        CGFloat contentOffsetx = scrollView.contentOffset.x;
+        if (contentOffsetx>=DEVICE_WIDTH) {
+            self.isleft = @"1";
+        }
+        else
+        {
+            self.isleft = @"2";
+        }
     }
    
 }
@@ -499,17 +701,46 @@
 
 -(void)morebtnClick:(UITableViewCell *)cell
 {
-    NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
-    taolunquanModel *model = self.leftArray[index.row];
-    model.isOpening = ! model.isOpening;
-    [self.leftTableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    if ([self.isleft isEqualToString:@"1"]) {
+        NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
+        taolunquanModel *model = self.leftArray[index.row];
+        model.isOpening = ! model.isOpening;
+        [self.leftTableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    }else
+    {
+        NSIndexPath *index = [self.centerTableView indexPathForCell:cell];
+        taolunquanModel *model = self.rightArray[index.row];
+        model.isOpening = ! model.isOpening;
+        [self.centerTableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    }
+
    // [self.leftTableView reloadData];
 }
 
 -(void)rightbtnClick:(UITableViewCell *)cell
 {
-    NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
+   // NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
     NSLog(@"right");
+}
+
+-(void)nextbtnClick:(UITableViewCell *)cell
+{
+    if ([self.isleft isEqualToString:@"1"]) {
+        NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
+        taolunquanModel *model = self.leftArray[index.row];
+        NSString *idstr = model.idstr;
+        democontentViewController *shuquanvc = [[democontentViewController alloc] init];
+        shuquanvc.idstr = idstr;
+        [self.navigationController pushViewController:shuquanvc animated:YES];
+    }else
+    {
+        NSIndexPath *index = [self.centerTableView indexPathForCell:cell];
+        taolunquanModel *model = self.rightArray[index.row];
+        NSString *idstr = model.idstr;
+        democontentViewController *shuquanvc = [[democontentViewController alloc] init];
+        shuquanvc.idstr = idstr;
+        [self.navigationController pushViewController:shuquanvc animated:YES];
+    }
 }
 
 -(void)jiaruquanziclick

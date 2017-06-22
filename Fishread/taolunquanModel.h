@@ -14,7 +14,15 @@
 @property (nonatomic,strong) NSString *namestr;
 @property (nonatomic,strong) NSString *contentstr;
 @property (nonatomic,strong) NSString *timestr;
+@property (nonatomic,strong) NSString *idstr;
+@property (nonatomic,strong) NSString *is_supportstr;
+@property (nonatomic,strong) NSString *reply_numstr;
+@property (nonatomic,strong) NSString *support_numstr;
+
+@property (nonatomic,strong) NSMutableArray *ForumBookmarkArray;
+
 @property (nonatomic,strong) NSMutableArray *picNamesArray;
+
 
 @property (nonatomic, assign) BOOL isOpening;
 @property (nonatomic,strong) NSMutableArray<DemoCommentModel *> *commentArray;

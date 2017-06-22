@@ -19,7 +19,6 @@
 		530C82841EF9310400815763 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C827F1EF9310400815763 /* DemoTableViewController.m */; };
 		530C82871EF931F100815763 /* democontentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C82861EF931F100815763 /* democontentViewController.m */; };
 		530C828B1EFA694700815763 /* taolunCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C828A1EFA694700815763 /* taolunCell0.m */; };
-		530C828E1EFA695600815763 /* taolunCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C828D1EFA695600815763 /* taolunCell1.m */; };
 		530C82911EFA6DA100815763 /* taolunquanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C82901EFA6DA100815763 /* taolunquanModel.m */; };
 		530C82951EFABED500815763 /* SDWeiXinPhotoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C82941EFABED500815763 /* SDWeiXinPhotoContainerView.m */; };
 		530C829E1EFABF1000815763 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C82981EFABF1000815763 /* SDBrowserImageView.m */; };
@@ -152,8 +151,6 @@
 		530C82861EF931F100815763 /* democontentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = democontentViewController.m; sourceTree = "<group>"; };
 		530C82891EFA694700815763 /* taolunCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taolunCell0.h; sourceTree = "<group>"; };
 		530C828A1EFA694700815763 /* taolunCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taolunCell0.m; sourceTree = "<group>"; };
-		530C828C1EFA695600815763 /* taolunCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taolunCell1.h; sourceTree = "<group>"; };
-		530C828D1EFA695600815763 /* taolunCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taolunCell1.m; sourceTree = "<group>"; };
 		530C828F1EFA6DA100815763 /* taolunquanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taolunquanModel.h; sourceTree = "<group>"; };
 		530C82901EFA6DA100815763 /* taolunquanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taolunquanModel.m; sourceTree = "<group>"; };
 		530C82931EFABED500815763 /* SDWeiXinPhotoContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWeiXinPhotoContainerView.h; sourceTree = "<group>"; };
@@ -827,8 +824,6 @@
 				5332E2A91EF387E60040A295 /* quanziheadView.m */,
 				530C82891EFA694700815763 /* taolunCell0.h */,
 				530C828A1EFA694700815763 /* taolunCell0.m */,
-				530C828C1EFA695600815763 /* taolunCell1.h */,
-				530C828D1EFA695600815763 /* taolunCell1.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -1139,7 +1134,6 @@
 				533B61BE1EE93F9000DE0392 /* publishCell.m in Sources */,
 				535FED881EE14673007A456D /* MainViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
-				530C828E1EFA695600815763 /* taolunCell1.m in Sources */,
 				533B61EA1EEA7B7B00DE0392 /* xieyiScrollView.m in Sources */,
 				5393E3731EE6BA7900392FD4 /* myinfoViewController.m in Sources */,
 				533B61D01EEA47E900DE0392 /* SZKCleanCache.m in Sources */,

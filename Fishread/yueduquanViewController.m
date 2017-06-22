@@ -116,28 +116,10 @@
     [headerView addSubview:header];
     [headerView addSubview:sectionView];
     self.headerView = headerView;
-    
     [self.view addSubview:headerView];
-    
     // 创建2个tableView
     self.leftTableView = [self tableViewWithX:0];
     self.centerTableView = [self tableViewWithX:WZBScreenWidth];
-    
-    
-    // 加载头部头像
-    //    UIView *avatarView = [[UIView alloc] initWithFrame:(CGRect){0, 0, 35, 35}];
-    //    avatarView.backgroundColor = [UIColor clearColor];
-    //
-    //    UIImageView *avatar = [[UIImageView alloc] initWithFrame:(CGRect){0, 26.5, 35, 35}];
-    //    avatar.image = [UIImage imageNamed:@"LOGO"];
-    //    avatar.layer.masksToBounds = YES;
-    //    avatar.layer.cornerRadius = 35 / 2;
-    //    [avatarView addSubview:avatar];
-    //    self.navigationItem.titleView = avatarView;
-    //    avatar.transform = CGAffineTransformMakeScale(2, 2);
-    //
-    //    self.avatar = avatar;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -271,7 +253,6 @@
         
     }
 }
-
 
 -(void)backAction
 {

@@ -10,9 +10,10 @@
 #import "taolunquanModel.h"
 #import <SDAutoLayout.h>
 #import "SDWeiXinPhotoContainerView.h"
-
 #import "DemoCommentView.h"
 
+#import "dianzanBtn.h"
+#import "pinglunBtn.h"
 
 @interface taolunCell0()
 @property (nonatomic,strong) UIImageView *pathimg;
@@ -21,15 +22,14 @@
 @property (nonatomic,strong) UILabel *timelab;
 @property (nonatomic,strong) UILabel *contentlab;
 @property (nonatomic,strong) UIButton *moreButton;
-@property (nonatomic,strong) UIButton *zanbtn;
-@property (nonatomic,strong) UIButton *commentbtn;
-
+@property (nonatomic,strong) dianzanBtn *zanbtn;
+@property (nonatomic,strong) pinglunBtn *commentbtn;
 @property (nonatomic,strong) UIButton *tomorebtn;
-
 @property (nonatomic,strong)  DemoCommentView *commentView;
-
 @property (nonatomic,strong) SDWeiXinPhotoContainerView *picContainerView;
 @property (nonatomic,strong) taolunquanModel *tmodel;
+
+@property (nonatomic,strong) UILabel *ForumBookmarklab;
 @end
 const CGFloat contentLabelFontSize = 14;
 CGFloat maxContentLabelHeight = 0; // 根据具体font而定
@@ -50,6 +50,8 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         [self.contentView addSubview:self.moreButton];
         [self.contentView addSubview:self.tomorebtn];
         [self.contentView addSubview:self.picContainerView];
+        [self.contentView addSubview:self.ForumBookmarklab];
+        
         [self setuplayout];
     }
     return self;
@@ -99,8 +101,6 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         
     }];
     
-    
-    
     // morebutton的高度在setmodel里面设置
     _moreButton.sd_layout
     .leftEqualToView(_contentlab)
@@ -108,11 +108,10 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     .widthIs(30).heightIs(14);
     
     
-    
     _picContainerView.sd_layout
     .leftEqualToView(_moreButton); // 已经在内部实现宽度和高度自适应所以不需要再设置宽度高度，top值是具体有无图片在setModel方法中设置
     
-    [self setupAutoHeightWithBottomViewsArray:@[_contentlab ,_picContainerView,_moreButton] bottomMargin:14*WIDTH_SCALE];
+  
     
     
     
@@ -138,12 +137,11 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         _tomorebtn = [[UIButton alloc] init];
         _tomorebtn.backgroundColor = [UIColor whiteColor];
         [_tomorebtn setTitle:@"加载更多" forState:normal];
+        [_tomorebtn addTarget:self action:@selector(nextclick) forControlEvents:UIControlEventTouchUpInside];
         [_tomorebtn setTitleColor:[UIColor wjColorFloat:@"54d48a"] forState:normal];
     }
     return _tomorebtn;
 }
-
-
 
 -(UIButton *)moreButton
 {
@@ -158,6 +156,29 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     }
     return _moreButton;
 }
+
+
+-(dianzanBtn *)zanbtn
+{
+    if(!_zanbtn)
+    {
+        _zanbtn = [[dianzanBtn alloc] init];
+        
+    }
+    return _zanbtn;
+}
+
+-(pinglunBtn *)commentbtn
+{
+    if(!_commentbtn)
+    {
+        _commentbtn = [[pinglunBtn alloc] init];
+        
+    }
+    return _commentbtn;
+}
+
+
 
 
 -(UIImageView *)pathimg
@@ -176,7 +197,8 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     if(!_namelab)
     {
         _namelab = [[UILabel alloc] init];
-        _namelab.text = @"namename";
+        _namelab.textColor = [UIColor wjColorFloat:@"455F8E"];
+        _namelab.font = [UIFont systemFontOfSize:14];
     }
     return _namelab;
 }
@@ -186,7 +208,7 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-
+        
     }
     return _contentlab;
 }
@@ -223,6 +245,17 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
 }
 
 
+-(UILabel *)ForumBookmarklab
+{
+    if(!_ForumBookmarklab)
+    {
+        _ForumBookmarklab = [[UILabel alloc] init];
+        
+    }
+    return _ForumBookmarklab;
+}
+
+
 -(void)setdata:(taolunquanModel *)model
 {
     self.tmodel = model;
@@ -237,7 +270,6 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     if (model.picNamesArray.count) {
         picContainerTopMargin = 10;
     }
-
     
     CGSize size = [model.contentstr boundingRectWithSize:CGSizeMake(DEVICE_WIDTH - 78*WIDTH_SCALE, 999) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size;
     
@@ -264,11 +296,82 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         _moreButton.sd_layout.heightIs(0);
         _moreButton.hidden = YES;
     }
-    
-    
     _picContainerView.sd_layout.topSpaceToView(_contentlab,picContainerTopMargin);
-    
+    self.commentbtn.textlab.text = model.reply_numstr;
+    self.zanbtn.zanlab.text = model.support_numstr;
+    if([model.is_supportstr isEqualToString:@"0"])
+    {
+        self.zanbtn.zanlab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
+        self.zanbtn.zanimg.image = [UIImage imageNamed:@"点赞-拷贝"];
+    }else
+    {
+        self.zanbtn.zanlab.textColor = [UIColor wjColorFloat:@"54d48a"];
+        self.zanbtn.zanimg.image = [UIImage imageNamed:@"点赞-点击后"];
+    }
     UIView *bottomView = self.picContainerView;
+    _commentbtn.sd_layout
+    .rightSpaceToView(self.contentView,14*WIDTH_SCALE)
+    .topSpaceToView(_picContainerView,8*HEIGHT_SCALE)
+    .widthIs(64*WIDTH_SCALE).heightIs(20*HEIGHT_SCALE);
+    [self.commentbtn.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
+        make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
+        make.height.mas_equalTo(20*HEIGHT_SCALE);
+    }];
+    [self.commentbtn.leftimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
+        make.right.equalTo(self.commentbtn.textlab.mas_left).with.offset(-4*WIDTH_SCALE);
+        make.height.mas_equalTo(16*WIDTH_SCALE);
+        make.width.mas_equalTo(16*WIDTH_SCALE);
+        
+    }];
+    _zanbtn.sd_layout
+    .rightSpaceToView(_commentbtn,14*WIDTH_SCALE)
+    .topSpaceToView(_picContainerView,8*HEIGHT_SCALE)
+    .widthIs(64*WIDTH_SCALE).heightIs(20*HEIGHT_SCALE);
+    [self.zanbtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
+        make.right.equalTo(self.commentbtn.leftimg.mas_left).with.offset(-30*WIDTH_SCALE);
+        make.height.mas_equalTo(20*HEIGHT_SCALE);
+        
+    }];
+    [self.zanbtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
+        make.right.equalTo(self.zanbtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
+        make.height.mas_equalTo(16*WIDTH_SCALE);
+        make.width.mas_equalTo(16*WIDTH_SCALE);
+    }];
+    
+    _ForumBookmarklab.sd_layout
+    .leftEqualToView(_namelab)
+    .rightSpaceToView(self.contentView,14*WIDTH_SCALE)
+    .topSpaceToView(_zanbtn,8*HEIGHT_SCALE)
+    .autoHeightRatio(0);
+
+    
+    NSString *goodTotalString2 = [model.ForumBookmarkArray componentsJoinedByString:@", "];
+    NSString *goodTotalString = [NSString stringWithFormat:@"%@%@%lu%@",goodTotalString2,@" ",(unsigned long)model.ForumBookmarkArray.count,@"人已赞"];
+    NSMutableAttributedString *newGoodString = [[NSMutableAttributedString alloc] initWithString:goodTotalString];
+    [newGoodString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, goodTotalString.length)];
+    //设置行距 实际开发中间距为0太丑了，根据项目需求自己把握
+    NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphstyle.lineSpacing = 3;
+    [newGoodString addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, goodTotalString.length)];
+    // 添加图片
+    NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+    // 图片
+    attch.image = [UIImage imageNamed:@"点赞-拷贝-2"];
+    // 设置图片大小
+    attch.bounds = CGRectMake(0, 0, 14*WIDTH_SCALE, 14*WIDTH_SCALE);
+    // 创建带有图片的富文本
+    NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+    [newGoodString insertAttributedString:string atIndex:0];
+    NSMutableAttributedString
+    * attStr = [[NSMutableAttributedString alloc]initWithString:@" "];
+    [newGoodString insertAttributedString:attStr atIndex:1];
+    self.ForumBookmarklab.attributedText = newGoodString;
+    self.ForumBookmarklab.numberOfLines = 0;
+    self.ForumBookmarklab.textColor = [UIColor wjColorFloat:@"576B95"];
     
     if (model.commentArray.count){
         [self.contentView addSubview:self.commentView];
@@ -276,7 +379,7 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         _commentView.sd_layout
         .leftEqualToView(_contentlab)
         .rightSpaceToView(self.contentView,10)
-        .topSpaceToView(_contentlab,10);
+        .topSpaceToView(_ForumBookmarklab,10);
         
         self.commentView.commentArray = model.commentArray;
         
@@ -310,9 +413,16 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     
     [self setupAutoHeightWithBottomView:bottomView bottomMargin:10];
     
+    [self setupAutoHeightWithBottomViewsArray:@[_contentlab ,_commentView,_picContainerView,_moreButton,_commentbtn,_commentbtn.leftimg,_ForumBookmarklab,_commentbtn.textlab,_tomorebtn] bottomMargin:14*WIDTH_SCALE];
+    
 }
 
 #pragma mark - 协议绑定
+
+-(void)nextclick
+{
+    [self.delegate nextbtnClick:self];
+}
 
 -(void)rightclick
 {

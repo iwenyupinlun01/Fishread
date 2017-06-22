@@ -11,6 +11,9 @@
 @protocol mycellVdelegate <NSObject>
 -(void)morebtnClick:(UITableViewCell *)cell;
 -(void)rightbtnClick:(UITableViewCell *)cell;
+
+-(void)nextbtnClick:(UITableViewCell *)cell;
+
 @end
 @interface taolunCell0 : UITableViewCell
 -(void)setdata:(taolunquanModel *)model;
