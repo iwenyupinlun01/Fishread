@@ -25,10 +25,7 @@
 		530C829F1EFABF1000815763 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C829A1EFABF1000815763 /* SDPhotoBrowser.m */; };
 		530C82A01EFABF1000815763 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C829D1EFABF1000815763 /* SDWaitingView.m */; };
 		530C82A31EFBD7B600815763 /* taolunheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530C82A21EFBD7B600815763 /* taolunheadView.m */; };
-		530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */; };
 		530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4821EF25A1E0056BA66 /* UIView+Extension.m */; };
-		530DA4951EF27C190056BA66 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4901EF27C190056BA66 /* HeaderView.m */; };
-		530DA4961EF27C190056BA66 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530DA4911EF27C190056BA66 /* HeaderView.xib */; };
 		530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA4941EF27C190056BA66 /* WZBSegmentedControl.m */; };
 		530DA49B1EF296190056BA66 /* Timestr.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA49A1EF296190056BA66 /* Timestr.m */; };
 		530DA49E1EF29ACC0056BA66 /* shuquanxiangqingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530DA49D1EF29ACC0056BA66 /* shuquanxiangqingViewController.m */; };
@@ -49,16 +46,9 @@
 		533020901EF13C4300D08825 /* dianzanBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 5330208F1EF13C4300D08825 /* dianzanBtn.m */; };
 		533020931EF13C5600D08825 /* pinglunBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020921EF13C5600D08825 /* pinglunBtn.m */; };
 		533020961EF13CBB00D08825 /* taolunquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020951EF13CBB00D08825 /* taolunquanViewController.m */; };
-		533020C11EF14C3200D08825 /* HJTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020B51EF14C3200D08825 /* HJTabViewBar.m */; };
-		533020C21EF14C3200D08825 /* HJTabViewController+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020B81EF14C3200D08825 /* HJTabViewController+ViewController.m */; };
-		533020C31EF14C3200D08825 /* HJTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020BA1EF14C3200D08825 /* HJTabViewController.m */; };
-		533020C41EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020BC1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m */; };
-		533020C51EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020BE1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m */; };
-		533020C61EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */; };
-		533020CA1EF14C6E00D08825 /* HJDefaultTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */; };
+		5332035B1EFD218600526F8E /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203581EFD218600526F8E /* UINavigationController+Cloudox.m */; };
+		5332035C1EFD218600526F8E /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332035A1EFD218600526F8E /* UIViewController+Cloudox.m */; };
 		5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2A91EF387E60040A295 /* quanziheadView.m */; };
-		5332E2B01EF3AA2A0040A295 /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2AD1EF3AA2A0040A295 /* UINavigationController+Cloudox.m */; };
-		5332E2B11EF3AA2A0040A295 /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */; };
 		5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */; };
 		5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */; };
 		5332E2BA1EF3D2480040A295 /* quanzixiangqingCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B91EF3D2480040A295 /* quanzixiangqingCell1.m */; };
@@ -163,13 +153,8 @@
 		530C829D1EFABF1000815763 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		530C82A11EFBD7B600815763 /* taolunheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taolunheadView.h; sourceTree = "<group>"; };
 		530C82A21EFBD7B600815763 /* taolunheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taolunheadView.m; sourceTree = "<group>"; };
-		530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+AlphaAnimation.h"; sourceTree = "<group>"; };
-		530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+AlphaAnimation.m"; sourceTree = "<group>"; };
 		530DA4811EF25A1E0056BA66 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		530DA4821EF25A1E0056BA66 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		530DA48F1EF27C190056BA66 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
-		530DA4901EF27C190056BA66 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
-		530DA4911EF27C190056BA66 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		530DA4931EF27C190056BA66 /* WZBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZBSegmentedControl.h; sourceTree = "<group>"; };
 		530DA4941EF27C190056BA66 /* WZBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZBSegmentedControl.m; sourceTree = "<group>"; };
 		530DA4991EF296190056BA66 /* Timestr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timestr.h; sourceTree = "<group>"; };
@@ -211,27 +196,12 @@
 		533020921EF13C5600D08825 /* pinglunBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinglunBtn.m; sourceTree = "<group>"; };
 		533020941EF13CBB00D08825 /* taolunquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taolunquanViewController.h; sourceTree = "<group>"; };
 		533020951EF13CBB00D08825 /* taolunquanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taolunquanViewController.m; sourceTree = "<group>"; };
-		533020B41EF14C3200D08825 /* HJTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewBar.h; sourceTree = "<group>"; };
-		533020B51EF14C3200D08825 /* HJTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewBar.m; sourceTree = "<group>"; };
-		533020B61EF14C3200D08825 /* HJTabViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJTabViewController+Private.h"; sourceTree = "<group>"; };
-		533020B71EF14C3200D08825 /* HJTabViewController+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJTabViewController+ViewController.h"; sourceTree = "<group>"; };
-		533020B81EF14C3200D08825 /* HJTabViewController+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJTabViewController+ViewController.m"; sourceTree = "<group>"; };
-		533020B91EF14C3200D08825 /* HJTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewController.h; sourceTree = "<group>"; };
-		533020BA1EF14C3200D08825 /* HJTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewController.m; sourceTree = "<group>"; };
-		533020BB1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_Base.h; sourceTree = "<group>"; };
-		533020BC1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_Base.m; sourceTree = "<group>"; };
-		533020BD1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_HeaderScroll.h; sourceTree = "<group>"; };
-		533020BE1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_HeaderScroll.m; sourceTree = "<group>"; };
-		533020BF1EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_TabViewBar.h; sourceTree = "<group>"; };
-		533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_TabViewBar.m; sourceTree = "<group>"; };
-		533020C81EF14C6E00D08825 /* HJDefaultTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJDefaultTabViewBar.h; sourceTree = "<group>"; };
-		533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJDefaultTabViewBar.m; sourceTree = "<group>"; };
+		533203571EFD218600526F8E /* UINavigationController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Cloudox.h"; sourceTree = "<group>"; };
+		533203581EFD218600526F8E /* UINavigationController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Cloudox.m"; sourceTree = "<group>"; };
+		533203591EFD218600526F8E /* UIViewController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Cloudox.h"; sourceTree = "<group>"; };
+		5332035A1EFD218600526F8E /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
 		5332E2A81EF387E60040A295 /* quanziheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanziheadView.h; sourceTree = "<group>"; };
 		5332E2A91EF387E60040A295 /* quanziheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanziheadView.m; sourceTree = "<group>"; };
-		5332E2AC1EF3AA2A0040A295 /* UINavigationController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Cloudox.h"; sourceTree = "<group>"; };
-		5332E2AD1EF3AA2A0040A295 /* UINavigationController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Cloudox.m"; sourceTree = "<group>"; };
-		5332E2AE1EF3AA2A0040A295 /* UIViewController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Cloudox.h"; sourceTree = "<group>"; };
-		5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
 		5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yueduquanViewController.h; sourceTree = "<group>"; };
 		5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yueduquanViewController.m; sourceTree = "<group>"; };
 		5332E2B51EF3D2390040A295 /* quanzixiangqingCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanzixiangqingCell0.h; sourceTree = "<group>"; };
@@ -461,22 +431,10 @@
 		530DA47E1EF25A1E0056BA66 /* NavigationBarTool */ = {
 			isa = PBXGroup;
 			children = (
-				530DA47F1EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.h */,
-				530DA4801EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m */,
 				530DA4811EF25A1E0056BA66 /* UIView+Extension.h */,
 				530DA4821EF25A1E0056BA66 /* UIView+Extension.m */,
 			);
 			path = NavigationBarTool;
-			sourceTree = "<group>";
-		};
-		530DA48E1EF27C190056BA66 /* HeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				530DA48F1EF27C190056BA66 /* HeaderView.h */,
-				530DA4901EF27C190056BA66 /* HeaderView.m */,
-				530DA4911EF27C190056BA66 /* HeaderView.xib */,
-			);
-			path = HeaderView;
 			sourceTree = "<group>";
 		};
 		530DA4921EF27C190056BA66 /* WZBSegmentedControl */ = {
@@ -491,11 +449,8 @@
 		530DA4981EF27C1B0056BA66 /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
-				530DA48E1EF27C190056BA66 /* HeaderView */,
 				530DA4921EF27C190056BA66 /* WZBSegmentedControl */,
 				530DA47E1EF25A1E0056BA66 /* NavigationBarTool */,
-				533020C71EF14C6E00D08825 /* HJTabViewBar */,
-				533020B31EF14C3200D08825 /* HJTabViewController */,
 			);
 			name = "第三方";
 			sourceTree = "<group>";
@@ -613,42 +568,13 @@
 			name = btnView;
 			sourceTree = "<group>";
 		};
-		533020B31EF14C3200D08825 /* HJTabViewController */ = {
-			isa = PBXGroup;
-			children = (
-				533020B41EF14C3200D08825 /* HJTabViewBar.h */,
-				533020B51EF14C3200D08825 /* HJTabViewBar.m */,
-				533020B61EF14C3200D08825 /* HJTabViewController+Private.h */,
-				533020B71EF14C3200D08825 /* HJTabViewController+ViewController.h */,
-				533020B81EF14C3200D08825 /* HJTabViewController+ViewController.m */,
-				533020B91EF14C3200D08825 /* HJTabViewController.h */,
-				533020BA1EF14C3200D08825 /* HJTabViewController.m */,
-				533020BB1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.h */,
-				533020BC1EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m */,
-				533020BD1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.h */,
-				533020BE1EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m */,
-				533020BF1EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.h */,
-				533020C01EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m */,
-			);
-			path = HJTabViewController;
-			sourceTree = "<group>";
-		};
-		533020C71EF14C6E00D08825 /* HJTabViewBar */ = {
-			isa = PBXGroup;
-			children = (
-				533020C81EF14C6E00D08825 /* HJDefaultTabViewBar.h */,
-				533020C91EF14C6E00D08825 /* HJDefaultTabViewBar.m */,
-			);
-			path = HJTabViewBar;
-			sourceTree = "<group>";
-		};
 		5332E2AB1EF3AA2A0040A295 /* navcagetale */ = {
 			isa = PBXGroup;
 			children = (
-				5332E2AC1EF3AA2A0040A295 /* UINavigationController+Cloudox.h */,
-				5332E2AD1EF3AA2A0040A295 /* UINavigationController+Cloudox.m */,
-				5332E2AE1EF3AA2A0040A295 /* UIViewController+Cloudox.h */,
-				5332E2AF1EF3AA2A0040A295 /* UIViewController+Cloudox.m */,
+				533203571EFD218600526F8E /* UINavigationController+Cloudox.h */,
+				533203581EFD218600526F8E /* UINavigationController+Cloudox.m */,
+				533203591EFD218600526F8E /* UIViewController+Cloudox.h */,
+				5332035A1EFD218600526F8E /* UIViewController+Cloudox.m */,
 			);
 			path = navcagetale;
 			sourceTree = "<group>";
@@ -1046,7 +972,6 @@
 				530C819B1EF79C6E00815763 /* sitting_04@2x.png in Resources */,
 				535FED891EE14673007A456D /* MainViewController.xib in Resources */,
 				534F61DE1EDEB2C8007835ED /* Assets.xcassets in Resources */,
-				530DA4961EF27C190056BA66 /* HeaderView.xib in Resources */,
 				535FED871EE14673007A456D /* HotViewController.xib in Resources */,
 				535FED8B1EE14673007A456D /* NearViewController.xib in Resources */,
 				534F61DC1EDEB2C8007835ED /* Main.storyboard in Resources */,
@@ -1118,7 +1043,6 @@
 				5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */,
 				53A1F1291EEE59E200ED5EE8 /* chuangjianCell2.m in Sources */,
 				530C82951EFABED500815763 /* SDWeiXinPhotoContainerView.m in Sources */,
-				5332E2B11EF3AA2A0040A295 /* UIViewController+Cloudox.m in Sources */,
 				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
 				530C819E1EF7C23200815763 /* secondCell.m in Sources */,
@@ -1152,25 +1076,21 @@
 				533B61FA1EEAB03F00DE0392 /* searchViewController.m in Sources */,
 				530C82871EF931F100815763 /* democontentViewController.m in Sources */,
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
-				533020C41EF14C3200D08825 /* HJTabViewControllerPlugin_Base.m in Sources */,
 				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,
-				533020C11EF14C3200D08825 /* HJTabViewBar.m in Sources */,
 				530DA49B1EF296190056BA66 /* Timestr.m in Sources */,
 				5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
 				530C82A31EFBD7B600815763 /* taolunheadView.m in Sources */,
-				530DA4831EF25A1E0056BA66 /* UINavigationBar+AlphaAnimation.m in Sources */,
 				53A1F12F1EEE60B500ED5EE8 /* WJGtextView.m in Sources */,
 				531E8B721EDFE4A6007C26D2 /* TopViewController.m in Sources */,
 				530DA4971EF27C190056BA66 /* WZBSegmentedControl.m in Sources */,
+				5332035B1EFD218600526F8E /* UINavigationController+Cloudox.m in Sources */,
 				5393E3761EE6BEA300392FD4 /* myinfoCell0.m in Sources */,
 				533B61CA1EE9654B00DE0392 /* setCell0.m in Sources */,
 				5332E2BA1EF3D2480040A295 /* quanzixiangqingCell1.m in Sources */,
 				531E8B6F1EDFDC3F007C26D2 /* UIColor+WJColor.m in Sources */,
 				533B61B71EE93D0100DE0392 /* collectionViewController.m in Sources */,
-				5332E2B01EF3AA2A0040A295 /* UINavigationController+Cloudox.m in Sources */,
-				533020C61EF14C3200D08825 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
 				533E19C11EE2866D000CE670 /* homeCell.m in Sources */,
 				534F83F51EE8F999003773E9 /* mymessageCell0.m in Sources */,
 				5393E3791EE6BEAF00392FD4 /* myinfoCell1.m in Sources */,
@@ -1181,6 +1101,7 @@
 				530C828B1EFA694700815763 /* taolunCell0.m in Sources */,
 				530C82801EF9310400815763 /* DemoCellModel.m in Sources */,
 				530DA49E1EF29ACC0056BA66 /* shuquanxiangqingViewController.m in Sources */,
+				5332035C1EFD218600526F8E /* UIViewController+Cloudox.m in Sources */,
 				533B61C11EE93FA000DE0392 /* collectionCell.m in Sources */,
 				533B61B11EE9367C00DE0392 /* setViewController.m in Sources */,
 				534F83F81EE8F9AD003773E9 /* mymessageCell1.m in Sources */,
@@ -1196,27 +1117,22 @@
 				530C82A01EFABF1000815763 /* SDWaitingView.m in Sources */,
 				533B61DC1EEA727800DE0392 /* feedbackViewController.m in Sources */,
 				530C829F1EFABF1000815763 /* SDPhotoBrowser.m in Sources */,
-				533020C51EF14C3200D08825 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				533B61F71EEAAABF00DE0392 /* itemimgView.m in Sources */,
 				530C82841EF9310400815763 /* DemoTableViewController.m in Sources */,
 				533B62001EEABAE700DE0392 /* chuangjianCell.m in Sources */,
 				533B61FD1EEABAA800DE0392 /* searchCell0.m in Sources */,
 				53A1F1321EEE6C5B00ED5EE8 /* pickImg.m in Sources */,
-				533020C31EF14C3200D08825 /* HJTabViewController.m in Sources */,
 				535FED841EE14673007A456D /* FocusViewController.m in Sources */,
 				533020801EEFC8BF00D08825 /* searchheadView.m in Sources */,
 				530C829E1EFABF1000815763 /* SDBrowserImageView.m in Sources */,
-				530DA4951EF27C190056BA66 /* HeaderView.m in Sources */,
 				533020861EEFE58900D08825 /* jieguoModel.m in Sources */,
 				530C82821EF9310400815763 /* DemoCommentView.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,
-				533020C21EF14C3200D08825 /* HJTabViewController+ViewController.m in Sources */,
 				530C81921EF53C1900815763 /* dongtaixiangqingModel.m in Sources */,
 				533E19C41EE2A069000CE670 /* MyHeaderView.m in Sources */,
 				533020901EF13C4300D08825 /* dianzanBtn.m in Sources */,
-				533020CA1EF14C6E00D08825 /* HJDefaultTabViewBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

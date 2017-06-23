@@ -10,6 +10,8 @@
 
 @interface taolunheadView()
 @property (nonatomic,strong) UIImageView *beijin;
+@property (nonatomic,strong) UIView *lineview0;
+@property (nonatomic,strong) UIView *lineview1;
 @end
 
 @implementation taolunheadView
@@ -20,8 +22,9 @@
     if (self) {
         //[self addSubview:self.bgimg];
         
-       
-
+        [self addSubview:self.lineview0];
+        [self addSubview:self.lineview1];
+        [self addSubview:self.zhangjielab];
     }
     return self;
 }
@@ -158,6 +161,37 @@
     return _beijin;
 }
 
+-(UIView *)lineview0
+{
+    if(!_lineview0)
+    {
+        _lineview0 = [[UIView alloc] init];
+        _lineview0.backgroundColor = [UIColor wjColorFloat:@"F4F5F6"];
+    }
+    return _lineview0;
+}
+
+-(UIView *)lineview1
+{
+    if(!_lineview1)
+    {
+        _lineview1 = [[UIView alloc] init];
+        _lineview1.backgroundColor = [UIColor wjColorFloat:@"F4F5F6"];
+    }
+    return _lineview1;
+}
+
+-(UILabel *)zhangjielab
+{
+    if(!_zhangjielab)
+    {
+        _zhangjielab = [[UILabel alloc] init];
+        _zhangjielab.textColor = [UIColor wjColorFloat:@"333333"];
+        _zhangjielab.font = [UIFont systemFontOfSize:14];
+    }
+    return _zhangjielab;
+}
+
 
 -(void)setdata:(NSDictionary *)dit
 {
@@ -246,13 +280,41 @@
         
     }];
     
+    self.authorlab.text = [dit objectForKey:@"pubNickname"];
+    self.contentlab.text = [dit objectForKey:@"pubContent"];
+    self.typelab.text = [dit objectForKey:@"typeTitle"];
+    
+    self.numberlab.text = [NSString stringWithFormat:@"%@%@",[dit objectForKey:@"collecCount"],@"成员"];
+    
     self.contentlab.font = [UIFont systemFontOfSize:13];
-    
-    self.contentlab.text = @"iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果iOS开发 图片渐变效果";
-    
+    self.contentlab.preferredMaxLayoutWidth = (DEVICE_WIDTH - 14.0 * 2);
+    [self.contentlab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.contentlab sizeToFit];
     CGFloat texth = self.contentlab.frame.size.height;
     NSLog(@"hei-------%f",texth);
     
+    [self.lineview0 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentlab.mas_bottom).with.offset(13*HEIGHT_SCALE);
+        make.left.equalTo(self);
+        make.right.equalTo(self);
+        make.height.mas_offset(10*HEIGHT_SCALE);
+    }];
+    
+    self.zhangjielab.text = @"涉及到了使用两个TabBar,然后我需要显示,涉及到了使用两个TabBar,然后我需要显示,涉及到了使用两个TabBar,然后我需要显示";
+    
+    [self.zhangjielab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.lineview0.mas_bottom).with.offset(2*HEIGHT_SCALE);
+        make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
+        make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
+        make.height.mas_offset(40*HEIGHT_SCALE);
+    }];
+    
+    [self.lineview1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.zhangjielab.mas_bottom).with.offset(2*HEIGHT_SCALE);
+        make.left.equalTo(self);
+        make.right.equalTo(self);
+        make.height.mas_offset(10*HEIGHT_SCALE);
+    }];
     
 }
 

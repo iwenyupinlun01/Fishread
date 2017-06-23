@@ -10,14 +10,14 @@
 
 #import <SDAutoLayout.h>
 
-#import "HJTabViewControllerPlugin_HeaderScroll.h"
-#import "HJTabViewControllerPlugin_TabViewBar.h"
-#import "HJDefaultTabViewBar.h"
+//#import "HJTabViewControllerPlugin_HeaderScroll.h"
+//#import "HJTabViewControllerPlugin_TabViewBar.h"
 
-#import "HeaderView.h"
+
+
 #import "WZBSegmentedControl.h"
-//#import "UIViewController+Cloudox.h"
-//#import "UINavigationController+Cloudox.h"
+#import "UIViewController+Cloudox.h"
+#import "UINavigationController+Cloudox.h"
 #import "taolunheadView.h"
 
 #import "taolunquanModel.h"
@@ -70,13 +70,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"阅读圈";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     
-//    [self network];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self getui];
     
     [self addHeaderleft];
@@ -84,6 +84,8 @@
     [self addHeaderright];
     [self addFooterfight];
     
+    self.leftTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.centerTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,7 +96,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //self.navBarBgAlpha = @"0.0";
+    self.navBarBgAlpha = @"0.0";
     [self.tabBarController.tabBar setHidden:YES];
 }
 
@@ -125,11 +127,9 @@
     return _rightArray;
 }
 
-
-
 -(void)network
 {
-    self.headheistr = @"400";
+    self.headheistr = @"370";
     CGFloat hei = [self.headheistr floatValue];
     self.headview.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE);
     self.jiaheaderView.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE+44);
@@ -209,14 +209,14 @@
             NSString *relation_id = [infodic objectForKey:@"relation_id"];
             NSString *typeTitle = [infodic objectForKey:@"typeTitle"];
             NSString *background = [infodic objectForKey:@"background"];
+            NSString *collecCount = [infodic objectForKey:@"collecCount"];
             
             self.headdit = [NSDictionary dictionary];
-            
             
             [self network];
           
             
-            self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background};
+            self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background,@"collecCount":collecCount};
             
             [self.headview setdata:self.headdit];
             
@@ -442,22 +442,42 @@
             // 让这2个tableView的偏移量相等
             self.leftTableView.contentOffset = self.centerTableView.contentOffset = scrollView.contentOffset;
             
+//            if (scrollView == self.leftTableView) {
+//                self.leftTableView.contentOffset = scrollView.contentOffset;
+//                // 改变headerView的y值
+//                CGRect frame = self.segueView.frame;
+//                CGFloat y = -self.centerTableView.contentOffset.y;
+//                frame.origin.y = y;
+//                self.segueView.frame = frame;
+//                self.navBarBgAlpha = @"0.0";
+//
+//            }
+//            if (scrollView==self.centerTableView) {
+//                self.centerTableView.contentOffset = scrollView.contentOffset;
+//                // 改变headerView的y值
+//                CGRect frame = self.segueView.frame;
+//                CGFloat y = -self.centerTableView.contentOffset.y;
+//                frame.origin.y = y;
+//                self.segueView.frame = frame;
+//                self.navBarBgAlpha = @"0.0";
+//
+//            }
             // 改变headerView的y值
             CGRect frame = self.segueView.frame;
             CGFloat y = -self.centerTableView.contentOffset.y;
             frame.origin.y = y;
             self.segueView.frame = frame;
+            self.navBarBgAlpha = @"0.0";
+
             
-            self.title = @"讨论圈";
-            
-            // 一旦大于等于150了，让headerView的y值等于150，就停留在上边了
+     
         } else if (contentOffsetY >= hei*HEIGHT_SCALE-20-44) {
             CGRect frame = self.segueView.frame;
             frame.origin.y = -hei*HEIGHT_SCALE+20+44;
             
             self.segueView.frame = frame;
-            
-            self.title = @"title";
+             self.navBarBgAlpha = @"1";
+
             
         }
     }
@@ -486,4 +506,8 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+-(void)rightAction
+{
+    
+}
 @end

@@ -10,22 +10,16 @@
 
 #import <SDAutoLayout.h>
 
-#import "HJTabViewControllerPlugin_HeaderScroll.h"
-#import "HJTabViewControllerPlugin_TabViewBar.h"
-#import "HJDefaultTabViewBar.h"
+//#import "HJTabViewControllerPlugin_HeaderScroll.h"
+//#import "HJTabViewControllerPlugin_TabViewBar.h"
 
-#import "HeaderView.h"
 #import "WZBSegmentedControl.h"
-
-//#import "UIViewController+Cloudox.h"
-//#import "UINavigationController+Cloudox.h"
-
+#import "UIViewController+Cloudox.h"
+#import "UINavigationController+Cloudox.h"
 #import "quanziheadView.h"
-
 #import "taolunCell0.h"
 #import "taolunquanModel.h"
 #import "DemoCommentModel.h"
-
 #import "democontentViewController.h"
 
 #define WZBScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -74,11 +68,9 @@
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self getui];
-
     [self.view addSubview:self.fabiaoBtn];
     [self addHeaderleft];
     [self addFooterleft];
@@ -87,7 +79,6 @@
     self.isleft = @"1";
     self.leftTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.centerTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
     [self.view addSubview:self.jiaruBtn];
     [self.view bringSubviewToFront:self.jiaruBtn];
 
@@ -101,10 +92,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     //self.navBarBgAlpha = @"0.0";
-    //[self.tabBarController.tabBar removeFromSuperview];
+    self.navBarBgAlpha = @"0.0";
     [self.tabBarController.tabBar setHidden:YES];
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -173,8 +162,8 @@
             NSString *titlestr = [infodic objectForKey:@"pubTitle"];
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
-           // pathstr = @"http://pic30.nipic.com/20130615/12994184_133342233160_2.jpg";
-            [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]];
+        
+            [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
             NSString *type = [infodic objectForKey:@"circleType"];
             if ([type isEqualToString:@"1"]) {
                 self.headview.typelab.text = @"讨论圈";
@@ -317,8 +306,7 @@
             NSString *titlestr = [infodic objectForKey:@"pubTitle"];
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
-            //pathstr = @"http://pic30.nipic.com/20130615/12994184_133342233160_2.jpg";
-            [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]];
+            [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
             NSString *type = [infodic objectForKey:@"circleType"];
             if ([type isEqualToString:@"1"]) {
                 self.headview.typelab.text = @"讨论圈";
@@ -670,7 +658,7 @@
         [self.sectionView setContentOffset:(CGPoint){scrollView.contentOffset.x / 2, 0}];
         return;
     }
-    
+
 }
 
 // 开始拖拽
@@ -697,9 +685,15 @@
 
 -(void)backAction
 {
-        [self.navigationController popViewControllerAnimated:YES];
+
+    [self.navigationController popViewControllerAnimated:YES];
     //    [self.navigationController.navigationBar setHidden:NO];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
+-(void)rightAction
+{
     
 }
 

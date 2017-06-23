@@ -55,7 +55,6 @@ static NSString *indentify = @"indentify";
 {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
-    //self.tabBar.hidden = NO;
 }
 
 //-(void)viewWillAppear:(BOOL)animated

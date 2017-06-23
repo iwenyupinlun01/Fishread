@@ -21,6 +21,8 @@
 
 @property (nonatomic,strong) UILabel *contentlab;
 
+@property (nonatomic,strong) UILabel *zhangjielab;
+
 -(void)setdata:(NSDictionary *)dit;
 
 @end
