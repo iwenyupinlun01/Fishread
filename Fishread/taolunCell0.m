@@ -8,10 +8,8 @@
 
 #import "taolunCell0.h"
 #import "taolunquanModel.h"
-#import <SDAutoLayout.h>
 #import "SDWeiXinPhotoContainerView.h"
 #import "DemoCommentView.h"
-
 #import "dianzanBtn.h"
 #import "pinglunBtn.h"
 
@@ -25,7 +23,7 @@
 @property (nonatomic,strong) dianzanBtn *zanbtn;
 @property (nonatomic,strong) pinglunBtn *commentbtn;
 @property (nonatomic,strong) UIButton *tomorebtn;
-@property (nonatomic,strong)  DemoCommentView *commentView;
+@property (nonatomic,strong) DemoCommentView *commentView;
 @property (nonatomic,strong) SDWeiXinPhotoContainerView *picContainerView;
 @property (nonatomic,strong) taolunquanModel *tmodel;
 

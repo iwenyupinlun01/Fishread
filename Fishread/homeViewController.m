@@ -12,7 +12,6 @@
 #import "loginViewController.h"
 #import "homeModel.h"
 #import "taolunquanViewController.h"
-#import "YAImageTableViewVC.h"
 #import "yueduquanViewController.h"
 
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
@@ -55,13 +54,22 @@ static NSString *indentify = @"indentify";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    //self.navigationController.tabBarItem.badgeValue = @"1";
+    self.tabBarController.tabBar.hidden = NO;
+    //self.tabBar.hidden = NO;
 }
+
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    
+//    //self.navigationController.tabBarItem.badgeValue = @"1";
+//}
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
     
 }
 
@@ -170,12 +178,13 @@ static NSString *indentify = @"indentify";
     
     //=======================2===========================
     //创建一个UICollectionView
-    _myCollectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT) collectionViewLayout:flowL];
+    _myCollectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-44) collectionViewLayout:flowL];
     //设置代理为当前控制器
+    _myCollectionV.backgroundColor = [UIColor whiteColor];
     _myCollectionV.delegate = self;
     _myCollectionV.dataSource = self;
     //设置背景
-    _myCollectionV.backgroundColor =[UIColor whiteColor];
+//    _myCollectionV.backgroundColor =[UIColor whiteColor];
     UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
     TapGestureTecognizer.cancelsTouchesInView=NO;
     [self.myCollectionV addGestureRecognizer:TapGestureTecognizer];
@@ -247,6 +256,7 @@ static NSString *indentify = @"indentify";
     }else
     {
         yueduquanViewController *yueduvc = [[yueduquanViewController alloc] init];
+        yueduvc.idstr = homeidstr;
         [self.navigationController pushViewController:yueduvc animated:YES];
     }
 }

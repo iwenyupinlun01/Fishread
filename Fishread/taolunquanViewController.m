@@ -10,15 +10,16 @@
 
 #import <SDAutoLayout.h>
 
-#import "TableViewController.h"
 #import "HJTabViewControllerPlugin_HeaderScroll.h"
 #import "HJTabViewControllerPlugin_TabViewBar.h"
 #import "HJDefaultTabViewBar.h"
 
 #import "HeaderView.h"
 #import "WZBSegmentedControl.h"
-#import "UIViewController+Cloudox.h"
-#import "UINavigationController+Cloudox.h"
+
+//#import "UIViewController+Cloudox.h"
+//#import "UINavigationController+Cloudox.h"
+
 #import "quanziheadView.h"
 
 #import "taolunCell0.h"
@@ -73,6 +74,9 @@
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    
     [self getui];
 
     [self.view addSubview:self.fabiaoBtn];
@@ -97,7 +101,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     self.navBarBgAlpha = @"0.0";
+     //self.navBarBgAlpha = @"0.0";
     //[self.tabBarController.tabBar removeFromSuperview];
     [self.tabBarController.tabBar setHidden:YES];
     
@@ -169,7 +173,7 @@
             NSString *titlestr = [infodic objectForKey:@"pubTitle"];
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
-            pathstr = @"http://pic30.nipic.com/20130615/12994184_133342233160_2.jpg";
+           // pathstr = @"http://pic30.nipic.com/20130615/12994184_133342233160_2.jpg";
             [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]];
             NSString *type = [infodic objectForKey:@"circleType"];
             if ([type isEqualToString:@"1"]) {
@@ -313,7 +317,7 @@
             NSString *titlestr = [infodic objectForKey:@"pubTitle"];
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
-            pathstr = @"http://pic30.nipic.com/20130615/12994184_133342233160_2.jpg";
+            //pathstr = @"http://pic30.nipic.com/20130615/12994184_133342233160_2.jpg";
             [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]];
             NSString *type = [infodic objectForKey:@"circleType"];
             if ([type isEqualToString:@"1"]) {

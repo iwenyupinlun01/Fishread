@@ -45,7 +45,8 @@
 
 //讨论圈详情
 #define taolunquanxiangqing @"http://"IPAddress"/forum/circle/circleDetail.html?id=%@&page=%@&token=%@&type=%@"
-
+//书圈详情
+#define shuquanxiangqing @"http://"IPAddress"/forum/circle/bookCriclDetail.html?id=%@&page=%@&token=%@&type=%@"
 //动态详情页面
 #define dongtaixiangqing @"http://"IPAddress"/forum/index/detail.html?token=%@&page=%@&id=%@"
 

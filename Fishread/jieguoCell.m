@@ -54,7 +54,6 @@
 
 #pragma mark - getters
 
-
 -(UIImageView *)leftimg
 {
     if(!_leftimg)
@@ -64,7 +63,6 @@
     }
     return _leftimg;
 }
-
 
 -(UILabel *)namelab
 {
@@ -77,7 +75,6 @@
     }
     return _namelab;
 }
-
 
 -(UILabel *)typelab
 {
@@ -107,6 +104,5 @@
         self.typelab.textColor = [UIColor wjColorFloat:@"54D48A"];
     }
 }
-
 
 @end

@@ -286,9 +286,9 @@ static NSString *shuquanxiangqingidentfid2 = @"shuquanxiangqingidentfid2";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        quanzixiangqingCell0 *cell = [[quanzixiangqingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:shuquanxiangqingidentfid0];
-        CGFloat hei = [cell setdata:self.datasourceArray[indexPath.row]];
-        return hei;
+        //quanzixiangqingCell0 *cell = [[quanzixiangqingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:shuquanxiangqingidentfid0];
+        //CGFloat hei = [cell setdata:self.datasourceArray[indexPath.row]];
+        return 220;
     }
     if (indexPath.section==1) {
         return 42*HEIGHT_SCALE;

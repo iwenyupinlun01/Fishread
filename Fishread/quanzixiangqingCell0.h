@@ -10,7 +10,7 @@
 
 @class dongtaixiangqingModel;
 @interface quanzixiangqingCell0 : UITableViewCell
--(CGFloat )setdata:(dongtaixiangqingModel *)model;
+-(void)setdata:(dongtaixiangqingModel *)model;
 @property (nonatomic,strong) UIButton *zanBtn;
 @property (nonatomic,strong) UIButton *commentsBtn;
 @property (nonatomic,strong) UIButton *shareBtn;

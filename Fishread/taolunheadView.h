@@ -21,4 +21,6 @@
 
 @property (nonatomic,strong) UILabel *contentlab;
 
+-(void)setdata:(NSDictionary *)dit;
+
 @end

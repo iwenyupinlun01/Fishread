@@ -141,6 +141,7 @@
             model.create_timestr = [infodit objectForKey:@"create_time"];
             model.idstr = [infodit objectForKey:@"id"];
             model.imagesArray = [infodit objectForKey:@"images"];
+            
             model.titlestr = [infodit objectForKey:@"title"];
             
             self.righttitleStr = [NSString stringWithFormat:@"%@%@",@"来自",model.titlestr];
@@ -295,9 +296,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        quanzixiangqingCell0 *cell = [[quanzixiangqingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellkey2];
-        CGFloat hei = [cell setdata:self.headArray[indexPath.row]];
-        return hei;
+        
+        return [tableView cellHeightForIndexPath:indexPath
+                            cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
+                                       tableView:tableView];
     }
     if (indexPath.section==1) {
         return [tableView cellHeightForIndexPath:indexPath
