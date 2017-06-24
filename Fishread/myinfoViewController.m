@@ -29,7 +29,6 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
     [self.view addSubview:self.myinfotableView];
 }
 
@@ -37,12 +36,17 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
     [self.tabBarController.tabBar setHidden:YES];
+    [self.myinfotableView reloadData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -83,8 +87,7 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setSeparatorInset:UIEdgeInsetsZero];
         cell.infoimage.tag = 2001;
-        //[cell.infoimage sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
-        
+        [cell.infoimage sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
         return cell;
     }
     if (indexPath.row==1) {
@@ -230,30 +233,32 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
     UIImageView *picimage = [self.myinfotableView viewWithTag:2001];
     picimage.image = image;
     [self.myinfotableView reloadData];
-//    
-//    
-//    UIImage *originImage = image;
-//    NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
-//    NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-//    NSLog(@"base64str-------%@",base64str);
-//    
-//    
-//    [MBManager showLoadingInView:self.view];
-//    
-//    //对话框显示时需要执行的操作
-//    [AFManager postReqURL:touxiang reqBody:@{@"token":[tokenstr tokenstrfrom],@"str":base64str} block:^(id infor) {
-//        NSLog(@"infor-------%@",infor);
-//        if ([[infor objectForKey:@"code"] intValue]==1) {
-//            NSString *urlstr = [infor objectForKey:@"newIcon"];
-//            NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
-//            [defat setObject:urlstr forKey:@"pathurlstr"];
-//            [defat synchronize];
-//            [self.myinfotable reloadData];
-//            
-//        }
-//        [MBManager hideAlert];
-//        [MBProgressHUD showSuccess:@"更改成功"];
-//    }];
+   
+    UIImage *originImage = image;
+    NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+    NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSLog(@"base64str-------%@",base64str);
+    NSDictionary *dit = @{@"token":[tokenstr tokenstrfrom],@"str":base64str};
+    
+    NSString *str = @"http://www.3a406.cn/forum/user/userIcon.html";
+    
+    [PPNetworkHelper POST:str parameters:dit success:^(id responseObject) {
+        NSString *hudstr = [responseObject objectForKey:@"msg"];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            [MBProgressHUD showSuccess:hudstr];
+            NSString *pathstr = [responseObject objectForKey:@"info"];
+            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+            [userdefat setObject:pathstr forKey:@"pathurlstr"];
+            [userdefat synchronize];
+            [MBProgressHUD showSuccess:hudstr];
+        }else
+        {
+            [MBProgressHUD showSuccess:hudstr];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
+
 }
 
 #pragma mark - 实现方法

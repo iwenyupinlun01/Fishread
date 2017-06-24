@@ -48,6 +48,7 @@
 		533020961EF13CBB00D08825 /* taolunquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533020951EF13CBB00D08825 /* taolunquanViewController.m */; };
 		5332035B1EFD218600526F8E /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203581EFD218600526F8E /* UINavigationController+Cloudox.m */; };
 		5332035C1EFD218600526F8E /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332035A1EFD218600526F8E /* UIViewController+Cloudox.m */; };
+		5332035F1EFD6DEB00526F8E /* chengyuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332035E1EFD6DEB00526F8E /* chengyuanViewController.m */; };
 		5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2A91EF387E60040A295 /* quanziheadView.m */; };
 		5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */; };
 		5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */; };
@@ -200,6 +201,8 @@
 		533203581EFD218600526F8E /* UINavigationController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Cloudox.m"; sourceTree = "<group>"; };
 		533203591EFD218600526F8E /* UIViewController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Cloudox.h"; sourceTree = "<group>"; };
 		5332035A1EFD218600526F8E /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
+		5332035D1EFD6DEA00526F8E /* chengyuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chengyuanViewController.h; sourceTree = "<group>"; };
+		5332035E1EFD6DEB00526F8E /* chengyuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chengyuanViewController.m; sourceTree = "<group>"; };
 		5332E2A81EF387E60040A295 /* quanziheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanziheadView.h; sourceTree = "<group>"; };
 		5332E2A91EF387E60040A295 /* quanziheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanziheadView.m; sourceTree = "<group>"; };
 		5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yueduquanViewController.h; sourceTree = "<group>"; };
@@ -724,6 +727,8 @@
 				533020951EF13CBB00D08825 /* taolunquanViewController.m */,
 				5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */,
 				5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */,
+				5332035D1EFD6DEA00526F8E /* chengyuanViewController.h */,
+				5332035E1EFD6DEB00526F8E /* chengyuanViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -1075,6 +1080,7 @@
 				533B61E61EEA7B3400DE0392 /* xieyiViewController.m in Sources */,
 				533B61FA1EEAB03F00DE0392 /* searchViewController.m in Sources */,
 				530C82871EF931F100815763 /* democontentViewController.m in Sources */,
+				5332035F1EFD6DEB00526F8E /* chengyuanViewController.m in Sources */,
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,

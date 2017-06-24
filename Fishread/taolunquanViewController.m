@@ -21,6 +21,7 @@
 #import "taolunquanModel.h"
 #import "DemoCommentModel.h"
 #import "democontentViewController.h"
+#import "chengyuanViewController.h"
 
 #define WZBScreenWidth [UIScreen mainScreen].bounds.size.width
 #define WZBScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -55,6 +56,8 @@
 @property (nonatomic,strong) NSMutableArray *rightArray;
 @property (nonatomic,strong) NSString *isleft;
 @property (nonatomic,strong) UIButton *jiaruBtn;
+
+@property (nonatomic,strong) NSString *is_creator;
 @end
 
 @implementation taolunquanViewController
@@ -158,7 +161,9 @@
         
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             
+            
             NSDictionary *infodic = [responseObject objectForKey:@"info"];
+            self.is_creator = [infodic objectForKey:@"is_creator"];
             NSString *titlestr = [infodic objectForKey:@"pubTitle"];
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
@@ -694,7 +699,16 @@
 
 -(void)rightAction
 {
-    
+    if ([self.isleft isEqualToString:@"0"]) {
+        [self right02];
+    }
+    if ([self.isleft isEqualToString:@"1"]) {
+        [self right01];
+    }
+    else
+    {
+        [MBProgressHUD showSuccess:@"没有加入书圈"];
+    }
 }
 
 -(void)morebtnClick:(UITableViewCell *)cell
@@ -719,6 +733,7 @@
 {
    // NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
     NSLog(@"right");
+   
 }
 
 -(void)nextbtnClick:(UITableViewCell *)cell
@@ -746,4 +761,76 @@
     NSLog(@"加入圈子");
 }
 
+-(void)right01
+{
+    UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"编辑书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"成员管理" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        chengyuanViewController *chengyuanVC = [[chengyuanViewController alloc] init];
+        chengyuanVC.idstr = self.idstr;
+        [self.navigationController pushViewController:chengyuanVC animated:YES];
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [control addAction:action0];
+    [control addAction:action1];
+    [control addAction:action2];
+    [control addAction:action3];
+    
+    [self presentViewController:control animated:YES completion:nil];
+    
+}
+
+-(void)right02
+{
+    UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"广告等垃圾信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"色情淫秽内容" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"恶意营销" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"人身攻击" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [control addAction:action0];
+        [control addAction:action1];
+        [control addAction:action2];
+        [control addAction:action3];
+        [control addAction:action4];
+        [self presentViewController:control animated:YES completion:nil];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"查看圈子资料" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"退出书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [control addAction:action0];
+    [control addAction:action1];
+    [control addAction:action2];
+    [control addAction:action3];
+    [control addAction:action4];
+    [self presentViewController:control animated:YES completion:nil];
+}
 @end

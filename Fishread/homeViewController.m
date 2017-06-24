@@ -13,6 +13,7 @@
 #import "homeModel.h"
 #import "taolunquanViewController.h"
 #import "yueduquanViewController.h"
+#import "searchViewController.h"
 
 @interface homeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
 {
@@ -54,21 +55,13 @@ static NSString *indentify = @"indentify";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.hidesBottomBarWhenPushed = NO;
     self.tabBarController.tabBar.hidden = NO;
 }
-
-//-(void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    
-//    
-//    //self.navigationController.tabBarItem.badgeValue = @"1";
-//}
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
     
 }
 
@@ -177,7 +170,7 @@ static NSString *indentify = @"indentify";
     
     //=======================2===========================
     //创建一个UICollectionView
-    _myCollectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-44) collectionViewLayout:flowL];
+    _myCollectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT) collectionViewLayout:flowL];
     //设置代理为当前控制器
     _myCollectionV.backgroundColor = [UIColor whiteColor];
     _myCollectionV.delegate = self;
@@ -190,7 +183,7 @@ static NSString *indentify = @"indentify";
 #pragma mark -- 注册单元格
     //设置头部并给定大小
     [flowL setHeaderReferenceSize:CGSizeMake(_myCollectionV.frame.size.width, 50)];
-
+    
     [_myCollectionV registerClass:[homeCell class] forCellWithReuseIdentifier:indentify];
 #pragma mark -- 注册头部视图
     [_myCollectionV registerClass:[MyHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
@@ -268,15 +261,10 @@ static NSString *indentify = @"indentify";
     [text resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     //写你要实现的：页面跳转的相关代码
-    
+    searchViewController *searchvc = [[searchViewController alloc] init];
+    [self.navigationController pushViewController:searchvc animated:YES];
     return NO;
 }
 

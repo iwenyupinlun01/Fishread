@@ -32,7 +32,12 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     self.view.backgroundColor = [UIColor whiteColor];
      [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     [self.view addSubview:self.infotableView];
+}
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self network];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +50,32 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
     [self.navigationController.navigationBar setHidden:YES];
+}
+
+#pragma mark - network
+
+-(void)network
+{
+    NSString *urlstr = [NSString stringWithFormat:wodeshouye,[tokenstr tokenstrfrom]];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        NSString *hudstr = [responseObject objectForKey:@"msg"];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSDictionary *infodit = [responseObject objectForKey:@"info"];
+            NSString *namestr = [infodit objectForKey:@"nickname"];
+            NSString *pathstr = [infodit objectForKey:@"icon"];
+            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+            [userdefat setObject:namestr forKey:@"namestr"];
+            [userdefat setObject:pathstr forKey:@"pathurlstr"];
+            [userdefat synchronize];
+            [self.infotableView reloadData];
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:hudstr];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - getters
@@ -79,10 +110,6 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     }
     return _carGroups;
 }
-
-
-
-
 
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 

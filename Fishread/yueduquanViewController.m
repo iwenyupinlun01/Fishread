@@ -10,10 +10,6 @@
 
 #import <SDAutoLayout.h>
 
-//#import "HJTabViewControllerPlugin_HeaderScroll.h"
-//#import "HJTabViewControllerPlugin_TabViewBar.h"
-
-
 
 #import "WZBSegmentedControl.h"
 #import "UIViewController+Cloudox.h"
@@ -25,6 +21,9 @@
 #import "DemoCommentModel.h"
 
 #import "democontentViewController.h"
+
+#import "chengyuanViewController.h"
+
 #define WZBScreenWidth [UIScreen mainScreen].bounds.size.width
 #define WZBScreenHeight [UIScreen mainScreen].bounds.size.height
 // san最大的
@@ -58,7 +57,7 @@
 @property (nonatomic,strong) NSDictionary *headdit;
 @property (nonatomic,strong) UIView *jiaheaderView;
 
-;
+@property (nonatomic,strong) NSString *is_creator;
 
 @property (nonatomic,strong) NSMutableArray *leftArray;
 @property (nonatomic,strong) NSMutableArray *rightArray;
@@ -77,7 +76,9 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    
     [self getui];
+
     
     [self addHeaderleft];
     [self addFooterleft];
@@ -213,7 +214,7 @@
             
             self.headdit = [NSDictionary dictionary];
             
-            [self network];
+          
           
             
             self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background,@"collecCount":collecCount};
@@ -296,47 +297,58 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // 底部横向滑动的scrollView
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-40)];
+    
     [self.view addSubview:scrollView];
-    //scrollView.backgroundColor = [UIColor colorWithWhite:0.998 alpha:1];
-    scrollView.backgroundColor = [UIColor clearColor];
+    
+    scrollView.backgroundColor = [UIColor colorWithWhite:0.998 alpha:1];
     // 绑定代理
     scrollView.delegate = self;
     // 设置滑动区域
     scrollView.contentSize = CGSizeMake(2 * WZBScreenWidth, 0);
     scrollView.pagingEnabled = YES;
     self.scrollView = scrollView;
+    self.headview = [[taolunheadView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, 370*HEIGHT_SCALE)];
     
-    self.headview = [[taolunheadView alloc] init];
+    self.headview.backgroundColor = [UIColor whiteColor];
     
     // 创建segmentedControl
-    self.sectionView = [WZBSegmentedControl segmentWithFrame:(CGRect){0, 0*HEIGHT_SCALE-64, WZBScreenWidth, 44} titles:@[@"全部", @"神呐"] tClick:^(NSInteger index) {
+    WZBSegmentedControl *sectionView = [WZBSegmentedControl segmentWithFrame:(CGRect){0, 370*HEIGHT_SCALE-64, WZBScreenWidth, 44} titles:@[@"全部", @"神呐"] tClick:^(NSInteger index) {
+        
         // 改变scrollView的contentOffset
         self.scrollView.contentOffset = CGPointMake(index * WZBScreenWidth, 0);
+        
         // 刷新最大OffsetY
         //[self reloadMaxOffsetY];
+        
     }];
     
-    [self.sectionView setNormalColor:[UIColor blackColor] selectColor:[UIColor wjColorFloat:@"54d48a"] sliderColor:[UIColor wjColorFloat:@"54d48a"] edgingColor:[UIColor whiteColor] edgingWidth:0];
+    // 赋值给全局变量
+    self.sectionView = sectionView;
+    
+    // 设置其他颜色
+    [sectionView setNormalColor:[UIColor blackColor] selectColor:[UIColor wjColorFloat:@"54d48a"] sliderColor:[UIColor wjColorFloat:@"54d48a"] edgingColor:[UIColor whiteColor] edgingWidth:0];
     // 去除圆角
-    self.sectionView.backgroundColor = [UIColor whiteColor];
-    self.sectionView.backgroundView.layer.cornerRadius = .1f;
+    sectionView.backgroundColor = [UIColor whiteColor];
+    sectionView.layer.cornerRadius = sectionView.backgroundView.layer.cornerRadius = .0f;
+    
     // 加两条线
     for (NSInteger i = 0; i < 2; i++) {
         UIView *line = [UIView new];
         line.backgroundColor = WZBColor(228, 227, 230);
         line.frame = CGRectMake(0, 43.5 * i, WZBScreenWidth, 0.5);
-        [self.sectionView addSubview:line];
+        [sectionView addSubview:line];
     }
+    
     // 调下frame
-    CGRect frame = self.sectionView.backgroundView.frame;
+    CGRect frame = sectionView.backgroundView.frame;
     frame.origin.y = frame.size.height - 1.5;
     frame.size.height = 1;
-    self.sectionView.backgroundView.frame = frame;
+    sectionView.backgroundView.frame = frame;
     
-    UIView *headerView = [[UIView alloc] initWithFrame:(CGRect){0, 0, WZBScreenWidth, 0*HEIGHT_SCALE}];
-    
+    // headerView
+    UIView *headerView = [[UIView alloc] initWithFrame:(CGRect){0, 0, WZBScreenWidth, CGRectGetMaxY(sectionView.frame)}];
     [headerView addSubview:self.headview];
-    [headerView addSubview:self.sectionView];
+    [headerView addSubview:sectionView];
     self.segueView = headerView;
     [self.view addSubview:headerView];
     // 创建2个tableView
@@ -346,9 +358,8 @@
 }
 
 // 创建tableView
+// 创建tableView
 - (UITableView *)tableViewWithX:(CGFloat)x {
-    
-   // CGFloat hei = [self.headheistr floatValue];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(x, -64, WZBScreenWidth, WZBScreenHeight - 40)];
     
@@ -361,9 +372,8 @@
     tableView.dataSource = self;
     
     // 创建一个假的headerView，高度等于headerView的高度
-    //self.jiaheaderView = [[UIView alloc] initWithFrame:(CGRect){0, -64, WZBScreenWidth, hei*HEIGHT_SCALE+44}];
-  
-  
+    UIView *headerView = [[UIView alloc] initWithFrame:(CGRect){0, -64, WZBScreenWidth, 370*HEIGHT_SCALE+44}];
+    tableView.tableHeaderView = headerView;
     return tableView;
 }
 
@@ -429,19 +439,15 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    CGFloat hei = [self.headheistr floatValue];
+    CGFloat hei = 370;
     
     // 如果当前滑动的是tableView
     if ([scrollView isKindOfClass:[UITableView class]]) {
-        
         CGFloat contentOffsetY = scrollView.contentOffset.y;
-        
         // 如果滑动没有超过150
         if (contentOffsetY < hei*HEIGHT_SCALE-20-44) {
-            
             // 让这2个tableView的偏移量相等
             self.leftTableView.contentOffset = self.centerTableView.contentOffset = scrollView.contentOffset;
-            
 //            if (scrollView == self.leftTableView) {
 //                self.leftTableView.contentOffset = scrollView.contentOffset;
 //                // 改变headerView的y值
@@ -462,6 +468,7 @@
 //                self.navBarBgAlpha = @"0.0";
 //
 //            }
+            
             // 改变headerView的y值
             CGRect frame = self.segueView.frame;
             CGFloat y = -self.centerTableView.contentOffset.y;

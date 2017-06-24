@@ -38,20 +38,24 @@
 #define sousuo @"http://"IPAddress"/forum/circle/searchShow.html?token=%@&page=%@&key=%@"
 //删除搜索
 #define shanchusosuo @"http://"IPAddress"/forum/circle/delSearchHis.html?token=%@&id=%@"
-
 //全部get
 #define quanziquanbu @"http://"IPAddress"/forum/index/index.html?token=%@&page=%@&judge=%@"
-
-
 //讨论圈详情
 #define taolunquanxiangqing @"http://"IPAddress"/forum/circle/circleDetail.html?id=%@&page=%@&token=%@&type=%@"
 //书圈详情
 #define shuquanxiangqing @"http://"IPAddress"/forum/circle/bookCriclDetail.html?id=%@&page=%@&token=%@&type=%@"
 //动态详情页面
 #define dongtaixiangqing @"http://"IPAddress"/forum/index/detail.html?token=%@&page=%@&id=%@"
-
+//成员管理
+#define chengyuanguanli @"http://"IPAddress"/forum/circle/circleManageShow.html?token=%@&id=%@"
 //关于我的
 #define guanyuwode @"http://"IPAddress"/forum/user/aboutus.html"
+//我的界面首页
+#define wodeshouye @"http://"IPAddress"/forum/user/index.html?token=%@"
+//头像修改 post
+#define touxiangxiugai @"http://"IPAddress"/forum/user/userIcon.html"
+//昵称修改 get
+#define nichengxiugai @"http://"IPAddress"/forum/user/editNickname.html?token=%@&nickname=%@"
 
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))
