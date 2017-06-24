@@ -233,16 +233,14 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
     UIImageView *picimage = [self.myinfotableView viewWithTag:2001];
     picimage.image = image;
     [self.myinfotableView reloadData];
-   
-    UIImage *originImage = image;
-    NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+    
+    NSData *data = UIImageJPEGRepresentation(image, 1.0f);
     NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     NSLog(@"base64str-------%@",base64str);
     NSDictionary *dit = @{@"token":[tokenstr tokenstrfrom],@"str":base64str};
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSString *str = @"http://www.3a406.cn/forum/user/userIcon.html";
-    
-    [PPNetworkHelper POST:str parameters:dit success:^(id responseObject) {
+    [PPNetworkHelper POST:touxiangxiugai parameters:dit success:^(id responseObject) {
         NSString *hudstr = [responseObject objectForKey:@"msg"];
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             [MBProgressHUD showSuccess:hudstr];
@@ -255,10 +253,12 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
         {
             [MBProgressHUD showSuccess:hudstr];
         }
+        [self.myinfotableView reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-
 }
 
 #pragma mark - 实现方法

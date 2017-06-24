@@ -49,6 +49,7 @@
 		5332035B1EFD218600526F8E /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203581EFD218600526F8E /* UINavigationController+Cloudox.m */; };
 		5332035C1EFD218600526F8E /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332035A1EFD218600526F8E /* UIViewController+Cloudox.m */; };
 		5332035F1EFD6DEB00526F8E /* chengyuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332035E1EFD6DEB00526F8E /* chengyuanViewController.m */; };
+		5332036C1EFE4C7300526F8E /* chuangjianCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332036B1EFE4C7300526F8E /* chuangjianCell1.m */; };
 		5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2A91EF387E60040A295 /* quanziheadView.m */; };
 		5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */; };
 		5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */; };
@@ -203,6 +204,8 @@
 		5332035A1EFD218600526F8E /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
 		5332035D1EFD6DEA00526F8E /* chengyuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chengyuanViewController.h; sourceTree = "<group>"; };
 		5332035E1EFD6DEB00526F8E /* chengyuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chengyuanViewController.m; sourceTree = "<group>"; };
+		5332036A1EFE4C7300526F8E /* chuangjianCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chuangjianCell1.h; sourceTree = "<group>"; };
+		5332036B1EFE4C7300526F8E /* chuangjianCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chuangjianCell1.m; sourceTree = "<group>"; };
 		5332E2A81EF387E60040A295 /* quanziheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanziheadView.h; sourceTree = "<group>"; };
 		5332E2A91EF387E60040A295 /* quanziheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanziheadView.m; sourceTree = "<group>"; };
 		5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yueduquanViewController.h; sourceTree = "<group>"; };
@@ -858,6 +861,8 @@
 				5393E3691EE68A3A00392FD4 /* quanbuCell.m */,
 				533B61FE1EEABAE700DE0392 /* chuangjianCell.h */,
 				533B61FF1EEABAE700DE0392 /* chuangjianCell.m */,
+				5332036A1EFE4C7300526F8E /* chuangjianCell1.h */,
+				5332036B1EFE4C7300526F8E /* chuangjianCell1.m */,
 				53A1F1271EEE59E200ED5EE8 /* chuangjianCell2.h */,
 				53A1F1281EEE59E200ED5EE8 /* chuangjianCell2.m */,
 				53A1F1221EEE3F2900ED5EE8 /* HLZIrregulatBtn.h */,
@@ -1050,6 +1055,7 @@
 				530C82951EFABED500815763 /* SDWeiXinPhotoContainerView.m in Sources */,
 				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
+				5332036C1EFE4C7300526F8E /* chuangjianCell1.m in Sources */,
 				530C819E1EF7C23200815763 /* secondCell.m in Sources */,
 				5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */,
 				533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */,

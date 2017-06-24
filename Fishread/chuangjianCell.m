@@ -24,15 +24,9 @@
         [self.contentView addSubview:self.chuangjianView];
         [self.contentView addSubview:self.chuangjianText];
         [self.contentView addSubview:self.xuanzelab];
-
-        
-        self.irregulatBtn = [[HLZIrregulatBtn alloc]initWithFrame:CGRectMake(14*WIDTH_SCALE, 150, DEVICE_WIDTH - 28*WIDTH_SCALE, DEVICE_HEIGHT)];
-
+       // self.irregulatBtn = [[HLZIrregulatBtn alloc]initWithFrame:CGRectMake(14*WIDTH_SCALE, 150, DEVICE_WIDTH - 28*WIDTH_SCALE, DEVICE_HEIGHT)];
         [self addSubview:self.irregulatBtn];
-        
         //数据源
-        
-        
         [self setuplayout];
     }
     return self;
@@ -66,7 +60,6 @@
         make.size.mas_equalTo(CGSizeMake(DEVICE_WIDTH, 36));
     }];
     
-
 }
 
 #pragma mark - getters
@@ -78,8 +71,7 @@
         _chuangjianView = [[UIImageView alloc] init];
         _chuangjianView.layer.masksToBounds = YES;
         _chuangjianView.layer.cornerRadius = 4;
-        _chuangjianView.backgroundColor = [UIColor greenColor];
-        
+        //_chuangjianView.image = [UIImage imageNamed:@"默认-拷贝"];
         _chuangjianView.userInteractionEnabled = YES;
         UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgclick)];
         TapGestureTecognizer.cancelsTouchesInView=NO;
@@ -96,6 +88,9 @@
         _chuangjianText.layer.masksToBounds = YES;
         _chuangjianText.layer.cornerRadius = 18 ;
         _chuangjianText.layer.borderWidth = 1;
+        _chuangjianText.textAlignment = NSTextAlignmentCenter;
+        _chuangjianText.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _chuangjianText.tintColor = [UIColor wjColorFloat:@"333333"];
         _chuangjianText.layer.borderColor = [UIColor wjColorFloat:@"C7C7CD"].CGColor;
         _chuangjianText.placeholder = @"圈子名称";
         UILabel * placeholderLabel = [_chuangjianText valueForKey:@"_placeholderLabel"];
@@ -122,9 +117,5 @@
 {
     [self.delegate myTabVClick:self];
 }
-
-
-
-
 
 @end

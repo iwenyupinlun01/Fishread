@@ -46,19 +46,16 @@
         make.width.mas_equalTo(50*WIDTH_SCALE);
         make.top.equalTo(weakSelf).with.offset(14*HEIGHT_SCALE);
     }];
-
     
-    CGSize size = [self.textlab.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 18) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.textlab.font} context:nil].size;
-
     [self.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.leftimg.mas_right).with.offset(16*WIDTH_SCALE);
         make.top.equalTo(weakSelf).with.offset(38*HEIGHT_SCALE);
         make.height.mas_equalTo(18);
-        make.width.mas_equalTo(size.width+2);
+        make.width.mas_equalTo(DEVICE_WIDTH-14*WIDTH_SCALE-150*WIDTH_SCALE);
     }];
     
     [self.typelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.textlab).with.offset(16*WIDTH_SCALE+size.width);
+        make.left.equalTo(weakSelf.textlab.mas_right).with.offset(16*WIDTH_SCALE);
         make.top.equalTo(weakSelf).with.offset(40*HEIGHT_SCALE);
         make.height.mas_equalTo(13);
         
@@ -79,7 +76,6 @@
     if(!_leftimg)
     {
         _leftimg = [[UIImageView alloc] init];
-        _leftimg.backgroundColor = [UIColor greenColor];
     }
     return _leftimg;
 }
@@ -90,7 +86,6 @@
     {
         _textlab = [[UILabel alloc] init];
         _textlab.font = [UIFont systemFontOfSize:18];
-        _textlab.text = @"读书读书";
         _textlab.textColor = [UIColor wjColorFloat:@"333333"];
     }
     return _textlab;
@@ -101,7 +96,6 @@
     if(!_typelab)
     {
         _typelab = [[UILabel alloc] init];
-        _typelab.text = @"圈子";
         _typelab.textColor = [UIColor wjColorFloat:@"54D48A"];
         _typelab.font = [UIFont systemFontOfSize:13];
     }
@@ -123,13 +117,20 @@
 -(void)setdatamodel:(wodeModel*)model
 {
     self.wmodel = model;
-    [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.coverstr]];
+    [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.coverstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
     self.textlab.text = model.titlestr;
     if ([model.is_showstr isEqualToString:@"1"]) {
         [self.xiaohongdianlab setHidden:NO];
     }else
     {
         [self.xiaohongdianlab setHidden:YES];
+    }
+    if ([model.relation_idstr isEqualToString:@"0"]) {
+        self.typelab.text = @"讨论圈";
+        self.typelab.textColor = [UIColor wjColorFloat:@"FB8D3F"];
+    }else
+    {
+        self.typelab.text = @"阅读圈";
     }
 }
 

@@ -10,6 +10,7 @@
 #import "MainTitleView.h"
 #import "chuangjianViewController.h"
 #import "searchViewController.h"
+
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic,strong) NSArray *titleNames;

@@ -49,18 +49,16 @@
 
 // 底部横向滑动的scrollView，上边放着三个tableView
 @property (nonatomic, strong) UIScrollView *scrollView;
-
-
 @property (nonatomic,strong) taolunheadView *headview;
 @property (nonatomic,strong) NSString *headheistr;
-
 @property (nonatomic,strong) NSDictionary *headdit;
 @property (nonatomic,strong) UIView *jiaheaderView;
-
 @property (nonatomic,strong) NSString *is_creator;
-
 @property (nonatomic,strong) NSMutableArray *leftArray;
 @property (nonatomic,strong) NSMutableArray *rightArray;
+
+@property (nonatomic,strong) UIButton *jiaruBtn;
+
 @end
 
 @implementation yueduquanViewController
@@ -84,7 +82,7 @@
     [self addFooterleft];
     [self addHeaderright];
     [self addFooterfight];
-    
+    [self.view addSubview:self.jiaruBtn];
     self.leftTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.centerTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
@@ -188,18 +186,21 @@
 
     pn = 1;
     [self.leftArray removeAllObjects];
-
     NSString *urlstr = [NSString stringWithFormat:shuquanxiangqing,self.idstr,@"1",[tokenstr tokenstrfrom],@"1"];
-    
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
         
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
-            
             NSDictionary *infodic = [responseObject objectForKey:@"info"];
-            
             NSString *is_creator = [infodic objectForKey:@"is_creator"];
+            self.is_creator = is_creator;
+            if ([is_creator isEqualToString:@"2"]) {
+                [self.jiaruBtn setHidden:NO];
+            }else
+            {
+                [self.jiaruBtn setHidden:YES];
+            }
             NSString *newSectionNum = [infodic objectForKey:@"newSectionNum"];
             NSString *newSectionTitle = [infodic objectForKey:@"newSectionTitle"];
             NSString *pubContent = [infodic objectForKey:@"pubContent"];
@@ -213,9 +214,6 @@
             NSString *collecCount = [infodic objectForKey:@"collecCount"];
             
             self.headdit = [NSDictionary dictionary];
-            
-          
-          
             
             self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background,@"collecCount":collecCount};
             
@@ -280,17 +278,183 @@
 
 -(void)footerRefreshEndActionleft
 {
-    
+    pn++;
+    NSString* pnstr = [NSString stringWithFormat:@"%d",pn];
+    NSString *urlstr = [NSString stringWithFormat:taolunquanxiangqing,self.idstr,pnstr,[tokenstr tokenstrfrom],@"1"];
+    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSDictionary *infodic = [responseObject objectForKey:@"info"];
+            NSArray *infoarr = [infodic objectForKey:@"info"];
+            for (int i = 0; i<infoarr.count; i++) {
+                NSDictionary *dit = [infoarr objectAtIndex:i];
+                taolunquanModel *model = [[taolunquanModel alloc] init];
+                NSDictionary *member = [dit objectForKey:@"Member"];
+                model.namestr = [member objectForKey:@"nickname"];
+                model.contentstr = [dit objectForKey:@"content"];
+                model.pathurlstr = [dit objectForKey:@"icon_path"];
+                model.timestr = [dit objectForKey:@"create_time"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
+                model.support_numstr = [dit objectForKey:@"support_num"];
+                model.reply_numstr = [dit objectForKey:@"reply_num"];
+                model.picNamesArray = [dit objectForKey:@"all_image"];
+                model.commentArray = [NSMutableArray array];
+                NSArray *comarr =[dit objectForKey:@"pComment"];
+                
+                for (int j=0; j<comarr.count; j++) {
+                    DemoCommentModel *commentModel = [[DemoCommentModel alloc] init];
+                    NSDictionary *dict = [comarr objectAtIndex:j];
+                    commentModel.firstUserId = [dict objectForKey:@"uid"];
+                    commentModel.firstUserName = [dict objectForKey:@"comment_name"];
+                    commentModel.secondUserId = [dict objectForKey:@"to_uid"];
+                    commentModel.secondUserName = [dict objectForKey:@"to_comment_name"];
+                    commentModel.commentString = [dict objectForKey:@"content"];
+                    [model.commentArray addObject:commentModel];
+                }
+                
+                NSLog(@"arr-----%@",model.commentArray);
+                [self.leftArray addObject:model];
+                
+            }
+            [self.leftTableView reloadData];
+        }
+        else
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+        }
+        [self.leftTableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        [self.leftTableView.mj_footer endRefreshing];
+    }];
+
 }
 
 -(void)headerRefreshEndActionright
 {
-    
+    pn2 = 1;
+    [self.rightArray removeAllObjects];
+    NSString *urlstr = [NSString stringWithFormat:shuquanxiangqing,self.idstr,@"1",[tokenstr tokenstrfrom],@"2"];
+    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            
+            NSDictionary *infodic = [responseObject objectForKey:@"info"];
+            
+        
+            NSArray *infoarr = [infodic objectForKey:@"info"];
+            for (int i = 0; i<infoarr.count; i++) {
+                NSDictionary *dit = [infoarr objectAtIndex:i];
+                taolunquanModel *model = [[taolunquanModel alloc] init];
+                NSDictionary *member = [dit objectForKey:@"Member"];
+                model.namestr = [member objectForKey:@"nickname"];
+                model.contentstr = [dit objectForKey:@"content"];
+                model.pathurlstr = [dit objectForKey:@"icon_path"];
+                model.timestr = [dit objectForKey:@"create_time"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
+                model.support_numstr = [dit objectForKey:@"support_num"];
+                model.reply_numstr = [dit objectForKey:@"reply_num"];
+                model.ForumBookmarkArray = [NSMutableArray array];
+                NSArray *forarr = [dit objectForKey:@"ForumBookmark"];
+                
+                for (int k = 0; k<forarr.count; k++) {
+                    NSDictionary *dit = [forarr objectAtIndex:k];
+                    NSString *nicknamestr = [dit objectForKey:@"nickname"];
+                    [model.ForumBookmarkArray addObject:nicknamestr];
+                }
+                
+                model.picNamesArray = [dit objectForKey:@"all_image"];
+                model.commentArray = [NSMutableArray array];
+                NSArray *comarr =[dit objectForKey:@"pComment"];
+                
+                for (int j=0; j<comarr.count; j++) {
+                    DemoCommentModel *commentModel = [[DemoCommentModel alloc] init];
+                    NSDictionary *dict = [comarr objectAtIndex:j];
+                    commentModel.firstUserId = [dict objectForKey:@"uid"];
+                    commentModel.firstUserName = [dict objectForKey:@"comment_name"];
+                    commentModel.secondUserId = [dict objectForKey:@"to_uid"];
+                    commentModel.secondUserName = [dict objectForKey:@"to_comment_name"];
+                    commentModel.commentString = [dict objectForKey:@"content"];
+                    [model.commentArray addObject:commentModel];
+                }
+                
+                NSLog(@"arr-----%@",model.commentArray);
+                [self.rightArray addObject:model];
+                
+            }
+            
+            [self.centerTableView reloadData];
+        }
+        else
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+        }
+        [self.centerTableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        [self.centerTableView.mj_header endRefreshing];
+    }];
+
 }
 
 -(void)footerRefreshEndActionright
 {
-    
+    pn2++;
+    NSString* pnstr = [NSString stringWithFormat:@"%d",pn2];
+    NSString *urlstr = [NSString stringWithFormat:taolunquanxiangqing,self.idstr,pnstr,[tokenstr tokenstrfrom],@"2"];
+    [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSDictionary *infodic = [responseObject objectForKey:@"info"];
+            NSArray *infoarr = [infodic objectForKey:@"info"];
+            for (int i = 0; i<infoarr.count; i++) {
+                NSDictionary *dit = [infoarr objectAtIndex:i];
+                taolunquanModel *model = [[taolunquanModel alloc] init];
+                NSDictionary *member = [dit objectForKey:@"Member"];
+                model.namestr = [member objectForKey:@"nickname"];
+                model.contentstr = [dit objectForKey:@"content"];
+                model.pathurlstr = [dit objectForKey:@"icon_path"];
+                model.timestr = [dit objectForKey:@"create_time"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.is_supportstr = [dit objectForKey:@"is_support"];
+                model.support_numstr = [dit objectForKey:@"support_num"];
+                model.reply_numstr = [dit objectForKey:@"reply_num"];
+                model.picNamesArray = [dit objectForKey:@"all_image"];
+                model.commentArray = [NSMutableArray array];
+                NSArray *comarr =[dit objectForKey:@"pComment"];
+                for (int j=0; j<comarr.count; j++) {
+                    DemoCommentModel *commentModel = [[DemoCommentModel alloc] init];
+                    NSDictionary *dict = [comarr objectAtIndex:j];
+                    commentModel.firstUserId = [dict objectForKey:@"uid"];
+                    commentModel.firstUserName = [dict objectForKey:@"comment_name"];
+                    commentModel.secondUserId = [dict objectForKey:@"to_uid"];
+                    commentModel.secondUserName = [dict objectForKey:@"to_comment_name"];
+                    commentModel.commentString = [dict objectForKey:@"content"];
+                    [model.commentArray addObject:commentModel];
+                }
+                NSLog(@"arr-----%@",model.commentArray);
+                [self.rightArray addObject:model];
+            }
+            [self.centerTableView reloadData];
+        }
+        else
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+        }
+        [self.centerTableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        [self.centerTableView.mj_footer endRefreshing];
+    }];
+
 }
 -(void)getui
 {
@@ -357,7 +521,21 @@
     
 }
 
-// 创建tableView
+-(UIButton *)jiaruBtn
+{
+    if(!_jiaruBtn)
+    {
+        _jiaruBtn = [[UIButton alloc] init];
+        _jiaruBtn.frame = CGRectMake(0, DEVICE_HEIGHT-64-40, DEVICE_WIDTH, 40);
+        [_jiaruBtn setTitle:@"加入圈子" forState:normal];
+        _jiaruBtn.userInteractionEnabled = YES;
+        _jiaruBtn.backgroundColor = [UIColor wjColorFloat:@"54d48a"];
+        [_jiaruBtn addTarget:self action:@selector(jiaruquanziclick) forControlEvents:UIControlEventTouchUpInside];
+        [_jiaruBtn setHidden:YES];
+    }
+    return _jiaruBtn;
+}
+
 // 创建tableView
 - (UITableView *)tableViewWithX:(CGFloat)x {
     
@@ -445,30 +623,11 @@
     if ([scrollView isKindOfClass:[UITableView class]]) {
         CGFloat contentOffsetY = scrollView.contentOffset.y;
         // 如果滑动没有超过150
+        
         if (contentOffsetY < hei*HEIGHT_SCALE-20-44) {
             // 让这2个tableView的偏移量相等
             self.leftTableView.contentOffset = self.centerTableView.contentOffset = scrollView.contentOffset;
-//            if (scrollView == self.leftTableView) {
-//                self.leftTableView.contentOffset = scrollView.contentOffset;
-//                // 改变headerView的y值
-//                CGRect frame = self.segueView.frame;
-//                CGFloat y = -self.centerTableView.contentOffset.y;
-//                frame.origin.y = y;
-//                self.segueView.frame = frame;
-//                self.navBarBgAlpha = @"0.0";
-//
-//            }
-//            if (scrollView==self.centerTableView) {
-//                self.centerTableView.contentOffset = scrollView.contentOffset;
-//                // 改变headerView的y值
-//                CGRect frame = self.segueView.frame;
-//                CGFloat y = -self.centerTableView.contentOffset.y;
-//                frame.origin.y = y;
-//                self.segueView.frame = frame;
-//                self.navBarBgAlpha = @"0.0";
-//
-//            }
-            
+
             // 改变headerView的y值
             CGRect frame = self.segueView.frame;
             CGFloat y = -self.centerTableView.contentOffset.y;
@@ -511,10 +670,117 @@
     //    [self.navigationController popViewControllerAnimated:YES];
     //    [self.navigationController.navigationBar setHidden:NO];
     [self.navigationController popToRootViewControllerAnimated:YES];
+    NSString *urlstr = [NSString stringWithFormat:fanhuiquanziquanye,[tokenstr tokenstrfrom],self.idstr];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+      
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)rightAction
 {
+    if ([self.is_creator isEqualToString:@"0"]) {
+        [self right02];
+    }
+    if ([self.is_creator isEqualToString:@"1"]) {
+        [self right01];
+    }
+    if ([self.is_creator isEqualToString:@"2"])
+    {
+        [MBProgressHUD showSuccess:@"没有加入书圈"];
+    }
+}
+
+-(void)right01
+{
+    UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"编辑书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"成员管理" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        chengyuanViewController *chengyuanVC = [[chengyuanViewController alloc] init];
+        chengyuanVC.idstr = self.idstr;
+        [self.navigationController pushViewController:chengyuanVC animated:YES];
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [control addAction:action0];
+    [control addAction:action1];
+    [control addAction:action2];
+    [control addAction:action3];
     
+    [self presentViewController:control animated:YES completion:nil];
+    
+}
+
+-(void)right02
+{
+    UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"广告等垃圾信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"色情淫秽内容" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"恶意营销" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"人身攻击" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [control addAction:action0];
+        [control addAction:action1];
+        [control addAction:action2];
+        [control addAction:action3];
+        [control addAction:action4];
+        [self presentViewController:control animated:YES completion:nil];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"查看圈子资料" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"退出书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [control addAction:action0];
+    [control addAction:action1];
+    [control addAction:action2];
+    [control addAction:action3];
+    [control addAction:action4];
+    [self presentViewController:control animated:YES completion:nil];
+}
+
+-(void)jiaruquanziclick
+{
+    NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],self.idstr,@"1",@"1"];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        NSString *hud = [responseObject objectForKey:@"msg"];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            
+            [MBProgressHUD showSuccess:hud];
+            [self headerRefreshEndActionleft];
+        }else
+        {
+            [MBProgressHUD showSuccess:hud];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    NSLog(@"加入");
 }
 @end

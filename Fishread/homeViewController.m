@@ -96,23 +96,27 @@ static NSString *indentify = @"indentify";
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
-        
-        NSArray *ditarr = [responseObject objectForKey:@"info"];
-        for (int i = 0; i<ditarr.count; i++) {
-            NSDictionary *dicarr = [ditarr objectAtIndex:i];
-            homeModel *model = [[homeModel alloc] init];
-            model.homeidstr = [dicarr objectForKey:@"id"];
-            model.hometitlestr = [dicarr objectForKey:@"title"];
-            model.homecoverurlstr = [dicarr objectForKey:@"cover"];
-            model.is_join = [dicarr objectForKey:@"is_join"];
-            model.relation_id = [dicarr objectForKey:@"relation_id"];
-            [self.datasourcearr addObject:model];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSArray *ditarr = [responseObject objectForKey:@"info"];
+            for (int i = 0; i<ditarr.count; i++) {
+                NSDictionary *dicarr = [ditarr objectAtIndex:i];
+                homeModel *model = [[homeModel alloc] init];
+                model.homeidstr = [dicarr objectForKey:@"id"];
+                model.hometitlestr = [dicarr objectForKey:@"title"];
+                model.homecoverurlstr = [dicarr objectForKey:@"cover"];
+                model.is_join = [dicarr objectForKey:@"is_join"];
+                model.relation_id = [dicarr objectForKey:@"relation_id"];
+                [self.datasourcearr addObject:model];
+            }
+        }else
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.myCollectionV.mj_header endRefreshing];
             [self.myCollectionV reloadData];
         });
-        
     } failure:^(NSError *error) {
         [self.myCollectionV.mj_header endRefreshing];
     }];
@@ -126,16 +130,24 @@ static NSString *indentify = @"indentify";
     [PPNetworkHelper GET:strurl parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
-        NSArray *ditarr = [responseObject objectForKey:@"info"];
-        for (int i = 0; i<ditarr.count; i++) {
-            NSDictionary *dicarr = [ditarr objectAtIndex:i];
-            homeModel *model = [[homeModel alloc] init];
-            model.hometitlestr = [dicarr objectForKey:@"title"];
-            model.homecoverurlstr = [dicarr objectForKey:@"cover"];
-            model.is_join = [dicarr objectForKey:@"is_join"];
-            model.relation_id = [dicarr objectForKey:@"relation_id"];
-            model.homeidstr = [dicarr objectForKey:@"id"];
-            [self.datasourcearr addObject:model];
+        
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            
+            NSArray *ditarr = [responseObject objectForKey:@"info"];
+            for (int i = 0; i<ditarr.count; i++) {
+                NSDictionary *dicarr = [ditarr objectAtIndex:i];
+                homeModel *model = [[homeModel alloc] init];
+                model.hometitlestr = [dicarr objectForKey:@"title"];
+                model.homecoverurlstr = [dicarr objectForKey:@"cover"];
+                model.is_join = [dicarr objectForKey:@"is_join"];
+                model.relation_id = [dicarr objectForKey:@"relation_id"];
+                model.homeidstr = [dicarr objectForKey:@"id"];
+                [self.datasourcearr addObject:model];
+            }
+        }else
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.myCollectionV.mj_footer endRefreshing];

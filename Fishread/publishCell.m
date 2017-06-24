@@ -18,7 +18,8 @@
         [self.contentView addSubview:self.timelab];
         [self.contentView addSubview:self.typelab];
         [self.contentView addSubview:self.contentlab];
-        
+
+        [self setuplayout];
     }
     return self;
 }
@@ -29,15 +30,24 @@
     
 }
 
-#pragma mark - getters
+-(void)setuplayout
+{
+    [self.timelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
+        make.height.mas_equalTo(40*HEIGHT_SCALE);
+        make.width.mas_equalTo(100*WIDTH_SCALE);
+        make.top.equalTo(self).with.offset(14*HEIGHT_SCALE);
+    }];
+}
 
+#pragma mark - getters
 
 -(UILabel *)timelab
 {
     if(!_timelab)
     {
         _timelab = [[UILabel alloc] init];
-        
+        _timelab.backgroundColor = [UIColor greenColor];
     }
     return _timelab;
 }

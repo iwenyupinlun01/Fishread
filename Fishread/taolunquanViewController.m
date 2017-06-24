@@ -7,12 +7,7 @@
 //
 
 #import "taolunquanViewController.h"
-
 #import <SDAutoLayout.h>
-
-//#import "HJTabViewControllerPlugin_HeaderScroll.h"
-//#import "HJTabViewControllerPlugin_TabViewBar.h"
-
 #import "WZBSegmentedControl.h"
 #import "UIViewController+Cloudox.h"
 #import "UINavigationController+Cloudox.h"
@@ -56,7 +51,6 @@
 @property (nonatomic,strong) NSMutableArray *rightArray;
 @property (nonatomic,strong) NSString *isleft;
 @property (nonatomic,strong) UIButton *jiaruBtn;
-
 @property (nonatomic,strong) NSString *is_creator;
 @end
 
@@ -161,9 +155,16 @@
         
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             
-            
             NSDictionary *infodic = [responseObject objectForKey:@"info"];
             self.is_creator = [infodic objectForKey:@"is_creator"];
+            
+            if ([self.is_creator isEqualToString:@"2"]) {
+                [self.jiaruBtn setHidden:NO];
+            }else
+            {
+                [self.jiaruBtn setHidden:YES];
+            }
+            
             NSString *titlestr = [infodic objectForKey:@"pubTitle"];
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
@@ -418,7 +419,6 @@
                 
                 NSLog(@"arr-----%@",model.commentArray);
                 [self.rightArray addObject:model];
-                
             }
             [self.centerTableView reloadData];
         }
@@ -559,6 +559,7 @@
         _jiaruBtn.userInteractionEnabled = YES;
         _jiaruBtn.backgroundColor = [UIColor wjColorFloat:@"54d48a"];
         [_jiaruBtn addTarget:self action:@selector(jiaruquanziclick) forControlEvents:UIControlEventTouchUpInside];
+        [_jiaruBtn setHidden:YES];
     }
     return _jiaruBtn;
 }
@@ -690,22 +691,27 @@
 
 -(void)backAction
 {
-
     [self.navigationController popViewControllerAnimated:YES];
     //    [self.navigationController.navigationBar setHidden:NO];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
-    
+   
+    NSString *urlstr = [NSString stringWithFormat:fanhuiquanziquanye,[tokenstr tokenstrfrom],self.idstr];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)rightAction
 {
-    if ([self.isleft isEqualToString:@"0"]) {
+    if ([self.is_creator isEqualToString:@"0"]) {
         [self right02];
     }
-    if ([self.isleft isEqualToString:@"1"]) {
+    if ([self.is_creator isEqualToString:@"1"]) {
         [self right01];
     }
-    else
+    if ([self.is_creator isEqualToString:@"2"])
     {
         [MBProgressHUD showSuccess:@"没有加入书圈"];
     }
@@ -759,6 +765,19 @@
 -(void)jiaruquanziclick
 {
     NSLog(@"加入圈子");
+    NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],self.idstr,@"1",@"1"];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        NSString *hud = [responseObject objectForKey:@"msg"];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            
+            [MBProgressHUD showSuccess:hud];
+        }else
+        {
+            [MBProgressHUD showSuccess:hud];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)right01

@@ -56,6 +56,17 @@
 #define touxiangxiugai @"http://"IPAddress"/forum/user/userIcon.html"
 //昵称修改 get
 #define nichengxiugai @"http://"IPAddress"/forum/user/editNickname.html?token=%@&nickname=%@"
+//创建圈子 post
+#define chuangjianquqnzi @"http://"IPAddress"/forum/circle/createCircle.html"
+//返回圈子前页 get
+#define fanhuiquanziquanye @"http://"IPAddress"/forum/circle/updataQuitTime.html?token=%@&post_id=%@&"
+//意见反馈 post
+#define yijianfankui @"http://"IPAddress"/forum/user/opinionFeedback.html"
+//常见问题
+#define changjianwenti @"http://"IPAddress"/forum/user/commonQuestion.html"
+//收藏或取消收藏 get
+#define shoucang @"http://"IPAddress"/forum/index/addCollect.html?token=%@&post_id=%@&type=%@&status=%@"
+
 
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))

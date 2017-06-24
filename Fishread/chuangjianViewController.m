@@ -8,16 +8,24 @@
 
 #import "chuangjianViewController.h"
 #import "chuangjianCell.h"
+#import "chuangjianCell1.h"
 #import "chuangjianCell2.h"
 #import "quanzileibieModel.h"
 @interface chuangjianViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UITableView *chuangjiantableView;
 @property (nonatomic,strong) NSMutableArray *quanzetypearr;
 @property (nonatomic,strong) NSMutableArray *listArray;
+
+@property (nonatomic,strong) NSString *bastimgstr;
+@property (nonatomic,strong) NSString *fromidstr;
+@property (nonatomic,strong) NSString *pathstr;
+
+
 @end
 
 static NSString *chuangjianidentfid0 = @"chuangjianidentfid0";
 static NSString *chuangjianidentfid1 = @"chuangjianidentfid1";
+static NSString *chuangjianidentfid2 = @"chuangjianidentfid2";
 
 @implementation chuangjianViewController
 
@@ -37,13 +45,17 @@ static NSString *chuangjianidentfid1 = @"chuangjianidentfid1";
     
     self.quanzetypearr = [NSMutableArray array];
     self.listArray = [NSMutableArray array];
-    [self loaddatafromweb];
+    
     self.chuangjiantableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.chuangjiantableView];
-    
+    [self loaddatafromweb];
     UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
     TapGestureTecognizer.cancelsTouchesInView=NO;
     [self.chuangjiantableView addGestureRecognizer:TapGestureTecognizer];
+    
+   
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,16 +91,17 @@ static NSString *chuangjianidentfid1 = @"chuangjianidentfid1";
                 [self.quanzetypearr addObject:model.quanzitypeid];
                 [self.listArray addObject:model.quanzitypename];
             }
-            
             [self.chuangjiantableView reloadData];
         }
     } failure:^(NSError *error) {
         
     }];
+    
+    
+    
 }
 
 #pragma mark - getters
-
 
 -(UITableView *)chuangjiantableView
 {
@@ -105,35 +118,49 @@ static NSString *chuangjianidentfid1 = @"chuangjianidentfid1";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
         chuangjianCell *cell = [tableView dequeueReusableCellWithIdentifier:chuangjianidentfid0];
-        cell = [[chuangjianCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chuangjianidentfid0];
+        if (!cell) {
+            cell = [[chuangjianCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chuangjianidentfid0];
+            cell.chuangjianView.image = [UIImage imageNamed:@"默认-拷贝"];
+            UIImage *originImage = cell.chuangjianView.image;
+            NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+            NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+            NSLog(@"base64str-------%@",base64str);
+            self.bastimgstr = base64str;
+            self.fromidstr = @"1";
+        }
         cell.chuangjianText.tag = 101;
-        cell.chuangjianView.tag = 2002;
+        cell.chuangjianView.tag = 202;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
+        return cell;
+    }
+    if (indexPath.row==1) {
+        chuangjianCell1 *cell = [tableView dequeueReusableCellWithIdentifier:chuangjianidentfid2];
+        cell = [[chuangjianCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chuangjianidentfid2];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.irregulatBtn getArrayDataSourse:self.listArray];
         //重置frame
         CGSize size = [cell.irregulatBtn returnSize];
-        cell.irregulatBtn.frame = CGRectMake(14*WIDTH_SCALE, 300, DEVICE_WIDTH - 28*WIDTH_SCALE, size.height);
+        cell.irregulatBtn.frame = CGRectMake(14*WIDTH_SCALE, 0, DEVICE_WIDTH - 28*WIDTH_SCALE, size.height);
         NSLog(@"%f",size.height);
-        
         //回调
         [cell.irregulatBtn setChooseBlock:^(UIButton *button) {
-            
             //NSLog(@"index:%ld    indexName:%@",(long)button.tag,listArray[button.tag]);
-            
-           // NSLog(@"index:%ld",(long)button.tag);
+            // NSLog(@"index:%ld",(long)button.tag);
             NSLog(@"index=%@",self.quanzetypearr[button.tag]);
+            self.fromidstr = [NSString stringWithFormat:@"%@",self.quanzetypearr[button.tag]];
+            
         }];
         return cell;
-    }else
-    {
+    }
+    if (indexPath.row==2) {
         chuangjianCell2 *cell = [tableView dequeueReusableCellWithIdentifier:chuangjianidentfid1];
         cell = [[chuangjianCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chuangjianidentfid1];
         cell.textView.tag = 102;
@@ -141,15 +168,17 @@ static NSString *chuangjianidentfid1 = @"chuangjianidentfid1";
         return cell;
     }
     return nil;
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        return 400;
+        return 300;
     }
     if (indexPath.row==1) {
+        return 78*HEIGHT_SCALE;
+    }
+    if (indexPath.row==2) {
         return 144*HEIGHT_SCALE;
     }
     return 0;
@@ -166,11 +195,31 @@ static NSString *chuangjianidentfid1 = @"chuangjianidentfid1";
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+
+//    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
 }
 
 -(void)finifshAction
 {
     NSLog(@"完成");
+    UITextField *text1 = [self.chuangjiantableView viewWithTag:101];
+    UITextView *text2 = [self.chuangjiantableView viewWithTag:102];
+    
+    NSDictionary *dit = @{@"token":[tokenstr tokenstrfrom],@"forum_id":self.fromidstr,@"title":text1.text,@"content":text2.text,@"images":self.bastimgstr};
+    
+    [PPNetworkHelper POST:chuangjianquqnzi parameters:dit success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+        }else
+        {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)keyboardHide
@@ -278,40 +327,16 @@ static NSString *chuangjianidentfid1 = @"chuangjianidentfid1";
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    
     NSLog(@"图片返回--------------数据信息");
-    
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    UIImageView *picimage = [self.chuangjiantableView viewWithTag:2002];
+    UIImageView *picimage = [self.chuangjiantableView viewWithTag:202];
     picimage.image = image;
-    
     [self.chuangjiantableView reloadData];
     
-    
-// 
-//        UIImage *originImage = image;
-//        NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
-//        NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-//        NSLog(@"base64str-------%@",base64str);
-    
-    //
-    //    [MBManager showLoadingInView:self.view];
-    //
-    //    //对话框显示时需要执行的操作
-    //    [AFManager postReqURL:touxiang reqBody:@{@"token":[tokenstr tokenstrfrom],@"str":base64str} block:^(id infor) {
-    //        NSLog(@"infor-------%@",infor);
-    //        if ([[infor objectForKey:@"code"] intValue]==1) {
-    //            NSString *urlstr = [infor objectForKey:@"newIcon"];
-    //            NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
-    //            [defat setObject:urlstr forKey:@"pathurlstr"];
-    //            [defat synchronize];
-    //            [self.myinfotable reloadData];
-    //
-    //        }
-    //        [MBManager hideAlert];
-    //        [MBProgressHUD showSuccess:@"更改成功"];
-    //    }];
-    
+    UIImage *originImage = image;
+    NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
+    NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSLog(@"base64str-------%@",base64str);
+    self.bastimgstr = base64str;
 }
 @end

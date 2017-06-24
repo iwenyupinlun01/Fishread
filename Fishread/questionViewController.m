@@ -9,7 +9,7 @@
 #import "questionViewController.h"
 
 @interface questionViewController ()
-
+@property (nonatomic,strong) UIImageView *bgimg;
 @end
 
 @implementation questionViewController
@@ -20,18 +20,39 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"常见问题";
     
-
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.bgimg];
+    [self newtork];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)newtork
+{
+    [PPNetworkHelper GET:changjianwenti parameters:nil success:^(id responseObject) {
+        NSString *imgstr = [responseObject objectForKey:@"info"];
+        [self.bgimg sd_setImageWithURL:[NSURL URLWithString:imgstr]];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(UIImageView *)bgimg
+{
+    if(!_bgimg)
+    {
+        _bgimg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
+        
+    }
+    return _bgimg;
 }
 
 

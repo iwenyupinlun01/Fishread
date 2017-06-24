@@ -48,10 +48,7 @@ static NSString *shuquanxiangqingidentfid2 = @"shuquanxiangqingidentfid2";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //图片组
-    mImages = @[@"http://resource.bdzcf.com/images/project/1231/list1459393259070.jpeg",
-                @"http://img2.3lian.com/img2009/01/02/ebe.jpg08a114ef82febede.jpg"];
-    
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];

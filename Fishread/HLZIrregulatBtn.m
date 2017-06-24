@@ -148,7 +148,7 @@
     }
 }
 
-- (void) setChooseBlock:(chooseBlock)block{
+- (void)setChooseBlock:(chooseBlock)block{
     self.block = [block copy];
 }
 

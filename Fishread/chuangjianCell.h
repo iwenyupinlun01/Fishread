@@ -14,8 +14,6 @@
 
 -(void)myTabVClick:(UITableViewCell *)cell;
 
-
-
 @end
 @interface chuangjianCell : UITableViewCell
 

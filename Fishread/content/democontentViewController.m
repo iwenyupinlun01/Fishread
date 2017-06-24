@@ -18,6 +18,7 @@
 
 #define CellKey @"UITableViewCell"
 #define cellkey2 @"quanzixiangqingCell0"
+
 @interface democontentViewController () <DemoTableViewCellDelegate,UITableViewDataSource,UITableViewDelegate,myviewVdelegate>
 {
     int pn;
@@ -62,6 +63,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"详情";
+
+    
+    
     [self.view addSubview:self.contentTableview];
     self.contentTableview.tableFooterView = [UIView new];
     [self.contentTableview registerClass:[DemoTableViewCell class] forCellReuseIdentifier:CellKey];
@@ -374,4 +387,10 @@
     [control addAction:action4];
     [self presentViewController:control animated:YES completion:nil];
 }
+
+-(void)backAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

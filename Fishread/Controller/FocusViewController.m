@@ -9,6 +9,9 @@
 #import "FocusViewController.h"
 #import "wodeCell.h"
 #import "wodeModel.h"
+#import "taolunquanViewController.h"
+#import "yueduquanViewController.h"
+
 @interface FocusViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     int pn;
@@ -27,14 +30,14 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     
     self.dataSource = [NSMutableArray array];
     [self.view addSubview:self.wodeTableview];
-    [self headerRefreshEndAction];
+  
     self.wodeTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    [self addHeader];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,11 +51,22 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     
 }
 
+- (void)addHeader
+{
+    // 头部刷新控件
+    self.wodeTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    [self.wodeTableview.mj_header beginRefreshing];
+}
+
+-(void)refreshAction
+{
+    [self headerRefreshEndAction];
+
+}
 #pragma mark - 刷新控件
 
 -(void)headerRefreshEndAction
 {
-
     NSString *urlstr = [NSString stringWithFormat:quanziwode,[tokenstr tokenstrfrom]];
     [self.dataSource removeAllObjects];
     [PPNetworkHelper GET:urlstr parameters:nil responseCache:^(id responseCache) {
@@ -70,13 +84,9 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
                 wmodel.coverstr = [dit objectForKey:@"cover"];
                 wmodel.is_joinstr = [dit objectForKey:@"is_join"];
                 wmodel.is_showstr = [dit objectForKey:@"is_show"];
-                
+                [self.dataSource addObject:wmodel];
             }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self.wodeTableview reloadData];
-            });
-
+            
         }else if ([[responseObject objectForKey:@"code"]intValue]==2)
         {
             [MBProgressHUD showSuccess:@"没有查询到任何数据"];
@@ -84,13 +94,15 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
         {
             [MBProgressHUD showSuccess:@"token错误"];
         }
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.wodeTableview.mj_header endRefreshing];
+            [self.wodeTableview reloadData];
+        });
+
     } failure:^(NSError *error) {
-        
+         [self.wodeTableview.mj_header endRefreshing];
     }];
 }
-
-
 
 #pragma mark - getters
 
@@ -128,4 +140,18 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     return 134/2*HEIGHT_SCALE+28*HEIGHT_SCALE;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    wodeModel *model = self.dataSource[indexPath.row];
+    if ([model.relation_idstr isEqualToString:@"0"]) {
+        taolunquanViewController *taolunvc = [[taolunquanViewController alloc] init];
+        taolunvc.idstr = model.idstr;
+        [self.navigationController pushViewController:taolunvc animated:YES];
+    }else
+    {
+        yueduquanViewController *yueduvc = [[yueduquanViewController alloc] init];
+        yueduvc.idstr = model.idstr;
+        [self.navigationController pushViewController:yueduvc animated:YES];
+    }
+}
 @end

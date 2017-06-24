@@ -8,6 +8,7 @@
 
 #import "feedbackViewController.h"
 #import "WJGtextView.h"
+
 @interface feedbackViewController ()<UITextViewDelegate>
 @property (nonatomic,strong) WJGtextView *feedtext;
 @end
@@ -77,29 +78,16 @@
 -(void)rightaction
 {
     NSLog(@"提交");
-    NSString *tokenstr = [[NSString alloc] init];
-    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
-    NSString *token = [userdefat objectForKey:@"tokenuser"];
-    if (token.length==0) {
-        tokenstr = @"";
-    }
-    else
-    {
-        tokenstr = token;
-    }
-    NSLog(@"token--------%@",tokenstr);
+    
     NSString *text = _feedtext.text;
-    NSDictionary *para = @{@"token":tokenstr,@"content":text};
-//    [AFManager postReqURL:yijianfankui reqBody:para block:^(id infor) {
-//        NSLog(@"infor--------%@",infor);
-//        if ([[infor objectForKey:@"code"] intValue]==1) {
-//            [MBProgressHUD showSuccess:@"反馈成功"];
-//        }else
-//        {
-//            [MBProgressHUD showSuccess:@"反馈的内容最少要8个字"];
-//        }
-//        
-//    }];
+    NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"content":text};
+    
+    [PPNetworkHelper POST:yijianfankui parameters:para success:^(id responseObject) {
+        NSString *hud = [responseObject objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:hud];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)keyboardHide
