@@ -28,6 +28,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.tabBarController.tabBar setHidden:NO];
+    [self.navigationController.navigationBar setHidden:NO];
+}
+
 -(void)network
 {
     [PPNetworkHelper GET:[NSString stringWithFormat:chengyuanguanli,[tokenstr tokenstrfrom],self.idstr] parameters:nil success:^(id responseObject) {

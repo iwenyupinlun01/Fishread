@@ -10,6 +10,15 @@
 #import "TopViewController.h"
 #import "WXApi.h"
 #import "AFNetworking.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
+//友盟统计
+#import "UMMobClick/MobClick.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -26,9 +35,44 @@
     TopViewController *top = [[TopViewController alloc]init];
     [self.window setRootViewController:top];
     //向微信注册应用。
-    
     [WXApi registerApp:WXPatient_App_ID];
     
+    //友盟
+    UMConfigInstance.appKey = @"59117a7f4544cb6533000e47";
+    UMConfigInstance.channelId = @"App Store";
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+    
+    [ShareSDK registerApp:@"1d0c68ab95d2c"
+     //第二个参数（分享平台集合）
+          activePlatforms:@[
+                            @(SSDKPlatformSubTypeWechatSession),
+                            @(SSDKPlatformSubTypeWechatTimeline),]
+                 onImport:^(SSDKPlatformType platformType)
+     {
+         switch (platformType)
+         {
+                 //微信
+             case SSDKPlatformTypeWechat:
+                 [ShareSDKConnector connectWeChat:[WXApi class]];
+                 break;
+                 
+             default:
+                 break;
+         }
+         
+     }
+          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
+              switch (platformType)
+              {
+                      //腾讯微信权限类型authType:SSO + Web授权
+                  case SSDKPlatformTypeWechat:
+                      [appInfo SSDKSetupWeChatByAppId:WXPatient_App_ID
+                                            appSecret:WXPatient_App_Secret];
+                      break;
+                  default:
+                      break;
+              }
+          }];
     return YES;
 }
 

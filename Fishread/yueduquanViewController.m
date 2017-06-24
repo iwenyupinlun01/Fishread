@@ -56,9 +56,8 @@
 @property (nonatomic,strong) NSString *is_creator;
 @property (nonatomic,strong) NSMutableArray *leftArray;
 @property (nonatomic,strong) NSMutableArray *rightArray;
-
 @property (nonatomic,strong) UIButton *jiaruBtn;
-
+@property (nonatomic,strong) NSString *isleft;
 @end
 
 @implementation yueduquanViewController
@@ -77,7 +76,7 @@
     
     [self getui];
 
-    
+    self.isleft = @"1";
     [self addHeaderleft];
     [self addFooterleft];
     [self addHeaderright];
@@ -104,7 +103,6 @@
     [self.tabBarController.tabBar setHidden:NO];
     [self.navigationController.navigationBar setHidden:NO];
 }
-
 
 -(NSMutableArray *)leftArray
 {
@@ -658,11 +656,16 @@
 // 开始拖拽
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
-        
-        // 刷新最大OffsetY
-        // [self reloadMaxOffsetY];
-        
+        CGFloat contentOffsetx = scrollView.contentOffset.x;
+        if (contentOffsetx>=DEVICE_WIDTH) {
+            self.isleft = @"1";
+        }
+        else
+        {
+            self.isleft = @"2";
+        }
     }
+    
 }
 
 -(void)backAction
@@ -783,4 +786,52 @@
     }];
     NSLog(@"加入");
 }
+
+#pragma mark - 协议绑定
+
+-(void)morebtnClick:(UITableViewCell *)cell
+{
+    if ([self.isleft isEqualToString:@"1"]) {
+        NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
+        taolunquanModel *model = self.leftArray[index.row];
+        model.isOpening = ! model.isOpening;
+        [self.leftTableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    }else
+    {
+        NSIndexPath *index = [self.centerTableView indexPathForCell:cell];
+        taolunquanModel *model = self.rightArray[index.row];
+        model.isOpening = ! model.isOpening;
+        [self.centerTableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    
+    // [self.leftTableView reloadData];
+}
+
+-(void)rightbtnClick:(UITableViewCell *)cell
+{
+    // NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
+    NSLog(@"right");
+    
+}
+
+-(void)nextbtnClick:(UITableViewCell *)cell
+{
+    if ([self.isleft isEqualToString:@"1"]) {
+        NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
+        taolunquanModel *model = self.leftArray[index.row];
+        NSString *idstr = model.idstr;
+        democontentViewController *shuquanvc = [[democontentViewController alloc] init];
+        shuquanvc.idstr = idstr;
+        [self.navigationController pushViewController:shuquanvc animated:YES];
+    }else
+    {
+        NSIndexPath *index = [self.centerTableView indexPathForCell:cell];
+        taolunquanModel *model = self.rightArray[index.row];
+        NSString *idstr = model.idstr;
+        democontentViewController *shuquanvc = [[democontentViewController alloc] init];
+        shuquanvc.idstr = idstr;
+        [self.navigationController pushViewController:shuquanvc animated:YES];
+    }
+}
+
 @end

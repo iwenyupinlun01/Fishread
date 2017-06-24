@@ -19,6 +19,8 @@
 @property (nonatomic,strong) NSString *reply_numstr;
 @property (nonatomic,strong) NSString *support_numstr;
 
+@property (nonatomic,strong) NSString *is_creatorstr;
+
 @property (nonatomic,strong) NSMutableArray *ForumBookmarkArray;
 
 @property (nonatomic,strong) NSMutableArray *picNamesArray;

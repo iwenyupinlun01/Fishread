@@ -11,7 +11,6 @@
 @protocol mycellVdelegate <NSObject>
 -(void)morebtnClick:(UITableViewCell *)cell;
 -(void)rightbtnClick:(UITableViewCell *)cell;
-
 -(void)nextbtnClick:(UITableViewCell *)cell;
 
 @end
