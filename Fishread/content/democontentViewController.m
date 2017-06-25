@@ -10,26 +10,40 @@
 #import "DemoTableViewCell.h"
 #import "DemoCellModel.h"
 #import "DemoCommentModel.h"
-
 #import <SDAutoLayout.h>
 #import "DemoCommentView.h"
 #import "quanzixiangqingCell0.h"
 #import "dongtaixiangqingModel.h"
-
 #define CellKey @"UITableViewCell"
 #define cellkey2 @"quanzixiangqingCell0"
-
-@interface democontentViewController () <DemoTableViewCellDelegate,UITableViewDataSource,UITableViewDelegate,myviewVdelegate>
+#import "IQKeyboardManager.h" 
+#import "keyboardView.h"
+#import "AppDelegate.h"
+@interface democontentViewController () <DemoTableViewCellDelegate,UITableViewDataSource,UITableViewDelegate,myviewVdelegate,UITextViewDelegate>
 {
     int pn;
 }
+
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) UITableView *contentTableview;
 @property (nonatomic,strong) NSMutableArray *headArray;
 @property (nonatomic,strong) NSString *righttitleStr;
+@property (nonatomic,strong) NSString *numstr;
+@property (nonatomic,strong) NSString *fromkeyboard;
+@property (nonatomic,strong) keyboardView *keyView;
+@property (nonatomic,strong) UIView *bgview;
+
+@property (nonatomic,strong) NSString *yonghuuid;
+@property (nonatomic,strong) NSString *to_uid;
+@property (nonatomic,strong) NSString *parent_id;
+
+@property (nonatomic,strong) NSString *pid;
 @end
 
 @implementation democontentViewController
+{
+    BOOL _wasKeyboardManagerEnabled;
+}
 
 #pragma mark 懒加载
 -(NSMutableArray *)dataArray{
@@ -61,6 +75,7 @@
     return _contentTableview;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -74,13 +89,15 @@
     self.title = @"详情";
 
     
-    
     [self.view addSubview:self.contentTableview];
     self.contentTableview.tableFooterView = [UIView new];
     [self.contentTableview registerClass:[DemoTableViewCell class] forCellReuseIdentifier:CellKey];
     self.dataArray = [NSMutableArray array];
     [self addHeader];
     [self addFooter];
+    [self.view addSubview:self.keyView];
+    
+    [self bgviewadd];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -93,7 +110,16 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.tabBarController.tabBar setHidden:NO];
+    [[IQKeyboardManager sharedManager] setEnable:_wasKeyboardManagerEnabled];
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    _wasKeyboardManagerEnabled = [[IQKeyboardManager sharedManager] isEnabled];
+    [[IQKeyboardManager sharedManager] setEnable:NO];
+}
+
 #pragma mark - web
 
 - (void)addHeader
@@ -140,6 +166,10 @@
             model.Avatarpathstr = [avatardit objectForKey:@"path"];
             
             
+            self.yonghuuid = [infodit objectForKey:@"uid"];
+            self.parent_id = [infodit objectForKey:@"object_id"];
+   
+            
             if ((formatarray != nil && ![formatarray isKindOfClass:[NSNull class]] && formatarray.count !=0)){
                 for (int i = 0; i<formatarray.count; i++) {
                     NSDictionary *dit = [formatarray objectAtIndex:i];
@@ -154,7 +184,6 @@
             model.create_timestr = [infodit objectForKey:@"create_time"];
             model.idstr = [infodit objectForKey:@"id"];
             model.imagesArray = [infodit objectForKey:@"images"];
-            
             model.titlestr = [infodit objectForKey:@"title"];
             
             self.righttitleStr = [NSString stringWithFormat:@"%@%@",@"来自",model.titlestr];
@@ -169,6 +198,7 @@
             model.support_numstr = [infodit objectForKey:@"support_num"];
             model.uidstr = [infodit objectForKey:@"uid"];
             model.is_bookmarkstr = [infodit objectForKey:@"is_bookmark"];
+            self.numstr = [NSString stringWithFormat:@"%@%@",model.reply_numstr,@"人评论"];
             [self.headArray addObject:model];
         
         }
@@ -183,6 +213,7 @@
             model.iconName = [dit objectForKey:@"comment_icon"];
             model.timestr = [dit objectForKey:@"ctime"];
             model.support_numstr = [dit objectForKey:@"support_num"];
+            model.idstr = [dit objectForKey:@"id"];
             model.commentArray = [NSMutableArray array];
             NSArray *comarr =[dit objectForKey:@"son_comment"];
             for (int j=0; j<comarr.count; j++) {
@@ -227,8 +258,8 @@
                  model.iconName = [dit objectForKey:@"comment_icon"];
                  model.timestr = [dit objectForKey:@"ctime"];
                  model.support_numstr = [dit objectForKey:@"support_num"];
+                 model.idstr = [dit objectForKey:@"id"];
                  model.commentArray = [NSMutableArray array];
-                 
                  NSArray *comarr =[dit objectForKey:@"son_comment"];
                  
                  for (int j=0; j<comarr.count; j++) {
@@ -270,7 +301,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -287,6 +318,16 @@
         return cell;
     }
     if (indexPath.section==1) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"shuquanxiangqingidentfid1"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shuquanxiangqingidentfid1"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = self.numstr;
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.textColor = [UIColor wjColorFloat:@"333333"];
+        return cell;
+
+    }
+    if (indexPath.section==2) {
         DemoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellKey];
         cell.sd_indexPath = indexPath;
         cell.model = self.dataArray[indexPath.row];
@@ -302,6 +343,9 @@
         return self.headArray.count;
     }
     if (section==1) {
+        return 1;
+    }
+    if (section==2) {
         return self.dataArray.count;
     }
     return 0;
@@ -315,6 +359,9 @@
                                        tableView:tableView];
     }
     if (indexPath.section==1) {
+        return  42*HEIGHT_SCALE;
+    }
+    if (indexPath.section==2) {
         return [tableView cellHeightForIndexPath:indexPath
                             cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
                                        tableView:tableView];
@@ -324,7 +371,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.section==2) {
+        self.fromkeyboard = @"section";
+        [self.keyView.textview becomeFirstResponder];
+    }
 }
 
 //自定义cell代理方法
@@ -337,6 +387,8 @@
 -(void)myTabVClick:(NSDictionary *)dic
 {
     NSLog(@"duc==------%@",dic);
+    self.fromkeyboard = @"cellpinglun";
+    [self.keyView.textview becomeFirstResponder];
 }
 
 #pragma mark - 实现方法
@@ -349,21 +401,34 @@
 -(void)dianzanclick
 {
     NSLog(@"点赞");
+    dongtaixiangqingModel *model = [self.headArray objectAtIndex:0];
+    NSString *objid = model.idstr;
+    NSString *urlstr = [NSString stringWithFormat:dianzan,[tokenstr tokenstrfrom],objid,@"1"];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        NSString *hud = [responseObject objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:hud];
+        [self headerRefreshEndAction];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
 }
 
 -(void)pinglinclick
 {
     NSLog(@"评论");
+    self.fromkeyboard = @"1";
+    [self.keyView.textview becomeFirstResponder];
 }
 
 -(void)shareclick
 {
     NSLog(@"分享");
+    
 }
 
 -(void)alertshow
 {
-    NSLog(@"alertshow");
+    
     UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"alert0" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -392,5 +457,232 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - 回复点赞
+
+-(void)myTabVClickdianzan:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.contentTableview indexPathForCell:cell];
+    DemoCellModel *model = self.dataArray[index.row];
+    NSString *idstr = model.idstr;
+    NSString *urlstr = [NSString stringWithFormat:dianzan,[tokenstr tokenstrfrom],idstr,@"2"];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        NSString *hud = [responseObject objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:hud];
+        [self headerRefreshEndAction];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
+    
+}
+
+#pragma mark - 回复消息
+
+
+-(keyboardView *)keyView
+{
+    if(!_keyView)
+    {
+        _keyView = [[keyboardView alloc] init];
+        _keyView.frame = CGRectMake(0, DEVICE_HEIGHT-64, DEVICE_WIDTH, 64);
+        //增加监听，当键盘出现或改变时收出消息
+        _keyView.textview.delegate = self;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow:)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        
+        
+        //增加监听，当键退出时收出消息
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification
+                                                   object:nil];
+        
+        
+        
+        
+        _keyView.textview.delegate = self;
+        [_keyView.sendbtn addTarget:self action:@selector(sendbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        _keyView.backgroundColor = [UIColor whiteColor];
+        _keyView.textview.backgroundColor = [UIColor whiteColor];
+        _keyView.textview.customPlaceholder = @"写评论";
+        _keyView.textview.customPlaceholderColor = [UIColor wjColorFloat:@"C7C7CD"];
+    }
+    return _keyView;
+}
+
+#pragma mark - 输入框方法
+
+
+//当键盘出现或改变时调用
+
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height;
+    [UIView animateWithDuration:[aNotification.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        self.keyView.transform=CGAffineTransformMakeTranslation(0, -height);
+        self.bgview.alpha = 0.6;
+        self.bgview.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-44-14-height);
+        self.bgview.hidden = NO;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+//当键退出时调用
+
+- (void)keyboardWillHide:(NSNotification *)aNotification
+{
+    [UIView animateWithDuration:[aNotification.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        
+        self.keyView.transform=CGAffineTransformIdentity;
+        self.bgview.hidden = YES;
+        self.bgview.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT);
+        self.bgview.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+        self.keyView.textview.text=@"";
+        _fromkeyboard = @"";
+        _keyView.textview.customPlaceholder = @"写评论";
+        
+    }];
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if (textView.text.length==0) {
+        [self.keyView.sendbtn setTitleColor:[UIColor  wjColorFloat:@"C7C7CD"] forState:normal];
+        
+    }else
+    {
+        [self.keyView.sendbtn setTitleColor:[UIColor wjColorFloat:@"576b95"] forState:normal];
+        
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    //_keyView.textview.customPlaceholder = [NSString stringWithFormat:@"%@%@",@"评论@",self.namestr];
+}
+
+-(void)bgviewadd
+{
+    //添加屏幕的蒙罩
+    self.bgview = [[UIView alloc]initWithFrame:self.view.frame];
+    self.bgview.backgroundColor = [UIColor blackColor];
+    self.bgview.alpha = 0.0;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backgroundTapped:)];
+    [self.bgview addGestureRecognizer:tap];
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [delegate.window addSubview:self.bgview];
+    
+}
+
+-(void)backgroundTapped:(UIGestureRecognizer *)tgp
+{
+    [self.keyView.textview resignFirstResponder];
+    NSLog(@"空白处");
+}
+
+#pragma mark - UITextViewDelegate
+
+//将要结束/退出编辑模式
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    NSLog(@"退出编辑模式");
+    
+    return YES;
+}
+
+//发送按钮
+
+-(void)sendbtnclick
+{
+    if ([self isNullToString:self.keyView.textview.text])
+    {
+        [self.keyView.textview resignFirstResponder];
+    }
+    else
+    {
+        [self.keyView.textview resignFirstResponder];
+        //三级评论
+        if ([_fromkeyboard isEqualToString:@"cellpinglun"]) {
+            
+            if ([tokenstr tokenstrfrom].length!=0&&self.keyView.touidstr.length!=0&&self.idstr.length!=0&&self.keyView.pidstr.length!=0&&self.keyView.textview.text.length!=0) {
+                
+                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"to_uid":self.keyView.touidstr,@"object_id":self.idstr,@"content":self.keyView.textview.text,@"pid":self.keyView.pidstr};
+                
+                [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
+                    
+                } failure:^(NSError *error) {
+                    
+                }];
+            }
+            
+        }else if([_fromkeyboard isEqualToString:@"section"])
+        {
+            //二级评论
+            
+            DemoCellModel *fmodel  = self.dataArray[self.keyView.secindex];
+            NSString *pidstr = fmodel.idstr;
+            NSString *uidstr = fmodel.toidstr;
+            
+            
+            if ([tokenstr tokenstrfrom].length!=0&&uidstr.length!=0&&self.idstr.length!=0&&pidstr.length!=0&&self.keyView.textview.text.length!=0) {
+                
+                //网络请求
+                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"to_uid":uidstr,@"object_id":self.idstr,@"content":self.keyView.textview.text,@"pid":pidstr};
+                
+                [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
+                    
+                } failure:^(NSError *error) {
+                    
+                }];
+            }
+            
+        }
+        else
+        {
+            //一级评论
+            
+            if ([tokenstr tokenstrfrom].length!=0&&self.idstr.length!=0&&self.keyView.textview.text.length!=0) {
+                //网络请求
+                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"parent_uid":self.yonghuuid,@"to_uid":self.yonghuuid,@"parent_id":self.parent_id,@"content":self.keyView.textview.text,@"post_id":self.idstr};
+                
+                [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                    [self headerRefreshEndAction];
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                }];
+                
+                
+            }
+        }
+    }
+}
+
+#pragma mark - 判断字符串为空
+
+- (BOOL )isNullToString:(id)string
+{
+    if ([string isEqual:@"NULL"] || [string isKindOfClass:[NSNull class]] || [string isEqual:[NSNull null]] || [string isEqual:NULL] || [[string class] isSubclassOfClass:[NSNull class]] || string == nil || string == NULL || [string isKindOfClass:[NSNull class]] || [[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0 || [string isEqualToString:@"<null>"] || [string isEqualToString:@"(null)"])
+    {
+        return YES;
+        
+    }else
+    {
+        
+        return NO;
+    }
+}
+
 
 @end

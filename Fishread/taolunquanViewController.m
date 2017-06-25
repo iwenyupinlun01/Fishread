@@ -22,6 +22,8 @@
 #import <ShareSDKConnector/ShareSDKConnector.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 
+#import "chakanquanziViewController.h"
+
 #define WZBScreenWidth [UIScreen mainScreen].bounds.size.width
 #define WZBScreenHeight [UIScreen mainScreen].bounds.size.height
 // san最大的
@@ -56,6 +58,9 @@
 @property (nonatomic,strong) NSString *isleft;
 @property (nonatomic,strong) UIButton *jiaruBtn;
 @property (nonatomic,strong) NSString *is_creator;
+
+@property (nonatomic,strong) NSString *headuid;
+@property (nonatomic,strong) NSString *headidstr;
 @end
 
 @implementation taolunquanViewController
@@ -172,7 +177,7 @@
             NSString *titlestr = [infodic objectForKey:@"pubTitle"];
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
-        
+            
             [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
             NSString *type = [infodic objectForKey:@"circleType"];
             if ([type isEqualToString:@"1"]) {
@@ -181,6 +186,8 @@
             {
                 self.headview.typelab.text = @"阅读圈";
             }
+            self.headuid = [infodic objectForKey:@"creator_uid"];
+            
             
             NSArray *infoarr = [infodic objectForKey:@"info"];
             for (int i = 0; i<infoarr.count; i++) {
@@ -253,8 +260,6 @@
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             
             NSDictionary *infodic = [responseObject objectForKey:@"info"];
-           
-            
             NSArray *infoarr = [infodic objectForKey:@"info"];
             for (int i = 0; i<infoarr.count; i++) {
                 NSDictionary *dit = [infoarr objectAtIndex:i];
@@ -749,19 +754,26 @@
         NSIndexPath *index = [self.leftTableView indexPathForCell:cell];
         taolunquanModel *model = self.leftArray[index.row];
         NSString *is_creator = model.is_creatorstr;
+        NSString *idstr2 = model.idstr;
         if ([is_creator isEqualToString:@"1"]) {
             //是创建者
             UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],idstr2,@"2",@"1"];
+                [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                }];
             }];
             UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                 [self shareclick];
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
-            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             [control addAction:action0];
@@ -774,15 +786,21 @@
             //不是创建者
             UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],idstr2,@"2",@"1"];
+                [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                }];
             }];
             UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                 [self shareclick];
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
-            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             [control addAction:action0];
@@ -797,19 +815,27 @@
         NSIndexPath *index = [self.centerTableView indexPathForCell:cell];
         taolunquanModel *model = self.rightArray[index.row];
         NSString *is_creator = model.is_creatorstr;
+        NSString *idstr2 = model.idstr;
         if ([is_creator isEqualToString:@"1"]) {
             //是创建者
             UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],idstr2,@"2",@"1"];
+                [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                }];
                 
             }];
             UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                 [self shareclick];
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
-            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             [control addAction:action0];
@@ -817,21 +843,27 @@
             [control addAction:action2];
             [control addAction:action3];
             [self presentViewController:control animated:YES completion:nil];
-
+            
         }else
         {
             //不是创建者
             UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],idstr2,@"2",@"1"];
+                [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                }];
             }];
             UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                 [self shareclick];
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
-            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             [control addAction:action0];
@@ -877,8 +909,9 @@
         {
             [MBProgressHUD showSuccess:hud];
         }
+        [self headerRefreshEndActionleft];
     } failure:^(NSError *error) {
-        
+        [MBProgressHUD showSuccess:@"没有网络"];
     }];
 }
 
@@ -939,10 +972,19 @@
         [self presentViewController:control animated:YES completion:nil];
     }];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"查看圈子资料" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        chakanquanziViewController *chakanvc = [[chakanquanziViewController alloc] init];
+        chakanvc.idstr = self.idstr;
+        [self.navigationController pushViewController:chakanvc animated:YES];
     }];
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"退出书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],self.idstr,@"1",@"2"];
+        [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+            [self headerRefreshEndActionleft];
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"没有网络"];
+        }];
     }];
     UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         

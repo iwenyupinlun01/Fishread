@@ -110,6 +110,7 @@ static NSString *chuangjianidentfid2 = @"chuangjianidentfid2";
         _chuangjiantableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
         _chuangjiantableView.dataSource = self;
         _chuangjiantableView.delegate = self;
+        _chuangjiantableView.separatorStyle = NO;
     }
     return _chuangjiantableView;
 }

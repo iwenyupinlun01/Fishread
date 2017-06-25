@@ -107,6 +107,7 @@
     {
         _zanBtn = [[dianzanBtn alloc] init];
         _zanBtn.zanimg.image =  [UIImage imageNamed:@"点赞-拷贝"];
+        [_zanBtn addTarget:self action:@selector(dianzanclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _zanBtn;
 }
@@ -158,14 +159,11 @@
 
 - (void)setModel:(DemoCellModel *)model{
     _model = model;
-    
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.iconName]];;
     self.nameLable.text = model.name;
     self.contentLabel.text = model.msgContent;
     self.timeLabel.text = [Timestr datetime:model.timestr];
-    
     self.zanBtn.zanlab.text = model.support_numstr;
-    
     self.zanBtn.zanlab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
     [self.zanBtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.iconView.mas_top).with.offset(1*HEIGHT_SCALE);
@@ -178,7 +176,6 @@
         make.height.mas_equalTo(16*WIDTH_SCALE);
         make.width.mas_equalTo(16*WIDTH_SCALE);
     }];
-    
     
     UIView *bottomView = self.contentLabel;
     
@@ -195,7 +192,7 @@
         if (model.commentArray.count >= 1024){
             [self.contentView addSubview:self.moreButton];
             self.moreButton.selected = model.isMore;
-
+            
             self.moreButton.sd_layout
             .topSpaceToView(self.commentView,10)
             .rightSpaceToView(self.contentView,10)
@@ -231,6 +228,9 @@
     }
 }
 
-
+-(void)dianzanclick
+{
+    [self.delegate myTabVClickdianzan:self];
+}
 
 @end

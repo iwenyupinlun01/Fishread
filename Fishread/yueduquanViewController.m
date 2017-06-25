@@ -23,7 +23,10 @@
 #import "democontentViewController.h"
 
 #import "chengyuanViewController.h"
-
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "chakanquanziViewController.h"
 #define WZBScreenWidth [UIScreen mainScreen].bounds.size.width
 #define WZBScreenHeight [UIScreen mainScreen].bounds.size.height
 // san最大的
@@ -725,7 +728,7 @@
 {
     UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self shareclick];
     }];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -752,7 +755,9 @@
         [self presentViewController:control animated:YES completion:nil];
     }];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"查看圈子资料" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        chakanquanziViewController *chakanvc = [[chakanquanziViewController alloc] init];
+        chakanvc.idstr = self.idstr;
+        [self.navigationController pushViewController:chakanvc animated:YES];
     }];
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"退出书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -832,6 +837,54 @@
         shuquanvc.idstr = idstr;
         [self.navigationController pushViewController:shuquanvc animated:YES];
     }
+}
+
+#pragma mark -  分享
+
+-(void)shareclick
+{
+    NSLog(@"分享");
+    //1、创建分享参数
+    NSString *urlstr = @"http://www.np.iwenyu.cn/Public/images/share.jpg";
+    NSArray* imageArray = @[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlstr]]]];
+    if (imageArray) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:@"" images:imageArray url:[NSURL URLWithString:@""] title:@"" type:SSDKContentTypeImage];
+        
+        //有的平台要客户端分享需要加此方法，例如微博
+        [shareParams SSDKEnableUseClientShare];
+        //2、分享（可以弹出我们的分享菜单和编辑界面）
+        [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                           {
+                               UIAlertController *control = [UIAlertController alertControllerWithTitle:@"分享成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                               UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                   
+                               }];
+                               [control addAction:action];
+                               [self presentViewController:control animated:YES completion:nil];
+                               break;
+                           }
+                           case SSDKResponseStateFail:
+                           {
+                               UIAlertController *control = [UIAlertController alertControllerWithTitle:@"您还没有安装微信" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                               UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                   
+                               }];
+                               [control addAction:action];
+                               [self presentViewController:control animated:YES completion:nil];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }
+         ];}
 }
 
 @end

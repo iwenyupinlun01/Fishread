@@ -16,6 +16,9 @@
 @property (nonatomic, copy) NSString *timestr;
 
 @property (nonatomic, copy) NSString *support_numstr;
+
+@property (nonatomic,strong) NSString *idstr;
+@property (nonatomic,strong) NSString *toidstr;
 @property (nonatomic, assign) BOOL isMore;
 //盛放评论的数组
 @property (nonatomic,strong) NSMutableArray<DemoCommentModel *> *commentArray;

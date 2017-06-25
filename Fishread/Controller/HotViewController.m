@@ -210,6 +210,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
 {
     NSIndexPath *index = [self.quanzitableView indexPathForCell:cell];
     NSLog(@"333===%ld   点赞",index.row);
+    
 }
 
 -(void)myTabVClick2:(UITableViewCell *)cell

@@ -77,6 +77,12 @@
 		533203BA1EFE7A0600526F8E /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 533203B91EFE7A0600526F8E /* libstdc++.tbd */; };
 		533203BC1EFE7A0F00526F8E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 533203BB1EFE7A0F00526F8E /* libz.tbd */; };
 		533203BE1EFE7A1C00526F8E /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 533203BD1EFE7A1C00526F8E /* libicucore.tbd */; };
+		533203DA1EFFAAEB00526F8E /* XFZCustomKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203D91EFFAAEB00526F8E /* XFZCustomKeyBoard.m */; };
+		533203DD1EFFC0B700526F8E /* chakanquanziViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203DC1EFFC0B700526F8E /* chakanquanziViewController.m */; };
+		533203E01EFFC3F800526F8E /* chakanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203DF1EFFC3F800526F8E /* chakanCell.m */; };
+		533203E31EFFC54300526F8E /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203E21EFFC54300526F8E /* TagViewController.m */; };
+		533203E71EFFECAF00526F8E /* keyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203E61EFFECAF00526F8E /* keyboardView.m */; };
+		533203ED1EFFF9A700526F8E /* chengyuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203EC1EFFF9A700526F8E /* chengyuanModel.m */; };
 		5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2A91EF387E60040A295 /* quanziheadView.m */; };
 		5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */; };
 		5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */; };
@@ -275,6 +281,18 @@
 		533203B91EFE7A0600526F8E /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		533203BB1EFE7A0F00526F8E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		533203BD1EFE7A1C00526F8E /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		533203D81EFFAAEB00526F8E /* XFZCustomKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFZCustomKeyBoard.h; sourceTree = "<group>"; };
+		533203D91EFFAAEB00526F8E /* XFZCustomKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFZCustomKeyBoard.m; sourceTree = "<group>"; };
+		533203DB1EFFC0B700526F8E /* chakanquanziViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chakanquanziViewController.h; sourceTree = "<group>"; };
+		533203DC1EFFC0B700526F8E /* chakanquanziViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chakanquanziViewController.m; sourceTree = "<group>"; };
+		533203DE1EFFC3F800526F8E /* chakanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chakanCell.h; sourceTree = "<group>"; };
+		533203DF1EFFC3F800526F8E /* chakanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chakanCell.m; sourceTree = "<group>"; };
+		533203E11EFFC54300526F8E /* TagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
+		533203E21EFFC54300526F8E /* TagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
+		533203E51EFFECAF00526F8E /* keyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyboardView.h; sourceTree = "<group>"; };
+		533203E61EFFECAF00526F8E /* keyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyboardView.m; sourceTree = "<group>"; };
+		533203EB1EFFF9A700526F8E /* chengyuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chengyuanModel.h; sourceTree = "<group>"; };
+		533203EC1EFFF9A700526F8E /* chengyuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chengyuanModel.m; sourceTree = "<group>"; };
 		5332E2A81EF387E60040A295 /* quanziheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanziheadView.h; sourceTree = "<group>"; };
 		5332E2A91EF387E60040A295 /* quanziheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanziheadView.m; sourceTree = "<group>"; };
 		5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yueduquanViewController.h; sourceTree = "<group>"; };
@@ -482,6 +500,7 @@
 		530C82751EF9310400815763 /* content */ = {
 			isa = PBXGroup;
 			children = (
+				533203E41EFFEC9B00526F8E /* keyboard */,
 				530C82881EF935CA00815763 /* other */,
 				530C82761EF9310400815763 /* DemoCellModel.h */,
 				530C82771EF9310400815763 /* DemoCellModel.m */,
@@ -550,6 +569,8 @@
 		530DA4981EF27C1B0056BA66 /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				533203E11EFFC54300526F8E /* TagViewController.h */,
+				533203E21EFFC54300526F8E /* TagViewController.m */,
 				530DA4921EF27C190056BA66 /* WZBSegmentedControl */,
 				530DA47E1EF25A1E0056BA66 /* NavigationBarTool */,
 			);
@@ -774,6 +795,24 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
+		533203D71EFFAAD900526F8E /* textView */ = {
+			isa = PBXGroup;
+			children = (
+				533203D81EFFAAEB00526F8E /* XFZCustomKeyBoard.h */,
+				533203D91EFFAAEB00526F8E /* XFZCustomKeyBoard.m */,
+			);
+			name = textView;
+			sourceTree = "<group>";
+		};
+		533203E41EFFEC9B00526F8E /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				533203E51EFFECAF00526F8E /* keyboardView.h */,
+				533203E61EFFECAF00526F8E /* keyboardView.m */,
+			);
+			name = keyboard;
+			sourceTree = "<group>";
+		};
 		5332E2AB1EF3AA2A0040A295 /* navcagetale */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,6 +973,8 @@
 				5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */,
 				5332035D1EFD6DEA00526F8E /* chengyuanViewController.h */,
 				5332035E1EFD6DEB00526F8E /* chengyuanViewController.m */,
+				533203DB1EFFC0B700526F8E /* chakanquanziViewController.h */,
+				533203DC1EFFC0B700526F8E /* chakanquanziViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -955,6 +996,8 @@
 				530C828A1EFA694700815763 /* taolunCell0.m */,
 				530C82A11EFBD7B600815763 /* taolunheadView.h */,
 				530C82A21EFBD7B600815763 /* taolunheadView.m */,
+				533203DE1EFFC3F800526F8E /* chakanCell.h */,
+				533203DF1EFFC3F800526F8E /* chakanCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -966,6 +1009,8 @@
 				533B61F31EEAA64800DE0392 /* homeModel.m */,
 				530C828F1EFA6DA100815763 /* taolunquanModel.h */,
 				530C82901EFA6DA100815763 /* taolunquanModel.m */,
+				533203EB1EFFF9A700526F8E /* chengyuanModel.h */,
+				533203EC1EFFF9A700526F8E /* chengyuanModel.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -1056,6 +1101,7 @@
 		535FED971EE14D4C007A456D /* V */ = {
 			isa = PBXGroup;
 			children = (
+				533203D71EFFAAD900526F8E /* textView */,
 				5330208D1EF13C2300D08825 /* btnView */,
 				535FED9A1EE14D9A007A456D /* wodeCell.h */,
 				535FED9B1EE14D9A007A456D /* wodeCell.m */,
@@ -1269,6 +1315,7 @@
 				5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */,
 				533B61B41EE93CA100DE0392 /* publishedViewController.m in Sources */,
 				530C819A1EF79C6E00815763 /* ImageEnlargeCell.m in Sources */,
+				533203E01EFFC3F800526F8E /* chakanCell.m in Sources */,
 				533B61BE1EE93F9000DE0392 /* publishCell.m in Sources */,
 				535FED881EE14673007A456D /* MainViewController.m in Sources */,
 				531E8B7E1EDFEA7A007C26D2 /* infoViewController.m in Sources */,
@@ -1278,6 +1325,7 @@
 				531E8B781EDFE582007C26D2 /* homeViewController.m in Sources */,
 				534F61D61EDEB2C8007835ED /* AppDelegate.m in Sources */,
 				535FED8A1EE14673007A456D /* NearViewController.m in Sources */,
+				533203E71EFFECAF00526F8E /* keyboardView.m in Sources */,
 				535FED8C1EE14673007A456D /* MainTitleView.m in Sources */,
 				530C82911EFA6DA100815763 /* taolunquanModel.m in Sources */,
 				535FED9C1EE14D9A007A456D /* wodeCell.m in Sources */,
@@ -1289,6 +1337,7 @@
 				533203731EFE72FA00526F8E /* publishModel.m in Sources */,
 				531E8B851EDFF454007C26D2 /* PPNetworkCache.m in Sources */,
 				533B61CD1EE9655700DE0392 /* setCell1.m in Sources */,
+				533203DD1EFFC0B700526F8E /* chakanquanziViewController.m in Sources */,
 				533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */,
 				53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */,
 				533020891EF0F8A800D08825 /* quanbuModel.m in Sources */,
@@ -1330,6 +1379,7 @@
 				535FED861EE14673007A456D /* HotViewController.m in Sources */,
 				5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */,
 				533B61F41EEAA64800DE0392 /* homeModel.m in Sources */,
+				533203E31EFFC54300526F8E /* TagViewController.m in Sources */,
 				533B61BB1EE93DC500DE0392 /* loginViewController.m in Sources */,
 				5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */,
 				533020931EF13C5600D08825 /* pinglunBtn.m in Sources */,
@@ -1341,6 +1391,7 @@
 				530C829F1EFABF1000815763 /* SDPhotoBrowser.m in Sources */,
 				531E8B6E1EDFDC3F007C26D2 /* NSString+Extend.m in Sources */,
 				533B61F71EEAAABF00DE0392 /* itemimgView.m in Sources */,
+				533203DA1EFFAAEB00526F8E /* XFZCustomKeyBoard.m in Sources */,
 				530C82841EF9310400815763 /* DemoTableViewController.m in Sources */,
 				533B62001EEABAE700DE0392 /* chuangjianCell.m in Sources */,
 				533B61FD1EEABAA800DE0392 /* searchCell0.m in Sources */,
@@ -1350,6 +1401,7 @@
 				530C829E1EFABF1000815763 /* SDBrowserImageView.m in Sources */,
 				533020861EEFE58900D08825 /* jieguoModel.m in Sources */,
 				530C82821EF9310400815763 /* DemoCommentView.m in Sources */,
+				533203ED1EFFF9A700526F8E /* chengyuanModel.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,
 				530C81921EF53C1900815763 /* dongtaixiangqingModel.m in Sources */,

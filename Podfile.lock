@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Bugly (2.4.7)
+  - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManager (4.0.9)
   - Masonry (1.0.2)
@@ -33,6 +34,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Bugly
+  - DateTools
   - DZNEmptyDataSet
   - IQKeyboardManager
   - Masonry
@@ -47,6 +49,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -58,6 +61,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 9fbbe64091583f5a21557de393c31320b094c67d
+PODFILE CHECKSUM: e05523272f449f8e116d5fee9f2b0d75ae73d542
 
 COCOAPODS: 1.2.1

@@ -66,6 +66,14 @@
 #define changjianwenti @"http://"IPAddress"/forum/user/commonQuestion.html"
 //收藏或取消收藏 get
 #define shoucang @"http://"IPAddress"/forum/index/addCollect.html?token=%@&post_id=%@&type=%@&status=%@"
+//点赞 get
+#define dianzan @"http://"IPAddress"/forum/index/doBookmark.html?token=%@&object_id=%@&type=%@"
+//举报 get
+#define jubao @"http://"IPAddress"/forum/index/accuse.html?token=%@&to_uid=%@&object_id=%@&object_type=%@&type=%@"
+//评论回复 post
+#define pinglun @"http://"IPAddress"forum/index/postComment.html"
+//我的收藏
+#define wodeshoucang @"http://"IPAddress"/forum/user/myCollect.html"
 
 
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)

@@ -14,7 +14,7 @@
 @protocol DemoTableViewCellDelegate <NSObject>
 
 -(void)didClickCellMoreComment:(UIButton *)moredButton With:(UITableViewCell *)cell;
-
+-(void)myTabVClickdianzan:(UITableViewCell *)cell;
 @end
 
 @interface DemoTableViewCell : UITableViewCell
