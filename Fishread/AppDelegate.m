@@ -19,7 +19,8 @@
 
 //友盟统计
 #import "UMMobClick/MobClick.h"
-
+//bugly
+#import <Bugly/Bugly.h>
 @interface AppDelegate ()<WXApiDelegate>
 
 @end
@@ -36,9 +37,10 @@
     [self.window setRootViewController:top];
     //向微信注册应用。
     [WXApi registerApp:WXPatient_App_ID];
-    
-    //友盟
-    UMConfigInstance.appKey = @"59117a7f4544cb6533000e47";
+    //Bugly
+    [Bugly startWithAppId:@"fb07b04cce"];
+    //友盟	
+    UMConfigInstance.appKey = @"592f7ad68630f5691a001e3c";
     UMConfigInstance.channelId = @"App Store";
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     
