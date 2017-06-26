@@ -168,7 +168,7 @@
             
             self.yonghuuid = [infodit objectForKey:@"uid"];
             self.parent_id = [infodit objectForKey:@"object_id"];
-   
+            
             
             if ((formatarray != nil && ![formatarray isKindOfClass:[NSNull class]] && formatarray.count !=0)){
                 for (int i = 0; i<formatarray.count; i++) {
@@ -214,6 +214,7 @@
             model.timestr = [dit objectForKey:@"ctime"];
             model.support_numstr = [dit objectForKey:@"support_num"];
             model.idstr = [dit objectForKey:@"id"];
+            model.uidstr = [dit objectForKey:@"uid"];
             model.commentArray = [NSMutableArray array];
             NSArray *comarr =[dit objectForKey:@"son_comment"];
             for (int j=0; j<comarr.count; j++) {
@@ -224,7 +225,7 @@
                 commentModel.secondUserId = [dict objectForKey:@"to_uid"];
                 commentModel.secondUserName = [dict objectForKey:@"to_comment_name"];
                 commentModel.commentString = [dict objectForKey:@"content"];
-                
+                commentModel.pidstr = [dict objectForKey:@"pid"];
                 [model.commentArray addObject:commentModel];
             }
             
@@ -259,6 +260,7 @@
                  model.timestr = [dit objectForKey:@"ctime"];
                  model.support_numstr = [dit objectForKey:@"support_num"];
                  model.idstr = [dit objectForKey:@"id"];
+                 model.uidstr = [dit objectForKey:@"uid"];
                  model.commentArray = [NSMutableArray array];
                  NSArray *comarr =[dit objectForKey:@"son_comment"];
                  
@@ -270,6 +272,7 @@
                      commentModel.secondUserId = [dict objectForKey:@"to_uid"];
                      commentModel.secondUserName = [dict objectForKey:@"to_comment_name"];
                      commentModel.commentString = [dict objectForKey:@"content"];
+                     commentModel.pidstr = [dict objectForKey:@"pid"];
                      [model.commentArray addObject:commentModel];
                  }
                  
@@ -373,6 +376,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==2) {
         self.fromkeyboard = @"section";
+        DemoCellModel *model = self.dataArray[indexPath.row] ;
+        self.yonghuuid = model.uidstr;
+        self.pid = model.idstr;
         [self.keyView.textview becomeFirstResponder];
     }
 }
@@ -388,6 +394,8 @@
 {
     NSLog(@"duc==------%@",dic);
     self.fromkeyboard = @"cellpinglun";
+    self.pid = [dic objectForKey:@"pid"];
+    self.yonghuuid  = [dic objectForKey:@"firstid"];
     [self.keyView.textview becomeFirstResponder];
 }
 
@@ -613,47 +621,25 @@
         [self.keyView.textview resignFirstResponder];
         //三级评论
         if ([_fromkeyboard isEqualToString:@"cellpinglun"]) {
+           
+            //网络请求
+            NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"parent_uid":self.yonghuuid,@"to_uid":self.yonghuuid,@"parent_id":self.idstr,@"content":self.keyView.textview.text,@"post_id":self.object_idstr,@"pid":self.pid};
             
-            if ([tokenstr tokenstrfrom].length!=0&&self.keyView.touidstr.length!=0&&self.idstr.length!=0&&self.keyView.pidstr.length!=0&&self.keyView.textview.text.length!=0) {
-                
-                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"to_uid":self.keyView.touidstr,@"object_id":self.idstr,@"content":self.keyView.textview.text,@"pid":self.keyView.pidstr};
-                
-                [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
-                    
-                } failure:^(NSError *error) {
-                    
-                }];
-            }
+            
+            [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
+                NSString *hud = [responseObject objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:hud];
+                [self headerRefreshEndAction];
+            } failure:^(NSError *error) {
+                [MBProgressHUD showSuccess:@"没有网络"];
+            }];
             
         }else if([_fromkeyboard isEqualToString:@"section"])
         {
             //二级评论
             
-            DemoCellModel *fmodel  = self.dataArray[self.keyView.secindex];
-            NSString *pidstr = fmodel.idstr;
-            NSString *uidstr = fmodel.toidstr;
-            
-            
-            if ([tokenstr tokenstrfrom].length!=0&&uidstr.length!=0&&self.idstr.length!=0&&pidstr.length!=0&&self.keyView.textview.text.length!=0) {
-                
                 //网络请求
-                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"to_uid":uidstr,@"object_id":self.idstr,@"content":self.keyView.textview.text,@"pid":pidstr};
-                
-                [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
-                    
-                } failure:^(NSError *error) {
-                    
-                }];
-            }
-            
-        }
-        else
-        {
-            //一级评论
-            
-            if ([tokenstr tokenstrfrom].length!=0&&self.idstr.length!=0&&self.keyView.textview.text.length!=0) {
-                //网络请求
-                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"parent_uid":self.yonghuuid,@"to_uid":self.yonghuuid,@"parent_id":self.parent_id,@"content":self.keyView.textview.text,@"post_id":self.idstr};
+                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"parent_uid":self.yonghuuid,@"to_uid":self.yonghuuid,@"parent_id":self.idstr,@"content":self.keyView.textview.text,@"post_id":self.object_idstr,@"pid":self.pid};
                 
                 [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
                     NSString *hud = [responseObject objectForKey:@"msg"];
@@ -662,8 +648,27 @@
                 } failure:^(NSError *error) {
                     [MBProgressHUD showSuccess:@"没有网络"];
                 }];
+            
+        }
+        else
+        {
+            //一级评论
+            
+            if ([tokenstr tokenstrfrom].length!=0&&self.idstr.length!=0&&self.keyView.textview.text.length!=0) {
+                //网络请求
+                NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"parent_uid":self.yonghuuid,@"to_uid":self.yonghuuid,@"parent_id":self.idstr,@"content":self.keyView.textview.text,@"post_id":self.object_idstr,@"pid":@"0"};
                 
-                
+                [PPNetworkHelper POST:pinglun parameters:para success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                    
+                    [self headerRefreshEndAction];
+                    
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                    NSLog(@"%@",error);
+                    
+                }];
             }
         }
     }

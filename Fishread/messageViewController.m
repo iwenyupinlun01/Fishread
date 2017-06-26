@@ -10,6 +10,8 @@
 #import "TopViewController.h"
 #import "mymessageCell0.h"
 #import "mymessageCell1.h"
+#import "systemViewController.h"
+#import "xiaoxitongzhiViewController.h"
 
 @interface messageViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *messagetableView;
@@ -75,7 +77,7 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
     if(!_textarr)
     {
         _textarr = [[NSArray alloc] init];
-        _textarr = @[@"评论",@"回复",@"赞",@"打赏"];
+        _textarr = @[@"评论",@"回复",@"赞"];
     }
     return _textarr;
 }
@@ -127,7 +129,33 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
 {
     return 60*HEIGHT_SCALE;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        xiaoxitongzhiViewController *xiaoxivc = [[xiaoxitongzhiViewController alloc] init];
+        if (indexPath.row==0) {
+            xiaoxivc.titlestr = @"评论";
+            xiaoxivc.typestr = @"1";
+        }
+        if (indexPath.row==1) {
+            xiaoxivc.titlestr = @"回复";
+            xiaoxivc.typestr = @"2";
+        }
+        if (indexPath.row==2) {
+            xiaoxivc.titlestr = @"赞";
+            xiaoxivc.typestr = @"3";
+        }
+//        if (indexPath.row==3) {
+//            xiaoxivc.titlestr = @"打赏";
+//            xiaoxivc.typestr = @"4";
+//        }
+        [self.navigationController pushViewController:xiaoxivc animated:YES];
+    }
+    if (indexPath.section==1) {
+        systemViewController *sysvc = [[systemViewController alloc] init];
+        [self.navigationController pushViewController:sysvc animated:YES];
+    }
+}
 #pragma mark - 实现方法
 
 -(void)backAction

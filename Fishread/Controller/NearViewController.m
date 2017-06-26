@@ -208,6 +208,7 @@ static NSString *shenidentfid = @"shenidentfid";
     democontentViewController *demo = [[democontentViewController alloc] init];
     quanbuModel *model = self.shenArray[indexPath.row];
     demo.idstr = model.idstr;
+    demo.object_idstr = model.object_idstr;
     [self.navigationController pushViewController:demo animated:YES];
 }
 

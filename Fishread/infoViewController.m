@@ -60,14 +60,16 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
         NSString *hudstr = [responseObject objectForKey:@"msg"];
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
-            NSDictionary *infodit = [responseObject objectForKey:@"info"];
-            NSString *namestr = [infodit objectForKey:@"nickname"];
-            NSString *pathstr = [infodit objectForKey:@"icon"];
-            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
-            [userdefat setObject:namestr forKey:@"namestr"];
-            [userdefat setObject:pathstr forKey:@"pathurlstr"];
-            [userdefat synchronize];
-            [self.infotableView reloadData];
+            if ([[responseObject objectForKey:@"info"] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *infodit = [responseObject objectForKey:@"info"];
+                NSString *namestr = [infodit objectForKey:@"nickname"];
+                NSString *pathstr = [infodit objectForKey:@"icon"];
+                NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+                [userdefat setObject:namestr forKey:@"namestr"];
+                [userdefat setObject:pathstr forKey:@"pathurlstr"];
+                [userdefat synchronize];
+                [self.infotableView reloadData];
+            }
         }
         else
         {

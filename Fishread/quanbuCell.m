@@ -22,7 +22,7 @@
 @property (nonatomic,strong) UIImageView *img2;
 @property (nonatomic,strong) UIImageView *img3;
 @property (nonatomic,strong) UIImageView *img4;
-
+@property (nonatomic,strong) UILabel *numlab;
 @property (nonatomic,strong) quanbuModel *qmodel;
 
 @end
@@ -46,7 +46,7 @@
         [self.contentView addSubview:self.img2];
         [self.contentView addSubview:self.img3];
         [self.contentView addSubview:self.img4];
-        
+        [self.contentView addSubview:self.numlab];
         
         [self.contentView addSubview:self.zanBtn];
         [self.contentView addSubview:self.pingBtn];
@@ -135,7 +135,12 @@
         make.height.mas_equalTo(57*WIDTH_SCALE);
         make.width.mas_equalTo(57*WIDTH_SCALE);
     }];
-    
+    [self.numlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
+        make.left.equalTo(weakSelf.img3.mas_right).with.offset(3*WIDTH_SCALE);
+        make.height.mas_equalTo(57*WIDTH_SCALE);
+        make.width.mas_equalTo(57*WIDTH_SCALE);
+    }];
     
     
 }
@@ -269,6 +274,21 @@
     return _img4;
 }
 
+-(UILabel *)numlab
+{
+    if(!_numlab)
+    {
+        _numlab = [[UILabel alloc]init];
+        _numlab.alpha = 0.4;
+        _numlab.textAlignment = NSTextAlignmentRight;
+        _numlab.font = [UIFont systemFontOfSize:22];
+        //_numlab.backgroundColor = [UIColor redColor];
+        _numlab.textColor = [UIColor whiteColor];
+    }
+    return _numlab;
+}
+
+
 
 -(dianzanBtn *)zanBtn
 {
@@ -338,13 +358,14 @@
         [self.img2 setHidden:YES];
         [self.img3 setHidden:YES];
         [self.img4 setHidden:YES];
+        [self.numlab setHidden:YES];
     }
     if (model.imagesArray.count==1) {
         [self.img1 setHidden:YES];
         [self.img2 setHidden:YES];
         [self.img3 setHidden:YES];
         [self.img4 setHidden:YES];
-        
+        [self.numlab setHidden:YES];
         NSString *imgstr = [model.imagesArray objectAtIndex:0];
         [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr]];
 
@@ -353,6 +374,7 @@
         [self.img2 setHidden:YES];
         [self.img3 setHidden:YES];
         [self.img4 setHidden:YES];
+        [self.numlab setHidden:YES];
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
         [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]];
         NSString *imgstr1 = [model.imagesArray objectAtIndex:1];
@@ -368,7 +390,7 @@
         [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]];
         [self.img3 setHidden:YES];
         [self.img4 setHidden:YES];
-       
+        [self.numlab setHidden:YES];
     }
     if (model.imagesArray.count==4) {
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
@@ -380,7 +402,7 @@
         NSString *imgstr3 = [model.imagesArray objectAtIndex:3];
         [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]];
         [self.img4 setHidden:YES];
-       
+        [self.numlab setHidden:YES];
     }
     if (model.imagesArray.count==5) {
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
@@ -407,7 +429,8 @@
         [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]];
         NSString *imgstr4 = [model.imagesArray objectAtIndex:4];
         [self.img4 sd_setImageWithURL:[NSURL URLWithString:imgstr4]];
-
+        NSString *num = [NSString stringWithFormat:@"%lu",model.imagesArray.count-5];
+        self.numlab.text = [NSString stringWithFormat:@"%@%@",@"+",num];
     }
     
     if (model.imagesArray.count==0) {

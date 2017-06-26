@@ -83,6 +83,13 @@
 		533203E31EFFC54300526F8E /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203E21EFFC54300526F8E /* TagViewController.m */; };
 		533203E71EFFECAF00526F8E /* keyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203E61EFFECAF00526F8E /* keyboardView.m */; };
 		533203ED1EFFF9A700526F8E /* chengyuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203EC1EFFF9A700526F8E /* chengyuanModel.m */; };
+		533203F01EFFFF1D00526F8E /* systemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203EF1EFFFF1D00526F8E /* systemViewController.m */; };
+		533203F31F00020400526F8E /* systemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203F21F00020400526F8E /* systemCell.m */; };
+		533203F61F00022700526F8E /* xitongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203F51F00022600526F8E /* xitongModel.m */; };
+		533203F91F00068000526F8E /* xiaoxitongzhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203F81F00068000526F8E /* xiaoxitongzhiViewController.m */; };
+		533203FC1F00B2BF00526F8E /* replyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203FB1F00B2BF00526F8E /* replyCell.m */; };
+		533203FF1F00B2DD00526F8E /* replyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533203FE1F00B2DD00526F8E /* replyModel.m */; };
+		533204021F00B3CD00526F8E /* setbtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 533204011F00B3CD00526F8E /* setbtn.m */; };
 		5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2A91EF387E60040A295 /* quanziheadView.m */; };
 		5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B31EF3C87D0040A295 /* yueduquanViewController.m */; };
 		5332E2B71EF3D2390040A295 /* quanzixiangqingCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5332E2B61EF3D2390040A295 /* quanzixiangqingCell0.m */; };
@@ -293,6 +300,20 @@
 		533203E61EFFECAF00526F8E /* keyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyboardView.m; sourceTree = "<group>"; };
 		533203EB1EFFF9A700526F8E /* chengyuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chengyuanModel.h; sourceTree = "<group>"; };
 		533203EC1EFFF9A700526F8E /* chengyuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chengyuanModel.m; sourceTree = "<group>"; };
+		533203EE1EFFFF1D00526F8E /* systemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemViewController.h; sourceTree = "<group>"; };
+		533203EF1EFFFF1D00526F8E /* systemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemViewController.m; sourceTree = "<group>"; };
+		533203F11F00020400526F8E /* systemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemCell.h; sourceTree = "<group>"; };
+		533203F21F00020400526F8E /* systemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemCell.m; sourceTree = "<group>"; };
+		533203F41F00022600526F8E /* xitongModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xitongModel.h; sourceTree = "<group>"; };
+		533203F51F00022600526F8E /* xitongModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xitongModel.m; sourceTree = "<group>"; };
+		533203F71F00068000526F8E /* xiaoxitongzhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiaoxitongzhiViewController.h; sourceTree = "<group>"; };
+		533203F81F00068000526F8E /* xiaoxitongzhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiaoxitongzhiViewController.m; sourceTree = "<group>"; };
+		533203FA1F00B2BF00526F8E /* replyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replyCell.h; sourceTree = "<group>"; };
+		533203FB1F00B2BF00526F8E /* replyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = replyCell.m; sourceTree = "<group>"; };
+		533203FD1F00B2DD00526F8E /* replyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replyModel.h; sourceTree = "<group>"; };
+		533203FE1F00B2DD00526F8E /* replyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = replyModel.m; sourceTree = "<group>"; };
+		533204001F00B3CD00526F8E /* setbtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setbtn.h; sourceTree = "<group>"; };
+		533204011F00B3CD00526F8E /* setbtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setbtn.m; sourceTree = "<group>"; };
 		5332E2A81EF387E60040A295 /* quanziheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quanziheadView.h; sourceTree = "<group>"; };
 		5332E2A91EF387E60040A295 /* quanziheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quanziheadView.m; sourceTree = "<group>"; };
 		5332E2B21EF3C87D0040A295 /* yueduquanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yueduquanViewController.h; sourceTree = "<group>"; };
@@ -914,6 +935,10 @@
 				533B61D51EEA4C6300DE0392 /* aboutViewController.m */,
 				533B61DA1EEA727800DE0392 /* feedbackViewController.h */,
 				533B61DB1EEA727800DE0392 /* feedbackViewController.m */,
+				533203EE1EFFFF1D00526F8E /* systemViewController.h */,
+				533203EF1EFFFF1D00526F8E /* systemViewController.m */,
+				533203F71F00068000526F8E /* xiaoxitongzhiViewController.h */,
+				533203F81F00068000526F8E /* xiaoxitongzhiViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -945,6 +970,12 @@
 				533B61CC1EE9655700DE0392 /* setCell1.m */,
 				53A1F12D1EEE60B500ED5EE8 /* WJGtextView.h */,
 				53A1F12E1EEE60B500ED5EE8 /* WJGtextView.m */,
+				533203F11F00020400526F8E /* systemCell.h */,
+				533203F21F00020400526F8E /* systemCell.m */,
+				533203FA1F00B2BF00526F8E /* replyCell.h */,
+				533203FB1F00B2BF00526F8E /* replyCell.m */,
+				533204001F00B3CD00526F8E /* setbtn.h */,
+				533204011F00B3CD00526F8E /* setbtn.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -958,6 +989,10 @@
 				533B61CF1EEA47E900DE0392 /* SZKCleanCache.m */,
 				533203711EFE72FA00526F8E /* publishModel.h */,
 				533203721EFE72FA00526F8E /* publishModel.m */,
+				533203F41F00022600526F8E /* xitongModel.h */,
+				533203F51F00022600526F8E /* xitongModel.m */,
+				533203FD1F00B2DD00526F8E /* replyModel.h */,
+				533203FE1F00B2DD00526F8E /* replyModel.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -1301,6 +1336,7 @@
 			files = (
 				5393E36D1EE6A7C300392FD4 /* infoGroup.m in Sources */,
 				53A1F1241EEE3F2900ED5EE8 /* HLZIrregulatBtn.m in Sources */,
+				533203FC1F00B2BF00526F8E /* replyCell.m in Sources */,
 				534F61D91EDEB2C8007835ED /* ViewController.m in Sources */,
 				533B61E21EEA747D00DE0392 /* HelpTool.m in Sources */,
 				533B61F11EEAA25300DE0392 /* tokenstr.m in Sources */,
@@ -1340,6 +1376,7 @@
 				533203DD1EFFC0B700526F8E /* chakanquanziViewController.m in Sources */,
 				533E19C71EE2B6CC000CE670 /* chuangjianViewController.m in Sources */,
 				53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */,
+				533203FF1F00B2DD00526F8E /* replyModel.m in Sources */,
 				533020891EF0F8A800D08825 /* quanbuModel.m in Sources */,
 				53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */,
 				533B61E61EEA7B3400DE0392 /* xieyiViewController.m in Sources */,
@@ -1349,6 +1386,7 @@
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				53A1F11F1EEBC71E00ED5EE8 /* wodeModel.m in Sources */,
 				533B61D61EEA4C6300DE0392 /* aboutViewController.m in Sources */,
+				533203F61F00022700526F8E /* xitongModel.m in Sources */,
 				530DA49B1EF296190056BA66 /* Timestr.m in Sources */,
 				5330207D1EEFBB2000D08825 /* searchCell1.m in Sources */,
 				531E8B861EDFF454007C26D2 /* PPNetworkHelper.m in Sources */,
@@ -1372,8 +1410,10 @@
 				530C828B1EFA694700815763 /* taolunCell0.m in Sources */,
 				530C82801EF9310400815763 /* DemoCellModel.m in Sources */,
 				530DA49E1EF29ACC0056BA66 /* shuquanxiangqingViewController.m in Sources */,
+				533204021F00B3CD00526F8E /* setbtn.m in Sources */,
 				5332035C1EFD218600526F8E /* UIViewController+Cloudox.m in Sources */,
 				533B61C11EE93FA000DE0392 /* collectionCell.m in Sources */,
+				533203F91F00068000526F8E /* xiaoxitongzhiViewController.m in Sources */,
 				533B61B11EE9367C00DE0392 /* setViewController.m in Sources */,
 				534F83F81EE8F9AD003773E9 /* mymessageCell1.m in Sources */,
 				535FED861EE14673007A456D /* HotViewController.m in Sources */,
@@ -1385,6 +1425,7 @@
 				533020931EF13C5600D08825 /* pinglunBtn.m in Sources */,
 				533B61ED1EEA87DC00DE0392 /* MBProgressHUD+XMG.m in Sources */,
 				5332E2AA1EF387E60040A295 /* quanziheadView.m in Sources */,
+				533203F31F00020400526F8E /* systemCell.m in Sources */,
 				533020831EEFDF9800D08825 /* jieguoCell.m in Sources */,
 				530C82A01EFABF1000815763 /* SDWaitingView.m in Sources */,
 				533B61DC1EEA727800DE0392 /* feedbackViewController.m in Sources */,
@@ -1401,6 +1442,7 @@
 				530C829E1EFABF1000815763 /* SDBrowserImageView.m in Sources */,
 				533020861EEFE58900D08825 /* jieguoModel.m in Sources */,
 				530C82821EF9310400815763 /* DemoCommentView.m in Sources */,
+				533203F01EFFFF1D00526F8E /* systemViewController.m in Sources */,
 				533203ED1EFFF9A700526F8E /* chengyuanModel.m in Sources */,
 				533B61D31EEA4C5600DE0392 /* questionViewController.m in Sources */,
 				53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */,

@@ -71,10 +71,15 @@
 //举报 get
 #define jubao @"http://"IPAddress"/forum/index/accuse.html?token=%@&to_uid=%@&object_id=%@&object_type=%@&type=%@"
 //评论回复 post
-#define pinglun @"http://"IPAddress"forum/index/postComment.html"
+#define pinglun @"http://"IPAddress"/forum/index/postComment.html"
 //我的收藏
 #define wodeshoucang @"http://"IPAddress"/forum/user/myCollect.html"
-
+//消息通知
+#define xiaoxitongzhi @"http://"IPAddress"/forum/user/messageInform.html?token=%@&type=%@&page=%@"
+//系统消息 get
+#define xitongxiaoxi @"http://"IPAddress"/forum/user/systemInform.html?token=%@&page=%@"
+//删除消息 get
+#define shanchuxiaoxi2 @"http://www.3a406.cn/forum/user/removeInform.html?token=%@&type=%@&id=%@"
 
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))

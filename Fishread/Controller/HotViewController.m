@@ -203,6 +203,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
     democontentViewController *shuquanvc = [[democontentViewController alloc] init];
     quanbuModel *model = self.quanbuArray[indexPath.row];
     shuquanvc.idstr = model.idstr;
+    shuquanvc.object_idstr = model.object_idstr;
     [self.navigationController pushViewController:shuquanvc animated:YES];
 }
 

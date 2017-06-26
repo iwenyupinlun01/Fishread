@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SWTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +67,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0291D429F59B5003D9D09CB911D92D7C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>12BC71523E2A94EACA74B9E0DC011E5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3ED49D2D0BC1852A4C2697CCCF155A09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,17 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B5E6B894F2497555DD25184D8BA6C94</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>73F1C3727A67E4DCDC1BD66F273B1B18</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8B5D790CE654776FF540B30FC9D294E5</key>
+		<key>74411E15275A483030D1C08EADAB59CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,12 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B36F6D48026E14827529F787D63D61B8</key>
+		<key>9F7FEF7DFBDD14660BB44F6769D92D05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2EB785D1E0B5676EE3331DEC11E8542</key>
+		<key>B36F6D48026E14827529F787D63D61B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

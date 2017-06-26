@@ -197,10 +197,8 @@ static NSString *setidentfid1 = @"setidentfid1";
             }
             
         } failure:^(NSError *error) {
-            
+            [MBProgressHUD showSuccess:@"系统繁忙，请稍后再试"];
         }];
-       
-
     }];
     [control addAction:action0];
     [control addAction:action1];

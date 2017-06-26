@@ -565,6 +565,7 @@
         NSString *idstr = model.idstr;
         democontentViewController *shuquanvc = [[democontentViewController alloc] init];
         shuquanvc.idstr = idstr;
+        shuquanvc.object_idstr = self.idstr;
         [self.navigationController pushViewController:shuquanvc animated:YES];
     }
     if (tableView==self.centerTableView) {
@@ -572,9 +573,11 @@
         NSString *idstr = model.idstr;
         democontentViewController *shuquanvc = [[democontentViewController alloc] init];
         shuquanvc.idstr = idstr;
+        shuquanvc.object_idstr = self.idstr;
         [self.navigationController pushViewController:shuquanvc animated:YES];
     }
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView==self.leftTableView) {
         return self.leftArray.count;

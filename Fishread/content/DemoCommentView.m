@@ -89,11 +89,6 @@
         
         textlab.attributedText = str;
     }
-
-    
-    
-
-    
     
     if (self.labelsArray.count) {
         
@@ -129,11 +124,10 @@
     NSDictionary *dic = [NSDictionary dictionary];
     NSString *firstid = self.demomodel.firstUserId;
     NSString *secondid = self.demomodel.secondUserId;
-    dic = @{@"firstid":firstid,@"secondid":secondid};
+    NSString *pid = self.demomodel.pidstr;
+    dic = @{@"firstid":firstid,@"secondid":secondid,@"pid":pid};
     [self.delegate myTabVClick:dic];
     
 }
-
-
 
 @end
