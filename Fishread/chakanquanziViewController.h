@@ -10,4 +10,5 @@
 
 @interface chakanquanziViewController : UIViewController
 @property (nonatomic,strong) NSString *idstr;
+@property (nonatomic,strong) NSString *typestr;
 @end

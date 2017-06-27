@@ -9,10 +9,17 @@
 #import "publishedViewController.h"
 #import "publishCell.h"
 #import "headView.h"
+#import "publishModel.h"
+
 @interface publishedViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    int pn;
+}
 @property (nonatomic,strong) UITableView *publishtable;
 @property (nonatomic,strong) headView *hview;
-
+@property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,strong) NSString *namestr;
+@property (nonatomic,strong) NSString *pathicon;
 @end
 static NSString *publishidentfid = @"publishidentfid";
 @implementation publishedViewController
@@ -29,6 +36,9 @@ static NSString *publishidentfid = @"publishidentfid";
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.publishtable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.publishtable];
+    self.dataSource = [NSMutableArray array];
+    [self addHeader];
+    [self addFooter];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +59,102 @@ static NSString *publishidentfid = @"publishidentfid";
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:NO];
 }
+#pragma mark - 刷新控件
 
+- (void)addHeader
+{
+    // 头部刷新控件
+    self.publishtable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    [self.publishtable.mj_header beginRefreshing];
+}
+
+- (void)addFooter
+{
+    self.publishtable.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
+}
+
+- (void)refreshAction {
+    [self headerRefreshEndAction];
+}
+
+- (void)refreshLoadMore {
+    
+    [self footerRefreshEndAction];
+}
+
+-(void)headerRefreshEndAction
+{
+    pn = 1;
+    [self.dataSource removeAllObjects];
+    NSString *urlstr = [NSString stringWithFormat:wodefabiao,[tokenstr tokenstrfrom],@"1",@""];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSArray *dic = [responseObject objectForKey:@"info"];
+            self.namestr = [responseObject objectForKey:@"nickname"];
+            self.pathicon = [responseObject objectForKey:@"userIcon"];
+            [self.hview.infoimg sd_setImageWithURL:[NSURL URLWithString:self.pathicon] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+            self.hview.namelab.text = self.namestr;
+            for (int i = 0; i<dic.count; i++) {
+                NSDictionary *dit = [dic objectAtIndex:i];
+                publishModel *model = [[publishModel alloc] init];
+                model.titlestr = [dit objectForKey:@"create_time"];
+                model.contentstr = [dit objectForKey:@"content"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
+                model.imgArray = [NSMutableArray array];
+                model.imgArray = [dit objectForKey:@"images"];
+                [self.dataSource addObject:model];
+            }
+        }
+        else
+        {
+            NSString *hud = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hud];
+        }
+        
+        [self.publishtable.mj_header endRefreshing];
+        [self.publishtable reloadData];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+        [self.publishtable.mj_header endRefreshing];
+    }];
+    
+}
+
+-(void)footerRefreshEndAction
+{
+    pn++;
+    NSString *pnstr = [NSString stringWithFormat:@"%d",pn];
+    NSString *urlstr = [NSString stringWithFormat:wodefabiao,[tokenstr tokenstrfrom],pnstr,@""];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSArray *dic = [responseObject objectForKey:@"info"];
+            for (int i = 0; i<dic.count; i++) {
+                NSDictionary *dit = [dic objectAtIndex:i];
+                publishModel *model = [[publishModel alloc] init];
+                model.titlestr = [dit objectForKey:@"create_time"];
+                model.contentstr = [dit objectForKey:@"content"];
+                model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
+                model.imgArray = [NSMutableArray array];
+                model.imgArray = [dit objectForKey:@"images"];
+                [self.dataSource addObject:model];
+            }
+        }
+        else
+        {
+            NSString *hud = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hud];
+        }
+        
+        [self.publishtable.mj_footer endRefreshing];
+        [self.publishtable reloadData];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+        [self.publishtable.mj_footer endRefreshing];
+    }];
+
+}
 #pragma mark - getters
 
 -(UITableView *)publishtable
@@ -69,8 +174,7 @@ static NSString *publishidentfid = @"publishidentfid";
     if(!_hview)
     {
         _hview = [[headView alloc] init];
-        [_hview.infoimg sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
-        _hview.namelab.text = [tokenstr nicknamestrfrom];
+        
         _hview.frame = CGRectMake(0, 0, DEVICE_WIDTH, (412-64)/2*HEIGHT_SCALE);
     }
     return _hview;
@@ -80,7 +184,7 @@ static NSString *publishidentfid = @"publishidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,24 +192,17 @@ static NSString *publishidentfid = @"publishidentfid";
     publishCell *cell = [tableView dequeueReusableCellWithIdentifier:publishidentfid];
     cell = [[publishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:publishidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"测试";
+    [cell setdata:self.dataSource[indexPath.row]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    publishCell *cell = [[publishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:publishidentfid];
+    CGFloat hei = [cell setdata:self.dataSource[indexPath.row]];
+    return hei;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0;
-}
 
 #pragma mark - 实现方法
 

@@ -127,7 +127,6 @@
     NSString *pid = self.demomodel.pidstr;
     dic = @{@"firstid":firstid,@"secondid":secondid,@"pid":pid};
     [self.delegate myTabVClick:dic];
-    
 }
 
 @end

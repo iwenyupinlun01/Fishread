@@ -17,12 +17,12 @@
 #import "DemoCommentModel.h"
 #import "democontentViewController.h"
 #import "chengyuanViewController.h"
-
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
-
 #import "chakanquanziViewController.h"
+
+#import "fabiaoViewController.h"
 
 #define WZBScreenWidth [UIScreen mainScreen].bounds.size.width
 #define WZBScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -201,6 +201,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -272,6 +273,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -344,6 +346,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -413,6 +416,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -704,17 +708,18 @@
 -(void)fabiaobtnclick
 {
     NSLog(@"发表");
+    fabiaoViewController *fabiaovc = [[fabiaoViewController alloc] init];
+    fabiaovc.idstr = self.idstr;
+    [self.navigationController pushViewController:fabiaovc animated:YES];
 }
 
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
-    //    [self.navigationController.navigationBar setHidden:NO];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-   
+    
     NSString *urlstr = [NSString stringWithFormat:fanhuiquanziquanye,[tokenstr tokenstrfrom],self.idstr];
     [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
-
+        
     } failure:^(NSError *error) {
         
     }];
@@ -802,7 +807,75 @@
                  [self shareclick];
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"广告等垃圾信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    taolunquanModel *model = self.leftArray[index.row];
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"1";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                    
+                }];
+                UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"色情淫秽内容" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"2";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                }];
+                UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"恶意营销" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"3";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                }];
+                UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"人身攻击" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"4";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                }];
+                UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [control addAction:action0];
+                [control addAction:action1];
+                [control addAction:action2];
+                [control addAction:action3];
+                [control addAction:action4];
+                [self presentViewController:control animated:YES completion:nil];
+
             }];
             UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
@@ -865,6 +938,74 @@
                  [self shareclick];
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"广告等垃圾信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    taolunquanModel *model = self.rightArray[index.row];
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"1";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                    
+                }];
+                UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"色情淫秽内容" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"2";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                }];
+                UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"恶意营销" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"3";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                }];
+                UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"人身攻击" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    NSString *to_uid = model.uidstr;
+                    NSString *object_id = model.idstr;
+                    NSString *object_type = @"2";
+                    NSString *type = @"4";
+                    NSString *urlstr = [NSString stringWithFormat:jubao,[tokenstr tokenstrfrom],to_uid,object_id,object_type,type];
+                    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                        NSString *hudstr = [responseObject objectForKey:@"msg"];
+                        [MBProgressHUD showSuccess:hudstr];
+                    } failure:^(NSError *error) {
+                        [MBProgressHUD showSuccess:@"没有网络"];
+                    }];
+                }];
+                UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [control addAction:action0];
+                [control addAction:action1];
+                [control addAction:action2];
+                [control addAction:action3];
+                [control addAction:action4];
+                [self presentViewController:control animated:YES completion:nil];
                 
             }];
             UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -926,7 +1067,10 @@
         [self shareclick];
     }];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"编辑书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        chakanquanziViewController *chakabvc = [[chakanquanziViewController alloc] init];
+        chakabvc.typestr = @"0";
+        chakabvc.idstr = self.idstr;
+        [self.navigationController pushViewController:chakabvc animated:YES];
     }];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"成员管理" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         chengyuanViewController *chengyuanVC = [[chengyuanViewController alloc] init];
@@ -1020,6 +1164,7 @@
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"查看圈子资料" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         chakanquanziViewController *chakanvc = [[chakanquanziViewController alloc] init];
         chakanvc.idstr = self.idstr;
+        chakanvc.typestr = @"1";
         [self.navigationController pushViewController:chakanvc animated:YES];
     }];
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"退出书圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

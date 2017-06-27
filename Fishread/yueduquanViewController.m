@@ -230,6 +230,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -298,6 +299,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -358,6 +360,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -425,6 +428,7 @@
                 model.pathurlstr = [dit objectForKey:@"icon_path"];
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -681,7 +685,7 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
     NSString *urlstr = [NSString stringWithFormat:fanhuiquanziquanye,[tokenstr tokenstrfrom],self.idstr];
     [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
-      
+        
     } failure:^(NSError *error) {
         
     }];

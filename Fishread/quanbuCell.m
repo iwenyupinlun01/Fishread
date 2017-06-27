@@ -280,7 +280,7 @@
     {
         _numlab = [[UILabel alloc]init];
         _numlab.alpha = 0.4;
-        _numlab.textAlignment = NSTextAlignmentRight;
+        _numlab.textAlignment = NSTextAlignmentCenter;
         _numlab.font = [UIFont systemFontOfSize:22];
         //_numlab.backgroundColor = [UIColor redColor];
         _numlab.textColor = [UIColor whiteColor];

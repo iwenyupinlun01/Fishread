@@ -18,6 +18,7 @@
 @property (nonatomic,strong) NSString *is_supportstr;
 @property (nonatomic,strong) NSString *reply_numstr;
 @property (nonatomic,strong) NSString *support_numstr;
+@property (nonatomic,strong) NSString *uidstr;
 
 @property (nonatomic,strong) NSString *is_creatorstr;
 

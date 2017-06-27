@@ -65,7 +65,7 @@
 //常见问题
 #define changjianwenti @"http://"IPAddress"/forum/user/commonQuestion.html"
 //收藏或取消收藏 get
-#define shoucang @"http://"IPAddress"/forum/index/addCollect.html?token=%@&post_id=%@&type=%@&status=%@"
+#define shoucang @"http://"IPAddress"/index/addCollect.html?token=%@&post_id=%@&type=%@&status=%@"
 //点赞 get
 #define dianzan @"http://"IPAddress"/forum/index/doBookmark.html?token=%@&object_id=%@&type=%@"
 //举报 get
@@ -73,13 +73,22 @@
 //评论回复 post
 #define pinglun @"http://"IPAddress"/forum/index/postComment.html"
 //我的收藏
-#define wodeshoucang @"http://"IPAddress"/forum/user/myCollect.html"
+#define wodeshoucang @"http://"IPAddress"/forum/user/myCollect.html?token=%@&page=%@"
 //消息通知
 #define xiaoxitongzhi @"http://"IPAddress"/forum/user/messageInform.html?token=%@&type=%@&page=%@"
 //系统消息 get
 #define xitongxiaoxi @"http://"IPAddress"/forum/user/systemInform.html?token=%@&page=%@"
 //删除消息 get
 #define shanchuxiaoxi2 @"http://www.3a406.cn/forum/user/removeInform.html?token=%@&type=%@&id=%@"
+//发帖 post
+#define fatie @"http://"IPAddress"/forum/index/publishPost.html"
+//看完返回
+#define kanwanfanhui @"http://"IPAddress"/forum/user/returnMsg.html?token=%@&id=%@"
+//我的发表
+#define wodefabiao @"http://"IPAddress"/forum/user/mytrends.html?token=%@&page=%@&uid=%@"
+//查看圈子资料
+#define chakanquqnizilian @"http://"IPAddress"/forum/circle/circleData.html?token=%@&id=%@&type=%@"
+
 
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))

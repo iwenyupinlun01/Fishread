@@ -11,11 +11,9 @@
 
 @interface wodeCell()
 @property (nonatomic,strong) wodeModel *wmodel;
-
 @end
 
 @implementation wodeCell
-
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,7 +22,7 @@
     {
         [self.contentView addSubview:self.leftimg];
         [self.contentView addSubview:self.textlab];
-        [self.contentView addSubview:self.typelab];
+       // [self.contentView addSubview:self.typelab];
         [self.contentView addSubview:self.xiaohongdianlab];
         [self setuplayout];
     }
@@ -54,12 +52,12 @@
         make.width.mas_equalTo(DEVICE_WIDTH-14*WIDTH_SCALE-150*WIDTH_SCALE);
     }];
     
-    [self.typelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.textlab.mas_right).with.offset(16*WIDTH_SCALE);
-        make.top.equalTo(weakSelf).with.offset(40*HEIGHT_SCALE);
-        make.height.mas_equalTo(13);
-        
-    }];
+//    [self.typelab mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(weakSelf.textlab.mas_right).with.offset(16*WIDTH_SCALE);
+//        make.top.equalTo(weakSelf).with.offset(40*HEIGHT_SCALE);
+//        make.height.mas_equalTo(13);
+//        
+//    }];
     
     [self.xiaohongdianlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).with.offset(DEVICE_WIDTH-35*WIDTH_SCALE);

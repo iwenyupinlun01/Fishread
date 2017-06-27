@@ -36,7 +36,7 @@
         _namelab = [[UILabel alloc] init];
         _namelab.textColor = [UIColor wjColorFloat:@"333333"];
         _namelab.textAlignment = NSTextAlignmentCenter;
-        _namelab.text = @"呼啦圈";
+        //_namelab.text = @"呼啦圈";
         _namelab.font = [UIFont systemFontOfSize:18];
     }
     return _namelab;
@@ -47,7 +47,7 @@
     if(!_infoimg)
     {
         _infoimg = [[UIImageView alloc] init];
-        _infoimg.backgroundColor = [UIColor orangeColor];
+        //_infoimg.backgroundColor = [UIColor orangeColor];
         _infoimg.layer.masksToBounds = YES;
         _infoimg.layer.cornerRadius = 35*WIDTH_SCALE;
         _infoimg.userInteractionEnabled = YES;

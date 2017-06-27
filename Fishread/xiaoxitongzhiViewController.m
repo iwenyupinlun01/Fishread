@@ -9,7 +9,7 @@
 #import "xiaoxitongzhiViewController.h"
 #import "replyCell.h"
 #import "replyModel.h"
-
+#import "democontentViewController.h"
 @interface xiaoxitongzhiViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     int pn;
@@ -38,9 +38,6 @@ static NSString *replyidentfid = @"replyidentfid";
     
     self.replyarr = [NSMutableArray array];
     
-    
-    [self addHeader];
-    [self addFooter];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +49,8 @@ static NSString *replyidentfid = @"replyidentfid";
 {
     [self.navigationController.navigationBar setHidden:NO];
     [self.tabBarController.tabBar setHidden:YES];
+    [self addHeader];
+    [self addFooter];
 }
 
 
@@ -218,6 +217,21 @@ static NSString *replyidentfid = @"replyidentfid";
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"删除";//默认文字为 Delete
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    democontentViewController *demovc = [[democontentViewController alloc] init];
+    replyModel *model = self.replyarr[indexPath.row];
+    demovc.idstr = model.obj_id;
+    NSString *msgid = model.replyidstr;
+    [self.navigationController pushViewController:demovc animated:YES];
+    
+    [PPNetworkHelper GET:[NSString stringWithFormat:kanwanfanhui,[tokenstr tokenstrfrom],msgid] parameters:nil success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - 实现方法

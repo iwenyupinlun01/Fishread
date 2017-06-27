@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class publishModel;
 
 @interface publishCell : UITableViewCell
 @property (nonatomic,strong) UILabel *timelab;
 @property (nonatomic,strong) UILabel *typelab;
 @property (nonatomic,strong) UILabel *contentlab;
-
+-(CGFloat )setdata:(publishModel *)model;
 @end

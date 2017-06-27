@@ -63,6 +63,7 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     [self headerRefreshEndAction];
 
 }
+
 #pragma mark - 刷新控件
 
 -(void)headerRefreshEndAction

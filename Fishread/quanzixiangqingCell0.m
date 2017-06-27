@@ -212,10 +212,6 @@
     }
      UIView *bottomView = self.picContainerView;
     _picContainerView.sd_layout.topSpaceToView(_contentlab,picContainerTopMargin);
-    
-    
-  
-    
 
     _shareBtn.sd_layout.rightSpaceToView(self.contentView, 14*WIDTH_SCALE).topSpaceToView(self.picContainerView, 8*HEIGHT_SCALE).widthIs(24*WIDTH_SCALE).heightIs(24*WIDTH_SCALE);
     

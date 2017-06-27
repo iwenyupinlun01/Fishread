@@ -34,11 +34,8 @@ static NSString *indentify = @"indentify";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"推荐";
-
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"demo" style:UIBarButtonItemStylePlain target:self action:@selector(dengluclick)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.datasourcearr = [NSMutableArray array];
-    
     [self addTheCollectionView];
     // 3.1.下拉刷新
     [self addHeader];
@@ -62,7 +59,9 @@ static NSString *indentify = @"indentify";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    if ([tokenstr tokenstrfrom].length==0) {
+        [self dengluclick];
+    }
 }
 
 #pragma mark - 刷新控件
