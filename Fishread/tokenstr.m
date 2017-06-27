@@ -58,4 +58,19 @@
     return userimgstr;
 }
 
++(NSString *)useruid
+{
+    NSString *useruid = [[NSString alloc] init];
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uidstr = [userdefat objectForKey:@"useruid"];
+    if (uidstr.length==0) {
+        useruid = @"";
+    }
+    else
+    {
+        useruid = uidstr;
+    }
+
+    return useruid;
+}
 @end

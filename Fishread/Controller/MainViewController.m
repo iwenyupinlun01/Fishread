@@ -38,8 +38,8 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"放大镜-拷贝"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarAction)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"矩形-34-拷贝-2"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarAction)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"54d48a"];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"54d48a"];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
 }
 
 - (void)addChildVC{

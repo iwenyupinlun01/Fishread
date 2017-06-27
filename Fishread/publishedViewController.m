@@ -10,6 +10,7 @@
 #import "publishCell.h"
 #import "headView.h"
 #import "publishModel.h"
+#import "democontentViewController.h"
 
 @interface publishedViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -203,7 +204,33 @@ static NSString *publishidentfid = @"publishidentfid";
     return hei;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    democontentViewController *demovc = [[democontentViewController alloc] init];
+    publishModel *model = self.dataSource[indexPath.row];
+    demovc.idstr = model.idstr;
+    [self.navigationController pushViewController:demovc animated:YES];
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        publishModel *model = self.dataSource[indexPath.row];
+        NSString *urlstr = [NSString stringWithFormat:shanchutiezi,[tokenstr tokenstrfrom],model.idstr];
+        [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+            NSString *hudstr = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hudstr];
+            [self headerRefreshEndAction];
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"没有网络"];
+        }];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";//默认文字为 Delete
+}
 #pragma mark - 实现方法
 
 -(void)backAction

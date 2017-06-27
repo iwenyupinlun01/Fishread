@@ -194,10 +194,12 @@
         NSLog(@"response ------- %@",responseObject);
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSString *token = [responseObject objectForKey:@"token"];
-
+            
+            NSString *uid = [responseObject objectForKey:@"uid"];
+            
             NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
             [userdefat setObject:token forKey:@"tokenuser"];
-            
+            [userdefat setObject:uid forKey:@"useruid"];
             //[userdefat setObject:[Timestr getNowTimestamp] forKey:@"denglushijian"];
             NSLog(@"tolen-------------%@",token);
             [userdefat synchronize];

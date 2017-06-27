@@ -768,7 +768,9 @@
             //是创建者
             UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
                 NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],idstr2,@"2",@"1"];
+                
                 [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
                     NSString *hud = [responseObject objectForKey:@"msg"];
                     [MBProgressHUD showSuccess:hud];
@@ -781,6 +783,18 @@
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
+                NSString *urlstr = [NSString stringWithFormat:shanchutiezi,[tokenstr tokenstrfrom],idstr2];
+                [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                    
+                    if ([[responseObject objectForKey:@"code"] intValue]==1) {
+                        [self headerRefreshEndActionleft];
+                    }
+                    
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                }];
             }];
             UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
@@ -910,7 +924,18 @@
                  [self shareclick];
             }];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                NSString *urlstr = [NSString stringWithFormat:shanchutiezi,[tokenstr tokenstrfrom],idstr2];
+                [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                    NSString *hud = [responseObject objectForKey:@"msg"];
+                    [MBProgressHUD showSuccess:hud];
+                    
+                    if ([[responseObject objectForKey:@"code"] intValue]==1) {
+                        [self headerRefreshEndActionright];
+                    }
+                    
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showSuccess:@"没有网络"];
+                }];
             }];
             UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 

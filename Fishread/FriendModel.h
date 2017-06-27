@@ -16,5 +16,5 @@
 
 @property (nonatomic,copy) NSString * pinyin;//拼音
 
-
+@property (nonatomic,copy) NSString *uidstr;
 @end

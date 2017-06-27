@@ -23,4 +23,5 @@ pod 'Bugly'
 pod 'DateTools'
 pod 'SWTableViewCell', '~> 0.3.7'
 pod 'HXWeiboPhotoPicker'
+pod 'HYBNetworking', '~> 3.3.0'
 end

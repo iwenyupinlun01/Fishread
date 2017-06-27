@@ -17,6 +17,7 @@
     {
         self.textLabel.textColor = [UIColor wjColorFloat:@"333333"];
         [self.contentView addSubview:self.typelab];
+        [self.contentView addSubview:self.redlab];
     }
     return self;
 }
@@ -41,7 +42,7 @@
         _redlab.textColor = [UIColor whiteColor];
         _redlab.layer.masksToBounds = YES;
         _redlab.layer.cornerRadius = 10;
-        _redlab.text = @"12";
+        [_redlab setHidden:YES];
     }
     return _redlab;
 }

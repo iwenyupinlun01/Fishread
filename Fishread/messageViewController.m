@@ -17,6 +17,12 @@
 @property (nonatomic,strong) UITableView *messagetableView;
 @property (nonatomic,strong) NSArray *textarr;
 
+@property (nonatomic,strong) NSString *commentstr;
+@property (nonatomic,strong) NSString *replystr;
+@property (nonatomic,strong) NSString *rewardstr;
+@property (nonatomic,strong) NSString *supportstr;
+@property (nonatomic,strong) NSString *systemstr;
+
 @end
 
 static NSString *messagetableidentfid0 = @"messagetableidentfid0";
@@ -37,6 +43,7 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
     self.messagetableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.messagetableView];
     
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +63,72 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
     [super viewDidDisappear:animated];
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:NO];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self network];
+}
+
+-(void)network
+{
+    NSString *urlstr = [NSString stringWithFormat:dibucaidanlankejian,[tokenstr tokenstrfrom]];
+    [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSDictionary *dit = [responseObject objectForKey:@"info"];
+            NSDictionary *inform = [dit objectForKey:@"inform"];
+            self.commentstr = [inform objectForKey:@"comment"];
+            self.replystr = [inform objectForKey:@"reply"];
+            self.rewardstr = [inform objectForKey:@"reward"];
+            self.supportstr = [inform objectForKey:@"support"];
+            self.systemstr = [inform objectForKey:@"system"];
+            
+            UILabel *lab1 = [self.messagetableView viewWithTag:100];
+            UILabel *lab2 = [self.messagetableView viewWithTag:101];
+            UILabel *lab3 = [self.messagetableView viewWithTag:102];
+            
+            if ([self.commentstr isEqualToString:@"0"]) {
+                [lab1 setHidden:YES];
+            }else
+            {
+                lab1.text = self.commentstr;
+                [lab1 setHidden:NO];
+            }
+            if ([self.replystr isEqualToString:@"0"]) {
+                [lab2 setHidden:YES];
+            }else
+            {
+                lab2.text = self.replystr;
+                [lab2 setHidden:NO];
+            }
+            if ([self.rewardstr isEqualToString:@"0"]) {
+                [lab3 setHidden:YES];
+            }else
+            {
+                lab3.text = self.rewardstr;
+                [lab3 setHidden:NO];
+            }
+            
+            UILabel *lab4 = [self.messagetableView viewWithTag:103];
+            if ([self.systemstr isEqualToString:@"0"]) {
+                [lab4 setHidden:YES];
+            }else
+            {
+                lab4.text = self.systemstr;
+                [lab4 setHidden:NO];
+            }
+            
+            [self.messagetableView reloadData];
+            
+        }else
+        {
+            NSString *hud = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hud];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - getters
@@ -107,6 +180,15 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
         if (!cell) {
             cell = [[mymessageCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:messagetableidentfid0];
         }
+        if (indexPath.row==0) {
+            cell.redlab.tag = 100;
+        }
+        if (indexPath.row==1) {
+            cell.redlab.tag = 101;
+        }
+        if (indexPath.row==2) {
+            cell.redlab.tag = 102;
+        }
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = self.textarr[indexPath.row];
@@ -117,6 +199,7 @@ static NSString *messagetableidentfid1 = @"messagetableidentfid1";
         if (!cell) {
             cell = [[mymessageCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:messagetableidentfid1];
         }
+        cell.redlab.tag = 103;
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"文鱼管理员";

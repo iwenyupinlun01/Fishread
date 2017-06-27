@@ -15,7 +15,7 @@
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-        //[self.contentView addSubview:self.redlab];
+        [self.contentView addSubview:self.redlab];
         self.textLabel.textColor = [UIColor wjColorFloat:@"333333"];
     }
     return self;
@@ -40,7 +40,8 @@
         _redlab.textColor = [UIColor whiteColor];
         _redlab.layer.masksToBounds = YES;
         _redlab.layer.cornerRadius = 10;
-        _redlab.text = @"12";
+        //_redlab.text = @"12";
+        [_redlab setHidden:YES];
     }
     return _redlab;
 }

@@ -100,17 +100,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"详情";
     
-    
-    
     [self.view addSubview:self.contentTableview];
     self.contentTableview.tableFooterView = [UIView new];
     [self.contentTableview registerClass:[DemoTableViewCell class] forCellReuseIdentifier:CellKey];
     self.dataArray = [NSMutableArray array];
-    [self addHeader];
-    [self addFooter];
-    [self.view addSubview:self.keyView];
-    
-    [self bgviewadd];
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -122,7 +116,9 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self.tabBarController.tabBar setHidden:NO];
+    [super viewWillDisappear:animated];
+//    [self.tabBarController.tabBar setHidden:NO];
+//    [self.navigationController.navigationBar setHidden:YES];
     [[IQKeyboardManager sharedManager] setEnable:_wasKeyboardManagerEnabled];
 }
 
@@ -131,6 +127,12 @@
     [super viewDidAppear:animated];
     _wasKeyboardManagerEnabled = [[IQKeyboardManager sharedManager] isEnabled];
     [[IQKeyboardManager sharedManager] setEnable:NO];
+    [self.tabBarController.tabBar setHidden:YES];
+    [self.navigationController.navigationBar setHidden:NO];
+    [self addHeader];
+    [self addFooter];
+    [self.view addSubview:self.keyView];
+    [self bgviewadd];
 }
 
 #pragma mark - web
@@ -349,6 +351,7 @@
         cell.model = self.dataArray[indexPath.row];
         cell.delegate = self;
         cell.commentView.delegate = self;
+        
         return cell;
     }
     return nil;
@@ -493,15 +496,31 @@
     if ([self.user_uidstr isEqualToString:self.uidstr]) {
         UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
+            NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],self.idstr,@"2",@"1"];
+            [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                NSString *hud = [responseObject objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:hud];
+            } failure:^(NSError *error) {
+                [MBProgressHUD showSuccess:@"没有网络"];
+            }];
         }];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self shareclick];
         }];
         UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
+            NSString *urlstr = [NSString stringWithFormat:shanchutiezi,[tokenstr tokenstrfrom],self.idstr];
+            [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                NSString *hud = [responseObject objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:hud];
+                
+                if ([[responseObject objectForKey:@"code"] intValue]==1) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                
+            } failure:^(NSError *error) {
+                [MBProgressHUD showSuccess:@"没有网络"];
+            }];
         }];
-
         UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
         }];
@@ -515,6 +534,15 @@
         UIAlertController *control = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
+            NSString *urlstr = [NSString stringWithFormat:shoucang,[tokenstr tokenstrfrom],self.idstr,@"2",@"1"];
+            
+            [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
+                NSString *hud = [responseObject objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:hud];
+            } failure:^(NSError *error) {
+                [MBProgressHUD showSuccess:@"没有网络"];
+            }];
+
         }];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self shareclick];
@@ -623,7 +651,6 @@
 }
 
 #pragma mark - 回复消息
-
 
 -(keyboardView *)keyView
 {

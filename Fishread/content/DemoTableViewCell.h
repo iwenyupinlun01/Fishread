@@ -22,8 +22,6 @@
 @property (nonatomic,strong) NSIndexPath *tindexPath;
 @property (nonatomic,strong) DemoCellModel *model;
 @property (nonatomic,weak) id<DemoTableViewCellDelegate> delegate;
-
 @property (nonatomic,strong)  DemoCommentView *commentView;
-
 
 @end

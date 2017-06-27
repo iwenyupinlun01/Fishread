@@ -110,7 +110,6 @@
         [self setupAutoHeightWithBottomView:bottmView bottomMargin:5];
         
     }
- 
 }
 
 - (void)labelClick:(UITapGestureRecognizer *)gesture{

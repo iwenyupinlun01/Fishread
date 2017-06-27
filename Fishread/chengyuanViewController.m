@@ -17,16 +17,11 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-
-@property (nonatomic, strong) NSArray *modelList;
-
-@property (nonatomic, strong) NSMutableArray *titleArr;
-
 @property (nonatomic,strong) NSMutableArray *sectionTitles;
 @property (nonatomic,strong) NSMutableArray *contactsSource;
 
 @end
-
+static NSString *chengyuanidentfid = @"chengyuanidentfid";
 @implementation chengyuanViewController
 
 - (void)viewDidLoad {
@@ -40,14 +35,10 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     
     self.contactsSource = [NSMutableArray array];
-    
     self.sectionTitles = [NSMutableArray array];
-
-    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.tableView];
-    
     [self network];
-    
     
 }
 
@@ -72,20 +63,19 @@
 {
     self.contactsSource = [NSMutableArray array];
     [PPNetworkHelper GET:[NSString stringWithFormat:chengyuanguanli,[tokenstr tokenstrfrom],self.idstr] parameters:nil success:^(id responseObject) {
-        NSLog(@"red-------%@",responseObject);
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSArray *arr = [responseObject objectForKey:@"info"];
             for (int i = 0; i<arr.count; i++) {
                 FriendModel *model = [[FriendModel alloc] init];
                 NSDictionary *dit = [arr objectAtIndex:i];
                 model.nameStr = [dit objectForKey:@"nickname"];
+                model.imageName = [dit objectForKey:@"path"];
+                model.uidstr = [dit objectForKey:@"uid"];
                 [self.contactsSource addObject:model];
             }
-            [self.tableView reloadData];
-
+            [self sortDataArrayWithContactDataHelper];
         }
-        
-        [self.tableView reloadData];
+        NSLog(@"arr------%@",self.contactsSource);
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
     }];
@@ -95,7 +85,7 @@
 {
     if(!_tableView)
     {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }
@@ -104,13 +94,13 @@
 
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.contactsSource.count == 0) {
         return 0;
     }
     return self.sectionTitles.count - 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ((self.contactsSource.count == 0)) {
         return 0;
@@ -119,11 +109,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    chengyuanCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
+    chengyuanCell * cell = [tableView dequeueReusableCellWithIdentifier:chengyuanidentfid];
+    cell = [[chengyuanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chengyuanidentfid];
     FriendModel * model = self.contactsSource[indexPath.section][indexPath.row];
-    cell.textLabel.text = model.nameStr;
-    //cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpeg",model.imageName]];
+    [cell setdata:model];
     return cell;
 }
 
@@ -139,19 +128,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 80;
-    
+    return 60;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    view.backgroundColor = [UIColor orangeColor];
-    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(25, 0, 30, 30)];
+    view.backgroundColor = [UIColor whiteColor];
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(14, 0, 30, 30)];
     [btn setTitle:self.sectionTitles[section + 1] forState:UIControlStateNormal];
     btn.tag = section;
-    //[btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [btn setTitleColor:[UIColor wjColorFloat:@"333333"] forState:normal];
     [view addSubview:btn];
     return view;
 }
@@ -182,27 +169,47 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [self.contactsSource[indexPath.section] removeObjectAtIndex:indexPath.row];
+        FriendModel *model = self.contactsSource[indexPath.section][indexPath.row];
+        NSString *uid = model.uidstr;
+        NSLog(@"uid----%@",uid);
         
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"id":self.idstr,@"user_id":uid};
         
-        if ([self.contactsSource[indexPath.section] count] == 0) {
-            [self.sectionTitles removeObjectAtIndex:indexPath.section + 1];
-            [self.contactsSource removeObjectAtIndex:indexPath.section];
-        }
-        [tableView reloadData];
+        [PPNetworkHelper POST:quanzichengyuanshanchu parameters:para success:^(id responseObject) {
+            NSString *hud = [responseObject objectForKey:@"msg"];
+            if ([[responseObject objectForKey:@"code"] intValue]==1) {
+                [self network];
+                [MBProgressHUD showSuccess:hud];
+            }else
+            {
+                [MBProgressHUD showSuccess:hud];
+            }
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"没有网络"];
+        }];
+        
+//        [self.contactsSource[indexPath.section] removeObjectAtIndex:indexPath.row];
+//        
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+//        
+//        if ([self.contactsSource[indexPath.section] count] == 0) {
+//            [self.sectionTitles removeObjectAtIndex:indexPath.section + 1];
+//            [self.contactsSource removeObjectAtIndex:indexPath.section];
+//        }
+//        [tableView reloadData];
     }
 }
+
 - (void)sortDataArrayWithContactDataHelper{
     
     NSMutableArray *contactsSource = [NSMutableArray arrayWithArray:self.contactsSource];
     [self.contactsSource removeAllObjects];
     [self.sectionTitles removeAllObjects];
-    
     self.contactsSource = [ContactDataHelper getFriendListDataBy:contactsSource];
-    
     self.sectionTitles = [ContactDataHelper getFriendListSectionBy:[self.contactsSource mutableCopy]];
+    [self.tableView reloadData];
 }
+
 #pragma mark - getters
 
 -(void)backAction

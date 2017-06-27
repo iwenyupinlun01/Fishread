@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class FriendModel;
 @interface chengyuanCell : UITableViewCell
-
+-(void)setdata:(FriendModel *)model;
 @end

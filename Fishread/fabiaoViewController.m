@@ -10,27 +10,42 @@
 #import "HXPhotoViewController.h"
 #import "HXPhotoView.h"
 #import "WJGtextView.h"
-@interface fabiaoViewController ()<HXPhotoViewDelegate>
-@property (strong, nonatomic) HXPhotoManager *manager;
-@property (strong, nonatomic) HXPhotoView *photoView;
+#import "DzyImgPicker.h"
+
+#import "AFHTTPSessionManager.h"
+
+@interface fabiaoViewController ()<DzyImgDelegate>
+
+
 @property (nonatomic,strong) WJGtextView *textView;
 @property (nonatomic,strong) NSMutableArray *imgArray;
+@property (nonatomic ) DzyImgPicker *dzyView;
+@property (nonatomic ) NSArray *data;
+
+
 @end
 
 @implementation fabiaoViewController
 
-- (HXPhotoManager *)manager
-{
-    if (!_manager) {
-        _manager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
-        _manager.openCamera = NO;
-        _manager.outerCamera = NO;
-        _manager.photoMaxNum = 9;
-        _manager.videoMaxNum = 9;
-        _manager.maxNum = 9;
-        _manager.rowCount = 4;
+- (DzyImgPicker *)dzyView {
+    
+    if (!_dzyView) {
+        //此处需要注意  自己计算一下  我设置的每个cell 是60*60  间距10 所以 这里一般是设置 全屏宽度  如有特殊需求自行修改
+        DzyImgPicker *picker = [[DzyImgPicker alloc] initWithFrame:CGRectMake(0, 160, DEVICE_WIDTH, 200) andParentV:self andMaxNum:9];
+        picker.delegate = self;
+        
+        picker.backgroundColor = [UIColor orangeColor];
+        _dzyView = picker;
     }
-    return _manager;
+    return _dzyView;
+}
+
+- (void)getImages:(NSArray *)imgData
+{
+    for (int i = 0; i<imgData.count; i++) {
+        UIImage *img = [imgData objectAtIndex:i];
+        [self.imgArray addObject:img];
+    }
 }
 
 -(WJGtextView *)textView
@@ -39,7 +54,7 @@
     {
         _textView = [[WJGtextView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 150)];
         _textView.customPlaceholder = @"发表帖子";
-        _textView.backgroundColor = [UIColor wjColorFloat:@"C7C7CD"];
+        //textView.backgroundColor = [UIColor wjColorFloat:@"C7C7CD"];
     }
     return _textView;
 }
@@ -58,19 +73,20 @@
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     
     self.imgArray = [NSMutableArray array];
-    
     self.navigationController.navigationBar.translucent = NO;
-    self.automaticallyAdjustsScrollViewInsets = YES;
-    CGFloat width = self.view.frame.size.width;
     [self.view addSubview:self.textView];
-    HXPhotoView *photoView = [HXPhotoView photoManager:self.manager];
-    photoView.frame = CGRectMake(12, 180, width - 24, 0);
-    photoView.delegate = self;
-    //photoView.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:photoView];
-    self.photoView = photoView;
-    
+    self.data = [NSArray new];
+    [self.view addSubview:self.dzyView];
+    __weak typeof(self)weakSelf = self;
+    [_dzyView setDzyImgs:^(NSArray *data) {
+        weakSelf.data = data;
+        NSLog(@"block --- %lu",(unsigned long)data.count);
+    }];
+
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,26 +98,6 @@
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
 }
-
-- (void)photoViewChangeComplete:(NSArray<HXPhotoModel *> *)allList Photos:(NSArray<HXPhotoModel *> *)photos Videos:(NSArray<HXPhotoModel *> *)videos Original:(BOOL)isOriginal
-{
-    NSLog(@"所有:%ld - 照片:%ld - 视频:%ld",allList.count,photos.count,videos.count);
-    for (int i = 0; i<photos.count; i++) {
-        HXPhotoModel *model = [photos objectAtIndex:i];
-        UIImage *img = model.thumbPhoto;
-        [self.imgArray addObject:img];
-    }
-}
-
-- (void)photoViewDeleteNetworkPhoto:(NSString *)networkPhotoUrl {
-    NSLog(@"%@",networkPhotoUrl);
-}
-
-- (void)photoViewUpdateFrame:(CGRect)frame WithView:(UIView *)view
-{
-    NSLog(@"%@",NSStringFromCGRect(frame));
-}
-
 #pragma mark - 实现方法
 
 -(void)backAction
@@ -111,18 +107,72 @@
 
 -(void)rightAction
 {
-    NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"id":@"",@"content":self.textView.text,@"file":self.imgArray};
-    [PPNetworkHelper GET:fatie parameters:para success:^(id responseObject) {
+    NSDictionary *para = @{@"token":[tokenstr tokenstrfrom],@"id":self.idstr,@"content":self.textView.text,@"images":self.imgArray};
+    
+    NSMutableArray *namearr = [NSMutableArray array];
+    NSString *name  = [NSString string];
+    
+    for (int i = 0; i<self.imgArray.count; i++) {
+        name = [NSString stringWithFormat:@"%d%@",i,@"img"];
+        [namearr addObject:name];
+    }
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 30;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"text/plain",@"multipart/form-data"]];
+    [manager POST:fatie parameters:para constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        for (int i=0; i<self.imgArray.count; i++) {
+            UIImage * image =self.imgArray[i];
+            NSDate *date = [NSDate date];
+            NSDateFormatter *formormat = [[NSDateFormatter alloc]init];
+            [formormat setDateFormat:@"HHmmss"];
+            NSString *dateString = [formormat stringFromDate:date];
+           // NSString *fileName = [NSString  stringWithFormat:@"%@%d.png",dateString,i];
+            NSData *imageData = UIImageJPEGRepresentation(image, 1);
+            double scaleNum = (double)300*1024/imageData.length;
+            NSLog(@"图片压缩率：%f",scaleNum);
+            if(scaleNum <1){
+                
+                imageData = UIImageJPEGRepresentation(image, scaleNum);
+            }else{
+                
+                imageData = UIImageJPEGRepresentation(image, 0.1);
+                
+            }
+            
+            [formData appendPartWithFileData:imageData name:@"fileToUpload[]" fileName:[NSString stringWithFormat:@"%d.jpg",i] mimeType:@"image/jpeg"];
+            
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        NSLog(@"---%@",uploadProgress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"`````````%@",responseObject);
+        NSDictionary *datas = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
+        //
+        NSLog(@"请求成功%@",datas);
         NSString *hud = [responseObject objectForKey:@"msg"];
-        [MBProgressHUD showError:hud];
-    } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"没有网络"];
-    }];
-}
+        
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            [MBProgressHUD showError:hud];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else
+        {
+            [MBProgressHUD showError:hud];
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
-{
-    [self.textView resignFirstResponder];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [MBProgressHUD showSuccess:@"请求失败"];
+    }];
+    
+
+    
+    
+    
+
 }
 
 @end

@@ -210,14 +210,16 @@ static NSString *chakanidentfid2 = @"chakanidentfid2";
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return NO;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     if ([self.typestr isEqualToString:@"0"]) {
         return YES;
     }
     return NO;
 }
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    return NO;
-}
+
 #pragma mark - 实现方法
 
 -(void)backAction

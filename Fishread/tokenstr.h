@@ -15,4 +15,7 @@
 +(NSString *)nicknamestrfrom;
 //用户头像
 +(NSString *)userimgstrfrom;
+
+
++(NSString *)useruid;
 @end

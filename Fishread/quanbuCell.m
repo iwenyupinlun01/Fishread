@@ -367,7 +367,7 @@
         [self.img4 setHidden:YES];
         [self.numlab setHidden:YES];
         NSString *imgstr = [model.imagesArray objectAtIndex:0];
-        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr]];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr] placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
 
     }
     if (model.imagesArray.count==2) {
@@ -376,59 +376,59 @@
         [self.img4 setHidden:YES];
         [self.numlab setHidden:YES];
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
-        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr1 = [model.imagesArray objectAtIndex:1];
-        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
 
     }
     if (model.imagesArray.count==3) {
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
-        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr1 = [model.imagesArray objectAtIndex:1];
-        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr2 = [model.imagesArray objectAtIndex:2];
-        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         [self.img3 setHidden:YES];
         [self.img4 setHidden:YES];
         [self.numlab setHidden:YES];
     }
     if (model.imagesArray.count==4) {
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
-        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr1 = [model.imagesArray objectAtIndex:1];
-        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr2 = [model.imagesArray objectAtIndex:2];
-        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr3 = [model.imagesArray objectAtIndex:3];
-        [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         [self.img4 setHidden:YES];
         [self.numlab setHidden:YES];
     }
     if (model.imagesArray.count==5) {
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
-        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr1 = [model.imagesArray objectAtIndex:1];
-        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr2 = [model.imagesArray objectAtIndex:2];
-        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr3 = [model.imagesArray objectAtIndex:3];
-        [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr4 = [model.imagesArray objectAtIndex:4];
-        [self.img4 sd_setImageWithURL:[NSURL URLWithString:imgstr4]];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:imgstr4]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
       
     }
     if (model.imagesArray.count>5)
     {
         NSString *imgstr0 = [model.imagesArray objectAtIndex:0];
-        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgstr0]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr1 = [model.imagesArray objectAtIndex:1];
-        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgstr1]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr2 = [model.imagesArray objectAtIndex:2];
-        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]];
+        [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgstr2]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr3 = [model.imagesArray objectAtIndex:3];
-        [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]];
+        [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgstr3]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *imgstr4 = [model.imagesArray objectAtIndex:4];
-        [self.img4 sd_setImageWithURL:[NSURL URLWithString:imgstr4]];
+        [self.img4 sd_setImageWithURL:[NSURL URLWithString:imgstr4]placeholderImage:[UIImage imageNamed:@"文鱼加载失败图"]];
         NSString *num = [NSString stringWithFormat:@"%lu",model.imagesArray.count-5];
         self.numlab.text = [NSString stringWithFormat:@"%@%@",@"+",num];
     }

@@ -20,6 +20,8 @@
 @property (nonatomic,strong) UITableView *infotableView;
 
 @property (nonatomic, strong) NSArray *carGroups;
+
+@property (nonatomic,strong) UILabel *redlab;
 @end
 
 static NSString *infocellidentfid0 = @"infocellidentfid0";
@@ -78,6 +80,29 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     } failure:^(NSError *error) {
         
     }];
+    
+    NSString *urlstr2 = [NSString stringWithFormat:dibucaidanlankejian,[tokenstr tokenstrfrom]];
+    [PPNetworkHelper GET:urlstr2 parameters:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            NSDictionary *dit = [responseObject objectForKey:@"info"];
+            NSString *circle = [dit objectForKey:@"circle"];
+            if ([circle isEqualToString:@"1"]) {
+                [self.redlab setHidden:NO];
+                NSString *num = [dit objectForKey:@"informNum"];
+                self.redlab.text = num;
+            }else
+            {
+                [self.redlab setHidden:YES];
+            }
+            [self.infotableView reloadData];
+        }else
+        {
+            NSString *hud = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hud];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - getters
@@ -93,6 +118,22 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     return _infotableView;
 }
 
+-(UILabel *)redlab
+{
+    if(!_redlab)
+    {
+        _redlab = [[UILabel alloc] init];
+        _redlab.textAlignment = NSTextAlignmentCenter;
+        _redlab.backgroundColor = [UIColor redColor];
+        _redlab.textColor = [UIColor whiteColor];
+        _redlab.layer.masksToBounds = YES;
+        _redlab.layer.cornerRadius = 10;
+        //_redlab.text = @"12";
+        [_redlab setHidden:YES];
+    }
+    return _redlab;
+}
+
 
 -(NSArray *)carGroups
 {
@@ -102,13 +143,13 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
         infoGroup *cg1 = [[infoGroup alloc] init];
         cg1.textarr = @[@"消息通知",@"我的发表",@"我的收藏"];
         cg1.imgarr = @[@"矩形-39",@"矩形-41",@"收藏"];
-        infoGroup *cg2 = [[infoGroup alloc] init];
-        cg2.textarr = @[@"钱包"];
-        cg2.imgarr = @[@"钱包"];
+//        infoGroup *cg2 = [[infoGroup alloc] init];
+//        cg2.textarr = @[@"钱包"];
+//        cg2.imgarr = @[@"钱包"];
         infoGroup *cg3 = [[infoGroup alloc] init];
         cg3.textarr = @[@"设置",@"帮助与反馈"];
         cg3.imgarr = @[@"设置",@"帮助与反馈"];
-         _carGroups = @[cg1, cg2, cg3];
+         _carGroups = @[cg1, cg3];
     }
     return _carGroups;
 }
@@ -146,7 +187,6 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
         view.delegate = self;
         view.namelab.text = [tokenstr nicknamestrfrom];
         [view.infoimg sd_setImageWithURL:[NSURL URLWithString:[tokenstr userimgstrfrom]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
-        
         return view;
     }
     return nil;
@@ -168,6 +208,10 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.leftimg.image = [UIImage imageNamed:g.imgarr[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.section==0&&indexPath.row==0) {
+        self.redlab.frame = CGRectMake(DEVICE_WIDTH-60, 20, 20, 20);
+        [cell addSubview:self.redlab];
+    }
     return cell;
 }
 
@@ -187,10 +231,10 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
             [self.navigationController pushViewController:collectionvc animated:YES];
         }
     }
+//    if (indexPath.section==1) {
+//      
+//    }
     if (indexPath.section==1) {
-      
-    }
-    if (indexPath.section==2) {
         if (indexPath.row==0) {
             setViewController *setvc = [[setViewController alloc] init];
             [self.navigationController pushViewController:setvc animated:YES];
