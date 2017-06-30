@@ -158,6 +158,7 @@
 }
 
 #pragma mark - 实现方法
+
 -(void)weixinLogin{
     if([WXApi isWXAppInstalled]){
         
@@ -166,7 +167,7 @@
         
     }else{
         [_loginbtn setTitle:@"访客模式" forState:normal];
-        //[self.loginbtn addTarget:self action:@selector(gobackbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        [self.loginbtn addTarget:self action:@selector(gobackbtnclick) forControlEvents:UIControlEventTouchUpInside];
         [self noLoginAlertController];
     }
 }
