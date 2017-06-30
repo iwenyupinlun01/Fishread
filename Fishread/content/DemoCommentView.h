@@ -10,6 +10,10 @@
 
 @protocol myviewVdelegate <NSObject>
 -(void)myTabVClick:(NSDictionary *)dic;
+
+-(void)myTabVClickshanchuview:(NSString *)uidstr;
+-(void)myTabVClickjubaoview:(NSDictionary *)dic;
+
 @end
 
 @interface DemoCommentView : UIView

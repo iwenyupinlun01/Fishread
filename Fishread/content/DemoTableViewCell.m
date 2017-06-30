@@ -106,6 +106,12 @@
 - (BOOL)canBecomeFirstResponder{
     return YES;
 }
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return action==@selector(cellshanchu:)|| action==@selector(jubaocell:);
+}
+
 -(void)cellLongPress:(UILongPressGestureRecognizer *)longRecognizer{
     
     
@@ -113,33 +119,39 @@
         //成为第一响应者，需重写该方法
         [self becomeFirstResponder];
         
+        //在此添加你想要完成的功能
+        NSLog(@"modl-----%@",_model.uidstr);
         UIMenuController * menu = [UIMenuController sharedMenuController];
-       // [menu setTargetRect:self.frame inView:self];
+        [menu setTargetRect:self.bounds inView:self.contentView.superview];
         
-//        if (menu.isMenuVisible)
-//        {
-//            [menu setMenuVisible:NO animated:YES];
-//        }
-//        {
-            [menu setTargetRect:self.bounds inView:self.contentView.superview];
+        if ([self.model.uidstr isEqualToString:[tokenstr useruid]]) {
+            
             UIMenuItem * item0 = [[UIMenuItem alloc]initWithTitle:@"删除" action:@selector(cellshanchu:)];
             menu.menuItems = @[item0];
             [menu setMenuVisible:YES animated:YES];
-       // }
 
-        //在此添加你想要完成的功能
-        
-        NSLog(@"modl-----%@",_model.uidstr);
-        
+            
+        }else
+        {
+
+            UIMenuItem * item1 = [[UIMenuItem alloc]initWithTitle:@"举报" action:@selector(jubaocell:)];
+            menu.menuItems = @[item1];
+            [menu setMenuVisible:YES animated:YES];
+        }
     }
-    
 }
 
 -(void)cellshanchu:(UIMenuController *)menu
 {
     [menu setMenuVisible:NO animated:YES];
+    [self.delegate myTabVClickshanchu:self];
 }
 
+-(void)jubaocell:(UIMenuController *)menu
+{
+    [menu setMenuVisible:NO animated:YES];
+    [self.delegate myTabVClickjubao:self];
+}
 
 -(dianzanBtn *)zanBtn
 {

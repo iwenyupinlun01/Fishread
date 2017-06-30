@@ -30,4 +30,5 @@
     self.model = hmodel;
     self.textLabel.text = hmodel.historysearchkey;
 }
+
 @end

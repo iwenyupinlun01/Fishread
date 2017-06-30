@@ -17,7 +17,7 @@
 -(void)myTabVClickdianzan:(UITableViewCell *)cell;
 
 -(void)myTabVClickshanchu:(UITableViewCell *)cell;
-
+-(void)myTabVClickjubao:(UITableViewCell *)cell;
 @end
 
 @interface DemoTableViewCell : UITableViewCell

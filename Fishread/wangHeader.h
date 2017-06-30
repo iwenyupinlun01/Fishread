@@ -20,7 +20,7 @@
 
 #define WXLoginSuccess                   @"WXLoginSuccess"
 
-#define IPAddress @"www.3a406.cn"
+#define IPAddress @"www.iwenyu.cn"
 
 //登陆
 #define denglu @"http://"IPAddress"/ucenter/member/login.html"
@@ -79,9 +79,9 @@
 //系统消息 get
 #define xitongxiaoxi @"http://"IPAddress"/forum/user/systemInform.html?token=%@&page=%@"
 //删除消息 get
-#define shanchuxiaoxi2 @"http://www.3a406.cn/forum/user/removeInform.html?token=%@&type=%@&id=%@"
+#define shanchuxiaoxi2 @"http://"IPAddress"/forum/user/removeInform.html?token=%@&type=%@&id=%@"
 //发帖 post
-#define fatie @"http://www.3a406.cn/forum/index/publishPost.html"
+#define fatie @"http://"IPAddress"/forum/index/publishPost.html"
 //看完返回
 #define kanwanfanhui @"http://"IPAddress"/forum/user/returnMsg.html?token=%@&id=%@"
 //我的发表
@@ -93,10 +93,11 @@
 //删除帖子
 #define shanchutiezi @"http://"IPAddress"/forum/index/postDelete.html?token=%@&id=%@"
 //退出圈子时间 get
-#define tuichuquanzishijian @"http://www.3a406.cn/forum/circle/updataQuitTime.html?token=%@&post_id=%@"
+#define tuichuquanzishijian @"http://"IPAddress"/forum/circle/updataQuitTime.html?token=%@&post_id=%@"
 //底部菜单栏可见
-#define dibucaidanlankejian @"http://www.3a406.cn/forum/circle/begin.html?token=%@"
-
+#define dibucaidanlankejian @"http://"IPAddress"/forum/circle/begin.html?token=%@"
+//删除评论
+#define shanchupingluncell @"http://"IPAddress"/forum/index/delComment.html?token=%@&id=%@"
 
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))

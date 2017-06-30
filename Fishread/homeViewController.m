@@ -52,13 +52,15 @@ static NSString *indentify = @"indentify";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.hidesBottomBarWhenPushed = NO;
+//    self.hidesBottomBarWhenPushed = NO;
     self.tabBarController.tabBar.hidden = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.hidesBottomBarWhenPushed = NO;
+    self.tabBarController.tabBar.hidden = NO;
     if ([tokenstr tokenstrfrom].length==0) {
         [self dengluclick];
     }

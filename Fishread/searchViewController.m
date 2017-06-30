@@ -14,6 +14,8 @@
 #import "searchheadView.h"
 #import "jieguoCell.h"
 #import "jieguoModel.h"
+#import "taolunquanViewController.h"
+#import "yueduquanViewController.h"
 
 @interface searchViewController ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,mycellVdelegate,myheadviewVdelegate>
 {
@@ -26,10 +28,9 @@
 @property (nonatomic,strong) NSMutableArray *listidArray;
 @property (nonatomic,strong) NSMutableArray *relation_idArray;
 @property (nonatomic,strong) NSMutableArray *historyDatasourceArray;
-
 @property (nonatomic,strong) UITableView *jieguotableView;
-
 @property (nonatomic,strong) NSMutableArray *jieguodataArray;
+
 @end
 
 static NSString *searchidentfid0 = @"searchidentfid0";
@@ -334,6 +335,26 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     }
     return nil;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==self.jieguotableView) {
+        jieguoModel *hmodel = self.jieguodataArray[indexPath.row];
+        NSString *homeidstr = hmodel.idstr;
+        NSString *relation_idstr = hmodel.typestr;
+        self.hidesBottomBarWhenPushed = YES;
+        if ([relation_idstr isEqualToString:@"0"]) {
+            taolunquanViewController *taolunquanVC = [[taolunquanViewController alloc] init];
+            taolunquanVC.idstr = homeidstr;
+            [self.navigationController pushViewController:taolunquanVC animated:YES];
+            
+        }else
+        {
+            yueduquanViewController *yueduvc = [[yueduquanViewController alloc] init];
+            yueduvc.idstr = homeidstr;
+            [self.navigationController pushViewController:yueduvc animated:YES];
+        }
+    }
+}
 
 -(void)myTabVClick:(UITableViewCell *)cell
 {
@@ -350,6 +371,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
         NSLog(@"res-------%@",responseObject);
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             [MBProgressHUD showSuccess:@"操作成功"];
+            [self headerRefreshEndActionjieguo];
         }
         else if ([[responseObject objectForKey:@"code"] intValue]==0) {
             [MBProgressHUD showSuccess:@"token错误"];
@@ -398,9 +420,6 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
             if ([[responseObject objectForKey:@"code"] intValue]==1) {
                 [MBProgressHUD showSuccess:@"操作成功"];
                 
-//                [self.historyDatasourceArray removeObjectAtIndex:indexPath.row];
-//                // Delete the row from the data source.
-//                [self.searchtableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 
             }
             else if ([[responseObject objectForKey:@"code"] intValue]==0) {
@@ -421,9 +440,6 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"删除";
-    
-   
-    
 }
 
 #pragma mark - UISearchBarDelegate

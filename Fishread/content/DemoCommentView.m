@@ -76,6 +76,13 @@
         [textlab addGestureRecognizer:labelTapGestureRecognizer];
         textlab.userInteractionEnabled = YES; // 可以理解为设置label可被点击
         
+        
+        //添加长按手势
+        UILongPressGestureRecognizer * longPressGesture =[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
+        longPressGesture.minimumPressDuration=1.0f;//设置长按 时间
+        [self addGestureRecognizer:longPressGesture];
+        
+        
         NSString *str1 = model.firstUserName;
         NSString *str2 = @"回复";
         NSString *str3 = model.secondUserName;
@@ -126,6 +133,74 @@
     NSString *pid = self.demomodel.pidstr;
     dic = @{@"firstid":firstid,@"secondid":secondid,@"pid":pid};
     [self.delegate myTabVClick:dic];
+}
+- (BOOL)canBecomeFirstResponder{
+    return YES;
+}
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return action==@selector(cellshanchu:)|| action==@selector(jubaocell:);
+}
+
+
+
+-(void)cellLongPress:(UILongPressGestureRecognizer *)longRecognizer{
+    
+    
+    NSInteger taginter = [longRecognizer view].tag;
+    self.demomodel = [[DemoCommentModel alloc] init];
+    self.demomodel = [_commentArray objectAtIndex:taginter];
+    
+    NSString *firstid = self.demomodel.firstUserId;
+    
+    if (longRecognizer.state==UIGestureRecognizerStateBegan) {
+        //成为第一响应者，需重写该方法
+        [self becomeFirstResponder];
+        
+        //在此添加你想要完成的功能
+        NSLog(@"modl-----%@",firstid);
+        
+        UIMenuController * menu = [UIMenuController sharedMenuController];
+        [menu setTargetRect:self.bounds inView:self.superview];
+        
+        if ([self.demomodel.firstUserId isEqualToString:[tokenstr useruid]]) {
+            
+            UIMenuItem * item0 = [[UIMenuItem alloc]initWithTitle:@"删除" action:@selector(cellshanchu:)];
+            menu.menuItems = @[item0];
+            [menu setMenuVisible:YES animated:YES];
+            
+            
+        }else
+        {
+            
+            UIMenuItem * item1 = [[UIMenuItem alloc]initWithTitle:@"举报" action:@selector(jubaocell:)];
+            menu.menuItems = @[item1];
+            [menu setMenuVisible:YES animated:YES];
+        }
+    }
+}
+
+-(void)cellshanchu:(UIMenuController *)menu
+{
+    [menu setMenuVisible:NO animated:YES];
+    
+    NSString *idstr = self.demomodel.idstr;
+    NSLog(@"uid---------%@",idstr);
+    [self.delegate myTabVClickshanchuview:idstr];
+    
+}
+
+-(void)jubaocell:(UIMenuController *)menu
+{
+    [menu setMenuVisible:NO animated:YES];
+//    [self.delegate myTabVClickjubao:self];
+    NSString *firstid = self.demomodel.firstUserId;
+    NSLog(@"uid---------%@",firstid);
+    NSString *idstr = self.demomodel.idstr;
+    NSDictionary *dic = [NSDictionary dictionary];
+    dic = @{@"firstid":firstid,@"idstr":idstr};
+    [self.delegate myTabVClickjubaoview:dic];
 }
 
 @end

@@ -186,6 +186,7 @@ static NSString *setidentfid1 = @"setidentfid1";
                 [defaults removeObjectForKey:@"access_token"];
                 [defaults removeObjectForKey:@"namestr"];
                 [defaults removeObjectForKey:@"pathurlstr"];
+                [defaults removeObjectForKey:@"useruid"];
                 [MBProgressHUD showSuccess:@"退出成功"];
                 self.view.window.rootViewController = [[TopViewController alloc] init];
             }else if ([[responseObject objectForKey:@"code"] intValue]==0)
@@ -204,7 +205,6 @@ static NSString *setidentfid1 = @"setidentfid1";
     [control addAction:action1];
     [self presentViewController:control animated:YES completion:nil];
     
-
 }
 
 #pragma mark - 实现方法

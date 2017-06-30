@@ -80,29 +80,32 @@ static NSString *quanziidentfid = @"quanziidentfid";
     } success:^(id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSArray *dataarr = [responseObject objectForKey:@"info"];
-            for (int i = 0; i<dataarr.count; i++) {
-                NSDictionary *dit = [dataarr objectAtIndex:i];
-                quanbuModel *model = [[quanbuModel alloc] init];
-                model.object_idstr = [dit objectForKey:@"object_id"];
-                model.reward_numstr = [dit objectForKey:@"reward_num"];
-                model.parsestr = [dit objectForKey:@"parse"];
-                model.create_timestr = [dit objectForKey:@"create_time"];
-                model.contentstr = [dit objectForKey:@"content"];
-                model.idstr = [dit objectForKey:@"id"];
-                model.reply_numstr = [dit objectForKey:@"reply_num"];
-                model.statusstr = [dit objectForKey:@"status"];
-                model.support_numstr = [dit objectForKey:@"support_num"];
-                model.imagesArray = [dit objectForKey:@"images"];
-                model.titlestr = [dit objectForKey:@"title"];
-                model.post_statusstr = [dit objectForKey:@"post_status"];
-                model.member_statusstr = [dit objectForKey:@"member_status"];
-                model.nicknamestr = [dit objectForKey:@"nickname"];
-                model.pathstr = [dit objectForKey:@"path"];
-                model.is_supportstr = [dit objectForKey:@"is_support"];
-                [self.quanbuArray addObject:model];
+            if ([dataarr isKindOfClass:[NSArray class]]) {
+                for (int i = 0; i<dataarr.count; i++) {
+                    NSDictionary *dit = [dataarr objectAtIndex:i];
+                    quanbuModel *model = [[quanbuModel alloc] init];
+                    model.object_idstr = [dit objectForKey:@"object_id"];
+                    model.reward_numstr = [dit objectForKey:@"reward_num"];
+                    model.parsestr = [dit objectForKey:@"parse"];
+                    model.create_timestr = [dit objectForKey:@"create_time"];
+                    model.contentstr = [dit objectForKey:@"content"];
+                    model.idstr = [dit objectForKey:@"id"];
+                    model.reply_numstr = [dit objectForKey:@"reply_num"];
+                    model.statusstr = [dit objectForKey:@"status"];
+                    model.support_numstr = [dit objectForKey:@"support_num"];
+                    model.imagesArray = [dit objectForKey:@"images"];
+                    model.titlestr = [dit objectForKey:@"title"];
+                    model.post_statusstr = [dit objectForKey:@"post_status"];
+                    model.member_statusstr = [dit objectForKey:@"member_status"];
+                    model.nicknamestr = [dit objectForKey:@"nickname"];
+                    model.pathstr = [dit objectForKey:@"path"];
+                    model.is_supportstr = [dit objectForKey:@"is_support"];
+                    [self.quanbuArray addObject:model];
+                }
+                [self.quanzitableView reloadData];
+                [self.quanzitableView.mj_header endRefreshing];
             }
-            [self.quanzitableView reloadData];
-            [self.quanzitableView.mj_header endRefreshing];
+            
         }else
         {
             NSString *hudstr = [responseObject objectForKey:@"msg"];

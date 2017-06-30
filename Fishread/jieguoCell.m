@@ -91,18 +91,18 @@
 -(void)setdata:(jieguoModel *)model
 {
     self.jmodel = model;
-    [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.leftimgstr]];
+    [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.leftimgstr] placeholderImage:[UIImage imageNamed:@"默认图"]];
     self.namelab.text = model.namestr;
-    if ([model.typestr isEqualToString:@"0"]) {
-        //讨论圈
-        self.typelab.text = @"讨论圈";
-        self.typelab.textColor = [UIColor wjColorFloat:@"FD8B3F"];
-    }
-    else
-    {
-        self.typelab.text = @"阅读圈";
-        self.typelab.textColor = [UIColor wjColorFloat:@"54D48A"];
-    }
+//    if ([model.typestr isEqualToString:@"0"]) {
+//        //讨论圈
+//        self.typelab.text = @"讨论圈";
+//        self.typelab.textColor = [UIColor wjColorFloat:@"FD8B3F"];
+//    }
+//    else
+//    {
+//        self.typelab.text = @"阅读圈";
+//        self.typelab.textColor = [UIColor wjColorFloat:@"54D48A"];
+//    }
 }
 
 @end

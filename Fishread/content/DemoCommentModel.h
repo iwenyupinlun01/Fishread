@@ -18,7 +18,8 @@
 @property (nonatomic, copy) NSString *secondUserId;
 
 
+
 @property (nonatomic, copy) NSString *pidstr;
 //@property (nonatomic, copy) NSAttributedString *attributedContent;
-
+@property (nonatomic, copy) NSString *idstr;
 @end
