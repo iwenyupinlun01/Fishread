@@ -41,7 +41,9 @@ static NSString *indentify = @"indentify";
     [self addHeader];
     // 3.2.上拉加载更多
     [self addFooter];
-    
+    if ([tokenstr tokenstrfrom].length==0) {
+        [self dengluclick];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,9 +63,7 @@ static NSString *indentify = @"indentify";
     [super viewDidAppear:animated];
     self.hidesBottomBarWhenPushed = NO;
     self.tabBarController.tabBar.hidden = NO;
-    if ([tokenstr tokenstrfrom].length==0) {
-        [self dengluclick];
-    }
+    
 }
 
 #pragma mark - 刷新控件

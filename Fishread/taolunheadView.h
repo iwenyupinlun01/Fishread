@@ -23,6 +23,8 @@
 
 @property (nonatomic,strong) UILabel *zhangjielab;
 
+
+@property (nonatomic,strong) UIButton *morebtn;
 -(void)setdata:(NSDictionary *)dit;
 
 @end

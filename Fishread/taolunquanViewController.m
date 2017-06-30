@@ -477,8 +477,7 @@
         // 改变scrollView的contentOffset
         self.scrollView.contentOffset = CGPointMake(index * WZBScreenWidth, 0);
         
-        // 刷新最大OffsetY
-        //[self reloadMaxOffsetY];
+
         
     }];
     
@@ -494,7 +493,7 @@
     // 加两条线
     for (NSInteger i = 0; i < 2; i++) {
         UIView *line = [UIView new];
-        line.backgroundColor = WZBColor(228, 227, 230);
+        line.backgroundColor = WZBColor(228, 227, 195);
         line.frame = CGRectMake(0, 43.5 * i, WZBScreenWidth, 0.5);
         [sectionView addSubview:line];
     }
@@ -652,7 +651,7 @@
         
         CGFloat contentOffsetY = scrollView.contentOffset.y;
         
-        // 如果滑动没有超过150
+        
         if (contentOffsetY < 195*HEIGHT_SCALE-20-44) {
             
             // 让这2个tableView的偏移量相等

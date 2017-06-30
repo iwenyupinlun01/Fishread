@@ -7,21 +7,15 @@
 //
 
 #import "yueduquanViewController.h"
-
 #import <SDAutoLayout.h>
-
-
 #import "WZBSegmentedControl.h"
 #import "UIViewController+Cloudox.h"
 #import "UINavigationController+Cloudox.h"
 #import "taolunheadView.h"
-
 #import "taolunquanModel.h"
 #import "taolunCell0.h"
 #import "DemoCommentModel.h"
-
 #import "democontentViewController.h"
-
 #import "chengyuanViewController.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
@@ -39,6 +33,7 @@
 {
     int pn;
     int pn2;
+    BOOL ishead;
 }
 // 左边的tableView
 @property (nonatomic, strong) UITableView *leftTableView;
@@ -63,12 +58,10 @@
 @property (nonatomic,strong) NSMutableArray *rightArray;
 @property (nonatomic,strong) UIButton *jiaruBtn;
 @property (nonatomic,strong) NSString *isleft;
-
-
 @property (nonatomic,strong) NSString *headuid;
 @property (nonatomic,strong) NSString *headidstr;
-
 @property (nonatomic,strong) UIButton *fabiaoBtn;
+
 @end
 
 @implementation yueduquanViewController
@@ -84,7 +77,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
-    
+    self.headheistr = @"390";
     [self getui];
     [self.view addSubview:self.fabiaoBtn];
     self.isleft = @"1";
@@ -92,6 +85,9 @@
     [self addFooterleft];
     [self addHeaderright];
     [self addFooterfight];
+    
+    ishead =  YES;
+    
     [self.view addSubview:self.jiaruBtn];
     self.leftTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.centerTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -145,18 +141,7 @@
     }
     return _fabiaoBtn;
 }
--(void)network
-{
-    self.headheistr = @"370";
-    CGFloat hei = [self.headheistr floatValue];
-    self.headview.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE);
-    self.jiaheaderView.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE+44);
-    self.sectionView.frame = CGRectMake(0, hei*HEIGHT_SCALE-64, DEVICE_WIDTH, 44);
-    self.jiaheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE+44)];
-    self.jiaheaderView.backgroundColor = [UIColor whiteColor];
-    self.centerTableView.tableHeaderView = self.jiaheaderView;
-    self.leftTableView.tableHeaderView = self.jiaheaderView;
-}
+
 
 - (void)addHeaderleft
 {
@@ -231,12 +216,15 @@
             NSString *typeTitle = [infodic objectForKey:@"typeTitle"];
             NSString *background = [infodic objectForKey:@"background"];
             NSString *collecCount = [infodic objectForKey:@"collecCount"];
+            NSString *book_status = [infodic objectForKey:@"book_status"];
             
-             self.headuid = [infodic objectForKey:@"creator_uid"];
+            
+            
+            self.headuid = [infodic objectForKey:@"creator_uid"];
             
             self.headdit = [NSDictionary dictionary];
             
-            self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background,@"collecCount":collecCount};
+            self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background,@"collecCount":collecCount,@"book_status":book_status};
             
             [self.headview setdata:self.headdit];
             
@@ -496,12 +484,12 @@
     scrollView.contentSize = CGSizeMake(2 * WZBScreenWidth, 0);
     scrollView.pagingEnabled = YES;
     self.scrollView = scrollView;
-    self.headview = [[taolunheadView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, 370*HEIGHT_SCALE)];
-    
+    self.headview = [[taolunheadView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, 390*HEIGHT_SCALE)];
+    [self.headview.morebtn addTarget:self action:@selector(headmorebtnclick) forControlEvents:UIControlEventTouchUpInside];
     self.headview.backgroundColor = [UIColor whiteColor];
     
     // 创建segmentedControl
-    WZBSegmentedControl *sectionView = [WZBSegmentedControl segmentWithFrame:(CGRect){0, 370*HEIGHT_SCALE-64, WZBScreenWidth, 44} titles:@[@"全部", @"神呐"] tClick:^(NSInteger index) {
+    WZBSegmentedControl *sectionView = [WZBSegmentedControl segmentWithFrame:(CGRect){0, 390*HEIGHT_SCALE-64, WZBScreenWidth, 44} titles:@[@"全部", @"神呐"] tClick:^(NSInteger index) {
         
         // 改变scrollView的contentOffset
         self.scrollView.contentOffset = CGPointMake(index * WZBScreenWidth, 0);
@@ -575,8 +563,8 @@
     tableView.dataSource = self;
     
     // 创建一个假的headerView，高度等于headerView的高度
-    UIView *headerView = [[UIView alloc] initWithFrame:(CGRect){0, -64, WZBScreenWidth, 370*HEIGHT_SCALE+44}];
-    tableView.tableHeaderView = headerView;
+     UIView *headview = [[UIView alloc] initWithFrame:(CGRect){0, -64, WZBScreenWidth, 390*HEIGHT_SCALE+44}];
+    tableView.tableHeaderView = headview;
     return tableView;
 }
 
@@ -622,7 +610,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == self.leftTableView) {
-        
         taolunCell0 *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID111"];
         cell = [[taolunCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID111"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -645,8 +632,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    CGFloat hei = 370;
-    
+    CGFloat hei = [self.headheistr floatValue];
     // 如果当前滑动的是tableView
     if ([scrollView isKindOfClass:[UITableView class]]) {
         CGFloat contentOffsetY = scrollView.contentOffset.y;
@@ -695,7 +681,6 @@
             self.isleft = @"2";
         }
     }
-    
 }
 
 -(void)backAction
@@ -1258,5 +1243,51 @@
     [self.navigationController pushViewController:fabiaovc animated:YES];
 }
 
+
+#pragma mark - headviewmore
+
+-(void)headmorebtnclick
+{
+    NSLog(@"i can du it");
+    [self network];
+   
+}
+
+-(void)network
+{
+    ishead = !ishead;
+    if (ishead) {
+        self.headheistr = @"390";
+        
+        self.headview.contentlab.numberOfLines = 3;
+        [self.headview.contentlab sizeToFit];
+        
+        CGFloat hei = [self.headheistr floatValue];
+        self.headview.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE);
+        self.jiaheaderView.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE+44);
+        self.sectionView.frame = CGRectMake(0, hei*HEIGHT_SCALE-64, DEVICE_WIDTH, 44);
+        self.jiaheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE+44)];
+        self.jiaheaderView.backgroundColor = [UIColor whiteColor];
+        self.centerTableView.tableHeaderView = self.jiaheaderView;
+        self.leftTableView.tableHeaderView = self.jiaheaderView;
+    }else
+    {
+        self.headview.contentlab.numberOfLines = 0;
+        [self.headview.contentlab sizeToFit];
+        CGFloat texth = self.headview.contentlab.frame.size.height-47;
+        NSLog(@"hei-------%f",texth);
+        CGFloat hei222 = texth + 390;
+        self.headheistr = [NSString stringWithFormat:@"%f",hei222];
+        CGFloat hei = [self.headheistr floatValue];
+        self.headview.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE);
+        self.jiaheaderView.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE+44);
+        self.sectionView.frame = CGRectMake(0, hei*HEIGHT_SCALE-64, DEVICE_WIDTH, 44);
+        self.jiaheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE+44)];
+        self.jiaheaderView.backgroundColor = [UIColor whiteColor];
+        self.centerTableView.tableHeaderView = self.jiaheaderView;
+        self.leftTableView.tableHeaderView = self.jiaheaderView;
+    }
+   
+}
 
 @end

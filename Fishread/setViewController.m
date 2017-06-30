@@ -204,7 +204,6 @@ static NSString *setidentfid1 = @"setidentfid1";
     [control addAction:action0];
     [control addAction:action1];
     [self presentViewController:control animated:YES completion:nil];
-    
 }
 
 #pragma mark - 实现方法

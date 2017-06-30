@@ -36,4 +36,5 @@
 #import "UILabel+MultipleLines.h"
 #import <SDAutoLayout.h>
 #import "UIScrollView+EmptyDataSet.h"
+#import "UIButton+EnlargeTouchArea.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>

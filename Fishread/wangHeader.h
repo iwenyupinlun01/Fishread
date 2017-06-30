@@ -98,7 +98,8 @@
 #define dibucaidanlankejian @"http://"IPAddress"/forum/circle/begin.html?token=%@"
 //删除评论
 #define shanchupingluncell @"http://"IPAddress"/forum/index/delComment.html?token=%@&id=%@"
-
+//页面不可见
+#define yemianbukejian @"http://"IPAddress"/forum/circle/proHide.html?token=%@&type=%@"
 // 屏幕宽度 高度 (注意，启动的时候窗口的创建不能用这个宏，6plus横屏启动会出错)
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))
 #define SCREENHEIGHT (MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))

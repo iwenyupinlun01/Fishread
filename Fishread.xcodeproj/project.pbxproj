@@ -234,6 +234,7 @@
 		53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */; };
 		53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */; };
 		53FE5D921F02C0E4002B8CA4 /* AFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D911F02C0E4002B8CA4 /* AFManager.m */; };
+		53FE5D951F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D941F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -652,6 +653,8 @@
 		53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchtagView.m; sourceTree = "<group>"; };
 		53FE5D901F02C0E4002B8CA4 /* AFManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFManager.h; sourceTree = "<group>"; };
 		53FE5D911F02C0E4002B8CA4 /* AFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFManager.m; sourceTree = "<group>"; };
+		53FE5D931F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeTouchArea.h"; sourceTree = "<group>"; };
+		53FE5D941F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeTouchArea.m"; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -1093,6 +1096,8 @@
 				533B61E11EEA747D00DE0392 /* UILabel+textOfNumberLines.m */,
 				5330208A1EF1150C00D08825 /* UILabel+MultipleLines.h */,
 				5330208B1EF1150C00D08825 /* UILabel+MultipleLines.m */,
+				53FE5D931F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.h */,
+				53FE5D941F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m */,
 			);
 			path = HelpTool;
 			sourceTree = "<group>";
@@ -1940,6 +1945,7 @@
 				53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */,
 				539BBAF51F010DC8002F4634 /* AvoidCrash.m in Sources */,
 				539BBBA61F0242AC002F4634 /* ZLCameraImageView.m in Sources */,
+				53FE5D951F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m in Sources */,
 				533203FF1F00B2DD00526F8E /* replyModel.m in Sources */,
 				533020891EF0F8A800D08825 /* quanbuModel.m in Sources */,
 				539BBAFD1F010DC8002F4634 /* NSObject+AvoidCrash.m in Sources */,

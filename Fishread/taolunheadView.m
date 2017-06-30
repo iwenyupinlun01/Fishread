@@ -12,6 +12,10 @@
 @property (nonatomic,strong) UIImageView *beijin;
 @property (nonatomic,strong) UIView *lineview0;
 @property (nonatomic,strong) UIView *lineview1;
+
+@property (nonatomic,strong) UIImageView *typeimg;
+
+@property (strong, nonatomic) CAGradientLayer *gradientLayer;
 @end
 
 @implementation taolunheadView
@@ -25,6 +29,10 @@
         [self addSubview:self.lineview0];
         [self addSubview:self.lineview1];
         [self addSubview:self.zhangjielab];
+        
+        [self addSubview:self.typeimg];
+        
+        [self addSubview:self.morebtn];
     }
     return self;
 }
@@ -39,6 +47,15 @@
 
 #pragma mark - getters
 
+-(UIButton *)morebtn
+{
+    if(!_morebtn)
+    {
+        _morebtn = [[UIButton alloc] init];
+        [_morebtn setImage:[UIImage imageNamed:@"展开"] forState:normal];
+    }
+    return _morebtn;
+}
 
 -(UIImageView *)bgimg
 {
@@ -120,6 +137,19 @@
     return _contentlab;
 }
 
+
+-(UIImageView *)typeimg
+{
+    if(!_typeimg)
+    {
+        _typeimg = [[UIImageView alloc] init];
+        
+    }
+    return _typeimg;
+}
+
+
+
 -(UIButton *)btn01
 {
     if(!_btn01)
@@ -197,18 +227,42 @@
 {
     
     self.bgimg.frame = CGRectMake(0, 0, DEVICE_WIDTH, 378/2*HEIGHT_SCALE);
-    self.beijin.frame = CGRectMake(0, 0, DEVICE_WIDTH, 378/2*HEIGHT_SCALE);
+    //self.beijin.frame = CGRectMake(0, 0, DEVICE_WIDTH, 378/2*HEIGHT_SCALE);
+    //初始化渐变层
+    self.gradientLayer = [CAGradientLayer layer];
+    self.gradientLayer.frame = self.bgimg.bounds;
+    [self.bgimg.layer addSublayer:self.gradientLayer];
+    
+    //设置渐变颜色方向
+    self.gradientLayer.startPoint = CGPointMake(0, 0);
+    self.gradientLayer.endPoint = CGPointMake(0, 1);
+    
+  
+    _gradientLayer.locations = @[@(0.1f),@(1.f)];
+    
+    
+
+    self.gradientLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor,
+                                  (__bridge id)[UIColor whiteColor].CGColor];
+    
+    _gradientLayer.startPoint = CGPointMake(0, 0);
+    _gradientLayer.endPoint = CGPointMake(0, 1);
+    
+    
+    
+    
     NSString *bgimgstr = [dit objectForKey:@"background"];
     
     [self.bgimg sd_setImageWithURL:[NSURL URLWithString:bgimgstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
-    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *view2 = [[UIVisualEffectView alloc]initWithEffect:beffect];
-    view2.frame = self.bgimg.frame;
-    [self addSubview:self.bgimg];
-    [self addSubview:view2];
+//    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//    UIVisualEffectView *view2 = [[UIVisualEffectView alloc]initWithEffect:beffect];
+//    view2.frame = self.bgimg.frame;
     
-    self.beijin.alpha = 0.8;
-//    [self addSubview:self.beijin];
+     [self addSubview:self.bgimg];
+    
+//    [self addSubview:view2];
+    
+
     
     
     
@@ -230,7 +284,7 @@
     [self addSubview:self.btn01];
     [self addSubview:self.btn02];
     [self addSubview:self.contentlab];
-    
+
     
     
     [self.namelab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -283,24 +337,47 @@
     self.authorlab.text = [dit objectForKey:@"pubNickname"];
     self.contentlab.text = [dit objectForKey:@"pubContent"];
     self.typelab.text = [dit objectForKey:@"typeTitle"];
-    
     self.numberlab.text = [NSString stringWithFormat:@"%@%@",[dit objectForKey:@"collecCount"],@"成员"];
     
     self.contentlab.font = [UIFont systemFontOfSize:13];
     self.contentlab.preferredMaxLayoutWidth = (DEVICE_WIDTH - 14.0 * 2);
     [self.contentlab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     [self.contentlab sizeToFit];
+    
     CGFloat texth = self.contentlab.frame.size.height;
     NSLog(@"hei-------%f",texth);
     
+    if (texth < 46) {
+        [self.morebtn setHidden:YES];
+    }
+    
+    [self.morebtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentlab.mas_bottom).with.offset(4*HEIGHT_SCALE);
+        make.width.mas_offset(16*WIDTH_SCALE);
+        make.left.equalTo(self).with.offset(DEVICE_WIDTH/2-8*WIDTH_SCALE);
+        make.height.mas_offset(10*HEIGHT_SCALE);
+
+    }];
+    
+    
+    [self.morebtn setEnlargeEdgeWithTop:50 right:50 bottom:50 left:50];
     [self.lineview0 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentlab.mas_bottom).with.offset(13*HEIGHT_SCALE);
+        make.top.equalTo(self.morebtn.mas_bottom).with.offset(10*HEIGHT_SCALE);
         make.left.equalTo(self);
         make.right.equalTo(self);
         make.height.mas_offset(10*HEIGHT_SCALE);
     }];
     
-    self.zhangjielab.text = @"涉及到了使用两个TabBar,然后我需要显示,涉及到了使用两个TabBar,然后我需要显示,涉及到了使用两个TabBar,然后我需要显示";
+    
+    self.zhangjielab.text = [dit objectForKey:@"newSectionTitle"];
+    if ([[dit objectForKey:@"book_status"]isEqualToString:@"0"]) {
+        //连载中
+        self.typeimg.image = [UIImage imageNamed:@"连载"];
+    }else
+    {
+        //完结
+        self.typeimg.image = [UIImage imageNamed:@"完结"];
+    }
     
     [self.zhangjielab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.lineview0.mas_bottom).with.offset(2*HEIGHT_SCALE);
@@ -309,12 +386,22 @@
         make.height.mas_offset(40*HEIGHT_SCALE);
     }];
     
+    
+    [self.typeimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.zhangjielab.mas_top).with.offset(12*HEIGHT_SCALE);
+        //make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
+        make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
+        make.height.mas_offset(16*HEIGHT_SCALE);
+        make.width.mas_offset(32*WIDTH_SCALE);
+    }];
+    
     [self.lineview1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.zhangjielab.mas_bottom).with.offset(2*HEIGHT_SCALE);
         make.left.equalTo(self);
         make.right.equalTo(self);
         make.height.mas_offset(10*HEIGHT_SCALE);
     }];
+    
     
 }
 
