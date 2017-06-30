@@ -48,7 +48,7 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 - (void)addHeader

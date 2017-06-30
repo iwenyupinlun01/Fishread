@@ -352,6 +352,8 @@
         cell.delegate = self;
         cell.commentView.delegate = self;
         
+        
+        
         return cell;
     }
     return nil;
@@ -838,6 +840,17 @@
         }
     }
 }
+
+#pragma mark - 长按
+-(void)myTabVClickshanchu:(UITableViewCell *)cell
+{
+    NSLog(@"111");
+   // NSIndexPath *index = [self.contentTableview indexPathForCell:cell];
+    //DemoCellModel *model = self.dataArray[index.row];
+    
+}
+
+
 
 #pragma mark - 判断字符串为空
 

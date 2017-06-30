@@ -10,6 +10,7 @@
 #import "UILabel+YBAttributeTextTapAction.h"
 #import "WXApi.h"
 #import "xieyiViewController.h"
+#import "AFManager.h"
 @interface loginViewController ()<YBAttributeTapActionDelegate>
 @property (nonatomic,strong) UIImageView *bgimg;
 @property (nonatomic,strong) UIImageView *logoimg;
@@ -190,17 +191,16 @@
     NSLog(@"openid---------%@",openid);
     NSDictionary *para = @{@"login_type":@"quickLogin",@"openid":openid,@"token_key":tokenkey,@"nickname":nickname,@"type":@"4",@"path":path};
     
+    
     [PPNetworkHelper POST:denglu parameters:para success:^(id responseObject) {
         NSLog(@"response ------- %@",responseObject);
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSString *token = [responseObject objectForKey:@"token"];
-            
             NSString *uid = [responseObject objectForKey:@"uid"];
-            
             NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
             [userdefat setObject:token forKey:@"tokenuser"];
             [userdefat setObject:uid forKey:@"useruid"];
-            //[userdefat setObject:[Timestr getNowTimestamp] forKey:@"denglushijian"];
+            
             NSLog(@"tolen-------------%@",token);
             [userdefat synchronize];
             NSString *hudstr = [responseObject objectForKey:@"msg"];
@@ -210,14 +210,35 @@
         }
         else
         {
-            [MBProgressHUD showSuccess:@"网络异常"];
+            NSString *hud = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hud];
         }
 
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"状态异常，请稍后再试"];
     }];
     
-
+//    [AFManager postReqURL:denglu reqBody:para block:^(id infor) {
+//        if ([[infor objectForKey:@"code"] intValue]==1) {
+//            NSString *token = [infor objectForKey:@"token"];
+//            NSString *uid = [infor objectForKey:@"uid"];
+//            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+//            [userdefat setObject:token forKey:@"tokenuser"];
+//            [userdefat setObject:uid forKey:@"useruid"];
+//            
+//            NSLog(@"tolen-------------%@",token);
+//            [userdefat synchronize];
+//            NSString *hudstr = [infor objectForKey:@"msg"];
+//            [MBProgressHUD showSuccess:hudstr];
+//            
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        }else
+//        {
+//            NSString *hud = [infor objectForKey:@"msg"];
+//            [MBProgressHUD showSuccess:hud];
+//        }
+//    }];
+    
 }
 
 

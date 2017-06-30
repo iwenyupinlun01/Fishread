@@ -97,15 +97,17 @@ static NSString *indentify = @"indentify";
     } success:^(id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSArray *ditarr = [responseObject objectForKey:@"info"];
-            for (int i = 0; i<ditarr.count; i++) {
-                NSDictionary *dicarr = [ditarr objectAtIndex:i];
-                homeModel *model = [[homeModel alloc] init];
-                model.homeidstr = [dicarr objectForKey:@"id"];
-                model.hometitlestr = [dicarr objectForKey:@"title"];
-                model.homecoverurlstr = [dicarr objectForKey:@"cover"];
-                model.is_join = [dicarr objectForKey:@"is_join"];
-                model.relation_id = [dicarr objectForKey:@"relation_id"];
-                [self.datasourcearr addObject:model];
+            if ([ditarr isKindOfClass:[NSArray class]]) {
+                for (int i = 0; i<ditarr.count; i++) {
+                    NSDictionary *dicarr = [ditarr objectAtIndex:i];
+                    homeModel *model = [[homeModel alloc] init];
+                    model.homeidstr = [dicarr objectForKey:@"id"];
+                    model.hometitlestr = [dicarr objectForKey:@"title"];
+                    model.homecoverurlstr = [dicarr objectForKey:@"cover"];
+                    model.is_join = [dicarr objectForKey:@"is_join"];
+                    model.relation_id = [dicarr objectForKey:@"relation_id"];
+                    [self.datasourcearr addObject:model];
+                }
             }
         }else
         {

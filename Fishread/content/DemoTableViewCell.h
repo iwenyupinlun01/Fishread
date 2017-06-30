@@ -15,6 +15,9 @@
 
 -(void)didClickCellMoreComment:(UIButton *)moredButton With:(UITableViewCell *)cell;
 -(void)myTabVClickdianzan:(UITableViewCell *)cell;
+
+-(void)myTabVClickshanchu:(UITableViewCell *)cell;
+
 @end
 
 @interface DemoTableViewCell : UITableViewCell

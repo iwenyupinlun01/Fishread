@@ -233,6 +233,7 @@
 		53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1341EEE794700ED5EE8 /* quanzileibieModel.m */; };
 		53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */; };
 		53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */; };
+		53FE5D921F02C0E4002B8CA4 /* AFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D911F02C0E4002B8CA4 /* AFManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -649,6 +650,8 @@
 		53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		53A1F13A1EEEA68700ED5EE8 /* searchtagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchtagView.h; sourceTree = "<group>"; };
 		53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchtagView.m; sourceTree = "<group>"; };
+		53FE5D901F02C0E4002B8CA4 /* AFManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFManager.h; sourceTree = "<group>"; };
+		53FE5D911F02C0E4002B8CA4 /* AFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFManager.m; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -829,6 +832,7 @@
 		531E8B681EDFDC23007C26D2 /* utlis */ = {
 			isa = PBXGroup;
 			children = (
+				53FE5D8F1F02C0E4002B8CA4 /* AFManager */,
 				539BBADE1F010DC8002F4634 /* AvoidCrash */,
 				539BBAF31F010DC8002F4634 /* NullSafe */,
 				53A1F1361EEEA4DC00ED5EE8 /* utlisView */,
@@ -1708,6 +1712,15 @@
 			name = utlisView;
 			sourceTree = "<group>";
 		};
+		53FE5D8F1F02C0E4002B8CA4 /* AFManager */ = {
+			isa = PBXGroup;
+			children = (
+				53FE5D901F02C0E4002B8CA4 /* AFManager.h */,
+				53FE5D911F02C0E4002B8CA4 /* AFManager.m */,
+			);
+			path = AFManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1936,6 +1949,7 @@
 				539BBBC21F0242AC002F4634 /* MLPhotoBrowserDatas.m in Sources */,
 				539BBAFB1F010DC8002F4634 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				530C82871EF931F100815763 /* democontentViewController.m in Sources */,
+				53FE5D921F02C0E4002B8CA4 /* AFManager.m in Sources */,
 				539BBBC61F0242AC002F4634 /* MLPhotoBrowserViewController.m in Sources */,
 				5332035F1EFD6DEB00526F8E /* chengyuanViewController.m in Sources */,
 				533B61C51EE95CD900DE0392 /* UILabel+YBAttributeTextTapAction.m in Sources */,

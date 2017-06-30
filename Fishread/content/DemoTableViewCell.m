@@ -95,47 +95,49 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupUI];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(action:)];
-        [self.contentView addGestureRecognizer:gesture];
+        //添加长按手势
+        UILongPressGestureRecognizer * longPressGesture =[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
+        longPressGesture.minimumPressDuration=1.0f;//设置长按 时间
+        [self addGestureRecognizer:longPressGesture];
+        
     }
     return self;
 }
-
--(void)action:(UILongPressGestureRecognizer*)gesture{
-    [self becomeFirstResponder];
-    
-    
-    
-    UIMenuItem *cellshanchu = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(cellshanchuAction)];
-    UIMenuItem *celljubao = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(celljubaoAction)];
-    UIMenuController *menus = [[UIMenuController alloc] init];
-    menus.arrowDirection = UIMenuControllerArrowDown;
-    menus.menuItems = @[cellshanchu,celljubao];
-    //设置弹出的位置和箭头指向的控件
-    [menus setTargetRect:CGRectMake(40, 0, 0, 0) inView:self.contentView];
-    //弹出menu
-    [menus setMenuVisible:YES animated:YES];
-}
-//由于某些控件在响应者链中不能成为第一响应者故重写canBecomeFirstResponder方法，返回YES，否则无法弹出menu
--(BOOL)canBecomeFirstResponder{
+- (BOOL)canBecomeFirstResponder{
     return YES;
 }
-//弹出menu必须要实现这个方法
--(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
-    if (action == @selector(cellshanchuAction)||action == @selector(celljubaoAction)) {
-        return YES;
+-(void)cellLongPress:(UILongPressGestureRecognizer *)longRecognizer{
+    
+    
+    if (longRecognizer.state==UIGestureRecognizerStateBegan) {
+        //成为第一响应者，需重写该方法
+        [self becomeFirstResponder];
+        
+        UIMenuController * menu = [UIMenuController sharedMenuController];
+       // [menu setTargetRect:self.frame inView:self];
+        
+//        if (menu.isMenuVisible)
+//        {
+//            [menu setMenuVisible:NO animated:YES];
+//        }
+//        {
+            [menu setTargetRect:self.bounds inView:self.contentView.superview];
+            UIMenuItem * item0 = [[UIMenuItem alloc]initWithTitle:@"删除" action:@selector(cellshanchu:)];
+            menu.menuItems = @[item0];
+            [menu setMenuVisible:YES animated:YES];
+       // }
+
+        //在此添加你想要完成的功能
+        
+        NSLog(@"modl-----%@",_model.uidstr);
+        
     }
-    //返回YES则弹出系统默认的menu
-    return NO;
+    
 }
 
-
--(void)cellshanchuAction{
-    //复制文本到粘贴板
-    NSLog(@"cell删除");
-}
--(void)celljubaoAction{
-    NSLog(@"cell举报");
+-(void)cellshanchu:(UIMenuController *)menu
+{
+    [menu setMenuVisible:NO animated:YES];
 }
 
 

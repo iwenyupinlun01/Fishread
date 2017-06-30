@@ -36,31 +36,22 @@
         CGFloat width = self.bounds.size.width/titleName.count;
         CGFloat height = self.bounds.size.height;
         
+        
+        
         for (NSInteger i = 0; i < titleName.count; i ++) {
-            
             UIButton *topButton = [UIButton buttonWithType:UIButtonTypeCustom];
              [self.buttonArray addObject:topButton];
-            
-            [topButton setTitleColor:[UIColor wjColorFloat:@"54d48a"] forState:UIControlStateNormal];
+            [topButton setTitleColor:[UIColor wjColorFloat:@"54d48a"] forState:normal];
             [topButton setTitle:titleName[i] forState:UIControlStateNormal];
             topButton.titleLabel.font = [UIFont systemFontOfSize:18];
             topButton.tag = i + 100;
             [topButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-            
             topButton.frame = CGRectMake(i*width, 0, width, height);
-            
-//            if (i == topButton.tag) {
-//                [topButton setTitleColor:[UIColor wjColorFloat:@"54d48a"] forState:UIControlStateNormal];
-//            }else
-//            {
-//                [topButton setTitleColor:[UIColor redColor] forState:normal];
-//            }
             
             if (i==1) {
                 
                 CGFloat h = 2;
                 CGFloat y = 35;
-                
                 UIView *lineView = [[UIView alloc] init];
                 
                 [topButton.titleLabel sizeToFit];
@@ -85,6 +76,7 @@
     UIButton *button = self.buttonArray[tag];
     [UIView animateWithDuration:0.5 animations:^{
         self.lineView.center = CGPointMake(button.center.x, 36);
+        
     }];
 }
 

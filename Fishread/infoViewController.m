@@ -217,39 +217,70 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
-        if (indexPath.row==0) {
-            messageViewController *messagevc = [[messageViewController alloc] init];
-            [self.navigationController pushViewController:messagevc animated:YES];
+
+        if (indexPath.section==0) {
+            if (indexPath.row==0) {
+                if ([tokenstr tokenstrfrom].length==0) {
+                    [MBProgressHUD showSuccess:@"请先登录"];
+                }
+                else
+                {
+                    messageViewController *messagevc = [[messageViewController alloc] init];
+                    [self.navigationController pushViewController:messagevc animated:YES];
+                }
+            }
+            if (indexPath.row==1) {
+                if ([tokenstr tokenstrfrom].length==0) {
+                    [MBProgressHUD showSuccess:@"请先登录"];
+                }
+                else
+                {
+                    publishedViewController *publishvc = [[publishedViewController alloc] init];
+                    [self.navigationController pushViewController:publishvc animated:YES];
+                }
+            }
+            if (indexPath.row==2) {
+                if ([tokenstr tokenstrfrom].length==0) {
+                    [MBProgressHUD showSuccess:@"请先登录"];
+                }
+                else
+                {
+                    collectionViewController *collectionvc = [[collectionViewController alloc] init];
+                    [self.navigationController pushViewController:collectionvc animated:YES];
+                }
+            }
         }
-        if (indexPath.row==1) {
-            publishedViewController *publishvc = [[publishedViewController alloc] init];
-            [self.navigationController pushViewController:publishvc animated:YES];
+        //    if (indexPath.section==1) {
+        //
+        //    }
+        if (indexPath.section==1) {
+            if (indexPath.row==0) {
+                setViewController *setvc = [[setViewController alloc] init];
+                [self.navigationController pushViewController:setvc animated:YES];
+            }
+            if (indexPath.row==1) {
+                if ([tokenstr tokenstrfrom].length==0) {
+                    [MBProgressHUD showSuccess:@"请先登录"];
+                }
+                else
+                {
+                    feedbackViewController *feedbackvc = [[feedbackViewController alloc] init];
+                    [self.navigationController pushViewController:feedbackvc animated:YES];
+                }
+            }
         }
-        if (indexPath.row==2) {
-            collectionViewController *collectionvc = [[collectionViewController alloc] init];
-            [self.navigationController pushViewController:collectionvc animated:YES];
-        }
-    }
-//    if (indexPath.section==1) {
-//      
-//    }
-    if (indexPath.section==1) {
-        if (indexPath.row==0) {
-            setViewController *setvc = [[setViewController alloc] init];
-            [self.navigationController pushViewController:setvc animated:YES];
-        }
-        if (indexPath.row==1) {
-            feedbackViewController *feedbackvc = [[feedbackViewController alloc] init];
-            [self.navigationController pushViewController:feedbackvc animated:YES];
-        }
-    }
+
 }
 
 -(void)myTabVClick1:(UIView *)view
 {
     NSLog(@"点击头像");
-    myinfoViewController *myinfoVC = [[myinfoViewController alloc] init];
-    [self.navigationController pushViewController:myinfoVC animated:YES];
+    if ([tokenstr tokenstrfrom].length==0) {
+        [MBProgressHUD showSuccess:@"请先登录"];
+    }else
+    {
+        myinfoViewController *myinfoVC = [[myinfoViewController alloc] init];
+        [self.navigationController pushViewController:myinfoVC animated:YES];
+    }
 }
 @end
