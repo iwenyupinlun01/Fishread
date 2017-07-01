@@ -217,14 +217,14 @@
             NSString *background = [infodic objectForKey:@"background"];
             NSString *collecCount = [infodic objectForKey:@"collecCount"];
             NSString *book_status = [infodic objectForKey:@"book_status"];
-            
+            NSString *all_post = [infodic objectForKey:@"all_post"];
             
             
             self.headuid = [infodic objectForKey:@"creator_uid"];
             
             self.headdit = [NSDictionary dictionary];
             
-            self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background,@"collecCount":collecCount,@"book_status":book_status};
+            self.headdit = @{@"is_creator":is_creator,@"newSectionNum":newSectionNum,@"newSectionTitle":newSectionTitle,@"pubContent":pubContent,@"pubNickname":pubNickname,@"pubPath":pubPath,@"pubTitle":pubTitle,@"read_section":read_section,@"relation_id":relation_id,@"typeTitle":typeTitle,@"background":background,@"collecCount":collecCount,@"book_status":book_status,@"all_post":all_post};
             
             [self.headview setdata:self.headdit];
             

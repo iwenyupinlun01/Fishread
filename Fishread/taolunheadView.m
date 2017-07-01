@@ -338,7 +338,10 @@
     self.authorlab.text = [dit objectForKey:@"pubNickname"];
     self.contentlab.text = [dit objectForKey:@"pubContent"];
     self.typelab.text = [dit objectForKey:@"typeTitle"];
-    self.numberlab.text = [NSString stringWithFormat:@"%@%@",[dit objectForKey:@"collecCount"],@"成员"];
+    NSString *all_post = [dit objectForKey:@"all_post"];
+    NSString *collecCount = [dit objectForKey:@"collecCount"];
+    
+    self.numberlab.text = [NSString stringWithFormat:@"%@%@%@%@%@",collecCount,@"成员",@"/",all_post,@"跟帖"];
     
     self.contentlab.font = [UIFont systemFontOfSize:13];
     self.contentlab.preferredMaxLayoutWidth = (DEVICE_WIDTH - 14.0 * 2);
@@ -370,7 +373,10 @@
     }];
     
     
-    self.zhangjielab.text = [dit objectForKey:@"newSectionTitle"];
+    NSString *sectiontitle = [dit objectForKey:@"newSectionTitle"];
+    NSString *newSectionNum = [dit objectForKey:@"newSectionNum"];
+    NSString *num =  [NSString stringWithFormat:@"%@%@%@",@"第",newSectionNum,@"章"];
+    self.zhangjielab.text = [NSString stringWithFormat:@"%@%@%@%@%@",@"最新章节",@"  ",num,@"  ",sectiontitle];
     if ([[dit objectForKey:@"book_status"]isEqualToString:@"0"]) {
         //连载中
         self.typeimg.image = [UIImage imageNamed:@"连载"];

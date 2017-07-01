@@ -190,7 +190,6 @@
             }
             self.headuid = [infodic objectForKey:@"creator_uid"];
             
-            
             NSArray *infoarr = [infodic objectForKey:@"info"];
             for (int i = 0; i<infoarr.count; i++) {
                 NSDictionary *dit = [infoarr objectAtIndex:i];

@@ -156,7 +156,6 @@
         
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             [MBProgressHUD showError:hud];
-            
             [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
             [self.navigationController popViewControllerAnimated:YES];
         }else
@@ -166,10 +165,10 @@
 
         }
         
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        [MBProgressHUD showSuccess:@"请求失败"];
+        //[MBProgressHUD showSuccess:@"请求失败"];
+        
         [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
     }];
     
