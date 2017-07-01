@@ -12,7 +12,7 @@
 #import "taolunquanViewController.h"
 #import "yueduquanViewController.h"
 
-@interface FocusViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface FocusViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 {
     int pn;
 }
@@ -94,6 +94,8 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
         }else
         {
             [MBProgressHUD showSuccess:@"token错误"];
+            self.wodeTableview.emptyDataSetSource = self;
+            self.wodeTableview.emptyDataSetDelegate = self;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.wodeTableview.mj_header endRefreshing];
@@ -155,4 +157,41 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
         [self.navigationController pushViewController:yueduvc animated:YES];
     }
 }
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"zhanweitu"];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"您还没有登陆";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName:[UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName:paragraph
+                                 };
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+    NSString *buttonTitle = @"登陆";
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:17.0f],
+                                 NSForegroundColorAttributeName:[UIColor lightGrayColor]
+                                 
+                                 };
+    return [[NSAttributedString alloc] initWithString:buttonTitle attributes:attributes];
+}
+
+//空白页按钮点击事件
+
+- (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView {
+    
+}
+
 @end
