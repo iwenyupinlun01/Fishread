@@ -65,7 +65,7 @@
     } success:^(id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             NSDictionary *dit = [responseObject objectForKey:@"info"];
-            [self.logoimg sd_setImageWithURL:[NSURL URLWithString:[dit objectForKey:@"logo"]]];
+            [self.logoimg sd_setImageWithURL:[NSURL URLWithString:[dit objectForKey:@"logo"]] placeholderImage:[UIImage imageNamed:@"LOGO"]];
             self.namelab.text = [dit objectForKey:@"intro"];
             self.versionlab.text = [dit objectForKey:@"version"];
             

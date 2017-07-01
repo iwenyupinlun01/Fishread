@@ -10,7 +10,7 @@
 #import "publishCell.h"
 #import "publishModel.h"
 #import "democontentViewController.h"
-@interface collectionViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface collectionViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 {
     int pn;
 }
@@ -102,13 +102,18 @@ static NSString *collecidentfid = @"collecidentfid";
         {
             NSString *hud = [responseObject objectForKey:@"msg"];
             [MBProgressHUD showSuccess:hud];
+            self.shoucangtableView.emptyDataSetDelegate = self;
+            self.shoucangtableView.emptyDataSetSource = self;
         }
+        
         [self.shoucangtableView.mj_header endRefreshing];
         [self.shoucangtableView reloadData];
         
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
         [self.shoucangtableView.mj_header endRefreshing];
+        self.shoucangtableView.emptyDataSetDelegate = self;
+        self.shoucangtableView.emptyDataSetSource = self;
     }];
 }
 
@@ -214,6 +219,29 @@ static NSString *collecidentfid = @"collecidentfid";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"2222"];
+}
 
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"没有数据";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName:[UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName:paragraph
+                                 };
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
+    // 空白页面被点击时开启动画，reloadEmptyDataSet
+    [self addHeader];
+}
 
 @end

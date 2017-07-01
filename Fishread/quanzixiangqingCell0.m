@@ -159,7 +159,7 @@
     if(!_zanBtn)
     {
         _zanBtn = [[UIButton alloc] init];
-        [_zanBtn setImage:[UIImage imageNamed:@"点赞-拷贝"] forState:normal];
+        [_zanBtn setImage:[UIImage imageNamed:@"点赞"] forState:normal];
     }
     return _zanBtn;
 }
@@ -213,11 +213,11 @@
      UIView *bottomView = self.picContainerView;
     _picContainerView.sd_layout.topSpaceToView(_contentlab,picContainerTopMargin);
 
-    _shareBtn.sd_layout.rightSpaceToView(self.contentView, 14*WIDTH_SCALE).topSpaceToView(self.picContainerView, 8*HEIGHT_SCALE).widthIs(24*WIDTH_SCALE).heightIs(24*WIDTH_SCALE);
+    _shareBtn.sd_layout.rightSpaceToView(self.contentView, 14*WIDTH_SCALE).topSpaceToView(self.picContainerView, 8*HEIGHT_SCALE).widthIs(16*HEIGHT_SCALE).heightIs(16*HEIGHT_SCALE);
     
-    _zanBtn.sd_layout.rightSpaceToView(self.shareBtn, 30*WIDTH_SCALE).topEqualToView(self.shareBtn).widthIs(24*WIDTH_SCALE).heightIs(24*WIDTH_SCALE);
+    _zanBtn.sd_layout.rightSpaceToView(self.shareBtn, 30*WIDTH_SCALE).topEqualToView(self.shareBtn).widthIs(16*WIDTH_SCALE).heightIs(16*WIDTH_SCALE);
     
-    _commentsBtn.sd_layout.rightSpaceToView(self.zanBtn, 30*WIDTH_SCALE).topEqualToView(self.shareBtn).widthIs(24*WIDTH_SCALE).heightIs(24*WIDTH_SCALE);
+    _commentsBtn.sd_layout.rightSpaceToView(self.zanBtn, 30*WIDTH_SCALE).topEqualToView(self.shareBtn).widthIs(16*WIDTH_SCALE).heightIs(16*WIDTH_SCALE);
     
     _thumlabel.sd_layout
     .leftEqualToView(_nicknamelab)

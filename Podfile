@@ -23,5 +23,5 @@ pod 'Bugly'
 pod 'DateTools'
 pod 'SWTableViewCell', '~> 0.3.7'
 pod 'HXWeiboPhotoPicker'
-
+pod "LLSegmentBar"
 end

@@ -10,7 +10,7 @@
 #import "replyCell.h"
 #import "replyModel.h"
 #import "democontentViewController.h"
-@interface xiaoxitongzhiViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface xiaoxitongzhiViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 {
     int pn;
 }
@@ -111,11 +111,15 @@ static NSString *replyidentfid = @"replyidentfid";
         {
             NSString *hud = [responseObject objectForKey:@"msg"];
             [MBProgressHUD showSuccess:hud];
+            self.xiaoxitableView.emptyDataSetDelegate = self;
+            self.xiaoxitableView.emptyDataSetSource = self;
         }
         [self.xiaoxitableView reloadData];
         [self.xiaoxitableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
         [self.xiaoxitableView.mj_header endRefreshing];
+        self.xiaoxitableView.emptyDataSetDelegate = self;
+        self.xiaoxitableView.emptyDataSetSource = self;
     }];
 }
 
@@ -240,5 +244,28 @@ static NSString *replyidentfid = @"replyidentfid";
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"2222"];
+}
 
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"没有数据";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName:[UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName:paragraph
+                                 };
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
+    // 空白页面被点击时开启动画，reloadEmptyDataSet
+    [self addHeader];
+}
 @end

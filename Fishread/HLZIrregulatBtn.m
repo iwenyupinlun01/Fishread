@@ -136,7 +136,7 @@
     UIButton *button2 = self.buttonArray[button.tag];
     //选中按钮
     if (button2.selected) {
-        [button2 setBackgroundColor:HLZ_TEXTCOLOR];
+        [button2 setBackgroundColor:[UIColor wjColorFloat:@"54d48a"]];
         [button2 setTitleColor:HLZ_SELECT_TEXTCOLOR forState:UIControlStateNormal];
         if (self.block) {
             self.block(button2);

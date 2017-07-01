@@ -85,9 +85,6 @@
 
 }
 
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -116,6 +113,8 @@
         name = [NSString stringWithFormat:@"%d%@",i,@"img"];
         [namearr addObject:name];
     }
+    
+    [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 30;
@@ -157,15 +156,21 @@
         
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             [MBProgressHUD showError:hud];
+            
+            [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
             [self.navigationController popViewControllerAnimated:YES];
         }else
         {
             [MBProgressHUD showError:hud];
+            [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
 
         }
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         [MBProgressHUD showSuccess:@"请求失败"];
+        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
     }];
     
 

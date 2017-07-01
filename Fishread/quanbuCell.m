@@ -152,7 +152,6 @@
     if(!_iconimg)
     {
         _iconimg = [[UIImageView alloc] init];
-        _iconimg.backgroundColor = [UIColor greenColor];
         _iconimg.layer.masksToBounds = YES;
         _iconimg.layer.cornerRadius = 18*WIDTH_SCALE;
         
@@ -288,8 +287,6 @@
     return _numlab;
 }
 
-
-
 -(dianzanBtn *)zanBtn
 {
     if(!_zanBtn)
@@ -300,7 +297,6 @@
     }
     return _zanBtn;
 }
-
 
 -(pinglunBtn *)pingBtn
 {

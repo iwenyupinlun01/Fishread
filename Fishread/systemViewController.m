@@ -9,7 +9,7 @@
 #import "systemViewController.h"
 #import "systemCell.h"
 #import "xitongModel.h"
-@interface systemViewController ()<UITableViewDataSource,UITableViewDelegate,SWTableViewCellDelegate>
+@interface systemViewController ()<UITableViewDataSource,UITableViewDelegate,SWTableViewCellDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 {
     int pn;
 }
@@ -101,8 +101,8 @@ static NSString * const kShowTextCellReuseIdentifier = @"QSShowTextCell";
                 self.ximodel = [[xitongModel alloc] init];
                 self.ximodel.puttimestr = dicarr[@"pubtime"];
                 self.ximodel.idstr = dicarr[@"id"];
-                
                 NSString *concent = dicarr[@"inform_content"];
+                
                 [self.dataSource addObject:concent];
                 
                 [self.xitongarr addObject:self.ximodel];
@@ -112,6 +112,8 @@ static NSString * const kShowTextCellReuseIdentifier = @"QSShowTextCell";
         {
             NSString *huds= [responseObject objectForKey:@"msg"];
             [MBProgressHUD showSuccess:huds];
+            self.systemtabeView.emptyDataSetSource = self;
+            self.systemtabeView.emptyDataSetDelegate = self;
         }
         [self.systemtabeView.mj_header endRefreshing];
         [self.systemtabeView reloadData];
@@ -119,6 +121,8 @@ static NSString * const kShowTextCellReuseIdentifier = @"QSShowTextCell";
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
         [self.systemtabeView.mj_header endRefreshing];
+        self.systemtabeView.emptyDataSetSource = self;
+        self.systemtabeView.emptyDataSetDelegate = self;
     }];
 }
 
@@ -138,6 +142,7 @@ static NSString * const kShowTextCellReuseIdentifier = @"QSShowTextCell";
                 self.ximodel.puttimestr = dicarr[@"pubtime"];
                 self.ximodel.idstr = dicarr[@"id"];
                 NSString *concent = dicarr[@"inform_content"];
+
                 [self.dataSource addObject:concent];
                 [self.xitongarr addObject:self.ximodel];
             }
@@ -313,5 +318,28 @@ static NSString * const kShowTextCellReuseIdentifier = @"QSShowTextCell";
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"2222"];
+}
 
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"没有数据";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName:[UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName:paragraph
+                                 };
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
+    // 空白页面被点击时开启动画，reloadEmptyDataSet
+    [self addHeader];
+}
 @end

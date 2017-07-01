@@ -66,6 +66,7 @@
 {
     self.xitongmodel = model;
     self.timelabel.text = [Timestr datetime:model.puttimestr];
+    self.contentLabel.text = @"122121212112";
 }
 
 - (void)layoutSubviewsWithText:(NSString *)text{

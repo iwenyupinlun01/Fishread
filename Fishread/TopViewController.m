@@ -9,7 +9,8 @@
 #import "TopViewController.h"
 #import "homeViewController.h"
 #import "infoViewController.h"
-#import "MainViewController.h"
+//#import "MainViewController.h"
+#import "TwoViewController.h"
 @interface TopViewController ()
 
 @end
@@ -28,7 +29,7 @@
 {
     homeViewController *frist = [[homeViewController alloc]init];
     [self setupChildViewController:frist title:@"首页" imageName:@"未点击首页" selectedImageName:@"首页-拷贝"];
-    MainViewController *second = [[MainViewController alloc]init];
+    TwoViewController *second = [[TwoViewController alloc]init];
     [self setupChildViewController:second title:@"书圈" imageName:@"2" selectedImageName:@"书圈"];
         
     infoViewController *thrid = [[infoViewController alloc]init];

@@ -90,6 +90,7 @@ static NSString *publishidentfid = @"publishidentfid";
     NSString *urlstr = [NSString stringWithFormat:wodefabiao,[tokenstr tokenstrfrom],@"1",@""];
     [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            _publishtable.tableHeaderView = self.hview;
             NSArray *dic = [responseObject objectForKey:@"info"];
             self.namestr = [responseObject objectForKey:@"nickname"];
             self.pathicon = [responseObject objectForKey:@"userIcon"];
@@ -165,7 +166,7 @@ static NSString *publishidentfid = @"publishidentfid";
         _publishtable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
         _publishtable.dataSource = self;
         _publishtable.delegate = self;
-        _publishtable.tableHeaderView = self.hview;
+       
     }
     return _publishtable;
 }

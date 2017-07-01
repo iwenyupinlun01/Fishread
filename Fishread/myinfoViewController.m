@@ -238,7 +238,7 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
     NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     NSLog(@"base64str-------%@",base64str);
     NSDictionary *dit = @{@"token":[tokenstr tokenstrfrom],@"str":base64str};
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     
     [PPNetworkHelper POST:touxiangxiugai parameters:dit success:^(id responseObject) {
         NSString *hudstr = [responseObject objectForKey:@"msg"];
@@ -254,10 +254,10 @@ static NSString *myinfocellidentfid1 = @"myinfocellidentfid1";
             [MBProgressHUD showSuccess:hudstr];
         }
         [self.myinfotableView reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
     }];
 }
 

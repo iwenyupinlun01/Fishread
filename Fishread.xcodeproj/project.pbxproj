@@ -235,6 +235,11 @@
 		53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */; };
 		53FE5D921F02C0E4002B8CA4 /* AFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D911F02C0E4002B8CA4 /* AFManager.m */; };
 		53FE5D951F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D941F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m */; };
+		53FE5DD41F076C1E002B8CA4 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5DD31F076C1E002B8CA4 /* TwoViewController.m */; };
+		53FE5DDD1F079B15002B8CA4 /* AppDelegate+Guaid.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5DD71F079B15002B8CA4 /* AppDelegate+Guaid.m */; };
+		53FE5DDE1F079B15002B8CA4 /* KSGuaidProperty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FE5DD81F079B15002B8CA4 /* KSGuaidProperty.plist */; };
+		53FE5DDF1F079B15002B8CA4 /* KSGuaidViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5DDA1F079B15002B8CA4 /* KSGuaidViewCell.m */; };
+		53FE5DE01F079B15002B8CA4 /* KSGuaidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5DDC1F079B15002B8CA4 /* KSGuaidViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -655,6 +660,15 @@
 		53FE5D911F02C0E4002B8CA4 /* AFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFManager.m; sourceTree = "<group>"; };
 		53FE5D931F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeTouchArea.h"; sourceTree = "<group>"; };
 		53FE5D941F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeTouchArea.m"; sourceTree = "<group>"; };
+		53FE5DD21F076C1E002B8CA4 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		53FE5DD31F076C1E002B8CA4 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		53FE5DD61F079B15002B8CA4 /* AppDelegate+Guaid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Guaid.h"; sourceTree = "<group>"; };
+		53FE5DD71F079B15002B8CA4 /* AppDelegate+Guaid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Guaid.m"; sourceTree = "<group>"; };
+		53FE5DD81F079B15002B8CA4 /* KSGuaidProperty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KSGuaidProperty.plist; sourceTree = "<group>"; };
+		53FE5DD91F079B15002B8CA4 /* KSGuaidViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuaidViewCell.h; sourceTree = "<group>"; };
+		53FE5DDA1F079B15002B8CA4 /* KSGuaidViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuaidViewCell.m; sourceTree = "<group>"; };
+		53FE5DDB1F079B15002B8CA4 /* KSGuaidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuaidViewController.h; sourceTree = "<group>"; };
+		53FE5DDC1F079B15002B8CA4 /* KSGuaidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuaidViewController.m; sourceTree = "<group>"; };
 		8C30D42C31278AEBE0BE06BA /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A90073D2ECAE789867F12 /* Pods-Fishread.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AAE7D7D98F8138FB74FD7 /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishread.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishread/Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
@@ -835,6 +849,7 @@
 		531E8B681EDFDC23007C26D2 /* utlis */ = {
 			isa = PBXGroup;
 			children = (
+				53FE5DD51F079B15002B8CA4 /* KSGuaidView */,
 				53FE5D8F1F02C0E4002B8CA4 /* AFManager */,
 				539BBADE1F010DC8002F4634 /* AvoidCrash */,
 				539BBAF31F010DC8002F4634 /* NullSafe */,
@@ -1311,6 +1326,8 @@
 				531E8B711EDFE4A6007C26D2 /* TopViewController.m */,
 				535FED7B1EE14673007A456D /* MainViewController.h */,
 				535FED7C1EE14673007A456D /* MainViewController.m */,
+				53FE5DD21F076C1E002B8CA4 /* TwoViewController.h */,
+				53FE5DD31F076C1E002B8CA4 /* TwoViewController.m */,
 				535FED7D1EE14673007A456D /* MainViewController.xib */,
 			);
 			path = Controller;
@@ -1726,6 +1743,20 @@
 			path = AFManager;
 			sourceTree = "<group>";
 		};
+		53FE5DD51F079B15002B8CA4 /* KSGuaidView */ = {
+			isa = PBXGroup;
+			children = (
+				53FE5DD61F079B15002B8CA4 /* AppDelegate+Guaid.h */,
+				53FE5DD71F079B15002B8CA4 /* AppDelegate+Guaid.m */,
+				53FE5DD81F079B15002B8CA4 /* KSGuaidProperty.plist */,
+				53FE5DD91F079B15002B8CA4 /* KSGuaidViewCell.h */,
+				53FE5DDA1F079B15002B8CA4 /* KSGuaidViewCell.m */,
+				53FE5DDB1F079B15002B8CA4 /* KSGuaidViewController.h */,
+				53FE5DDC1F079B15002B8CA4 /* KSGuaidViewController.m */,
+			);
+			path = KSGuaidView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1810,6 +1841,7 @@
 				539BBBBD1F0242AC002F4634 /* X.png in Resources */,
 				539BBBB01F0242AC002F4634 /* broswerPic3.jpg in Resources */,
 				539BBBBB1F0242AC002F4634 /* shanguangdeng2.png in Resources */,
+				53FE5DDE1F079B15002B8CA4 /* KSGuaidProperty.plist in Resources */,
 				533203A81EFE798100526F8E /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				535FED8B1EE14673007A456D /* NearViewController.xib in Resources */,
 				539BBBB71F0242AC002F4634 /* icon_pic_break@2x.png in Resources */,
@@ -1901,6 +1933,7 @@
 				5393E37C1EE6C16B00392FD4 /* nicknameViewController.m in Sources */,
 				533CF71B1EE0158400F866B9 /* messageViewController.m in Sources */,
 				5332036C1EFE4C7300526F8E /* chuangjianCell1.m in Sources */,
+				53FE5DDF1F079B15002B8CA4 /* KSGuaidViewCell.m in Sources */,
 				530C819E1EF7C23200815763 /* secondCell.m in Sources */,
 				5332E2B41EF3C87D0040A295 /* yueduquanViewController.m in Sources */,
 				539BBB971F0242AC002F4634 /* LGPhotoPickerCustomToolBarView.m in Sources */,
@@ -1995,12 +2028,14 @@
 				5330207A1EEFBAC300D08825 /* historyModel.m in Sources */,
 				539BBB921F0242AC002F4634 /* LGPhotoPickerBrowserViewController.m in Sources */,
 				539BBBA41F0242AC002F4634 /* LGCameraImageView.m in Sources */,
+				53FE5DD41F076C1E002B8CA4 /* TwoViewController.m in Sources */,
 				539BBBC11F0242AC002F4634 /* MLPhotoBrowserAssets.m in Sources */,
 				534F61D31EDEB2C8007835ED /* main.m in Sources */,
 				539BBB121F012974002F4634 /* ContactDataHelper.m in Sources */,
 				530DA4841EF25A1E0056BA66 /* UIView+Extension.m in Sources */,
 				530C828B1EFA694700815763 /* taolunCell0.m in Sources */,
 				530C82801EF9310400815763 /* DemoCellModel.m in Sources */,
+				53FE5DDD1F079B15002B8CA4 /* AppDelegate+Guaid.m in Sources */,
 				539BBAFF1F010DC8002F4634 /* NullSafe.m in Sources */,
 				533204021F00B3CD00526F8E /* setbtn.m in Sources */,
 				5332035C1EFD218600526F8E /* UIViewController+Cloudox.m in Sources */,
@@ -2012,6 +2047,7 @@
 				539BBBA91F0242AC002F4634 /* DACircularProgressView.m in Sources */,
 				535FED861EE14673007A456D /* HotViewController.m in Sources */,
 				5393E37F1EE6C1B100392FD4 /* nicknameCell.m in Sources */,
+				53FE5DE01F079B15002B8CA4 /* KSGuaidViewController.m in Sources */,
 				533B61F41EEAA64800DE0392 /* homeModel.m in Sources */,
 				539BBAFE1F010DC8002F4634 /* NSString+AvoidCrash.m in Sources */,
 				533203E31EFFC54300526F8E /* TagViewController.m in Sources */,

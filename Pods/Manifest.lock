@@ -19,6 +19,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - HXWeiboPhotoPicker (1.2)
   - IQKeyboardManager (4.0.9)
+  - LLSegmentBar (0.0.1)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - HXWeiboPhotoPicker
   - IQKeyboardManager
+  - LLSegmentBar
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -57,6 +59,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HXWeiboPhotoPicker: de26c6319c671227ba6bca5ef5da7af4d6338f81
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  LLSegmentBar: 7ef235c5ed4fe8f14ff4c9b2a6069f839ffe30dc
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -67,6 +70,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 6169f50e64bac4154013cb120f5741bfdf88e568
+PODFILE CHECKSUM: 749e071329d877237cd15c69038afa736fbf3b53
 
 COCOAPODS: 1.2.1

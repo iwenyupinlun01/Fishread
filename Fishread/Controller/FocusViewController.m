@@ -11,7 +11,7 @@
 #import "wodeModel.h"
 #import "taolunquanViewController.h"
 #import "yueduquanViewController.h"
-
+#import "loginViewController.h"
 @interface FocusViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 {
     int pn;
@@ -113,7 +113,7 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
 {
     if(!_wodeTableview)
     {
-        _wodeTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64-52)];
+        _wodeTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-52)];
         _wodeTableview.dataSource = self;
         _wodeTableview.delegate = self;
         
@@ -178,20 +178,10 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
-- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    NSString *buttonTitle = @"登陆";
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont systemFontOfSize:17.0f],
-                                 NSForegroundColorAttributeName:[UIColor lightGrayColor]
-                                 
-                                 };
-    return [[NSAttributedString alloc] initWithString:buttonTitle attributes:attributes];
-}
-
-//空白页按钮点击事件
-
-- (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView {
-    
+//空白页点击事件
+- (void)emptyDataSetDidTapView:(UIScrollView *)scrollView {
+    loginViewController *logvc = [[loginViewController alloc] init];
+    [self presentViewController:logvc animated:YES completion:nil];
 }
 
 @end

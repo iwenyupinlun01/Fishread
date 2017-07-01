@@ -27,9 +27,8 @@ static NSString *quanziidentfid = @"quanziidentfid";
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view from its nib.
     self.quanbuArray = [NSMutableArray array];
-    [self.view addSubview:self.quanzitableView];
-    [self addHeader];
-    [self addFooter];
+
+ 
     self.quanzitableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -42,6 +41,18 @@ static NSString *quanziidentfid = @"quanziidentfid";
 {
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
+
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.view addSubview:self.quanzitableView];
+    [self addHeader];
+    [self addFooter];
+    [self.navigationController.navigationBar setHidden:NO];
+   
+    
 }
 
 #pragma mark - web
@@ -171,7 +182,8 @@ static NSString *quanziidentfid = @"quanziidentfid";
 {
     if(!_quanzitableView)
     {
-        _quanzitableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64-50)];
+        _quanzitableView = [[UITableView alloc] init];
+         _quanzitableView.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-50);
         _quanzitableView.dataSource = self;
         _quanzitableView.delegate = self;
     }
@@ -207,6 +219,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
     quanbuModel *model = self.quanbuArray[indexPath.row];
     shuquanvc.idstr = model.idstr;
     shuquanvc.object_idstr = model.object_idstr;
+    shuquanvc.fromtype = @"2";
     [self.navigationController pushViewController:shuquanvc animated:YES];
 }
 
@@ -214,6 +227,22 @@ static NSString *quanziidentfid = @"quanziidentfid";
 {
     NSIndexPath *index = [self.quanzitableView indexPathForCell:cell];
     NSLog(@"333===%ld   点赞",index.row);
+    
+    quanbuModel *model = self.quanbuArray[index.row];
+    NSString *idsr = model.idstr;
+    [PPNetworkHelper GET:[NSString stringWithFormat:dianzan,[tokenstr tokenstrfrom],idsr,@"1"] parameters:nil success:^(id responseObject) {
+        NSString *hud = [responseObject objectForKey:@"msg"];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            [self headerRefreshEndAction];
+            [MBProgressHUD showSuccess:hud];
+        }else
+        {
+            [MBProgressHUD showSuccess:hud];
+        }
+        
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
     
 }
 

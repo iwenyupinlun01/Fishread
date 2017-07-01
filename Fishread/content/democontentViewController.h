@@ -11,4 +11,5 @@
 @interface democontentViewController : UIViewController
 @property (nonatomic,strong) NSString *idstr;
 @property (nonatomic,strong) NSString *object_idstr;
+@property (nonatomic,strong) NSString *fromtype;
 @end

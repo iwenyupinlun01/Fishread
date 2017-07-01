@@ -223,47 +223,48 @@
 }
 
 
+-(CAGradientLayer *)gradientLayer
+{
+    if(!_gradientLayer)
+    {
+        _gradientLayer = [[CAGradientLayer alloc] init];
+        //设置渐变颜色方向
+        self.gradientLayer.startPoint = CGPointMake(0, 0);
+        self.gradientLayer.endPoint = CGPointMake(0, 1);
+        
+        
+        _gradientLayer.locations = @[@(0.1f),@(1.f)];
+        
+        
+        
+        self.gradientLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor,
+                                      (__bridge id)[UIColor whiteColor].CGColor];
+        
+        _gradientLayer.startPoint = CGPointMake(0, 0);
+        _gradientLayer.endPoint = CGPointMake(0, 1);
+    }
+    return _gradientLayer;
+}
+
 -(void)setdata:(NSDictionary *)dit
 {
     
     self.bgimg.frame = CGRectMake(0, 0, DEVICE_WIDTH, 378/2*HEIGHT_SCALE);
-    //self.beijin.frame = CGRectMake(0, 0, DEVICE_WIDTH, 378/2*HEIGHT_SCALE);
-    //初始化渐变层
-    self.gradientLayer = [CAGradientLayer layer];
+
     self.gradientLayer.frame = self.bgimg.bounds;
     [self.bgimg.layer addSublayer:self.gradientLayer];
     
-    //设置渐变颜色方向
-    self.gradientLayer.startPoint = CGPointMake(0, 0);
-    self.gradientLayer.endPoint = CGPointMake(0, 1);
-    
-  
-    _gradientLayer.locations = @[@(0.1f),@(1.f)];
-    
-    
 
-    self.gradientLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor,
-                                  (__bridge id)[UIColor whiteColor].CGColor];
-    
-    _gradientLayer.startPoint = CGPointMake(0, 0);
-    _gradientLayer.endPoint = CGPointMake(0, 1);
-    
     
     
     
     NSString *bgimgstr = [dit objectForKey:@"background"];
-    
     [self.bgimg sd_setImageWithURL:[NSURL URLWithString:bgimgstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
-//    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-//    UIVisualEffectView *view2 = [[UIVisualEffectView alloc]initWithEffect:beffect];
-//    view2.frame = self.bgimg.frame;
-    
-     [self addSubview:self.bgimg];
-    
-//    [self addSubview:view2];
-    
-
-    
+    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *view2 = [[UIVisualEffectView alloc]initWithEffect:beffect];
+    view2.frame = self.bgimg.frame;
+    [self addSubview:self.bgimg];
+    //[self addSubview:view2];
     
     
     [self.bookimg sd_setImageWithURL:[NSURL URLWithString:[dit objectForKey:@"pubPath"]] placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];

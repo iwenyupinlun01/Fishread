@@ -29,14 +29,19 @@ static NSString *shenidentfid = @"shenidentfid";
     self.shenArray = [NSMutableArray array];
     [self.view addSubview:self.shentableView];
     self.shentableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self addHeader];
-    [self addFooter];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self addHeader];
+    [self addFooter];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -168,7 +173,7 @@ static NSString *shenidentfid = @"shenidentfid";
 {
     if(!_shentableView)
     {
-        _shentableView =  [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64-50)];
+        _shentableView =  [[UITableView alloc] initWithFrame:CGRectMake(0,0 , DEVICE_WIDTH, DEVICE_HEIGHT-50)];
         _shentableView.dataSource = self;
         _shentableView.delegate = self;
     }
@@ -202,6 +207,23 @@ static NSString *shenidentfid = @"shenidentfid";
 {
     NSIndexPath *index = [self.shentableView indexPathForCell:cell];
     NSLog(@"333===%ld   点赞",index.row);
+    
+    
+    quanbuModel *model = self.shenArray[index.row];
+    NSString *idsr = model.idstr;
+    [PPNetworkHelper GET:[NSString stringWithFormat:dianzan,[tokenstr tokenstrfrom],idsr,@"1"] parameters:nil success:^(id responseObject) {
+        NSString *hud = [responseObject objectForKey:@"msg"];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            [self headerRefreshEndAction];
+            [MBProgressHUD showSuccess:hud];
+        }else
+        {
+            [MBProgressHUD showSuccess:hud];
+        }
+        
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
 }
 
 -(void)myTabVClick2:(UITableViewCell *)cell
@@ -215,6 +237,7 @@ static NSString *shenidentfid = @"shenidentfid";
     democontentViewController *demo = [[democontentViewController alloc] init];
     quanbuModel *model = self.shenArray[indexPath.row];
     demo.idstr = model.idstr;
+    demo.fromtype = @"2";
     demo.object_idstr = model.object_idstr;
     [self.navigationController pushViewController:demo animated:YES];
 }

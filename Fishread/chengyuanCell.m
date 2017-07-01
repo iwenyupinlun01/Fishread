@@ -65,6 +65,7 @@
     {
         _typelab = [[UILabel alloc] init];
         _typelab.text = @"群主";
+        [_typelab setHidden:YES];
         _typelab.font = [UIFont systemFontOfSize:12];
     }
     return _typelab;
@@ -75,6 +76,12 @@
     self.fmodel = model;
     [self.iconimg sd_setImageWithURL:[NSURL URLWithString:model.imageName] placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
     self.namelab.text = model.nameStr;
+    if ([model.uidstr isEqualToString:[tokenstr tokenstrfrom]]) {
+        [self.typelab setHidden:NO];
+    }else
+    {
+        [self.typelab setHidden:YES];
+    }
 }
 
 
