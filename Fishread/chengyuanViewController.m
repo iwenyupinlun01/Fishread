@@ -34,6 +34,9 @@ static NSString *chengyuanidentfid = @"chengyuanidentfid";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+    
     self.contactsSource = [NSMutableArray array];
     self.sectionTitles = [NSMutableArray array];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

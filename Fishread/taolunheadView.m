@@ -16,6 +16,7 @@
 @property (nonatomic,strong) UIImageView *typeimg;
 
 @property (strong, nonatomic) CAGradientLayer *gradientLayer;
+
 @end
 
 @implementation taolunheadView
@@ -63,6 +64,7 @@
     {
         _bgimg = [[UIImageView alloc] init];
         //_bgimg.backgroundColor = [UIColor orangeColor];
+        
     }
     return _bgimg;
 }
@@ -72,6 +74,10 @@
     if(!_bookimg)
     {
         _bookimg = [[UIImageView alloc] init];
+        _bookimg.layer.masksToBounds = YES;
+        _bookimg.layer.cornerRadius = 4;
+        _bookimg.layer.borderWidth = 0.5;
+        _bookimg.layer.borderColor = [UIColor wjColorFloat:@"E8E8E8"].CGColor;
        // _bookimg.backgroundColor = [UIColor redColor];
     }
     return _bookimg;
@@ -86,7 +92,7 @@
         _namelab.lineBreakMode = NSLineBreakByWordWrapping;//换行模式，
         _namelab.textColor = [UIColor wjColorFloat:@"333333"];
         //_namelab.backgroundColor = [UIColor greenColor];
-        _namelab.font = [UIFont systemFontOfSize:14];
+        _namelab.font = [UIFont systemFontOfSize:18];
         
         [_namelab sizeToFit];
     }
@@ -98,7 +104,7 @@
     if(!_authorlab)
     {
         _authorlab = [[UILabel alloc] init];
-        _authorlab.textColor = [UIColor wjColorFloat:@"333333"];
+        _authorlab.textColor = [UIColor wjColorFloat:@"999999"];
         _authorlab.font = [UIFont systemFontOfSize:13];
     }
     return _authorlab;
@@ -109,7 +115,7 @@
     if(!_typelab)
     {
         _typelab = [[UILabel alloc] init];
-        _typelab.textColor = [UIColor wjColorFloat:@"333333"];
+        _typelab.textColor = [UIColor wjColorFloat:@"999999"];
         _typelab.font = [UIFont systemFontOfSize:13];
     }
     return _typelab;
@@ -120,7 +126,7 @@
     if(!_numberlab)
     {
         _numberlab = [[UILabel alloc] init];
-        _numberlab.textColor = [UIColor wjColorFloat:@"333333"];
+        _numberlab.textColor = [UIColor wjColorFloat:@"54d48a"];
         _numberlab.font = [UIFont systemFontOfSize:13];
     }
     return _numberlab;
@@ -156,10 +162,10 @@
     {
         _btn01 = [[UIButton alloc] init];
         [_btn01 setTitle:@"目录" forState:normal];
-        [_btn01 setTitleColor:[UIColor wjColorFloat:@"0099cc"] forState:normal];
+        [_btn01 setTitleColor:[UIColor wjColorFloat:@"54d48a"] forState:normal];
         _btn01.layer.masksToBounds = YES;
         _btn01.layer.borderWidth = 1;
-        _btn01.layer.borderColor = [UIColor wjColorFloat:@"0099cc"].CGColor;
+        _btn01.layer.borderColor = [UIColor wjColorFloat:@"54d48a"].CGColor;
         _btn01.layer.cornerRadius = 20*HEIGHT_SCALE;
         
     }
@@ -172,10 +178,11 @@
     {
         _btn02 = [[UIButton alloc] init];
         [_btn02 setTitle:@"立即阅读" forState:normal];
-        [_btn02 setTitleColor:[UIColor wjColorFloat:@"FB7085"] forState:normal];
+        [_btn02 setTitleColor:[UIColor whiteColor] forState:normal];
         _btn02.layer.masksToBounds = YES;
-        _btn02.layer.borderWidth = 1;
-        _btn02.layer.borderColor = [UIColor wjColorFloat:@"FB7085"].CGColor;
+        //_btn02.layer.borderWidth = 1;
+        _btn02.backgroundColor = [UIColor wjColorFloat:@"54d48a"];
+        //_btn02.layer.borderColor = [UIColor wjColorFloat:@"FB7085"].CGColor;
         _btn02.layer.cornerRadius = 20*HEIGHT_SCALE;
     }
     return _btn02;
@@ -233,12 +240,21 @@
         self.gradientLayer.endPoint = CGPointMake(0, 1);
         
         
-        _gradientLayer.locations = @[@(0.1f),@(1.f)];
+        //_gradientLayer.locations = @[@(0.1f),@(1.0f)];
+        //_gradientLayer.locations =  @[(__bridge id)[UIColor clearColor].CGColor,
+                                      //(__bridge id)[UIColor whiteColor].CGColor];
+        
+        
+        // 设置颜色
+        _gradientLayer.colors = @[(id)[[UIColor clearColor] colorWithAlphaComponent:0.0f].CGColor,
+                                 (id)[[UIColor whiteColor] colorWithAlphaComponent:0.1f].CGColor];
+        _gradientLayer.locations = @[[NSNumber numberWithFloat:0.5f],
+                                    [NSNumber numberWithFloat:1.0f]];
         
         
         
-        self.gradientLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor,
-                                      (__bridge id)[UIColor whiteColor].CGColor];
+        //self.gradientLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor,
+                                     // (__bridge id)[UIColor whiteColor].CGColor];
         
         _gradientLayer.startPoint = CGPointMake(0, 0);
         _gradientLayer.endPoint = CGPointMake(0, 1);
@@ -249,23 +265,45 @@
 -(void)setdata:(NSDictionary *)dit
 {
     
+//    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//    UIVisualEffectView *view2 = [[UIVisualEffectView alloc]initWithEffect:beffect];
+//    view2.frame = self.bgimg.frame;
+
+//    [self addSubview:view2];
+    
+    
+   // [self addSubview:self.bgimg];
     self.bgimg.frame = CGRectMake(0, 0, DEVICE_WIDTH, 378/2*HEIGHT_SCALE);
-
     self.gradientLayer.frame = self.bgimg.bounds;
-    [self.bgimg.layer addSublayer:self.gradientLayer];
     
-
+  //  [view2.layer addSublayer:self.gradientLayer];
     
+    //NSString *bgimgstr = [dit objectForKey:@"background"];
     
+   //[self.bgimg sd_setImageWithURL:[NSURL URLWithString:bgimgstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
     
-    NSString *bgimgstr = [dit objectForKey:@"background"];
-    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:bgimgstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
-    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *view2 = [[UIVisualEffectView alloc]initWithEffect:beffect];
-    view2.frame = self.bgimg.frame;
-    [self addSubview:self.bgimg];
-    //[self addSubview:view2];
-    
+//    UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:bgimgstr]]];
+//    
+//    UIImage * sourceImage = img;
+//    CIImage * ciImage    = [[CIImage alloc] initWithImage:sourceImage];
+//    CIFilter * blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+//    //将图片输入到滤镜中
+//    [blurFilter setValue:ciImage forKey:kCIInputImageKey];
+//    //设置模糊程度
+//    [blurFilter setValue:@(5) forKey:@"inputRadius"];
+//    NSLog(@"查看blurFilter的属性--- %@",blurFilter.attributes);
+//    //将处理之后的图片输出
+//    CIImage * outCiImage    = [blurFilter valueForKey:kCIOutputImageKey];
+//    CIContext * context      = [CIContext contextWithOptions:nil];
+//    //获取CGImage句柄
+//    CGImageRef outCGImageRef = [context createCGImage:outCiImage fromRect:[outCiImage extent]];
+//    //获取到最终图片
+//    UIImage * resultImage    = [UIImage imageWithCGImage:outCGImageRef];
+//    //释放句柄
+//    CGImageRelease(outCGImageRef);
+//    self.bgimg.image = resultImage;
+//    
+//    [self.bgimg.layer addSublayer:self.gradientLayer];
     
     [self.bookimg sd_setImageWithURL:[NSURL URLWithString:[dit objectForKey:@"pubPath"]] placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
     NSString *nametex = [dit objectForKey:@"pubTitle"];
@@ -274,7 +312,7 @@
     self.namelab.preferredMaxLayoutWidth = DEVICE_WIDTH-28*WIDTH_SCALE-120*WIDTH_SCALE;
     [self.namelab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     self.namelab.lineBreakMode = NSLineBreakByWordWrapping;//换行方式
-    self.bookimg.frame = CGRectMake(14*WIDTH_SCALE, 64*HEIGHT_SCALE, 85*WIDTH_SCALE, 120*HEIGHT_SCALE);
+    self.bookimg.frame = CGRectMake(14*WIDTH_SCALE, 64*HEIGHT_SCALE, 90*WIDTH_SCALE, 120*HEIGHT_SCALE);
     
     
     [self addSubview:self.namelab];
@@ -294,22 +332,20 @@
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
         //make.height.mas_equalTo(25*HEIGHT_SCALE);
     }];
-    self.authorlab.text = @"作者";
+
     [self.authorlab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.namelab.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        make.top.equalTo(self.namelab.mas_bottom).with.offset(8*HEIGHT_SCALE);
         make.left.equalTo(self.bookimg.mas_right).with.offset(14*WIDTH_SCALE);
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
         make.height.mas_equalTo(13);
     }];
-    self.typelab.text = @"leibie";
     [self.typelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.authorlab.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        make.top.equalTo(self.authorlab.mas_bottom).with.offset(8*HEIGHT_SCALE);
         make.left.equalTo(self.bookimg.mas_right).with.offset(14*WIDTH_SCALE);
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
     }];
-    self.numberlab.text = @"num";
     [self.numberlab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.typelab.mas_bottom).with.offset(14*HEIGHT_SCALE);
+        make.top.equalTo(self.typelab.mas_bottom).with.offset(8*HEIGHT_SCALE);
         make.left.equalTo(self.bookimg.mas_right).with.offset(14*WIDTH_SCALE);
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
     }];
@@ -336,14 +372,19 @@
     }];
     
     self.authorlab.text = [dit objectForKey:@"pubNickname"];
-    self.contentlab.text = [dit objectForKey:@"pubContent"];
+    self.authorlab.text = [NSString stringWithFormat:@"%@%@",@"作者：",[dit objectForKey:@"pubNickname"]];
+    //self.contentlab.text = [dit objectForKey:@"pubContent"];
     self.typelab.text = [dit objectForKey:@"typeTitle"];
+    self.typelab.text = [NSString stringWithFormat:@"%@%@",@"类型：",[dit objectForKey:@"typeTitle"]];
     NSString *all_post = [dit objectForKey:@"all_post"];
     NSString *collecCount = [dit objectForKey:@"collecCount"];
     
     self.numberlab.text = [NSString stringWithFormat:@"%@%@%@%@%@",collecCount,@"成员",@"/",all_post,@"跟帖"];
     
     self.contentlab.font = [UIFont systemFontOfSize:13];
+    
+    [self.contentlab setText:[dit objectForKey:@"pubContent"] lines:3 andLineSpacing:8 constrainedToSize:CGSizeMake(DEVICE_WIDTH-14*2, MAXFLOAT)];
+    
     self.contentlab.preferredMaxLayoutWidth = (DEVICE_WIDTH - 14.0 * 2);
     [self.contentlab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     [self.contentlab sizeToFit];
@@ -351,7 +392,7 @@
     CGFloat texth = self.contentlab.frame.size.height;
     NSLog(@"hei-------%f",texth);
     
-    if (texth < 46) {
+    if (texth < 62) {
         [self.morebtn setHidden:YES];
     }
     
@@ -363,14 +404,15 @@
 
     }];
     
-    
     [self.morebtn setEnlargeEdgeWithTop:50 right:50 bottom:50 left:50];
+    
     [self.lineview0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.morebtn.mas_bottom).with.offset(10*HEIGHT_SCALE);
         make.left.equalTo(self);
         make.right.equalTo(self);
         make.height.mas_offset(10*HEIGHT_SCALE);
     }];
+    
     
     
     NSString *sectiontitle = [dit objectForKey:@"newSectionTitle"];

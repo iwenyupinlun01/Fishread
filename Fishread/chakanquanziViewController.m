@@ -47,6 +47,9 @@ static NSString *chakanidentfid2 = @"chakanidentfid2";
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     if ([self.typestr isEqualToString:@"0"]) {
         self.title = @"编辑";

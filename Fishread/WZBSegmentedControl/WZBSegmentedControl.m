@@ -134,7 +134,7 @@ void getRGBValue(CGFloat colorArr[3], UIColor *color) {
         [button setTitle:self.titles[i] forState:UIControlStateNormal];
         [button setTitleColor:self.normalColor forState:UIControlStateNormal];
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
-        button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+        button.titleLabel.font = [UIFont systemFontOfSize:16.0f];
         button.backgroundColor = [UIColor clearColor];
         button.tag = WZBButtonTag + i;
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];

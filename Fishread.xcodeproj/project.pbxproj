@@ -233,6 +233,7 @@
 		53A1F1351EEE794700ED5EE8 /* quanzileibieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1341EEE794700ED5EE8 /* quanzileibieModel.m */; };
 		53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */; };
 		53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */; };
+		53FE1A191F09F1E50083A293 /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE1A181F09F1E50083A293 /* UIImage+ColorImage.m */; };
 		53FE5D921F02C0E4002B8CA4 /* AFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D911F02C0E4002B8CA4 /* AFManager.m */; };
 		53FE5D951F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D941F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m */; };
 		53FE5DD41F076C1E002B8CA4 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5DD31F076C1E002B8CA4 /* TwoViewController.m */; };
@@ -656,6 +657,8 @@
 		53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		53A1F13A1EEEA68700ED5EE8 /* searchtagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchtagView.h; sourceTree = "<group>"; };
 		53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchtagView.m; sourceTree = "<group>"; };
+		53FE1A171F09F1E50083A293 /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
+		53FE1A181F09F1E50083A293 /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
 		53FE5D901F02C0E4002B8CA4 /* AFManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFManager.h; sourceTree = "<group>"; };
 		53FE5D911F02C0E4002B8CA4 /* AFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFManager.m; sourceTree = "<group>"; };
 		53FE5D931F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeTouchArea.h"; sourceTree = "<group>"; };
@@ -870,6 +873,8 @@
 				531E8B6B1EDFDC3F007C26D2 /* NSString+Extend.m */,
 				531E8B6C1EDFDC3F007C26D2 /* UIColor+WJColor.h */,
 				531E8B6D1EDFDC3F007C26D2 /* UIColor+WJColor.m */,
+				53FE1A171F09F1E50083A293 /* UIImage+ColorImage.h */,
+				53FE1A181F09F1E50083A293 /* UIImage+ColorImage.m */,
 			);
 			path = color;
 			sourceTree = "<group>";
@@ -1923,6 +1928,7 @@
 				533B61F11EEAA25300DE0392 /* tokenstr.m in Sources */,
 				539BBBC91F0242AC002F4634 /* MLPhotoBrowserPhotoScrollView.m in Sources */,
 				5332044E1F00EBA200526F8E /* fabiaoViewController.m in Sources */,
+				53FE1A191F09F1E50083A293 /* UIImage+ColorImage.m in Sources */,
 				5393E3701EE6B13400392FD4 /* headView.m in Sources */,
 				5393E36A1EE68A3A00392FD4 /* quanbuCell.m in Sources */,
 				539BBB9D1F0242AC002F4634 /* LGPhotoPickerViewController.m in Sources */,

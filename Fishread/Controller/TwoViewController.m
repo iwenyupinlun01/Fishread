@@ -63,7 +63,12 @@
     }];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarMetrics:UIBarMetricsDefault];
-    
+//    
+//    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+//    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    //此处使底部线条颜色为F5F5F5
+    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+
 }
 - (void)leftBarAction{
     NSLog(@"leftBarAction...");

@@ -25,6 +25,13 @@ static NSString *quanziidentfid = @"quanziidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+//    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+//    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    //此处使底部线条颜色为F5F5F5
+//    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+
+    
     // Do any additional setup after loading the view from its nib.
     self.quanbuArray = [NSMutableArray array];
 

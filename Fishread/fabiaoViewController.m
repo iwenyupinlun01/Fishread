@@ -72,6 +72,9 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发表" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+    
     self.imgArray = [NSMutableArray array];
     self.navigationController.navigationBar.translucent = NO;
     [self.view addSubview:self.textView];

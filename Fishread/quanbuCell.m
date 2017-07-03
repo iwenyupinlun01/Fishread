@@ -202,6 +202,7 @@
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
+        _contentlab.font = [UIFont systemFontOfSize:16];
         //_contentlab.backgroundColor = [UIColor orangeColor];
         _contentlab.numberOfLines = 0;
         _contentlab.textColor = [UIColor wjColorFloat:@"333333"];
@@ -318,14 +319,23 @@
     self.bookname.text = model.titlestr;
     self.contentlab.text = model.contentstr;
     [self.iconimg sd_setImageWithURL:[NSURL URLWithString:model.pathstr] placeholderImage:[UIImage imageNamed:@"默认头像"]];
-    self.contentlab.font = [UIFont systemFontOfSize:15];
+    self.contentlab.font = [UIFont systemFontOfSize:16];
     self.contentlab.numberOfLines = 0;
-    self.contentlab.text = model.contentstr;
+    
+   // self.contentlab.text = model.contentstr;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:model.contentstr];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:8];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [model.contentstr length])];
+    self.contentlab.attributedText = attributedString;
+    
     self.contentlab.preferredMaxLayoutWidth = DEVICE_WIDTH-78*WIDTH_SCALE;
     [self.contentlab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     self.contentlab.lineBreakMode = NSLineBreakByWordWrapping;//换行方式
-    [self.contentlab setText:model.contentstr lines:0 andLineSpacing:5 constrainedToSize:CGSizeMake(DEVICE_WIDTH-78*WIDTH_SCALE, 0)];
+    
+ 
     [self.contentlab sizeToFit];
+    
     
     self.timelab.text = [Timestr datetime:model.create_timestr];
     

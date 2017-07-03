@@ -21,6 +21,11 @@ static NSString *nickcellidentfid = @"nickidentfid";
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     self.title = @"昵称";
     
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    //此处使底部线条颜色为F5F5F5
+    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightaction1)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     

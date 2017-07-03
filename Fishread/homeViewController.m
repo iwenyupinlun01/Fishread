@@ -34,7 +34,21 @@ static NSString *indentify = @"indentify";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"推荐";
+ 
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSFontAttributeName:[UIFont systemFontOfSize:18],
+    NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"放大镜-拷贝"] style:UIBarButtonItemStylePlain target:self action:@selector(leftAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
+    
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    //此处使底部线条颜色为clear
+    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
+    
     self.datasourcearr = [NSMutableArray array];
     [self addTheCollectionView];
     // 3.1.下拉刷新
@@ -173,35 +187,26 @@ static NSString *indentify = @"indentify";
     UICollectionViewFlowLayout *flowL = [[UICollectionViewFlowLayout alloc] init];
     
     //格子的大小 (长，高)
-    flowL.itemSize = CGSizeMake(100, 180);
+    flowL.itemSize = CGSizeMake(90*WIDTH_SCALE, 160*HEIGHT_SCALE);
     //横向最小距离
     flowL.minimumInteritemSpacing = 1.f;
     //    flowL.minimumLineSpacing=60.f;//代表的是纵向的空间间隔
     //设置，上／左／下／右 边距 空间间隔数是多少
     flowL.sectionInset = UIEdgeInsetsMake(16*HEIGHT_SCALE, 24*WIDTH_SCALE, 24*HEIGHT_SCALE, 24*WIDTH_SCALE);
-    //如果有多个 区 就可以拉动
-   // [flowL setScrollDirection:UICollectionViewScrollDirectionVertical];
     
-    
-    //=======================2===========================
     //创建一个UICollectionView
-    _myCollectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT) collectionViewLayout:flowL];
+    _myCollectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, -8, DEVICE_WIDTH, DEVICE_HEIGHT) collectionViewLayout:flowL];
     //设置代理为当前控制器
     _myCollectionV.backgroundColor = [UIColor whiteColor];
     _myCollectionV.delegate = self;
     _myCollectionV.dataSource = self;
-    //设置背景
-//    _myCollectionV.backgroundColor =[UIColor whiteColor];
+
     UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
     TapGestureTecognizer.cancelsTouchesInView=NO;
     [self.myCollectionV addGestureRecognizer:TapGestureTecognizer];
-#pragma mark -- 注册单元格
-    //设置头部并给定大小
-    [flowL setHeaderReferenceSize:CGSizeMake(_myCollectionV.frame.size.width, 50)];
     
     [_myCollectionV registerClass:[homeCell class] forCellWithReuseIdentifier:indentify];
-#pragma mark -- 注册头部视图
-    [_myCollectionV registerClass:[MyHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
+
     //添加视图
     [self.view addSubview:_myCollectionV];
     
@@ -232,20 +237,6 @@ static NSString *indentify = @"indentify";
     
 }
 
-//设置头尾部内容
--(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionReusableView *reusableView = nil;
-    
-    if (kind == UICollectionElementKindSectionHeader) {
-        //定制头部视图的内容
-        MyHeaderView *headerV = (MyHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        headerV.searchtext.delegate = self;
-        headerV.searchtext.tag = 100;
-        reusableView = headerV;
-    }
-    return reusableView;
-}
 //点击单元格
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -276,11 +267,10 @@ static NSString *indentify = @"indentify";
     [text resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    //写你要实现的：页面跳转的相关代码
+-(void)leftAction
+{
     searchViewController *searchvc = [[searchViewController alloc] init];
     [self.navigationController pushViewController:searchvc animated:YES];
-    return NO;
 }
 
 #pragma mark - 实现方法

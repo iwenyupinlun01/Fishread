@@ -71,11 +71,10 @@
     [_timelab setSingleLineAutoResizeWithMaxWidth:200];
     
     _contentlab.sd_layout
-    .leftEqualToView(_nicknamelab)
-    .rightSpaceToView(self.contentView,10)
-    .topSpaceToView(_iconimg,20)
+    .leftEqualToView(_iconimg)
+    .rightSpaceToView(self.contentView,14)
+    .topSpaceToView(_iconimg,16*HEIGHT_SCALE)
     .autoHeightRatio(0);
-
     
     _picContainerView.sd_layout
     .leftEqualToView(_contentlab); // 已经在内部实现宽度和高度自适应所以不需要再设置宽度高度，top值是具体有无图片在setModel方法中设置
@@ -200,19 +199,32 @@
     self.dmodel = model;
     [self.iconimg sd_setImageWithURL:[NSURL URLWithString:model.Avatarpathstr]];
     self.nicknamelab.text = model.Membernickname;
-    self.contentlab.font = [UIFont systemFontOfSize:15];
+    
+    
+    self.contentlab.font = [UIFont systemFontOfSize:16];
     self.contentlab.numberOfLines = 0;
-    self.contentlab.text = model.contentstr;
     self.contentlab.lineBreakMode = NSLineBreakByWordWrapping;//换行方式
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:model.contentstr];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:8];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [model.contentstr length])];
+    self.contentlab.attributedText = attributedString;
+    
+    //self.contentlab.text = model.contentstr;
+    
+    [self.contentlab sizeToFit];
+    self.contentlab.backgroundColor = [UIColor redColor];
+
     self.timelab.text = [Timestr datetime:model.create_timestr];
     _picContainerView.picPathStringsArray = model.imagesArray;
+    
     CGFloat picContainerTopMargin = 0;
     if (model.imagesArray.count) {
         picContainerTopMargin = 10;
     }
      UIView *bottomView = self.picContainerView;
     _picContainerView.sd_layout.topSpaceToView(_contentlab,picContainerTopMargin);
-
+    
     _shareBtn.sd_layout.rightSpaceToView(self.contentView, 14*WIDTH_SCALE).topSpaceToView(self.picContainerView, 8*HEIGHT_SCALE).widthIs(16*HEIGHT_SCALE).heightIs(16*HEIGHT_SCALE);
     
     _zanBtn.sd_layout.rightSpaceToView(self.shareBtn, 30*WIDTH_SCALE).topEqualToView(self.shareBtn).widthIs(16*WIDTH_SCALE).heightIs(16*WIDTH_SCALE);
@@ -220,7 +232,7 @@
     _commentsBtn.sd_layout.rightSpaceToView(self.zanBtn, 30*WIDTH_SCALE).topEqualToView(self.shareBtn).widthIs(16*WIDTH_SCALE).heightIs(16*WIDTH_SCALE);
     
     _thumlabel.sd_layout
-    .leftEqualToView(_nicknamelab)
+    .leftEqualToView(_iconimg)
     .rightSpaceToView(self.contentView,14*WIDTH_SCALE)
     .topSpaceToView(_shareBtn,8*HEIGHT_SCALE)
     .autoHeightRatio(0);

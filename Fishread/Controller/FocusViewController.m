@@ -28,6 +28,11 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+//    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+//    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    //此处使底部线条颜色为F5F5F5
+//    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+
     self.dataSource = [NSMutableArray array];
     [self.view addSubview:self.wodeTableview];
   

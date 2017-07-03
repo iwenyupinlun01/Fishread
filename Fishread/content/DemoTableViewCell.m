@@ -50,7 +50,7 @@
 -(UILabel *)contentLabel{
     if (!_contentLabel){
         _contentLabel = [[UILabel alloc]init];
-        _contentLabel.font = [UIFont systemFontOfSize:14];
+        _contentLabel.font = [UIFont systemFontOfSize:16];
         _contentLabel.textColor = [UIColor wjColorFloat:@"333333"];
     }
     return _contentLabel;
@@ -153,16 +153,16 @@
     [self.delegate myTabVClickjubao:self];
 }
 
--(dianzanBtn *)zanBtn
-{
-    if(!_zanBtn)
-    {
-        _zanBtn = [[dianzanBtn alloc] init];
-        _zanBtn.zanimg.image =  [UIImage imageNamed:@"点赞-拷贝"];
-        [_zanBtn addTarget:self action:@selector(dianzanclick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _zanBtn;
-}
+//-(dianzanBtn *)zanBtn
+//{
+//    if(!_zanBtn)
+//    {
+//        _zanBtn = [[dianzanBtn alloc] init];
+//        _zanBtn.zanimg.image =  [UIImage imageNamed:@"点赞-拷贝"];
+//        [_zanBtn addTarget:self action:@selector(dianzanclick) forControlEvents:UIControlEventTouchUpInside];
+//    }
+//    return _zanBtn;
+//}
 
 - (void)setupUI{
     

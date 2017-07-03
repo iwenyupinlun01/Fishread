@@ -22,7 +22,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.rightimg.frame = CGRectMake(self.frame.size.width/2, 0, self.frame.size.width/2, self.frame.size.width/2);
+    self.rightimg.frame = CGRectMake(self.frame.size.width/2+10, 0, self.frame.size.width/2-10, self.frame.size.width/2-10);
 }
 
 #pragma mark - getters

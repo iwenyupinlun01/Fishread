@@ -38,6 +38,13 @@ static NSString *chuangjianidentfid2 = @"chuangjianidentfid2";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(finifshAction)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+
+    
+        UINavigationBar *navigationBar = self.navigationController.navigationBar;
+        [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        //此处使底部线条颜色为F5F5F5
+        [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+
     
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];

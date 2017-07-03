@@ -99,6 +99,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"详情";
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+    
     [self.view addSubview:self.contentTableview];
     self.contentTableview.tableFooterView = [UIView new];
     [self.contentTableview registerClass:[DemoTableViewCell class] forCellReuseIdentifier:CellKey];
@@ -125,8 +128,6 @@
 {
     [super viewDidAppear:animated];
     
-    if ([self.fromtype isEqualToString:@"2"]) {
-        
         _keyView = [[keyboardView alloc] init];
         //        _keyView.frame = CGRectMake(0, DEVICE_HEIGHT-64-64, DEVICE_WIDTH, 64);
         //增加监听，当键盘出现或改变时收出消息
@@ -150,32 +151,7 @@
         _keyView.textview.customPlaceholderColor = [UIColor wjColorFloat:@"C7C7CD"];
          _keyView.frame = CGRectMake(0, DEVICE_HEIGHT-64-64, DEVICE_WIDTH, 64);
         
-    }else
-    {
-        
-        _keyView = [[keyboardView alloc] init];
-        //        _keyView.frame = CGRectMake(0, DEVICE_HEIGHT-64-64, DEVICE_WIDTH, 64);
-        //增加监听，当键盘出现或改变时收出消息
-        _keyView.textview.delegate = self;
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardWillShow:)
-                                                     name:UIKeyboardWillShowNotification
-                                                   object:nil];
-        
-        
-        //增加监听，当键退出时收出消息
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardWillHide:)
-                                                     name:UIKeyboardWillHideNotification
-                                                   object:nil];
-        _keyView.textview.delegate = self;
-        [_keyView.sendbtn addTarget:self action:@selector(sendbtnclick) forControlEvents:UIControlEventTouchUpInside];
-        _keyView.backgroundColor = [UIColor whiteColor];
-        _keyView.textview.backgroundColor = [UIColor whiteColor];
-        _keyView.textview.customPlaceholder = @"写评论";
-        _keyView.textview.customPlaceholderColor = [UIColor wjColorFloat:@"C7C7CD"];
-         _keyView.frame = CGRectMake(0, DEVICE_HEIGHT-64, DEVICE_WIDTH, 64);
-    }
+
     
     _wasKeyboardManagerEnabled = [[IQKeyboardManager sharedManager] isEnabled];
     [[IQKeyboardManager sharedManager] setEnable:NO];

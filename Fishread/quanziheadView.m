@@ -32,7 +32,7 @@
     UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *view2 = [[UIVisualEffectView alloc]initWithEffect:beffect];
     view2.frame = self.bgimg.frame;
-    [self addSubview:view2];
+    //[self addSubview:view2];
     
     self.titlelab.frame = CGRectMake(75*WIDTH_SCALE, 60*HEIGHT_SCALE, DEVICE_WIDTH-150*WIDTH_SCALE, 50*HEIGHT_SCALE);
     self.typelab.frame = CGRectMake(20, 140*HEIGHT_SCALE, DEVICE_WIDTH-40, 30);

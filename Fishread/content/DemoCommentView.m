@@ -32,7 +32,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor wjColorFloat:@"C7C7CD"];
+        self.backgroundColor = [UIColor wjColorFloat:@"F5F5F5"];
     }
     return self;
 }

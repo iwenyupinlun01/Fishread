@@ -62,7 +62,6 @@
 @property (nonatomic,strong) NSString *headuid;
 @property (nonatomic,strong) NSString *headidstr;
 
-
 @end
 
 @implementation taolunquanViewController
@@ -571,7 +570,7 @@
     if(!_jiaruBtn)
     {
         _jiaruBtn = [[UIButton alloc] init];
-        _jiaruBtn.frame = CGRectMake(0, DEVICE_HEIGHT-64-40, DEVICE_WIDTH, 40);
+        _jiaruBtn.frame = CGRectMake(0, DEVICE_HEIGHT-64-50, DEVICE_WIDTH, 50);
         [_jiaruBtn setTitle:@"加入圈子" forState:normal];
         _jiaruBtn.userInteractionEnabled = YES;
         _jiaruBtn.backgroundColor = [UIColor wjColorFloat:@"54d48a"];

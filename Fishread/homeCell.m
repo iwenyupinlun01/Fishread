@@ -21,6 +21,7 @@
     if (self) {
         [self.contentView addSubview:self.itemimg];
         [self.contentView addSubview:self.namelab];
+        [self setuplayout];
     }
     return self;
 }
@@ -28,8 +29,17 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.itemimg.frame = CGRectMake(0, 0, self.frame.size.width, 140);
-    self.namelab.frame = CGRectMake(0, 140, self.frame.size.width, 30);
+    self.itemimg.frame = CGRectMake(0, 0, self.frame.size.width, 120*HEIGHT_SCALE);
+    //self.namelab.frame = CGRectMake(0, 120*HEIGHT_SCALE, self.frame.size.width, 30);
+}
+
+-(void)setuplayout
+{
+    [self.namelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.itemimg.mas_bottom).with.offset(8*HEIGHT_SCALE);
+        make.left.equalTo(self.itemimg.mas_left);
+        make.right.equalTo(self.itemimg.mas_right);
+    }];
 }
 
 #pragma mark - getters
@@ -40,6 +50,10 @@
     {
         _itemimg = [[itemimgView alloc] init];
         //_itemimg.backgroundColor = [UIColor orangeColor];
+        _itemimg.layer.masksToBounds = YES;
+        _itemimg.layer.cornerRadius = 4;
+        _itemimg.layer.borderWidth = 0.5;
+        _itemimg.layer.borderColor = [UIColor wjColorFloat:@"E8E8E8"].CGColor;
     }
     return _itemimg;
 }
@@ -49,9 +63,11 @@
     if(!_namelab)
     {
         _namelab = [[UILabel alloc] init];
-        _namelab.textAlignment = NSTextAlignmentCenter;
-        _namelab.font = [UIFont systemFontOfSize:12];
+        //_namelab.backgroundColor = [UIColor redColor];
+        //_namelab.textAlignment = NSTextAlignmentCenter;
+        _namelab.font = [UIFont systemFontOfSize:14];
         _namelab.numberOfLines = 0;
+        _namelab.lineBreakMode = NSLineBreakByWordWrapping;
         [_namelab sizeToFit];
         //_namelab.backgroundColor = [UIColor greenColor];
     }

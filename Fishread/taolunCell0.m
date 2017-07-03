@@ -67,11 +67,11 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     _namelab.sd_layout
     .topEqualToView(_pathimg)
     .leftSpaceToView(_pathimg,10*WIDTH_SCALE)
-    .heightIs(25*HEIGHT_SCALE);
+    .heightIs(22*HEIGHT_SCALE);
     [_namelab setSingleLineAutoResizeWithMaxWidth:200];
     
     _timelab.sd_layout
-    .topSpaceToView(_namelab,4*WIDTH_SCALE)
+    .topSpaceToView(_namelab,2*HEIGHT_SCALE)
     .leftEqualToView(_namelab)
     .heightIs(10*HEIGHT_SCALE);
     [_timelab setSingleLineAutoResizeWithMaxWidth:200];
@@ -87,7 +87,7 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         maxContentLabelHeight = _contentlab.font.lineHeight * 4;
     }
     
-    self.contentlab.font = [UIFont systemFontOfSize:14];
+    self.contentlab.font = [UIFont systemFontOfSize:16];
     
     self.contentlab.sd_layout.maxHeightIs(maxContentLabelHeight);
     
@@ -186,6 +186,8 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         _pathimg = [[UIImageView alloc] init];
         _pathimg.layer.masksToBounds = YES;
         _pathimg.layer.cornerRadius = 18*WIDTH_SCALE;
+        _pathimg.layer.borderWidth = 1;
+        _pathimg.layer.borderColor = [UIColor wjColorFloat:@"F5F5F5"].CGColor;
     }
     return _pathimg;
 }
@@ -206,7 +208,7 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-        
+
     }
     return _contentlab;
 }
@@ -252,7 +254,6 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     }
     return _ForumBookmarklab;
 }
-
 
 -(void)setdata:(taolunquanModel *)model
 {
@@ -307,35 +308,40 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
         self.zanbtn.zanimg.image = [UIImage imageNamed:@"点赞-点击后"];
     }
     UIView *bottomView = self.picContainerView;
-    _commentbtn.sd_layout
+    
+    
+    _zanbtn.sd_layout
     .rightSpaceToView(self.contentView,14*WIDTH_SCALE)
     .topSpaceToView(_picContainerView,8*HEIGHT_SCALE)
     .widthIs(64*WIDTH_SCALE).heightIs(20*HEIGHT_SCALE);
-    [self.commentbtn.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    [self.zanbtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
         make.height.mas_equalTo(20*HEIGHT_SCALE);
     }];
-    [self.commentbtn.leftimg mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.zanbtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
-        make.right.equalTo(self.commentbtn.textlab.mas_left).with.offset(-4*WIDTH_SCALE);
+        make.right.equalTo(self.zanbtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
         make.height.mas_equalTo(16*WIDTH_SCALE);
         make.width.mas_equalTo(16*WIDTH_SCALE);
         
     }];
-    _zanbtn.sd_layout
+    
+    
+    _commentbtn.sd_layout
     .rightSpaceToView(_commentbtn,14*WIDTH_SCALE)
     .topSpaceToView(_picContainerView,8*HEIGHT_SCALE)
     .widthIs(64*WIDTH_SCALE).heightIs(20*HEIGHT_SCALE);
-    [self.zanbtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.commentbtn.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
-        make.right.equalTo(self.commentbtn.leftimg.mas_left).with.offset(-30*WIDTH_SCALE);
+        make.right.equalTo(self.zanbtn.zanimg.mas_left).with.offset(-30*WIDTH_SCALE);
         make.height.mas_equalTo(20*HEIGHT_SCALE);
         
     }];
-    [self.zanbtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.commentbtn.leftimg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.picContainerView.mas_bottom).with.offset(8*HEIGHT_SCALE);
-        make.right.equalTo(self.zanbtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
+        make.right.equalTo(self.commentbtn.textlab.mas_left).with.offset(-4*WIDTH_SCALE);
         make.height.mas_equalTo(16*WIDTH_SCALE);
         make.width.mas_equalTo(16*WIDTH_SCALE);
     }];

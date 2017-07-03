@@ -42,31 +42,27 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    //此处使底部线条颜色为F5F5F5
+    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTintColor:[UIColor wjColorFloat:@"333333"]];
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitle:@"取消"];
     [self.navigationController.view addSubview: self.customSearchBar];
-    
-    
     self.listArray = [NSMutableArray array];
     self.listidArray = [NSMutableArray array];
     self.relation_idArray = [NSMutableArray array];
     self.historyDatasourceArray = [NSMutableArray array];
     self.jieguodataArray = [NSMutableArray array];
     [self addHeader];
-
-   
     [self.view addSubview:self.searchtableView];
-    
     self.searchtableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,8 +91,6 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     self.searchtableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
     [self.searchtableView.mj_header beginRefreshing];
 }
-
-
 
 - (void)refreshAction {
     

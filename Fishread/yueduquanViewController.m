@@ -77,7 +77,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
-    self.headheistr = @"390";
+    self.headheistr = @"410";
     [self getui];
     [self.view addSubview:self.fabiaoBtn];
     self.isleft = @"1";
@@ -484,12 +484,13 @@
     scrollView.contentSize = CGSizeMake(2 * WZBScreenWidth, 0);
     scrollView.pagingEnabled = YES;
     self.scrollView = scrollView;
-    self.headview = [[taolunheadView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, 390*HEIGHT_SCALE)];
+    self.headview = [[taolunheadView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, 410*HEIGHT_SCALE)];
     [self.headview.morebtn addTarget:self action:@selector(headmorebtnclick) forControlEvents:UIControlEventTouchUpInside];
     self.headview.backgroundColor = [UIColor whiteColor];
     
     // 创建segmentedControl
-    WZBSegmentedControl *sectionView = [WZBSegmentedControl segmentWithFrame:(CGRect){0, 390*HEIGHT_SCALE-64, WZBScreenWidth, 44} titles:@[@"全部", @"神呐"] tClick:^(NSInteger index) {
+    WZBSegmentedControl *sectionView = [WZBSegmentedControl segmentWithFrame:(CGRect){0, 410*HEIGHT_SCALE-64, WZBScreenWidth, 44} titles:@[@"全部", @"神呐"] tClick:^(NSInteger index) {
+        
         
         // 改变scrollView的contentOffset
         self.scrollView.contentOffset = CGPointMake(index * WZBScreenWidth, 0);
@@ -539,7 +540,7 @@
     if(!_jiaruBtn)
     {
         _jiaruBtn = [[UIButton alloc] init];
-        _jiaruBtn.frame = CGRectMake(0, DEVICE_HEIGHT-64-40, DEVICE_WIDTH, 40);
+        _jiaruBtn.frame = CGRectMake(0, DEVICE_HEIGHT-64-50, DEVICE_WIDTH, 50);
         [_jiaruBtn setTitle:@"加入圈子" forState:normal];
         _jiaruBtn.userInteractionEnabled = YES;
         _jiaruBtn.backgroundColor = [UIColor wjColorFloat:@"54d48a"];
@@ -563,7 +564,7 @@
     tableView.dataSource = self;
     
     // 创建一个假的headerView，高度等于headerView的高度
-     UIView *headview = [[UIView alloc] initWithFrame:(CGRect){0, -64, WZBScreenWidth, 390*HEIGHT_SCALE+44}];
+     UIView *headview = [[UIView alloc] initWithFrame:(CGRect){0, -64, WZBScreenWidth, 410*HEIGHT_SCALE+44}];
     tableView.tableHeaderView = headview;
     return tableView;
 }
@@ -1257,7 +1258,7 @@
 {
     ishead = !ishead;
     if (ishead) {
-        self.headheistr = @"390";
+        self.headheistr = @"410";
         
         self.headview.contentlab.numberOfLines = 3;
         [self.headview.contentlab sizeToFit];
@@ -1276,7 +1277,7 @@
         [self.headview.contentlab sizeToFit];
         CGFloat texth = self.headview.contentlab.frame.size.height-47;
         NSLog(@"hei-------%f",texth);
-        CGFloat hei222 = texth + 390;
+        CGFloat hei222 = texth + 410;
         self.headheistr = [NSString stringWithFormat:@"%f",hei222];
         CGFloat hei = [self.headheistr floatValue];
         self.headview.frame = CGRectMake(0, -64, DEVICE_WIDTH, hei*HEIGHT_SCALE);
