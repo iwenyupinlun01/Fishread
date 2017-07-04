@@ -81,7 +81,7 @@
         _chuangjianView = [[UIImageView alloc] init];
         _chuangjianView.layer.masksToBounds = YES;
         _chuangjianView.layer.cornerRadius = 4;
-        //_chuangjianView.image = [UIImage imageNamed:@"默认-拷贝"];
+        
         _chuangjianView.userInteractionEnabled = YES;
         UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgclick)];
         TapGestureTecognizer.cancelsTouchesInView=NO;

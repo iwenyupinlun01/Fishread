@@ -151,13 +151,13 @@ static NSString *chakanidentfid2 = @"chakanidentfid2";
         chuangjianCell *cell = [tableView dequeueReusableCellWithIdentifier:chakanidentfid0];
         if (!cell) {
             cell = [[chuangjianCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chakanidentfid0];
-            cell.chuangjianView.image = [UIImage imageNamed:@"默认-拷贝"];
+            cell.chuangjianView.image = [UIImage imageNamed:@"默认-拷贝-1"];
         }
         cell.chuangjianText.tag = 101;
         cell.chuangjianView.tag = 202;
         cell.chuangjianText.delegate = self;
         cell.chuangjianText.text = self.titlestr;
-        [cell.chuangjianView sd_setImageWithURL:[NSURL URLWithString:self.coverstr] placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
+        [cell.chuangjianView sd_setImageWithURL:[NSURL URLWithString:self.coverstr] placeholderImage:[UIImage imageNamed:@"默认-拷贝-1"]];
         UIImage *originImage = cell.chuangjianView.image;
         NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
         NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];

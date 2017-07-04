@@ -74,7 +74,7 @@
 -(void)setdata:(FriendModel *)model
 {
     self.fmodel = model;
-    [self.iconimg sd_setImageWithURL:[NSURL URLWithString:model.imageName] placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
+    [self.iconimg sd_setImageWithURL:[NSURL URLWithString:model.imageName] placeholderImage:[UIImage imageNamed:@"默认-拷贝-1"]];
     self.namelab.text = model.nameStr;
     if ([model.uidstr isEqualToString:[tokenstr tokenstrfrom]]) {
         [self.typelab setHidden:NO];

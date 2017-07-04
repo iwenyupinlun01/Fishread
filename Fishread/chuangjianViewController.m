@@ -135,7 +135,7 @@ static NSString *chuangjianidentfid2 = @"chuangjianidentfid2";
         chuangjianCell *cell = [tableView dequeueReusableCellWithIdentifier:chuangjianidentfid0];
         if (!cell) {
             cell = [[chuangjianCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chuangjianidentfid0];
-            cell.chuangjianView.image = [UIImage imageNamed:@"默认-拷贝"];
+            cell.chuangjianView.image = [UIImage imageNamed:@"默认-拷贝-1"];
             UIImage *originImage = cell.chuangjianView.image;
             NSData *data = UIImageJPEGRepresentation(originImage, 1.0f);
             NSString *base64str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
