@@ -75,7 +75,7 @@
     if(!_titlelab)
     {
         _titlelab = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, DEVICE_WIDTH, 64)];
-        _titlelab.text = @"用户协议";
+        _titlelab.text = @"文鱼圈用户协议";
         _titlelab.textColor = [UIColor blackColor];
         _titlelab.textAlignment = NSTextAlignmentCenter;
     }

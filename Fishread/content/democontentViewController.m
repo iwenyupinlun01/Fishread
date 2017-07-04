@@ -14,17 +14,17 @@
 #import "DemoCommentView.h"
 #import "quanzixiangqingCell0.h"
 #import "dongtaixiangqingModel.h"
-#define CellKey @"UITableViewCell"
-#define cellkey2 @"quanzixiangqingCell0"
 #import "IQKeyboardManager.h" 
 #import "keyboardView.h"
 #import "AppDelegate.h"
-
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "taolunquanViewController.h"
+#import "yueduquanViewController.h"
 
-
+#define CellKey @"UITableViewCell"
+#define cellkey2 @"quanzixiangqingCell0"
 
 @interface democontentViewController () <DemoTableViewCellDelegate,UITableViewDataSource,UITableViewDelegate,myviewVdelegate,UITextViewDelegate>
 {
@@ -43,13 +43,12 @@
 @property (nonatomic,strong) NSString *yonghuuid;
 @property (nonatomic,strong) NSString *to_uid;
 @property (nonatomic,strong) NSString *parent_id;
-
 @property (nonatomic,strong) NSString *pid;
-
 @property (nonatomic,strong) NSString *user_uidstr;
 @property (nonatomic,strong) NSString *uidstr;
-
 @property (nonatomic,strong) NSString *headuid;
+@property (nonatomic,assign) UIEdgeInsets insets;
+
 @end
 
 @implementation democontentViewController
@@ -83,6 +82,7 @@
         _contentTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64)];
         _contentTableview.dataSource = self;
         _contentTableview.delegate = self;
+        [_contentTableview setSeparatorColor:[UIColor wjColorFloat:@"e8e8e8"]];
     }
     return _contentTableview;
 }
@@ -106,7 +106,8 @@
     self.contentTableview.tableFooterView = [UIView new];
     [self.contentTableview registerClass:[DemoTableViewCell class] forCellReuseIdentifier:CellKey];
     self.dataArray = [NSMutableArray array];
-   
+    self.insets = UIEdgeInsetsMake(0, 64, 0, 14);
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -324,7 +325,6 @@
                  
                  [self.dataArray addObject:model];
              }
-
          }
          else if ([[responseObject objectForKey:@"code"] intValue]==2200)
          {
@@ -356,7 +356,10 @@
     
     if (indexPath.section==0) {
         quanzixiangqingCell0 *cell = [tableView dequeueReusableCellWithIdentifier:cellkey2];
-        cell = [[quanzixiangqingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellkey2];
+        if (!cell) {
+            cell = [[quanzixiangqingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellkey2];
+              cell.separatorInset = UIEdgeInsetsMake(0, DEVICE_WIDTH, 0, 0);
+        }
         [cell setdata:self.headArray[indexPath.row]];
         [cell.rightbtn addTarget:self action:@selector(alertshow) forControlEvents:UIControlEventTouchUpInside];
         [cell.zanBtn addTarget:self action:@selector(dianzanclick) forControlEvents:UIControlEventTouchUpInside];
@@ -367,13 +370,15 @@
     }
     if (indexPath.section==1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"shuquanxiangqingidentfid1"];
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shuquanxiangqingidentfid1"];
+        if (!cell) {
+             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shuquanxiangqingidentfid1"];
+              cell.separatorInset = UIEdgeInsetsMake(0, 14, 0, 14);
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = self.numstr;
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.textLabel.textColor = [UIColor wjColorFloat:@"333333"];
         return cell;
-
     }
     if (indexPath.section==2) {
         DemoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellKey];
@@ -381,9 +386,7 @@
         cell.model = self.dataArray[indexPath.row];
         cell.delegate = self;
         cell.commentView.delegate = self;
-        
-        
-        
+        cell.separatorInset = UIEdgeInsetsMake(0, 62*WIDTH_SCALE, 0, 14*WIDTH_SCALE);
         return cell;
     }
     return nil;
@@ -452,6 +455,21 @@
 -(void)rightAction
 {
     NSLog(@"right");
+    dongtaixiangqingModel *model = [self.headArray objectAtIndex:0];
+//    model.object_idstr = [infodit objectForKey:@"object_id"];
+//    model.relation_idstr = [infodit objectForKey:@"relation_id"];
+    if ([model.relation_idstr isEqualToString:@"0"]) {
+        //讨论圈
+        taolunquanViewController *taolunvc = [[taolunquanViewController alloc] init];
+        taolunvc.idstr = model.object_idstr;
+        [self.navigationController pushViewController:taolunvc animated:YES];
+    }else
+    {
+        //阅读圈
+        yueduquanViewController *yueduvc = [[yueduquanViewController alloc] init];
+        yueduvc.idstr = model.object_idstr;
+        [self.navigationController pushViewController:yueduvc animated:YES];
+    }
 }
 
 -(void)dianzanclick
@@ -462,8 +480,14 @@
     NSString *urlstr = [NSString stringWithFormat:dianzan,[tokenstr tokenstrfrom],objid,@"1"];
     [PPNetworkHelper GET:urlstr parameters:nil success:^(id responseObject) {
         NSString *hud = [responseObject objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:hud];
-        [self headerRefreshEndAction];
+        if ([[responseObject objectForKey:@"code"] intValue]==1) {
+            [MBProgressHUD showSuccess:@"点赞+1"];
+            [self headerRefreshEndAction];
+        }else
+        {
+            [MBProgressHUD showSuccess:hud];
+
+        }
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
     }];
@@ -479,7 +503,7 @@
 -(void)shareclick
 {
     NSLog(@"分享");
-    NSString *urlstr = @"http://www.np.iwenyu.cn/Public/images/share.jpg";
+    NSString *urlstr = fengxiangweb;
     NSArray* imageArray = @[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlstr]]]];
     if (imageArray) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
@@ -1029,6 +1053,24 @@
         return NO;
     }
 }
-
+#pragma mark 用于将cell分割线补全
+//
+//-(void)viewDidLayoutSubviews {
+//    if ([self.contentTableview respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [self.contentTableview setSeparatorInset:self.insets];
+//    }
+//    if ([self.contentTableview respondsToSelector:@selector(setLayoutMargins:)])  {
+//        [self.contentTableview setLayoutMargins:self.insets];
+//    }
+//}
+//
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath{
+//        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+//            [cell setLayoutMargins:self.insets];
+//        }
+//        if ([cell respondsToSelector:@selector(setSeparatorInset:)]){
+//            [cell setSeparatorInset:self.insets];
+//        }
+//}
 
 @end

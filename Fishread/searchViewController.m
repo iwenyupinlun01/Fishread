@@ -49,7 +49,8 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     //此处使底部线条颜色为F5F5F5
-    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor wjColorFloat:@"F5F5F5"]]];
+    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
+    
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTintColor:[UIColor wjColorFloat:@"333333"]];
@@ -160,7 +161,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
      
         _customSearchBar.showsCancelButton = NO;
         //找到取消按钮
-        _customSearchBar.placeholder = @"搜索书圈，标签，用户";
+        _customSearchBar.placeholder = @"搜索";
         _customSearchBar.searchBarStyle = UISearchBarStyleMinimal;
         
         UIView* backgroundView = [_customSearchBar subViewOfClassName:@"_UISearchBarSearchFieldBackgroundView"];
@@ -190,7 +191,7 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
 {
     if(!_jieguotableView)
     {
-        _jieguotableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, DEVICE_WIDTH, DEVICE_HEIGHT-64)];
+        _jieguotableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64)];
         _jieguotableView.dataSource = self;
         _jieguotableView.delegate = self;
         [_jieguotableView setHidden:NO];
@@ -446,8 +447,8 @@ static NSString *jieguoideentfid = @"jieguoidentfid";
     [self.jieguotableView removeFromSuperview];
     self.customSearchBar.showsCancelButton = NO;
     [searchBar resignFirstResponder];
-    
     [self headerRefreshEndAction];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //点击搜索框时调用

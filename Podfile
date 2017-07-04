@@ -17,7 +17,7 @@ pod 'UMengAnalytics' #标准SDK，含IDFA
 pod 'Bugly'
 pod 'YYKit'
 pod 'IQKeyboardManager'
-pod 'SDAutoLayout', '~> 2.1.4'
+pod 'SDAutoLayout'
 pod 'DZNEmptyDataSet'
 pod 'Bugly'
 pod 'DateTools'

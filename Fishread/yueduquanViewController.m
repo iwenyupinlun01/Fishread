@@ -135,7 +135,7 @@
     if(!_fabiaoBtn)
     {
         _fabiaoBtn = [[UIButton alloc] init];
-        _fabiaoBtn.frame = CGRectMake(DEVICE_WIDTH-14*WIDTH_SCALE-50*WIDTH_SCALE, DEVICE_HEIGHT-200*HEIGHT_SCALE, 50*WIDTH_SCALE, 50*WIDTH_SCALE);
+        _fabiaoBtn.frame = CGRectMake(DEVICE_WIDTH-14*WIDTH_SCALE-50*WIDTH_SCALE, DEVICE_HEIGHT-200*HEIGHT_SCALE, 55*WIDTH_SCALE, 55*WIDTH_SCALE);
         [_fabiaoBtn setImage:[UIImage imageNamed:@"发表"] forState:normal];
         [_fabiaoBtn addTarget:self action:@selector(fabiaobtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -239,6 +239,7 @@
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
                 model.uidstr = [dit objectForKey:@"uid"];
+                model.is_creatorstr = [dit objectForKey:@"is_creator"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -308,6 +309,7 @@
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
                 model.uidstr = [dit objectForKey:@"uid"];
+                model.is_creatorstr = [dit objectForKey:@"is_creator"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -372,6 +374,7 @@
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
+                model.is_creatorstr = [dit objectForKey:@"is_creator"];
                 model.ForumBookmarkArray = [NSMutableArray array];
                 NSArray *forarr = [dit objectForKey:@"ForumBookmark"];
                 
@@ -437,6 +440,7 @@
                 model.timestr = [dit objectForKey:@"create_time"];
                 model.idstr = [dit objectForKey:@"id"];
                 model.uidstr = [dit objectForKey:@"uid"];
+                model.is_creatorstr = [dit objectForKey:@"is_creator"];
                 model.is_supportstr = [dit objectForKey:@"is_support"];
                 model.support_numstr = [dit objectForKey:@"support_num"];
                 model.reply_numstr = [dit objectForKey:@"reply_num"];
@@ -504,7 +508,7 @@
     self.sectionView = sectionView;
     
     // 设置其他颜色
-    [sectionView setNormalColor:[UIColor blackColor] selectColor:[UIColor wjColorFloat:@"54d48a"] sliderColor:[UIColor wjColorFloat:@"54d48a"] edgingColor:[UIColor whiteColor] edgingWidth:0];
+    [sectionView setNormalColor:[UIColor wjColorFloat:@"C7C7CD"] selectColor:[UIColor wjColorFloat:@"54d48a"] sliderColor:[UIColor wjColorFloat:@"54d48a"] edgingColor:[UIColor whiteColor] edgingWidth:0];
     // 去除圆角
     sectionView.backgroundColor = [UIColor whiteColor];
     sectionView.layer.cornerRadius = sectionView.backgroundView.layer.cornerRadius = .0f;
@@ -558,7 +562,7 @@
     [self.scrollView addSubview:tableView];
     tableView.backgroundColor = [UIColor colorWithWhite:0.998 alpha:1];
     tableView.showsVerticalScrollIndicator = NO;
-    
+    [tableView setSeparatorColor:[UIColor wjColorFloat:@"e8e8e8"]];
     // 代理&&数据源
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -1194,7 +1198,7 @@
 {
     NSLog(@"分享");
     //1、创建分享参数
-    NSString *urlstr = @"http://www.np.iwenyu.cn/Public/images/share.jpg";
+    NSString *urlstr = fengxiangweb;
     NSArray* imageArray = @[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlstr]]]];
     if (imageArray) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];

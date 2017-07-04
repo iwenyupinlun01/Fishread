@@ -31,7 +31,7 @@
     
     if (!_dzyView) {
         //此处需要注意  自己计算一下  我设置的每个cell 是60*60  间距10 所以 这里一般是设置 全屏宽度  如有特殊需求自行修改
-        DzyImgPicker *picker = [[DzyImgPicker alloc] initWithFrame:CGRectMake(0, 160, DEVICE_WIDTH, 200) andParentV:self andMaxNum:9];
+        DzyImgPicker *picker = [[DzyImgPicker alloc] initWithFrame:CGRectMake(0, 160, DEVICE_WIDTH, 300) andParentV:self andMaxNum:9];
         picker.delegate = self;
         
         picker.backgroundColor = [UIColor orangeColor];

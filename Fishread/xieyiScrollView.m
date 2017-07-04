@@ -28,7 +28,7 @@
     {
         _xieyiimg = [[UIImageView alloc] init];
         _xieyiimg.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height+1000);
-        _xieyiimg.image = [UIImage imageNamed:@"牛评用户协议.jpg"];
+        _xieyiimg.image = [UIImage imageNamed:@"文鱼圈用户协议.jpg"];
         _xieyiimg.contentMode = UIViewContentModeRedraw;
     }
     return _xieyiimg;

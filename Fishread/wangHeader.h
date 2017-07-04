@@ -104,4 +104,6 @@
 #define SCREENWIDTH (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))
 #define SCREENHEIGHT (MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height))
 
+#define fengxiangweb @"http://www.iwenyu.cn/Public/images/share.jpg"
+
 #endif /* wangHeader_h */

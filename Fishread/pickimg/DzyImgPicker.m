@@ -308,7 +308,7 @@
 - ( CGSize )collectionView:( UICollectionView *)collectionView layout:( UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:( NSIndexPath *)indexPath
 {
     
-    return CGSizeMake (60,60);
+    return CGSizeMake (80,80);
     
 }
 //定义每个UICollectionView 的边距

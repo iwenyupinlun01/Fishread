@@ -176,10 +176,12 @@
     .topSpaceToView(self.contentView,16*WIDTH_SCALE)
     .heightIs(36*WIDTH_SCALE)
     .widthEqualToHeight();
+    
     _nameLable.sd_layout
     .topEqualToView(_iconView)
     .leftSpaceToView(_iconView,10*WIDTH_SCALE)
     .heightIs(25*HEIGHT_SCALE);
+    
     [_nameLable setSingleLineAutoResizeWithMaxWidth:200];
     _timeLabel.sd_layout
     .topSpaceToView(_nameLable,4*WIDTH_SCALE)
@@ -224,7 +226,7 @@
         bottomView = self.commentView;
         _commentView.sd_layout
         .leftEqualToView(_contentLabel)
-        .rightSpaceToView(self.contentView,10)
+        .rightSpaceToView(self.contentView,14)
         .topSpaceToView(_contentLabel,10);
         self.commentView.commentArray = model.commentArray;
         if (model.commentArray.count >= 1024){
@@ -232,7 +234,7 @@
             self.moreButton.selected = model.isMore;
             self.moreButton.sd_layout
             .topSpaceToView(self.commentView,10)
-            .rightSpaceToView(self.contentView,10)
+            .rightSpaceToView(self.contentView,14)
             .widthIs(70)
             .heightIs(20);
             if (!model.isMore){

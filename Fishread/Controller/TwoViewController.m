@@ -55,10 +55,9 @@
     // 3 添加标题数组和控住器数组
     [self.segmentVC setUpWithItems:items childVCs:@[vc1,vc2,vc3]];
     
-    
     // 4  配置基本设置  可采用链式编程模式进行设置
     [self.segmentVC.segmentBar updateWithConfig:^(LLSegmentBarConfig *config) {
-        config.itemNormalColor([UIColor wjColorFloat:@"333333"]).itemSelectColor([UIColor wjColorFloat:@"54d48a"]).indicatorColor([UIColor wjColorFloat:@"54d48a"]);
+        config.itemNormalColor([UIColor wjColorFloat:@"C7C7CD"]).itemSelectColor([UIColor wjColorFloat:@"54d48a"]).indicatorColor([UIColor wjColorFloat:@"54d48a"]);
         config.itemFont([UIFont systemFontOfSize:18]);
     }];
     

@@ -202,9 +202,8 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
 {
     infoCell *cell = [tableView dequeueReusableCellWithIdentifier:infocellidentfid0];
     cell = [[infoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid0];
-    if (indexPath.section==0&&indexPath.row==0) {
-        cell.leftimg.frame = CGRectMake(14*WIDTH_SCALE, 18*HEIGHT_SCALE, 20*WIDTH_SCALE, 22*WIDTH_SCALE);
-    }
+    cell.separatorInset = UIEdgeInsetsMake(0, 50*WIDTH_SCALE, 0, 14);
+    cell.leftimg.frame = CGRectMake(14*WIDTH_SCALE, 20*HEIGHT_SCALE, 20*WIDTH_SCALE, 20*WIDTH_SCALE);
     infoGroup *g = self.carGroups[indexPath.section];
     NSString *name = g.textarr[indexPath.row];
     cell.textlab.text = name;
@@ -215,12 +214,17 @@ static NSString *infocellidentfid0 = @"infocellidentfid0";
         self.redlab.frame = CGRectMake(DEVICE_WIDTH-60, 20, 20, 20);
         [cell addSubview:self.redlab];
     }
+    if (indexPath.section==0&&indexPath.row==0) {
+        cell.leftimg.frame = CGRectMake(14*WIDTH_SCALE, 18*HEIGHT_SCALE, 18*WIDTH_SCALE, 22*WIDTH_SCALE);
+    }
+    if (indexPath.section==0&&indexPath.row==1) {
+        cell.leftimg.frame = CGRectMake(14*WIDTH_SCALE, 18*HEIGHT_SCALE, 20*WIDTH_SCALE, 22*WIDTH_SCALE);
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
         if (indexPath.section==0) {
             if (indexPath.row==0) {
                 if ([tokenstr tokenstrfrom].length==0) {

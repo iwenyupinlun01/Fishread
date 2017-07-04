@@ -176,9 +176,6 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     return _commentbtn;
 }
 
-
-
-
 -(UIImageView *)pathimg
 {
     if(!_pathimg)
@@ -259,6 +256,9 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
 {
     self.tmodel = model;
     [self.pathimg sd_setImageWithURL:[NSURL URLWithString:model.pathurlstr]];
+    if ([model.is_creatorstr isEqualToString:@"0"]) {
+        self.namelab.textColor = [UIColor wjColorFloat:@"FD8B3F"];
+    }
     self.namelab.text = model.namestr;
     self.timelab.text = [Timestr datetime:model.timestr];
     self.contentlab.text = model.contentstr;

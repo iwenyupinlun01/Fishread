@@ -234,6 +234,7 @@
 		53A1F1391EEEA4FD00ED5EE8 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F1381EEEA4FD00ED5EE8 /* UIView+Utils.m */; };
 		53A1F13C1EEEA68700ED5EE8 /* searchtagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */; };
 		53FE1A191F09F1E50083A293 /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE1A181F09F1E50083A293 /* UIImage+ColorImage.m */; };
+		53FE1A1B1F0A42D80083A293 /* 文鱼圈用户协议.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53FE1A1A1F0A42D80083A293 /* 文鱼圈用户协议.jpg */; };
 		53FE5D921F02C0E4002B8CA4 /* AFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D911F02C0E4002B8CA4 /* AFManager.m */; };
 		53FE5D951F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5D941F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.m */; };
 		53FE5DD41F076C1E002B8CA4 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE5DD31F076C1E002B8CA4 /* TwoViewController.m */; };
@@ -659,6 +660,7 @@
 		53A1F13B1EEEA68700ED5EE8 /* searchtagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchtagView.m; sourceTree = "<group>"; };
 		53FE1A171F09F1E50083A293 /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorImage.h"; sourceTree = "<group>"; };
 		53FE1A181F09F1E50083A293 /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorImage.m"; sourceTree = "<group>"; };
+		53FE1A1A1F0A42D80083A293 /* 文鱼圈用户协议.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "文鱼圈用户协议.jpg"; sourceTree = "<group>"; };
 		53FE5D901F02C0E4002B8CA4 /* AFManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFManager.h; sourceTree = "<group>"; };
 		53FE5D911F02C0E4002B8CA4 /* AFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFManager.m; sourceTree = "<group>"; };
 		53FE5D931F0650C0002B8CA4 /* UIButton+EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeTouchArea.h"; sourceTree = "<group>"; };
@@ -1078,6 +1080,7 @@
 		533B61B81EE93DB600DE0392 /* 登陆 */ = {
 			isa = PBXGroup;
 			children = (
+				53FE1A1A1F0A42D80083A293 /* 文鱼圈用户协议.jpg */,
 				533B61E71EEA7B6D00DE0392 /* view */,
 				533B61C21EE95CD900DE0392 /* YBAttributeTextTapAction */,
 				533B61B91EE93DC500DE0392 /* loginViewController.h */,
@@ -1826,6 +1829,7 @@
 			files = (
 				534F61E11EDEB2C8007835ED /* LaunchScreen.storyboard in Resources */,
 				539BBBAE1F0242AC002F4634 /* broswerPic1.jpg in Resources */,
+				53FE1A1B1F0A42D80083A293 /* 文鱼圈用户协议.jpg in Resources */,
 				539BBBB11F0242AC002F4634 /* broswerPic4.jpg in Resources */,
 				539BBBB21F0242AC002F4634 /* btn_back_imagePicker@2x.png in Resources */,
 				533203AF1EFE798100526F8E /* ShareSDK.bundle in Resources */,

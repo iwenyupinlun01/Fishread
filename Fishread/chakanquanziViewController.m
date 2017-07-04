@@ -201,10 +201,10 @@ static NSString *chakanidentfid2 = @"chakanidentfid2";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        return 300;
+        return 330;
     }
     if (indexPath.row==1) {
-        return 78*HEIGHT_SCALE;
+        return 88*HEIGHT_SCALE;
     }
     if (indexPath.row==2) {
         return 144*HEIGHT_SCALE;

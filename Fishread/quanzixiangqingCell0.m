@@ -61,7 +61,7 @@
     _nicknamelab.sd_layout
     .topEqualToView(_iconimg)
     .leftSpaceToView(_iconimg,10*WIDTH_SCALE)
-    .heightIs(25*HEIGHT_SCALE);
+    .heightIs(22*HEIGHT_SCALE);
     [_nicknamelab setSingleLineAutoResizeWithMaxWidth:200];
     
     _timelab.sd_layout
@@ -73,7 +73,7 @@
     _contentlab.sd_layout
     .leftEqualToView(_iconimg)
     .rightSpaceToView(self.contentView,14)
-    .topSpaceToView(_iconimg,16*HEIGHT_SCALE)
+    .topSpaceToView(_iconimg,14*HEIGHT_SCALE)
     .autoHeightRatio(0);
     
     _picContainerView.sd_layout
@@ -209,12 +209,9 @@
     [paragraphStyle setLineSpacing:8];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [model.contentstr length])];
     self.contentlab.attributedText = attributedString;
-    
-    //self.contentlab.text = model.contentstr;
-    
-    [self.contentlab sizeToFit];
-    self.contentlab.backgroundColor = [UIColor redColor];
 
+    self.contentlab.isAttributedContent =YES;
+    [self.contentlab sizeToFit];
     self.timelab.text = [Timestr datetime:model.create_timestr];
     _picContainerView.picPathStringsArray = model.imagesArray;
     

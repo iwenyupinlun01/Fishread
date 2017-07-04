@@ -98,9 +98,10 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
             [MBProgressHUD showSuccess:@"没有查询到任何数据"];
         }else
         {
-            [MBProgressHUD showSuccess:@"token错误"];
-            self.wodeTableview.emptyDataSetSource = self;
-            self.wodeTableview.emptyDataSetDelegate = self;
+            NSString *hud = [responseObject objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:hud];
+//            self.wodeTableview.emptyDataSetSource = self;
+//            self.wodeTableview.emptyDataSetDelegate = self;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.wodeTableview.mj_header endRefreshing];
@@ -118,10 +119,10 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
 {
     if(!_wodeTableview)
     {
-        _wodeTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-52)];
+        _wodeTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-52-64)];
         _wodeTableview.dataSource = self;
         _wodeTableview.delegate = self;
-        
+        [_wodeTableview setSeparatorColor:[UIColor wjColorFloat:@"e8e8e8"]];
     }
     return _wodeTableview;
 }
@@ -140,6 +141,7 @@ static NSString *wodecellidentfid = @"wodecellidentfid";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     [cell setdatamodel:self.dataSource[indexPath.row]];
+    cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     return cell;
 }
 

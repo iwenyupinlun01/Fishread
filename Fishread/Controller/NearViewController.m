@@ -180,9 +180,10 @@ static NSString *shenidentfid = @"shenidentfid";
 {
     if(!_shentableView)
     {
-        _shentableView =  [[UITableView alloc] initWithFrame:CGRectMake(0,0 , DEVICE_WIDTH, DEVICE_HEIGHT-50)];
+        _shentableView =  [[UITableView alloc] initWithFrame:CGRectMake(0,0 , DEVICE_WIDTH, DEVICE_HEIGHT-50-64)];
         _shentableView.dataSource = self;
         _shentableView.delegate = self;
+        [_shentableView setSeparatorColor:[UIColor wjColorFloat:@"e8e8e8"]];
     }
     return _shentableView;
 }
@@ -200,6 +201,7 @@ static NSString *shenidentfid = @"shenidentfid";
     cell = [[quanbuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:shenidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
+    cell.separatorInset = UIEdgeInsetsMake(0, 14, 0, 14);
     [cell setdata:self.shenArray[indexPath.row]];
     return cell;
 }
@@ -222,7 +224,7 @@ static NSString *shenidentfid = @"shenidentfid";
         NSString *hud = [responseObject objectForKey:@"msg"];
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             [self headerRefreshEndAction];
-            [MBProgressHUD showSuccess:hud];
+            [MBProgressHUD showSuccess:@"点赞+1"];
         }else
         {
             [MBProgressHUD showSuccess:hud];

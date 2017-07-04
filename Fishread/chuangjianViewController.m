@@ -32,7 +32,7 @@ static NSString *chuangjianidentfid2 = @"chuangjianidentfid2";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"创建";
+    self.title = @"创建圈子";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
@@ -181,10 +181,10 @@ static NSString *chuangjianidentfid2 = @"chuangjianidentfid2";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        return 300;
+        return 330;
     }
     if (indexPath.row==1) {
-        return 78*HEIGHT_SCALE;
+        return 88*HEIGHT_SCALE;
     }
     if (indexPath.row==2) {
         return 144*HEIGHT_SCALE;

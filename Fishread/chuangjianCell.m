@@ -12,6 +12,7 @@
 @property (nonatomic,strong) UILabel *xuanzelab;
 @property (nonatomic,strong) NSArray *btnArray;
 @property (nonatomic,strong) quanzileibieModel *qmodel;
+@property (nonatomic,strong) UILabel *contentlab;
 @end
 
 @implementation chuangjianCell
@@ -24,6 +25,7 @@
         [self.contentView addSubview:self.chuangjianView];
         [self.contentView addSubview:self.chuangjianText];
         [self.contentView addSubview:self.xuanzelab];
+        [self.contentView addSubview:self.contentlab];
        // self.irregulatBtn = [[HLZIrregulatBtn alloc]initWithFrame:CGRectMake(14*WIDTH_SCALE, 150, DEVICE_WIDTH - 28*WIDTH_SCALE, DEVICE_HEIGHT)];
         [self addSubview:self.irregulatBtn];
         //数据源
@@ -42,10 +44,10 @@
 {
     [self.chuangjianView mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.center.equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(135*WIDTH_SCALE, 135*WIDTH_SCALE));
+        make.size.mas_equalTo(CGSizeMake(105*WIDTH_SCALE, 135*WIDTH_SCALE));
         make.top.equalTo(self).with.offset(58/2);
-        make.left.equalTo(self).with.offset(DEVICE_WIDTH/2-135/2*WIDTH_SCALE);
-        make.right.equalTo(self).with.offset(-(DEVICE_WIDTH/2-135/2*WIDTH_SCALE));
+        make.left.equalTo(self).with.offset(DEVICE_WIDTH/2-105/2*WIDTH_SCALE);
+        make.right.equalTo(self).with.offset(-(DEVICE_WIDTH/2-105/2*WIDTH_SCALE));
         
     }];
     
@@ -54,12 +56,20 @@
         make.size.mas_equalTo(CGSizeMake(452/2*WIDTH_SCALE, 36));
         make.left.equalTo(self).with.offset(DEVICE_WIDTH/2-452/4*WIDTH_SCALE);
     }];
+    
+    [self.contentlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.chuangjianText.mas_bottom).with.offset(14);
+        make.left.equalTo(self).with.offset(14);
+        make.right.equalTo(self).with.offset(-14);
+    }];
+    
     [self.xuanzelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.chuangjianText.mas_bottom).with.offset(36);
+        make.top.equalTo(self.contentlab.mas_bottom).with.offset(14);
         make.left.equalTo(self).with.offset(0);
         make.size.mas_equalTo(CGSizeMake(DEVICE_WIDTH, 36));
     }];
     
+   
 }
 
 #pragma mark - getters
@@ -112,6 +122,20 @@
     }
     return _xuanzelab;
 }
+
+-(UILabel *)contentlab
+{
+    if(!_contentlab)
+    {
+        _contentlab = [[UILabel alloc] init];
+        _contentlab.numberOfLines = 0;
+        _contentlab.text = @"1-20个字，不能是纯数字或下划线。请不要使用不雅文字，一旦发现，立刻封号";
+        _contentlab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
+        _contentlab.font = [UIFont systemFontOfSize:14];
+    }
+    return _contentlab;
+}
+
 
 -(void)imgclick
 {

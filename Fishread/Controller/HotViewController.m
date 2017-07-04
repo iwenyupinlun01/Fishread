@@ -190,9 +190,10 @@ static NSString *quanziidentfid = @"quanziidentfid";
     if(!_quanzitableView)
     {
         _quanzitableView = [[UITableView alloc] init];
-         _quanzitableView.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-50);
+         _quanzitableView.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-50-64);
         _quanzitableView.dataSource = self;
         _quanzitableView.delegate = self;
+        [_quanzitableView setSeparatorColor:[UIColor wjColorFloat:@"e8e8e8"]];
     }
     return _quanzitableView;
 }
@@ -210,6 +211,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
     cell = [[quanbuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:quanziidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
+    cell.separatorInset = UIEdgeInsetsMake(0, 14, 0, 14);
     [cell setdata:self.quanbuArray[indexPath.row]];
     return cell;
 }
@@ -241,7 +243,7 @@ static NSString *quanziidentfid = @"quanziidentfid";
         NSString *hud = [responseObject objectForKey:@"msg"];
         if ([[responseObject objectForKey:@"code"] intValue]==1) {
             [self headerRefreshEndAction];
-            [MBProgressHUD showSuccess:hud];
+            [MBProgressHUD showSuccess:@"点赞+1"];
         }else
         {
             [MBProgressHUD showSuccess:hud];

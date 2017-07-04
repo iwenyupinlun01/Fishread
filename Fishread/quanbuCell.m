@@ -135,6 +135,7 @@
         make.height.mas_equalTo(57*WIDTH_SCALE);
         make.width.mas_equalTo(57*WIDTH_SCALE);
     }];
+    
     [self.numlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
         make.left.equalTo(weakSelf.img3.mas_right).with.offset(3*WIDTH_SCALE);
@@ -282,7 +283,7 @@
         _numlab.alpha = 0.4;
         _numlab.textAlignment = NSTextAlignmentCenter;
         _numlab.font = [UIFont systemFontOfSize:22];
-        //_numlab.backgroundColor = [UIColor redColor];
+        _numlab.backgroundColor = [UIColor lightGrayColor];
         _numlab.textColor = [UIColor whiteColor];
     }
     return _numlab;
@@ -441,40 +442,40 @@
     
     if (model.imagesArray.count==0) {
         
-        [self.pingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.zanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
             make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
             make.height.mas_equalTo(20*HEIGHT_SCALE);
             make.width.mas_equalTo(60*WIDTH_SCALE);
-            [self.pingBtn.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.zanBtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
                 make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
                 make.height.mas_equalTo(20*HEIGHT_SCALE);
             }];
-            [self.pingBtn.leftimg mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.zanBtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
-                make.right.equalTo(self.pingBtn.textlab.mas_left).with.offset(-4*WIDTH_SCALE);
+                make.right.equalTo(self.zanBtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
                 make.height.mas_equalTo(16*WIDTH_SCALE);
                 make.width.mas_equalTo(16*WIDTH_SCALE);
                 
             }];
         }];
         
-        [self.zanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.pingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
-            make.right.equalTo(self.pingBtn).with.offset(-40*WIDTH_SCALE);
+            make.right.equalTo(self.zanBtn).with.offset(-40*WIDTH_SCALE);
             make.height.mas_equalTo(20*HEIGHT_SCALE);
             make.width.mas_equalTo(64*WIDTH_SCALE);
             
-            [self.zanBtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.pingBtn.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
-                make.right.equalTo(self.pingBtn.leftimg.mas_left).with.offset(-30*WIDTH_SCALE);
+                make.right.equalTo(self.zanBtn.zanimg.mas_left).with.offset(-30*WIDTH_SCALE);
                 make.height.mas_equalTo(20*HEIGHT_SCALE);
                 
             }];
-            [self.zanBtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.pingBtn.leftimg mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
-                make.right.equalTo(self.zanBtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
+                make.right.equalTo(self.pingBtn.textlab.mas_left).with.offset(-4*WIDTH_SCALE);
                 make.height.mas_equalTo(16*WIDTH_SCALE);
                 make.width.mas_equalTo(16*WIDTH_SCALE);
             }];
@@ -482,40 +483,40 @@
         hei=100*HEIGHT_SCALE;
     }else
     {
-        [self.pingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.img4.mas_bottom).with.offset(12*HEIGHT_SCALE);
+        [self.zanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
             make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
             make.height.mas_equalTo(20*HEIGHT_SCALE);
             make.width.mas_equalTo(60*WIDTH_SCALE);
-            [self.pingBtn.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.img4.mas_bottom).with.offset(12*HEIGHT_SCALE);
+            [self.zanBtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
                 make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
                 make.height.mas_equalTo(20*HEIGHT_SCALE);
             }];
-            [self.pingBtn.leftimg mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.img4.mas_bottom).with.offset(12*HEIGHT_SCALE);
-                make.right.equalTo(self.pingBtn.textlab.mas_left).with.offset(-4*WIDTH_SCALE);
+            [self.zanBtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
+                make.right.equalTo(self.zanBtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
                 make.height.mas_equalTo(16*WIDTH_SCALE);
                 make.width.mas_equalTo(16*WIDTH_SCALE);
                 
             }];
         }];
         
-        [self.zanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.img4.mas_bottom).with.offset(12*HEIGHT_SCALE);
-            make.right.equalTo(self.pingBtn).with.offset(-40*WIDTH_SCALE);
+        [self.pingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
+            make.right.equalTo(self.zanBtn).with.offset(-40*WIDTH_SCALE);
             make.height.mas_equalTo(20*HEIGHT_SCALE);
             make.width.mas_equalTo(64*WIDTH_SCALE);
             
-            [self.zanBtn.zanlab mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.img4.mas_bottom).with.offset(12*HEIGHT_SCALE);
-                make.right.equalTo(self.pingBtn.leftimg.mas_left).with.offset(-30*WIDTH_SCALE);
+            [self.pingBtn.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
+                make.right.equalTo(self.zanBtn.zanimg.mas_left).with.offset(-30*WIDTH_SCALE);
                 make.height.mas_equalTo(20*HEIGHT_SCALE);
                 
             }];
-            [self.zanBtn.zanimg mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.img4.mas_bottom).with.offset(12*HEIGHT_SCALE);
-                make.right.equalTo(self.zanBtn.zanlab.mas_left).with.offset(-4*WIDTH_SCALE);
+            [self.pingBtn.leftimg mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.contentlab.mas_bottom).with.offset(12*HEIGHT_SCALE);
+                make.right.equalTo(self.pingBtn.textlab.mas_left).with.offset(-4*WIDTH_SCALE);
                 make.height.mas_equalTo(16*WIDTH_SCALE);
                 make.width.mas_equalTo(16*WIDTH_SCALE);
             }];

@@ -72,11 +72,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     //self.title = @"讨论圈";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"椭圆-14"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     [self getui];
     [self.view addSubview:self.fabiaoBtn];
     [self addHeaderleft];
@@ -179,7 +179,7 @@
             self.headview.titlelab.text = titlestr;
             NSString *pathstr = [infodic objectForKey:@"pubPath"];
             
-            [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]placeholderImage:[UIImage imageNamed:@"默认-拷贝"]];
+            [self.headview.bgimg sd_setImageWithURL:[NSURL URLWithString:pathstr]placeholderImage:[UIImage imageNamed:@"背景"]];
             NSString *type = [infodic objectForKey:@"circleType"];
             if ([type isEqualToString:@"1"]) {
                 self.headview.typelab.text = @"讨论圈";
@@ -471,19 +471,15 @@
     
     // 创建segmentedControl
     WZBSegmentedControl *sectionView = [WZBSegmentedControl segmentWithFrame:(CGRect){0, 195*HEIGHT_SCALE-64, WZBScreenWidth, 44} titles:@[@"全部", @"神呐"] tClick:^(NSInteger index) {
-        
         // 改变scrollView的contentOffset
         self.scrollView.contentOffset = CGPointMake(index * WZBScreenWidth, 0);
-        
-
-        
     }];
     
     // 赋值给全局变量
     self.sectionView = sectionView;
     
     // 设置其他颜色
-    [sectionView setNormalColor:[UIColor blackColor] selectColor:[UIColor wjColorFloat:@"54d48a"] sliderColor:[UIColor wjColorFloat:@"54d48a"] edgingColor:[UIColor whiteColor] edgingWidth:0];
+    [sectionView setNormalColor:[UIColor wjColorFloat:@"C7C7CD"] selectColor:[UIColor wjColorFloat:@"54d48a"] sliderColor:[UIColor wjColorFloat:@"54d48a"] edgingColor:[UIColor whiteColor] edgingWidth:0];
     // 去除圆角
     sectionView.backgroundColor = [UIColor whiteColor];
     sectionView.layer.cornerRadius = sectionView.backgroundView.layer.cornerRadius = .0f;
@@ -524,7 +520,7 @@
     [self.scrollView addSubview:tableView];
     tableView.backgroundColor = [UIColor colorWithWhite:0.998 alpha:1];
     tableView.showsVerticalScrollIndicator = NO;
-    
+    [tableView setSeparatorColor:[UIColor wjColorFloat:@"e8e8e8"]];
     // 代理&&数据源
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -540,7 +536,7 @@
     if(!_fabiaoBtn)
     {
         _fabiaoBtn = [[UIButton alloc] init];
-        _fabiaoBtn.frame = CGRectMake(DEVICE_WIDTH-14*WIDTH_SCALE-50*WIDTH_SCALE, DEVICE_HEIGHT-200*HEIGHT_SCALE, 50*WIDTH_SCALE, 50*WIDTH_SCALE);
+        _fabiaoBtn.frame = CGRectMake(DEVICE_WIDTH-14*WIDTH_SCALE-50*WIDTH_SCALE, DEVICE_HEIGHT-200*HEIGHT_SCALE, 55*WIDTH_SCALE, 55*WIDTH_SCALE);
         [_fabiaoBtn setImage:[UIImage imageNamed:@"发表"] forState:normal];
         [_fabiaoBtn addTarget:self action:@selector(fabiaobtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -1216,7 +1212,7 @@
 {
     NSLog(@"分享");
     //1、创建分享参数
-    NSString *urlstr = @"http://www.np.iwenyu.cn/Public/images/share.jpg";
+    NSString *urlstr = fengxiangweb;
     NSArray* imageArray = @[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlstr]]]];
     if (imageArray) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];

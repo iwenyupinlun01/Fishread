@@ -55,7 +55,7 @@ void getRGBValue(CGFloat colorArr[3], UIColor *color) {
 #pragma mark - lazy -- 默认颜色
 - (UIColor *)normalColor {
     if (!_normalColor) {
-        _normalColor = [UIColor blackColor];
+        _normalColor = [UIColor wjColorFloat:@"C7C7CD"];
     }
     return _normalColor;
 }

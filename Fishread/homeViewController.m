@@ -44,10 +44,7 @@ static NSString *indentify = @"indentify";
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     
-    UINavigationBar *navigationBar = self.navigationController.navigationBar;
-    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    //此处使底部线条颜色为clear
-    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
+  
     
     self.datasourcearr = [NSMutableArray array];
     [self addTheCollectionView];
@@ -77,7 +74,10 @@ static NSString *indentify = @"indentify";
     [super viewDidAppear:animated];
     self.hidesBottomBarWhenPushed = NO;
     self.tabBarController.tabBar.hidden = NO;
-    
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"baise"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    //此处使底部线条颜色为clear
+    [navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
 }
 
 #pragma mark - 刷新控件
