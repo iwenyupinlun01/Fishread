@@ -582,10 +582,10 @@
 		081C739DB4CD9581FCC9F1F043C428BB /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+IQKeyboardToolbar.m"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		08CE4EFCC26DBC51263D84C12B2E69E1 /* WXApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = OpenSDK1.7.7/WXApi.h; sourceTree = "<group>"; };
 		08E0CF16928D446C532BC7A6B7F991F5 /* YYTextArchiver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextArchiver.h; path = YYKit/Text/String/YYTextArchiver.h; sourceTree = "<group>"; };
-		08E835876F28D33C73D23154B4A276F0 /* libDateTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDateTools.a; path = libDateTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E835876F28D33C73D23154B4A276F0 /* libDateTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDateTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		08FB0A93B5DDD154F5D993D043BA4A0F /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		093AD0A0BE872BCF184BA7337A166497 /* UIButton+HXExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+HXExtension.h"; path = "微博照片选择/HXWeiboPhotoPicker/UIButton+HXExtension.h"; sourceTree = "<group>"; };
-		0AA8E23BE5E7CE8A83BD265D13700129 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libIQKeyboardManager.a; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA8E23BE5E7CE8A83BD265D13700129 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAC7A079FC63F2D30F5E24B1FD0E261 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		0B2A97669FD21ADA67E5032F88395AE1 /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateHeader.h; path = MJRefresh/Custom/Header/MJRefreshStateHeader.h; sourceTree = "<group>"; };
 		0BAD4838EF651FA43E9D29D918580DCE /* DTConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTConstants.m; path = DateTools/DateTools/DTConstants.m; sourceTree = "<group>"; };
@@ -646,7 +646,7 @@
 		22B590FB553752BD7B2AB10673A62277 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		22E7CD1489A47B465C8146110D344466 /* YYTextEffectWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextEffectWindow.h; path = YYKit/Text/Component/YYTextEffectWindow.h; sourceTree = "<group>"; };
 		2312E0A36965B5FA6BEB9C7B5FE2593C /* SDAutoLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDAutoLayout-prefix.pch"; sourceTree = "<group>"; };
-		24DB402FDA8031916A4FE1C2A888D9B8 /* libLLSegmentBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libLLSegmentBar.a; path = libLLSegmentBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		24DB402FDA8031916A4FE1C2A888D9B8 /* libLLSegmentBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLLSegmentBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2596DA1501897AF6DE14CF124065E8A0 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		26F0CC5A78384F8686CBFC6BACE29238 /* DateTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DateTools.xcconfig; sourceTree = "<group>"; };
 		271C5E75F5B445E5620A4E391D881F45 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
@@ -719,7 +719,7 @@
 		487B94C102832CFEDAB4C6A8129B1DDD /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
 		48F4462C09BDB634045497899542FF30 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		491A7DF2856C35698A4095470CAE7917 /* UIView+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+YYAdd.m"; path = "YYKit/Base/UIKit/UIView+YYAdd.m"; sourceTree = "<group>"; };
-		4B3EEB6A3685B3E9E2232D49F0FA1D7D /* libHXWeiboPhotoPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libHXWeiboPhotoPicker.a; path = libHXWeiboPhotoPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B3EEB6A3685B3E9E2232D49F0FA1D7D /* libHXWeiboPhotoPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHXWeiboPhotoPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B63A890D8F342EDF0F5643D57A459C5 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		4B6CC98FA9D1CF770C65BA18ACBB6A5C /* UIPasteboard+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPasteboard+YYText.m"; path = "YYKit/Text/String/UIPasteboard+YYText.m"; sourceTree = "<group>"; };
 		4C37C57888845E54318699EEA55DB90C /* multimedia_videocard_play@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "multimedia_videocard_play@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/multimedia_videocard_play@2x.png"; sourceTree = "<group>"; };
@@ -735,7 +735,7 @@
 		5214BCC0FD080E587EA9EC7D1D2E936B /* HXPhotoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HXPhotoViewController.h; path = "微博照片选择/HXWeiboPhotoPicker/HXPhotoViewController.h"; sourceTree = "<group>"; };
 		521BA2F6FE5A53FD67EC1AF4CC132196 /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUITextFieldView+Additions.m"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
 		5322C2C8E9E502094AFDC81899CCA5F3 /* YYDispatchQueuePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYDispatchQueuePool.m; path = YYKit/Utility/YYDispatchQueuePool.m; sourceTree = "<group>"; };
-		54146626D9B5D9A1D0654F198F383FD5 /* libSWTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSWTableViewCell.a; path = libSWTableViewCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		54146626D9B5D9A1D0654F198F383FD5 /* libSWTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSWTableViewCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5445E9965183965E05336316146C80A3 /* IQTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTextView.m; path = IQKeyboardManager/IQTextView/IQTextView.m; sourceTree = "<group>"; };
 		54638E6D0B19F2AF82D6CD337CAB1B14 /* SWTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWTableViewCell.xcconfig; sourceTree = "<group>"; };
 		558383D7EAB2BDBBC8F1C6184E9FA1DE /* NSBundle+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+YYAdd.h"; path = "YYKit/Base/Foundation/NSBundle+YYAdd.h"; sourceTree = "<group>"; };
@@ -807,14 +807,14 @@
 		6FC88FB8EF429E73AA16CF61FDC149EB /* HXCameraPreviewViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HXCameraPreviewViewController.h; path = "微博照片选择/HXWeiboPhotoPicker/HXCameraPreviewViewController.h"; sourceTree = "<group>"; };
 		707F271A327523E5EE4DC4953A89CE4B /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		711B76FE45F061E3F3D77CD87AC065BF /* LLSegmentBarVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LLSegmentBarVC.h; path = LLSegmentBar/Classes/LLSegmentBarVC.h; sourceTree = "<group>"; };
-		718499986D6B0855148C8FEE41B5D447 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		718499986D6B0855148C8FEE41B5D447 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7281267005083A32855B127643FA58EF /* UIButton+HXExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+HXExtension.m"; path = "微博照片选择/HXWeiboPhotoPicker/UIButton+HXExtension.m"; sourceTree = "<group>"; };
 		72FC76EADC0A574B720109FBE38130C8 /* camera_close@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "camera_close@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/camera_close@2x.png"; sourceTree = "<group>"; };
 		734C7E46969220B4177A9B521AC1A9B1 /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateTools/DateTools/DateTools.bundle; sourceTree = "<group>"; };
 		7419DC410F57FF30194DE83FA92860CE /* UIScrollView+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+YYAdd.m"; path = "YYKit/Base/UIKit/UIScrollView+YYAdd.m"; sourceTree = "<group>"; };
 		745B4DB53A1ACF2C8ABA5167FB2FD073 /* YYImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYImage.m; path = YYKit/Image/YYImage.m; sourceTree = "<group>"; };
 		74C2EB5A6225C7D93320CDB84B1775AC /* HXAlbumModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HXAlbumModel.m; path = "微博照片选择/HXWeiboPhotoPicker/HXAlbumModel.m"; sourceTree = "<group>"; };
-		7532F24C193C7C170603B804839D962D /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJRefresh.a; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7532F24C193C7C170603B804839D962D /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A689C0153A24D641E11CB45956E410 /* CALayer+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+YYAdd.m"; path = "YYKit/Base/Quartz/CALayer+YYAdd.m"; sourceTree = "<group>"; };
 		78FB887576ABB11B69CACFA825E1E3B9 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		7903464267AE3E0981814705D6413296 /* NSArray+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+YYAdd.h"; path = "YYKit/Base/Foundation/NSArray+YYAdd.h"; sourceTree = "<group>"; };
@@ -872,7 +872,7 @@
 		8D149D263A52B6881ACF2FF04CCF6911 /* compose_photo_preview_disable@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "compose_photo_preview_disable@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/compose_photo_preview_disable@2x.png"; sourceTree = "<group>"; };
 		8D468C5CCE2C03E5D65F4DC914CC7E30 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
 		8D5ECE299B37983B95FB68D757E07800 /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
-		8E2FFECE547EDBF75C3253CB56F25905 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E2FFECE547EDBF75C3253CB56F25905 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E6DBC4AC2F8A925784C5B837DDD11F7 /* MKAnnotationView+YYWebImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MKAnnotationView+YYWebImage.m"; path = "YYKit/Image/Categories/MKAnnotationView+YYWebImage.m"; sourceTree = "<group>"; };
 		8E9E3B1F3460FC2E1D133312844035EE /* YYImageCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYImageCoder.m; path = YYKit/Image/YYImageCoder.m; sourceTree = "<group>"; };
 		8EB757FA55C6E1F59368D5F36879D8AD /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodCollection.m; path = DateTools/DateTools/DTTimePeriodCollection.m; sourceTree = "<group>"; };
@@ -882,7 +882,7 @@
 		8FD8C3B415861F59B7503319C0694DCE /* DTTimePeriodChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodChain.m; path = DateTools/DateTools/DTTimePeriodChain.m; sourceTree = "<group>"; };
 		8FF9C540A54000EF82BB5D516C61D3C0 /* SWTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWTableViewCell-prefix.pch"; sourceTree = "<group>"; };
 		9035DA1FC42D3D8CA0C8CEA9FB09F677 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+SWUtilityButtons.m"; path = "SWTableViewCell/PodFiles/NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
-		90615A02F369492E2116291762E40229 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90615A02F369492E2116291762E40229 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9184BFAB5F985E5291A1872D92E626CC /* Pods-Fishread.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Fishread.release.xcconfig"; sourceTree = "<group>"; };
 		91C25E89D83C13F5CE05C30CB78535F0 /* NSArray+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+YYAdd.m"; path = "YYKit/Base/Foundation/NSArray+YYAdd.m"; sourceTree = "<group>"; };
 		924F7E10D82DE1E3064BC4F348DEF990 /* compose_guide_check_box_default@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "compose_guide_check_box_default@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/compose_guide_check_box_default@2x.png"; sourceTree = "<group>"; };
@@ -891,7 +891,7 @@
 		938596A6FC845D06DB473E6AD1A8D3C7 /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardReturnKeyHandler.h; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
 		939DF4F205E957E0AAD75FCAB509ECCB /* SWTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWTableViewCell.m; path = SWTableViewCell/PodFiles/SWTableViewCell.m; sourceTree = "<group>"; };
 		93A2EB1E2D63075AD0EE512B1E2CE90E /* YYKitMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKitMacro.h; path = YYKit/Base/YYKitMacro.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; };
 		93AC5B25557632B0C8B04AD9FE75FEF0 /* HXPhotoPreviewViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HXPhotoPreviewViewController.m; path = "微博照片选择/HXWeiboPhotoPicker/HXPhotoPreviewViewController.m"; sourceTree = "<group>"; };
 		93F2C24AD390A2332421158A0588C6E5 /* 椭圆-1-拷贝@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "椭圆-1-拷贝@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/椭圆-1-拷贝@2x.png"; sourceTree = "<group>"; };
 		94C0BD96C2F1A6814BF53E68003CB36A /* icon_shanchu@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "icon_shanchu@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/icon_shanchu@2x.png"; sourceTree = "<group>"; };
@@ -916,7 +916,7 @@
 		9E4285B7E67383D4A3091F58EC729A56 /* HXPresentTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HXPresentTransition.m; path = "微博照片选择/HXWeiboPhotoPicker/HXPresentTransition.m"; sourceTree = "<group>"; };
 		9E9CF51F9289AB3FBE46DA86605898EF /* UIImage+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+YYAdd.m"; path = "YYKit/Base/UIKit/UIImage+YYAdd.m"; sourceTree = "<group>"; };
 		9ED6F7D4699E72123DE9335533B13942 /* compose_live_photo_background@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "compose_live_photo_background@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/compose_live_photo_background@2x.png"; sourceTree = "<group>"; };
-		A0A61C99647E8988D04234B652EC8019 /* libYYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYKit.a; path = libYYKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0A61C99647E8988D04234B652EC8019 /* libYYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYYKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1150E68988F7643053EEF2380C81AE2 /* DZNEmptyDataSet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZNEmptyDataSet-dummy.m"; sourceTree = "<group>"; };
 		A11CF76A993C1C7462E92C50A5B20712 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
 		A2E4F1FE0DD1F8F1AD5C790A87C129C9 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
@@ -936,7 +936,7 @@
 		AC2706C9CC5AA7088C4D6441EFE15CD8 /* HXVideoPreviewViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HXVideoPreviewViewController.h; path = "微博照片选择/HXWeiboPhotoPicker/HXVideoPreviewViewController.h"; sourceTree = "<group>"; };
 		ADBDAAF6642307812E33C1A72445CE49 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		AE41838C41B3F3D549F9D94ADA20E125 /* NSString+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+YYAdd.h"; path = "YYKit/Base/Foundation/NSString+YYAdd.h"; sourceTree = "<group>"; };
-		AE710981776A8AC5D84415654CB152F5 /* libSDAutoLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDAutoLayout.a; path = libSDAutoLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE710981776A8AC5D84415654CB152F5 /* libSDAutoLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDAutoLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7EB0F9D6E54C9DB0F0949B11EA6AB8 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		AEB090763AC2D9A726C670153D76788E /* SDAutoLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDAutoLayout.xcconfig; sourceTree = "<group>"; };
 		AECBFC9C6FFC60945D62010D5ED8900C /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
@@ -1067,7 +1067,7 @@
 		E35F4A21D06335E1685D6EB946CB0EBF /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		E37564116EC11020136C57E975A67E0D /* NSNumber+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+YYAdd.m"; path = "YYKit/Base/Foundation/NSNumber+YYAdd.m"; sourceTree = "<group>"; };
 		E3CCCABDFE78BBDC19F838A3D58876DB /* DZNEmptyDataSet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZNEmptyDataSet-prefix.pch"; sourceTree = "<group>"; };
-		E496270AE4E31E1A377371F21F554B33 /* libDZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDZNEmptyDataSet.a; path = libDZNEmptyDataSet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E496270AE4E31E1A377371F21F554B33 /* libDZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDZNEmptyDataSet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D87A06739D90835E5378F02DC83FFD /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
 		E51DC5157888F7B50C6221EAF6FF91F5 /* YYKVStorage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYKVStorage.m; path = YYKit/Cache/YYKVStorage.m; sourceTree = "<group>"; };
 		E5BAA27545223ECAA87BF6C2DCE4EE2E /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
@@ -1113,8 +1113,8 @@
 		FB159D285A1A867D10CBEB7519A0BA98 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB6FDD2C4426D26AA4821BC701E135D1 /* HXWeiboPhotoPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HXWeiboPhotoPicker-prefix.pch"; sourceTree = "<group>"; };
 		FCA41E03CDF6151443B37C61400B9532 /* UIImageView+YYWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+YYWebImage.h"; path = "YYKit/Image/Categories/UIImageView+YYWebImage.h"; sourceTree = "<group>"; };
-		FCD09858802907A4554684C14FDC1391 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCFBF3D4F6850827F4C7A0FA81DFC280 /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Fishread.a"; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCD09858802907A4554684C14FDC1391 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFBF3D4F6850827F4C7A0FA81DFC280 /* libPods-Fishread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fishread.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5A5C8F983DA4C120D9501A98AED22A /* compose_photo_photograph_highlighted@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "compose_photo_photograph_highlighted@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/compose_photo_photograph_highlighted@2x.png"; sourceTree = "<group>"; };
 		FDCA8BCEB1A3A7B3B34A7638CC3ED8F4 /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYKit/Model/YYClassInfo.m; sourceTree = "<group>"; };
 		FE3F65330A1A75B83D6C57E503CE89C2 /* hotweibo_back_icon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "hotweibo_back_icon@2x.png"; path = "微博照片选择/HXWeiboPhotoPicker/images/hotweibo_back_icon@2x.png"; sourceTree = "<group>"; };
@@ -1322,7 +1322,6 @@
 			children = (
 				4D55D6C0988D441BC7EF0B590EEF65B4 /* Frameworks */,
 			);
-			name = UMengAnalytics;
 			path = UMengAnalytics;
 			sourceTree = "<group>";
 		};
@@ -1362,7 +1361,6 @@
 				EBE75DFD57AF2F727DB36B561477D03A /* SWUtilityButtonView.m */,
 				848584573EB4BDC07285B340AA7C743D /* Support Files */,
 			);
-			name = SWTableViewCell;
 			path = SWTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -1448,7 +1446,6 @@
 				22C4A8AE7C10D43031D1F05175BB2C25 /* Resources */,
 				182DCC09997AF2CD60CF5926B42F5CD2 /* Support Files */,
 			);
-			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -1747,7 +1744,6 @@
 				C7E9C0D4035B2F4404D349AEAD3BE9AA /* no-arc */,
 				E81E44C9F13E65A87264FE5EB7248FEE /* Support Files */,
 			);
-			name = YYKit;
 			path = YYKit;
 			sourceTree = "<group>";
 		};
@@ -1814,7 +1810,6 @@
 				F7EB44F9BDEA4EE9A295E69A8BA75072 /* Resources */,
 				B0BE85EE75920EB3CA502F94D9529955 /* Support Files */,
 			);
-			name = HXWeiboPhotoPicker;
 			path = HXWeiboPhotoPicker;
 			sourceTree = "<group>";
 		};
@@ -1867,7 +1862,6 @@
 				168F7FFE120CCCA1F8799E019BA53857 /* Resources */,
 				6A493AD39FB6F4AF5959361B7C640426 /* Support Files */,
 			);
-			name = DateTools;
 			path = DateTools;
 			sourceTree = "<group>";
 		};
@@ -1884,7 +1878,6 @@
 				59244DCB6DED3BBC656B098297CC001E /* UIView+LLSegmentBar.m */,
 				683C00D027A4D19E15CB644C1D856478 /* Support Files */,
 			);
-			name = LLSegmentBar;
 			path = LLSegmentBar;
 			sourceTree = "<group>";
 		};
@@ -1959,7 +1952,6 @@
 			children = (
 				9A2A51BC590ECAD98ACCE52C6A7C862B /* Frameworks */,
 			);
-			name = Bugly;
 			path = Bugly;
 			sourceTree = "<group>";
 		};
@@ -1970,7 +1962,6 @@
 				4692A3BE2A9CACE8F8589E87525D2599 /* MBProgressHUD.m */,
 				5496D57173C885AA2E89CC4AE991CBD2 /* Support Files */,
 			);
-			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -1991,7 +1982,6 @@
 				BB918D0503906798A5A84D75D1466B6E /* Core */,
 				795BE250CE2A1C951976AD3B5BAFBE3C /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -2006,7 +1996,6 @@
 				6F396DEF81284649028A266B99DE426F /* Support Files */,
 				0240C05A9627A13124BE85A72A737228 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -2063,7 +2052,6 @@
 				2FC27E141BCD9F353E8AA7AEC9FC2965 /* Resources */,
 				75D62E3B49E7DB9C6C28D88104B85A32 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -2077,7 +2065,6 @@
 				B6093D6E95BE41F07F5721C5BC51D819 /* UIView+SDAutoLayout.m */,
 				C027B9CDD040EE564025BFAC8A97608D /* Support Files */,
 			);
-			name = SDAutoLayout;
 			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
@@ -2089,7 +2076,6 @@
 				B8436850E718880983CECE39A333DC47 /* WXApiObject.h */,
 				D08F936BC28B5CDFBCCE2D96587A3D9C /* Frameworks */,
 			);
-			name = WechatOpenSDK;
 			path = WechatOpenSDK;
 			sourceTree = "<group>";
 		};
@@ -2126,7 +2112,6 @@
 				1577A2715EB0754DDA941B9F87277EF7 /* UIScrollView+EmptyDataSet.m */,
 				32012ED6DE5E04C16A2336D604E004D4 /* Support Files */,
 			);
-			name = DZNEmptyDataSet;
 			path = DZNEmptyDataSet;
 			sourceTree = "<group>";
 		};
@@ -2240,7 +2225,6 @@
 				EEE5A41F152B4653D20741F9CDF09405 /* ViewController+MASAdditions.m */,
 				378F4453B53EB6453108346123DB7E78 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
